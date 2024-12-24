@@ -1,7 +1,18 @@
-<div class="A_Comment">
-  <p class="A_Mail"><%= comment.user.profile.name %></p>
-  <p class="A_CommentBody"><%= comment.body %></p>
-  <% if current_user && current_user.admin?%>
-    <%= link_to "Удалить комментарий", [comment.post, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  <% end%>
-</div>
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="A_Comment">
+    <p class="A_Mail"><%= comment.user.profile.name %></p>
+    <p class="A_CommentBody"><%= comment.body %></p>
+    <% if current_user && current_user.admin? %>
+      <div class="comment-actions">
+        <%= link_to "Редактировать", 
+            edit_post_comment_path(comment.post, comment), 
+            class: "btn btn-primary" %>
+        <%= button_to "Удалить", 
+            [comment.post, comment], 
+            method: :delete,
+            class: "btn btn-danger",
+            data: { turbo_confirm: "Вы уверены?" } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

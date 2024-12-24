@@ -1,5 +1,5 @@
-<%= form_with(model: [ @post, Comment.new ], html: 
-{ class: "O_CommentForm" }) do |form| %>
+<%= form_with(model: [@post, Comment.new], 
+    class: "O_CommentForm") do |form| %>
   <div class="M_FormGroup">
     <%= form.label :body, "Ваш комментарий", class: "form-label" %>
     <%= form.text_field :body, class: "A_TextField" %>
@@ -8,4 +8,3 @@
     <%= form.submit "Прокомментировать", class: "A_SubmitForm" %>
   </div>
 <% end %>
-

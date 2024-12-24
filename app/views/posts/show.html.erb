@@ -74,13 +74,16 @@
   <% end %>
   <div class="S_Comments">
     <h2 style="text-align: center;">Комментарии</h2>
-    <div class="C_Comments" >
-      <% @post.comments.each do |comment| %>
-        <%= render comment %>
+    <div class="C_Comments">
+      <%= turbo_frame_tag "comments" do %>
+        <% @post.comments.each do |comment| %>
+          <%= render comment %>
+        <% end %>
       <% end %>
-      <%# ФОРМА %>
-      <div class="SendComment">
-        <%= render "comments/form" %>
-      </div>
+      <%= turbo_frame_tag "comment_form" do %>
+        <div class="SendComment">
+          <%= render "comments/form" %>
+        </div>
+      <% end %>
     </div>
   </div>
