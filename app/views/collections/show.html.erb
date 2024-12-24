@@ -1,0 +1,28 @@
+<div class="Content">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="M_HeadLinks">
+    <%= link_to "<- В коллекции", collections_path %>
+
+
+  <div class="M_ActionButton">
+     <% if can?(:manage, @collection) %>
+      <%= link_to 'Изменить', edit_admin_collection_path(@collection), class: 'A_Edit' %>
+      <%= button_to "⌦Удалить коллекцию", admin_collection_path(@collection), method: :delete %>
+        <% else %>
+          <p>Авторизируйтесь, чтобы редактировать</p>
+    <% end %>
+  </div>
+
+  </div>
+<div class="O_CollectionDescription">
+  <h1 class="A_CollectionHeading"><%= @collection.title %></h1>
+  <p class="A_CollectionDescription"><%= @collection.body %></p>
+  <h3 class="A_ObjectsInside">Объектов <br>в коллекции [<%= @collection.posts.count %>]</h1>
+</div>
+  <div class="S_Posts">
+    <% @collection.posts.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  </div>
+</div>

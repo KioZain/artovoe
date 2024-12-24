@@ -1,0 +1,13 @@
+<div class="Content">
+  <% content_for :title, "Новая коллекция" %>
+
+  <h1>Новая коллекция</h1>
+
+  <%= render "form", collection: @collection %>
+
+  <br>
+
+  <div>
+    <%= link_to "Обратно в коллекции", collections_path %>
+  </div>
+</div>

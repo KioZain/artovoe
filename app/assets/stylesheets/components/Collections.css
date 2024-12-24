@@ -1,0 +1,115 @@
+.C_ProfilesArtists {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: var(--width-container);
+  margin: 0 auto;
+  gap: 1rem;
+
+  .O_Profile {
+    grid-column: span 3;
+  }
+}
+.O_Profile:nth-child(3n + 2) {
+  transform: translateY(-2rem);
+}
+.C_Tags {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+
+  .A_Tag {
+    border: 1px solid var(--almost-black);
+    padding: 4px;
+    color: var(--almost-black);
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 0.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--pure-white);
+      background-color: var(--almost-black);
+    }
+  }
+}
+
+.Navigation {
+  margin-bottom: 1rem;
+}
+
+.C_AllPosts {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: var(--width-container);
+  margin: 0 auto;
+  gap: 1rem;
+
+  .O_Post {
+    grid-column: span 3;
+  }
+}
+.C_Categoires {
+  .A_Tag {
+    color: var(--almost-black);
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+}
+.C_Collections {
+  width: var(--width-container);
+  gap: 1rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  .O_Collection {
+    grid-column: span 3;
+  }
+
+  p {
+    grid-column: span 6;
+  }
+}
+
+.S_FiltersPosts {
+  .C_Categoires {
+    margin-bottom: 0.5rem;
+    .A_Tag {
+      border: none;
+      padding: 0;
+      font-size: 1.5rem;
+
+      &:hover {
+        background-color: inherit;
+        color: var(--almost-dark);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.C_DataPost {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  p {
+    display: inline-block;
+    min-width: 110px;
+  }
+}
+.C_ProfileStats {
+  width: 15rem;
+}
+.C_Displays {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  height: 7rem;
+  overflow-y: hidden;
+}
+/* Profile */
+/* Общие стили для блоков в профиле */

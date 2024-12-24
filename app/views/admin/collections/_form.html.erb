@@ -1,0 +1,42 @@
+<%= form_with(model: [:admin, @collection], html: { class: "collection-form" }) do |f| %>
+  <% if @collection.errors.any? %>
+    <div class="form-errors" style="color: red">
+      <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
+      <ul>
+        <% @collection.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group title-field">
+    <%= f.label :title, "Название", class: "title-label", style: "display: block" %>
+    <%= f.text_field :title, class: "title-input" %>
+  </div>
+  <div class="form-group body-field">
+    <%= f.label :body, "Описание", class: "body-label", style: "display: block" %>
+    <%= f.text_area :body, class: "body-textarea" %>
+  </div>
+  <%# Теги %>
+  <%= f.collection_check_boxes(:tag_list, valid_tags, :to_s, :to_s) do |b| %>
+    <div class="form-check">
+      <label class="form-check-label">
+        <%= b.check_box class: 'form-check-input' %>
+        <%= b.text %>
+      </label>
+    </div>
+  <% end %>
+  <div class="form-group posts-field">
+    <%= f.label :post_ids, "Ваши посты", class: "posts-label", style: "display: block" %>
+    <% @posts = Post.all.order(:title) %> <!-- Загружаем все посты -->
+    <%= f.collection_check_boxes :post_ids, @posts, :id, :title do |b| %>
+      <div style="margin: .5rem 0;" class="M_CheckboxGroup">
+        <%= b.check_box(class: "post-checkbox") %>
+        <%= b.label(class: "post-label") %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group submit-button">
+    <%= f.submit "Сохранить коллекцию", class: "submit-btn" %>
+  </div>
+<% end %>

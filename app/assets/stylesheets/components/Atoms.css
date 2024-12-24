@@ -1,0 +1,83 @@
+.A_Logo {
+  background-image: url("assets/etc/A_Logo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 146px;
+  height: 67px;
+  margin-left: 3.3rem;
+}
+
+.A_Avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 40rem;
+}
+.A_CategoryData {
+}
+.A_StatisticProfile {
+  background-color: var(--pink);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.A_Category {
+  margin-bottom: 8px;
+  .A_Tag {
+    border: none;
+    padding: 0;
+    font-size: 13px;
+    color: var(--ash-grey);
+    text-transform: none;
+
+    &:hover {
+      text-decoration: underline;
+      background-color: var(--pure-white);
+    }
+  }
+}
+.A_Button {
+  background-image: url("/assets/buttons/A_ActionButton.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 10rem;
+  height: 54px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+
+  &:hover {
+    opacity: 90%;
+  }
+
+  a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+/* TabsProfile */
+.A_TabButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #e9e9e9;
+  }
+  &:target {
+    font-weight: bold;
+    background-color: red;
+  }
+}
+/* PostShow */

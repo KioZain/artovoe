@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<% content_for :title, "Коллекции" %>
+<div class="S_FiltersPosts">
+  <div class="W_TypesOfContent">
+    <%= link_to "Работы", posts_url, class: "A_TypeOfContent" %>
+    <%= link_to "Коллекции",collections_path, class: "A_TypeOfContent" %>
+  </div>
+  <div class="C_Categoires">
+    <%= link_to "Все", collections_path, class:"A_Tag" %>
+    <% Collection.tag_counts_on(:categories).each do |tag| %>
+      <%= link_to tag.name, tagged_collections_path(tag.name), class:"A_Tag" %>
+    <% end %>
+  </div>
+  <div class="C_Tags Navigation">
+    <% Collection.tag_counts_on(:tags).each do |tag| %>
+      <%= link_to tag.name, tagged_collections_path(tag.name), class:"A_Tag" %>
+    <% end %>
+  </div>
+</div>
+<div class="S_Collections"></div>
+<div class="C_Collections">
+  <% @collections.each do |collection| %>
+    <div class="O_Collection"><%= render "collections/collection", collection: collection %></div>
+  <% end %>
+</div>

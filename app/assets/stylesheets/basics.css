@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Geist";
+  background: var(--cream-white);
+
+  h1 {
+    font-size: 4rem;
+    font-family: "Kommuna";
+    line-height: 100%;
+    font-weight: normal;
+    display: inline-block;
+  }
+
+  p {
+    line-height: 140%;
+    font-family: "Geist";
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.Content {
+  width: 1285px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.S_Posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  justify-content: flex-start;
+  margin-bottom: 10rem;
+}
+
+.W_NavigationCreatePost {
+  display: flex;
+  justify-content: space-between;
+}
+
+.M_NavigationLinksPosts {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  a {
+    font-size: 3rem;
+    font-family: "Kommuna";
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--almost-black);
+    border-right: 2px solid var(--almost-black);
+    padding-right: 1rem;
+
+    &:nth-child(2) {
+      border: none;
+    }
+  }
+}
+.active-link {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.A_AuthorProfile {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid var(--almost-black);
+  margin-bottom: 1rem;
+}
+.A_ShowDescription {
+  width: 80%;
+}
+.A_Comment {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  height: fit-content;
+
+  .A_Mail {
+    font-weight: bold;
+  }
+
+  .A_CommentBody {
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--almost-black);
+    background-color: rgb(204, 204, 204);
+    padding: 4px 8px;
+    border-radius: 4px;
+    width: fit-content;
+  }
+}
+/* Profile */
+.A_ProfileAvatar {
+  width: 7rem;
+  border: 0.5px solid var(--almost-black);
+  border-radius: 200px;
+}

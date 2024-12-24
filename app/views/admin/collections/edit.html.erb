@@ -1,0 +1,15 @@
+
+  <% content_for :title, "Editing collection" %>
+<div class="Content">
+    <h1>Editing collection</h1>
+
+    <%= render "form", collection: collection_path(@collection) %>
+
+    <br>
+
+    <div>
+      <%= link_to "Открыть коллекцию", collection_path(@collection) %> |
+      <%= link_to "Вколлекции", collections_path %>
+    </div>
+  </div>
+</div>
