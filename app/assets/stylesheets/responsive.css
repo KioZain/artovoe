@@ -12,24 +12,30 @@
   .C_AllPosts {
     grid-template-columns: repeat(6, 1fr);
     .O_Post {
-      grid-column: span 3;
+      grid-column: span 2;
+
+      .Q_PostWrapper {
+        height: 216px;
+      }
     }
   }
-  .A_Tag {
-    font-size: 12px;
+
+  .C_Tags {
+    .A_Tag {
+      font-size: 11px;
+    }
   }
+
   .C_ProfilesArtists {
     grid-template-columns: repeat(6, 1fr);
 
-    .O_Profile:nth-child(3n + 2) {
-      transform: translateY(0rem);
-    }
     .O_Profile {
-      grid-column: 3 span;
-      padding: 0;
+      grid-column: 6 span;
+    }
 
-      .W_ProfileImage {
-        padding: 1rem;
+    .C_ProfileWorks {
+      .A_PostLink:last-child {
+        display: none;
       }
     }
   }
@@ -50,7 +56,6 @@
   }
 
   /* ProfileShow */
-
   .O_ProfileInfo {
     flex-wrap: wrap;
     justify-content: normal;
@@ -75,12 +80,19 @@
       }
     }
   }
-  .S_Works {
-    .C_AllPosts {
-      padding: 0;
-      width: 100%;
+
+  /* Posts */
+  .C_AllPosts {
+    grid-template-columns: repeat(6, 1fr);
+    .O_Post {
+      grid-column: span 3;
+
+      .Q_PostWrapper {
+        height: 280px;
+      }
     }
   }
+
   .M_Display {
     width: 48%;
   }

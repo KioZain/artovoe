@@ -21,8 +21,7 @@ class Ability
     can :manage, Collection, user: user
 
     can :create, Comment
-    can :update, Comment, user_id: user
-    can :destroy, Comment, user_id: user
+    can [ :update, :destroy ], Comment, user_id: user.id
 
     return unless user.admin?
     can :manage, :all

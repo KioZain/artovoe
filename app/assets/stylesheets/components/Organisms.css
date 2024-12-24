@@ -1,29 +1,19 @@
 .O_Profile {
-  padding: 1rem 1rem 0rem 1rem;
+  padding: 2.5rem 0rem 2.5rem 0rem;
   width: 100%;
   display: flex;
-  flex-direction: column;
   text-decoration: none;
-  background-color: var(--pure-white);
   color: var(--almost-black);
-  min-height: 220px;
-  border-radius: 0.5rem;
 
-  a.M_ProfileBio {
-    text-decoration: none;
-    width: 100%;
-    display: block;
-  }
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ash-grey);
 }
-.O_HeadingScreenProfile {
-  height: 420px;
-  background-color: aliceblue;
-}
+
 .O_Post {
   background: var(--pure-white);
   width: 100%;
   height: 100%;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   padding: 1rem;
   text-decoration: none;
   position: relative;
@@ -37,7 +27,11 @@
   .M_SubText {
     line-height: 140%;
     .A_PostTitleLink {
-      height: 3.5rem;
+      h3 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
     }
   }
 }
@@ -141,30 +135,19 @@
 }
 .O_Collection {
   background-color: var(--pure-white);
-  /* padding: 1rem;
+  height: 290px;
+  padding: 1rem;
   display: flex;
-  border-radius: 4px;
   flex-direction: column;
+  border-radius: 0.5rem;
   justify-content: space-between;
-  align-items: flex-start;
-  text-decoration: none;
-  color: var(--almost-black);
-  height: 280px; */
-
-  p > a {
-    color: black;
-    text-decoration: none;
-    padding: 4px 8px;
-    border-radius: 2px;
-    border: 0.5px solid black;
-  }
 
   .M_CollectionImages {
     display: flex;
 
     img {
-      height: 8rem;
-      width: 8rem;
+      height: 9rem;
+      width: 9rem;
     }
 
     * {
@@ -177,6 +160,19 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+
+    .M_SubText {
+      a {
+        text-decoration: none;
+        width: 90%;
+
+        h3 {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
   }
 }
 .O_CollectionDescription {
@@ -213,5 +209,19 @@
     grid-row: 1/2;
 
     margin: auto 0;
+  }
+}
+/* ArtworksFilter */
+.O_Filter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  p {
+    margin-bottom: 0.5rem;
+    color: var(--ash-grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 }

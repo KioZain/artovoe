@@ -49,7 +49,7 @@ h3 {
 .default {
   clip-path: none;
 }
-.Q_CeramicsClip {
+.Q_JeweleryClip {
   -webkit-mask-image: url("/assets/clip_images/Q_CeramicClip.svg");
   -webkit-mask-size: cover;
   -webkit-mask-repeat: no-repeat;
@@ -94,4 +94,15 @@ h3 {
   a {
     color: var(--pure-white);
   }
+}
+/* Headings */
+.Q_ArtWorks {
+  background-image: url("/assets/shapes_heading/artworks_cover.svg");
+}
+.Q_CollectionWorks {
+  background-image: url("/assets/shapes_heading/collections_cover.svg");
+}
+/* Colors for font */
+.sand {
+  color: var(--sand-yellow);
 }

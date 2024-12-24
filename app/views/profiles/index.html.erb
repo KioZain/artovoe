@@ -4,23 +4,12 @@
     description: "Самые классные и интересные авторы нашего медиа",
   )
 %>
-<p style="color: green"><%= notice %></p>
-<div class="S_FirstScreenProfile">
-  <div class="O_HeadingScreenProfile">
-    <h1>Тут обитают художники</h1>
-  </div>
-  <div class="W_ArtitsFilter">
-    <h2>Новые <br>
-      художники</h2>
-    <div class="M_ProfileFilter">
-      <p>Все</p>
-      <p>По популярности</p>
-      <p>По дате добавления</p>
-    </div>
-  </div>
+<div class="M_HeadingArt Q_CollectionWorks">
+  <h1 class="sand">Художники</h1>
 </div>
+<p style="color: green"><%= notice %></p>
 <div class="C_ProfilesArtists">
-  <% @profiles.each do |profile| %>
+  <% @profiles.select { |profile| @profile_post_counts[profile.user_id].to_i >= 4 }.each do |profile| %>
     <%= render 'profiles/profile', profile: profile %>
-  <% end%>
+  <% end %>
 </div>

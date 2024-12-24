@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   TAGS = [ "cюрреализм", "нежность", "онтология", "природа", "повседневность", "философия", "жизнь", "шляпа", "семантика" ]
-  CATEGORIES = [ "керамика", "картина", "скульптура", "текстиль", "полиграфия" ]
+  CATEGORIES = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия" ]
 
   validates :title, presence: true
   validates :post_image, presence: true

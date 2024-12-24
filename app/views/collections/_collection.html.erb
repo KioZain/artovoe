@@ -7,26 +7,23 @@
       <% end %>
     <% end %>
   </div>
-  <%= link_to collection_path(collection), id: dom_id(collection) do %>
-    <h3><%= collection.title %></h3>
-  <% end %>
-  <div class="M_CollectionDescription">
-    <% user_email = collection.posts.first&.user&.profile.name %>
-    <% if user_email %>
-      <p class="A_CreatedBy">Создано: <%= user_email %></p>
-    <% end %>
-    <p class="A_ThingsCount">Вещиц внутри: <%= collection.posts.count %></p>
-  </div>
-  <%# Category %>
-  <div class="A_Category" style="margin-top: 1rem;">
-    <% collection.categories.each do |category| %>
-      <%= link_to category, tagged_collections_path(category), class: "A_Tag" %>
-    <% end %>
-  </div>
   <!-- Tags -->
   <div class="C_Tags">
     <% collection.tags.each do |tag| %>
       <%= link_to tag.name, tagged_collections_path(tag.name), class: "A_Tag" %>
     <% end %>
+  </div>
+  <div class="M_CollectionDescription">
+    <div class="M_SubText">
+      <%= link_to collection_path(collection), id: dom_id(collection) do %>
+        <h3><%= collection.title %></h3>
+      <% end %>
+      <% user_email = collection.posts.first&.user&.profile.name %>
+      <% if user_email %>
+        <p class="A_CreatedBy"><%= user_email %></p>
+      <% end %>
+    </div>
+    <p class="A_ThingsCount">Коллекция: <br>
+      <%= collection.posts.count %> работы.</p>
   </div>
 </div>

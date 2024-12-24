@@ -2,16 +2,20 @@
   <div class="A_Comment">
     <p class="A_Mail"><%= comment.user.profile.name %></p>
     <p class="A_CommentBody"><%= comment.body %></p>
-    <% if current_user && current_user.admin? %>
-      <div class="comment-actions">
-        <%= link_to "Редактировать", 
-            edit_post_comment_path(comment.post, comment), 
-            class: "btn btn-primary" %>
-        <%= button_to "Удалить", 
-            [comment.post, comment], 
-            method: :delete,
-            class: "btn btn-danger",
-            data: { turbo_confirm: "Вы уверены?" } %>
+    <% if can?(:update, comment) || can?(:destroy, comment) %>
+      <div class="W_CommentActions">
+        <% if can?(:update, comment) %>
+          <%= link_to "Редактировать", 
+              edit_post_comment_path(comment.post, comment), 
+              class: "btn btn-primary" %>
+        <% end %>
+        <% if can?(:destroy, comment) %>
+          <%= button_to "Удалить", 
+              [comment.post, comment], 
+              method: :delete,
+              class: "A_Button Danger",
+              data: { turbo_confirm: "Вы уверены?" } %>
+        <% end %>
       </div>
     <% end %>
   </div>

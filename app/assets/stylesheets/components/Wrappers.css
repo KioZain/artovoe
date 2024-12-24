@@ -1,18 +1,33 @@
-.W_ProfileImage {
-  display: flex;
-  gap: 1rem;
-  height: 100%;
-  margin-bottom: 1rem;
-}
 .W_ProfileBio {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   justify-content: space-between;
+
+  .M_SubText {
+    width: 240px;
+  }
 
   .A_CategoryData {
     display: inline-block;
   }
 }
+.W_ProfileBioStats {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+.W_StatsMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
 .W_ArtitsFilter {
   display: flex;
   justify-content: space-between;
@@ -37,12 +52,25 @@
 }
 .W_TypesOfContent {
   padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+
   .A_TypeOfContent {
-    font-size: 1rem;
+    font-family: "Kommuna";
+    font-size: 1.7rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 500;
     text-decoration: none;
     color: var(--almost-dark);
+    padding: 0.5rem 2rem;
+    min-width: 200px;
+    text-align: center;
+    display: inline-block;
+
+    &:nth-child(1) {
+      border-right: 2px solid var(--almost-black);
+    }
 
     &:hover {
       text-decoration: underline;

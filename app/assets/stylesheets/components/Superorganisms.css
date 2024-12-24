@@ -11,10 +11,34 @@
 .S_FiltersPosts {
   width: var(--width-container);
   margin: 0 auto;
-  margin-top: 6rem;
+  margin-top: 1.5rem;
+  row-gap: 3rem;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+
+  .W_CategoriesFilter {
+    width: 45%;
+    .C_Categoires {
+      row-gap: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      #CategoryTag {
+        font-size: 1.2rem;
+        color: var(--almost-black);
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.1rem 12px;
+        border-left: 1px solid var(--almost-black);
+        border-right: 1px solid var(--almost-black);
+        margin-left: -1px;
+      }
+    }
+  }
+
+  .W_TagsFilter {
+    width: 45%;
+  }
 }
 .S_Header {
   width: 100%;
@@ -130,7 +154,7 @@
 }
 .S_Collections {
   width: var(--width-container);
-  margin: 6rem auto;
+  margin: 0 auto;
 
   .W_NavigationCreatePost {
     .A_Button {

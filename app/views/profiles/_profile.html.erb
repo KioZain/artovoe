@@ -1,19 +1,34 @@
-<%= link_to profile_path(profile),class: "O_Profile", id: dom_id(profile) do %>
-  <div class="W_ProfileImage">
-    <%= image_tag profile.avatar_url, class: "A_Avatar" %>
-    <div class="W_ProfileBio">
-      <div class="M_SubText">
-        <h3 class="Subtitle_20"><%= profile.name %></h3>
-        <p><%= profile.bio %></p>
+<%  user_tags = profile.user.posts.tag_counts_on(:tags).pluck(:name).uniq 
+    random_count = [rand(2..4), user_tags.size].min 
+    random_tags = user_tags.sample(random_count).join(" / ") 
+%>
+<div class="O_Profile">
+  <div class="W_ProfileBioStats">
+    <%= link_to profile_path(profile),class:"M_ProfileBio", id: dom_id(profile) do %>
+      <%= image_tag profile.avatar_url, class: "A_Avatar" %>
+      <div class="W_ProfileBio">
+        <div class="M_SubText">
+          <h3 class="Subtitle_20"><%= profile.name %></h3>
+          <p><%= random_tags.presence || "Нет тегов" %></p>
+        </div>
+        <p><%= profile.contact %></p>
       </div>
-      <div class="A_CategoryData">
-        <p><%= profile.placed %></p>
+    <% end %>
+    <div class="W_StatsMetrics">
+      <div class="M_ProfileStats">
+        <p>Лайков: <%= rand(12..3000) %></p>
+        <p>Работ:<%= @profile_post_counts[profile.user_id] || 0 %></p>
       </div>
+      <div class="A_DisplayMetrics"></div>
     </div>
   </div>
-  <div class="A_StatisticProfile">
-    <p>
-      Работ:<%= @profile_post_counts[profile.user_id] || 0 %> | Коллекций:<%= @profile_post_counts[profile.user_id] || 0 %>
-    </p>
+  <div class="C_ProfileWorks">
+    <% profile.user.posts.limit(5).each do |post| %>
+      <% if post.post_image.present? %>
+        <%= link_to post_path(post), class: "A_PostLink" do %>
+          <%= image_tag post.post_image.url, class: "Q_ProfilePostImage" %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+</div>
