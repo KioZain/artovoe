@@ -1,5 +1,12 @@
+<%
+  set_meta_tags(
+    title: "Коллекции художников",
+    description: "Подборка уникальных работ художников",
+    keywords: "Коллекции, серии, артовые работы"
+  )
+%>
+<%# Body %>
 <p style="color: green"><%= notice %></p>
-<% content_for :title, "Коллекции" %>
 <div class="S_FiltersPosts">
   <div class="W_TypesOfContent">
     <%= link_to "Работы", posts_url, class: "A_TypeOfContent" %>

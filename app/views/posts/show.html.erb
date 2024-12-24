@@ -1,3 +1,10 @@
+<%
+  set_meta_tags(
+    title: @post.title,
+    description: @post.body,
+    keywords: @post.tag_list
+  )
+%>
 <div class="L_PostShow">
   <p style="color: green"><%= notice %></p>
   <div class="O_PostShow">

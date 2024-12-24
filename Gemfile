@@ -22,6 +22,9 @@ gem "carrierwave", "~> 3.0"
 # Devise
 gem "devise"
 
+
+# Meta-tags
+gem "meta-tags"
 # CanCanCan
 gem "cancancan"
 

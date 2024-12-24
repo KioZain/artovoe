@@ -1,3 +1,10 @@
+<%
+  set_meta_tags(
+    title: @profile.name,
+    description: @profile.bio,
+
+  )
+%>
 <div class="W_ProfileMenu">
   <%= link_to "Работы", profile_path(@profile), class: "A_ProfileLink" %>
   <%= link_to "Коллекции", collections_profile_path(@profile), class: "A_ProfileLink" %>

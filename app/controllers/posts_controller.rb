@@ -21,5 +21,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @other_posts = @post.user.posts.where.not(id: @post.id).limit(3)
+    # @title = @post.title
   end
 end
