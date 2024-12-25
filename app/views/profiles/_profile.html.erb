@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="C_ProfileWorks">
-    <% profile.user.posts.limit(5).each do |post| %>
+    <% profile.user.posts.limit(4).each do |post| %>
       <% if post.post_image.present? %>
         <%= link_to post_path(post), class: "A_PostLink" do %>
           <%= image_tag post.post_image.url, class: "Q_ProfilePostImage" %>

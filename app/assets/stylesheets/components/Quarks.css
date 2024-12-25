@@ -106,3 +106,15 @@ h3 {
 .sand {
   color: var(--sand-yellow);
 }
+.green {
+  background-color: var(--diamine-green);
+}
+.yellow {
+  background-color: var(--sun-yellow);
+}
+.blue {
+  background-color: var(--lyons-blue);
+}
+.pink {
+  background-color: var(--pink);
+}

@@ -62,6 +62,10 @@
         <%= display_form.label :display_type, "Тип экспозиции" %>
         <%= display_form.select :display_type, ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"], {}, class: "A_Form" %>
       </div>
+      <div class="field">
+        <%= display_form.label :city, "Город" %>
+        <%= display_form.text_field :city %>
+      </div>
       <div>
         <%= display_form.label :link, "Ссылка" %>
         <%= display_form.text_field :link, class: "A_Form" %>

@@ -11,16 +11,7 @@
 }
 
 /* Profile */
-.M_ProfileHead {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  gap: 1rem;
 
-  .M_Subtext {
-    width: 25rem;
-  }
-}
 .M_ProfileBio {
   display: flex;
   gap: 0.5rem;
@@ -41,17 +32,6 @@
       border-bottom: 0.5px solid var(--almost-black);
     }
   }
-}
-
-/* Display */
-.M_Display {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--pure-white);
-  width: 16.7rem;
-  border-radius: 4px;
-  padding: 1rem;
-  gap: 0.5rem;
 }
 
 .M_HeadLinks {
@@ -101,6 +81,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4rem;
 
   border-radius: 0.5rem;
   background-size: cover;
@@ -116,5 +97,13 @@
   background: var(--diamine-green);
   border-radius: 0.5rem;
   margin: 0 auto;
-  margin-bottom: 4rem;
+}
+.M_WorksCount {
+  display: flex;
+  gap: 1rem;
+}
+.M_DisplayTypeYear {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

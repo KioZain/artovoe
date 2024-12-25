@@ -67,6 +67,7 @@
     min-width: 200px;
     text-align: center;
     display: inline-block;
+    transition: transform 0.3s ease;
 
     &:nth-child(1) {
       border-right: 2px solid var(--almost-black);
@@ -76,4 +77,55 @@
       text-decoration: underline;
     }
   }
+}
+.W_TypesOfContent.ProfileMenu {
+  width: var(--width-container);
+  margin: 0 auto;
+  .A_TypeOfContent:nth-child(1) {
+    border-right: none;
+  }
+
+  .A_TypeOfContent:nth-child(2),
+  .A_TypeOfContent:nth-child(3) {
+    margin-left: -1px;
+  }
+  .A_TypeOfContent {
+    border: 1px solid var(--almost-black);
+    width: 33.3%;
+  }
+}
+.W_RateWorks {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.W_AllInfoProfile {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+
+  .M_ProfileHead {
+    min-width: 240px;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .M_Subtext {
+      gap: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.W_Media {
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.W_BestCounting {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
 }

@@ -44,11 +44,14 @@
 .O_ProfileInfo {
   display: flex;
   width: var(--width-container);
-  padding: 2rem 0;
-  margin: 6rem auto 4rem auto;
+  margin: 0 auto;
   justify-content: space-between;
+  align-items: flex-end;
+  padding: 4rem 0;
 
-  border-bottom: 0.5px solid var(--almost-black);
+  .A_Bio {
+    width: 360px;
+  }
 }
 .O_Collection {
   /* background-color: #fdf8f8;
@@ -164,12 +167,9 @@
     .M_SubText {
       a {
         text-decoration: none;
-        width: 90%;
 
         h3 {
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
+          line-height: 120%;
         }
       }
     }
@@ -223,5 +223,20 @@
     color: var(--ash-grey);
     text-transform: uppercase;
     letter-spacing: 1px;
+  }
+}
+/* Display */
+.O_Display {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pure-white);
+  border-radius: 4px;
+  padding: 1rem;
+  gap: 1.5rem;
+
+  .W_NameDisplay {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
   }
 }

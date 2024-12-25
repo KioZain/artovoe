@@ -12,6 +12,12 @@
   height: 4rem;
   border-radius: 40rem;
 }
+.A_ProfileAvatar {
+  width: 6rem;
+  border: 0.5px solid var(--almost-black);
+  border-radius: 200px;
+}
+
 .A_DisplayMetrics {
   width: 100%;
   height: 0.5rem;
@@ -29,6 +35,7 @@
     font-size: 13px;
     color: var(--ash-grey);
     text-transform: none;
+    transition: transform 0.3s ease;
 
     &:hover {
       text-decoration: underline;
@@ -63,6 +70,23 @@
     letter-spacing: 1px;
   }
 }
+
+.A_PlusAddButton {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
 /* TabsProfile */
 .A_TabButton {
   padding: 0.5rem 1rem;
@@ -71,6 +95,7 @@
   cursor: pointer;
   transition: background-color 0.2s;
   text-decoration: none;
+  transition: transform 0.3s ease;
 
   &:hover {
     background-color: #e9e9e9;
@@ -80,4 +105,27 @@
     background-color: red;
   }
 }
-/* PostShow */
+/* ProfileShow */
+.A_BestStar {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("/assets/etc/A_Best.svg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: var(--pure-white);
+    font-size: 12px;
+  }
+}
+.A_SquareType {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
+}
+.A_DisplayColorSigned {
+  display: flex;
+  gap: 0.5rem;
+}

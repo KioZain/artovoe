@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_14_093911) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_25_003508) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_14_093911) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["post_id"], name: "index_displays_on_post_id"
   end
 
