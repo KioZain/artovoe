@@ -8,6 +8,10 @@
     text-decoration: none;
     color: var(--almost-dark);
   }
+
+  a {
+    color: var(--almost-black);
+  }
 }
 
 /* Profile */
@@ -106,4 +110,24 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+.M_CollectionDescriptionShow {
+  width: var(--width-container);
+  margin: 3rem auto;
+  display: flex;
+  min-height: 160px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--almost-black);
+  border-radius: 200rem;
+
+  .M_SubText {
+    width: 50%;
+    text-align: center;
+
+    p:first-child {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
 }

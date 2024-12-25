@@ -68,14 +68,6 @@ body {
   font-weight: bold;
 }
 
-.A_AuthorProfile {
-  padding-bottom: 0.5rem;
-  border-bottom: 0.5px solid var(--almost-black);
-  margin-bottom: 1rem;
-}
-.A_ShowDescription {
-  width: 80%;
-}
 .A_Comment {
   display: flex;
   width: 100%;

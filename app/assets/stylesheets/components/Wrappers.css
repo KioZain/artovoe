@@ -38,12 +38,54 @@
   grid-template-columns: repeat(9, 1fr);
   gap: 1rem;
   margin: 0 auto;
+  position: relative;
+
+  .M_PostOtherData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .Q_SharpPoint:nth-child(1),
+  .Q_SharpPoint:nth-child(2) {
+    top: -9rem;
+  }
+
+  .Q_SharpPoint:nth-child(3),
+  .Q_SharpPoint:nth-child(4) {
+    bottom: -4.4rem;
+  }
+  .Q_SharpPoint:nth-child(4) {
+    left: var(--sharp);
+  }
+
+  .Q_SharpPoint:nth-child(2) {
+    left: var(--sharp);
+  }
+
+  .A_ImageContainer {
+    grid-column: 4/8;
+    width: 100%;
+    height: 488px;
+    border-radius: 200rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--almost-black);
+    overflow: hidden;
+  }
 
   .O_Display {
     grid-column: 8/10;
   }
 }
 /* PostShow */
+.W_PostShowHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .W_TitleTags {
   margin-bottom: 1rem;
 }
@@ -128,4 +170,15 @@
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
+}
+.W_CollectionHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .M_SubText {
+    width: 45%;
+    align-items: center;
+    text-align: center;
+  }
 }

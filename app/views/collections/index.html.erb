@@ -7,7 +7,7 @@
 %>
 <%# Body %>
 <p style="color: green"><%= notice %></p>
-<div class="M_ArtWorksBanner"></div>
+<%# <div class="M_ArtWorksBanner"></div> %>
 <div class="M_HeadingArt Q_CollectionWorks">
   <h1 class="sand">Артовые коллекции</h1>
 </div>
@@ -20,9 +20,9 @@
     <div class="W_CategoriesFilter">
       <p>Категории</p>
       <div class="C_Categoires">
-        <%= link_to "все", posts_path, class:"A_Tag",id:"CategoryTag" %>
+        <%= link_to "все", collections_path, class:"A_Tag",id:"CategoryTag" %>
         <% Post.tag_counts_on(:categories).each do |tag| %>
-          <%= link_to tag.name, tagged_posts_path(tag.name), class:"A_Tag",id:"CategoryTag" %>
+          <%= link_to tag.name, tagged_collections_path(tag.name), class:"A_Tag",id:"CategoryTag" %>
         <% end %>
       </div>
     </div>
@@ -30,7 +30,7 @@
       <p>Теги</p>
       <div class="C_Tags Navigation">
         <% Post.tag_counts_on(:tags).each do |tag| %>
-          <%= link_to tag.name, tagged_posts_path(tag.name), class:"A_Tag" %>
+          <%= link_to tag.name, tagged_collections_path(tag.name), class:"A_Tag" %>
         <% end %>
       </div>
     </div>

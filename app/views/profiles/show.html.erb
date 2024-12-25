@@ -63,8 +63,8 @@
         <%= link_to new_admin_collection_path, class: "A_PlusAddButton" do %>
           <img src="/assets/buttons/PlusAdd.svg" alt="">
         <% end%>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     <% @collections.each do |collection| %>
       <%= render 'collections/collection', collection: collection %>
     <% end %>

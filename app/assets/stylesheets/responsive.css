@@ -1,8 +1,5 @@
 @media all and (max-width: 1240px) {
   .S_Header {
-    .Q_SharpPoint:nth-child(2) {
-      left: 73.5%;
-    }
   }
 
   .W_TitleTags {
@@ -56,16 +53,12 @@
     }
   }
   .S_Comments {
-    width: 100%;
-    padding: 0;
+    padding: 3rem;
     margin-top: 6rem;
   }
 }
 @media all and (max-width: 1060px) {
   .S_Header {
-    .Q_SharpPoint:nth-child(2) {
-      left: 66.5%;
-    }
   }
 
   .O_Profile {
@@ -151,7 +144,12 @@
     }
   }
 
-  .M_Display {
+  /* COLLECTIONSHOW */
+  .S_CollectionHead {
+    .M_HeadLinks {
+      width: 100%;
+      padding: 0;
+    }
   }
 }
 

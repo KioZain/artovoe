@@ -207,7 +207,8 @@ def create_posts(quantity)
       user: user,
       city: @cities.sample,
       price: @price.sample,
-      amount: rand(0..10)
+      amount: rand(0..10),
+      year: rand(1990..2025),
     )
     # post.category_list = [ @categories.sample ]
     post.tag_list = @tags.sample(rand(2..3))

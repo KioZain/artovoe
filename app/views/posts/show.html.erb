@@ -27,41 +27,64 @@
       </div>
     </div>
     <div class="W_Post">
-      <%= image_tag @post.post_image.url, class: "Q_ShowPostImage"  %>
+      <div class="Q_SharpPoint Q_SharpBodyColor"></div>
+      <div class="Q_SharpPoint Q_SharpBodyColor"></div>
+      <div class="Q_SharpPoint Q_SharpYellowColor"></div>
+      <div class="Q_SharpPoint Q_SharpYellowColor"></div>
+      <div class="A_ImageContainer">
+        <%= image_tag @post.post_image.url, class: "Q_ShowPostImage"  %>
+      </div>
       <div class="S_Post">
-        <p class="A_AuthorProfile">Автор: <%= @post.user.profile.name %></p>
-        <div class="W_TitleTags">
-          <h1><%= @post.title %></h1>
-          <div class="C_Tags">
+        <div class="O_ShowHeadBio">
+          <div class="W_PostShowHead">
+            <p><%= @post.category_list %></p>
+            <h1><%= @post.title %></h1>
+            <div class="C_Tags">
+              <% @post.tags.each do |tag| %>
+                <%= link_to tag.name, tagged_posts_path(tag.name), class: "A_Tag" %>
+              <% end %>
+            </div>
           </div>
-          <% @post.tags.each do |tag| %>
-            <%= link_to tag.name, tagged_posts_path(tag.name), class: "A_Tag" %>
-          <% end %>
+          <p class="A_ShowDescription"><%= @post.body%></p>
         </div>
-        <p class="A_ShowDescription"><%= @post.body%></p>
+        <div class="M_ProfileTimeCreated">
+          <%= link_to profile_path(@post.user.profile),class: "A_AuthorProfile" do %>
+            <p><%= @post.user.profile.name %></p>
+          <% end%>
+          <p class="A_Publication">Опубликовано: <%= @post.created_at.strftime("%d.%m.%Y") %></p>
+        </div>
         <div class="C_DataPost">
-          <p>Город:<br>
-            <%= @post.city %></p>
-          <p>Тиражность:<br>
-            <%= @post.amount %></p>
-          <p>Цена:<br>
-            <%= @post.price %></p>
+          <div class="A_DataColumn">
+            <p>Город</p>
+            <p><%= @post.city %></p>
+          </div>
+          <div class="A_DataColumn">
+            <p>Тиражность</p>
+            <p><%= @post.amount %></p>
+          </div>
+          <div class="A_DataColumn">
+            <p>Цена</p>
+            <p><%= @post.price %></p>
+          </div>
         </div>
       </div>
-      <% @post.displays.each do |display| %>
-        <div class="O_Display">
-          <p>Название: <%= display.name %></p>
-          <p>Год: <%= display.year %></p>
-          <p>Тип: <%= display.display_type %></p>
-        </div>
-      <% end %>
+      <div class="M_PostOtherData">
+        <p> Год создания <%= @post.year %></p>
+        <% @post.displays.each do |display| %>
+          <div class="M_Display">
+            <p><%= display.display_type %></p>
+            <p><%= display.name %></p>
+            <p><%= display.year %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <% if @other_posts.present? %>
     <div class="S_OtherPosts">
       <div class="M_MoreWorks">
-        <h2>Другие работы автора</h2>
-        <%= link_to "В профиль", profile_path(@post.user.profile) %>
+        <h2>Работы автора</h2>
+        <%= link_to "В профиль →", profile_path(@post.user.profile) %>
       </div>
       <div class="C_AllPosts">
         <% @other_posts.each do |other_post| %>
@@ -73,17 +96,17 @@
     </div>
   <% end %>
   <div class="S_Comments">
-    <h2 style="text-align: center;">Комментарии</h2>
+    <h2>Комментарии</h2>
     <div class="C_Comments">
-      <%= turbo_frame_tag "comments" do %>
-        <% @post.comments.each do |comment| %>
-          <%= render comment %>
-        <% end %>
-      <% end %>
       <%= turbo_frame_tag "comment_form" do %>
         <div class="SendComment">
           <%= render "comments/form" %>
         </div>
+      <% end %>
+      <%= turbo_frame_tag "comments" do %>
+        <% @post.comments.each do |comment| %>
+          <%= render comment %>
+        <% end %>
       <% end %>
     </div>
   </div>

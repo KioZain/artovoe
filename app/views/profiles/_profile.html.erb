@@ -1,7 +1,7 @@
-<%  user_tags = profile.user.posts.tag_counts_on(:tags).pluck(:name).uniq 
-    random_count = [rand(2..4), user_tags.size].min 
-    random_tags = user_tags.sample(random_count).join(" / ") 
-%>
+      <%  user_tags = profile.user.posts.tag_counts_on(:tags).pluck(:name).uniq 
+        random_count = [rand(2..4), user_tags.size].min 
+        random_tags = user_tags.sample(random_count).join(" / ") 
+    %>
 <div class="O_Profile">
   <div class="W_ProfileBioStats">
     <%= link_to profile_path(profile),class:"M_ProfileBio", id: dom_id(profile) do %>

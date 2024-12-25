@@ -17,15 +17,6 @@ h3 {
 }
 
 .O_HeaderMenu {
-  .Q_SharpPoint {
-    background-image: url("/assets/sharp_points/sharpWhite.svg");
-    position: absolute;
-    width: 252px;
-    height: 22px;
-    background-size: cover;
-    bottom: -22px;
-    left: 0;
-  }
 }
 .Q_SharpPoint {
   background-image: url("/assets/sharp_points/sharpWhite.svg");
@@ -37,14 +28,19 @@ h3 {
   left: 0;
 
   &:nth-child(2) {
-    left: 77.5%;
+    left: var(--sharp);
   }
+}
+.Q_SharpBodyColor {
+  background-image: url("/assets/sharp_points/Q_SharpBody.svg");
+}
+.Q_SharpYellowColor {
+  background-image: url("/assets/sharp_points/Q_SharpYellow.svg");
 }
 
 .Q_ShowPostImage {
-  grid-column: 4/8;
-  width: 100%;
-  border-radius: 200rem;
+  width: 60%;
+  border-radius: 0.2rem;
 }
 .default {
   clip-path: none;
@@ -117,4 +113,14 @@ h3 {
 }
 .pink {
   background-color: var(--pink);
+}
+.Q_ADCLogo {
+  background: url("/assets/etc/Q_ADCLogo.svg");
+  width: 2rem;
+  height: 2rem;
+  background-size: cover;
+}
+/* ButtonsForm */
+.Q_ActionButtonSharp {
+  background-image: url("/assets/buttons/A_ActionButtonSharp.svg");
 }

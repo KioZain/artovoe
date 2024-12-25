@@ -1,8 +1,42 @@
-<footer>
-  <nav style="background: yellow;">
-    <%= link_to "Главная", root_path %>
-    <%= link_to "О нас", about_path,class: "nav_link" %>
-    <%= link_to "Посты", posts_path %>
-    <%= link_to "Коллекции", collections_path %>
-  </nav>
+<footer class="S_Footer">
+  <div class="W_FooterContainer">
+    <div class="W_MenuCategories">
+      <%= link_to "Работы", posts_path,class: "nav_link" %>
+      <%= link_to "Художники", profiles_path,class: "nav_link" %>
+      <%= link_to "О нас", about_path,class: "nav_link" %>
+    </div>
+    <div class="O_FooterSection">
+      <div class="M_FooterLeftSection">
+        <%= link_to root_path do %>
+          <div class="A_Logo A_LogoWhite"></div>
+        <% end%>
+        <div class="W_FooterSignatureMedia">
+          <h3 class="A_TextAbout">Медиакаталог работ <br>
+            современных художников</h3>
+          <div class="M_MediaOptions">
+            <div class="Q_ADCLogo"></div>
+            <p>Телеграм</p>
+            <p>Вконтакте</p>
+          </div>
+        </div>
+      </div>
+      <div class="C_SignedLists">
+        <div class="M_SignedList">
+          <p class="A_TitleOfList">Авторы</p>
+          <div class="W_List">
+            <p>Ева Киприанова</p>
+            <p>Максим Кириллов</p>
+            <p>Злата Баева</p>
+          </div>
+        </div>
+        <div class="M_SignedList">
+          <p class="A_TitleOfList">Кураторы</p>
+          <div class="W_List">
+            <p>Захар День</p>
+            <p>Вадим Булгаков</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

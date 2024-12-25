@@ -11,17 +11,21 @@
   --sand-yellow: #ffeeb0;
   --pink: #f39ed1;
 
+  /* SharpPoins */
+  --sharp: 77.5%;
   /* ContainerSizes */
   --width-container: 1120px;
 }
 @media (max-width: 1240px) {
   :root {
     --width-container: 928px;
+    --sharp: 73.5%;
   }
 }
 @media all and (max-width: 1060px) {
   :root {
     --width-container: 768px;
+    --sharp: 66.5%;
   }
 }
 @media all and (max-width: 768px) {

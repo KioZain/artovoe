@@ -1,19 +1,24 @@
 <%= turbo_frame_tag dom_id(comment) do %>
-  <div class="A_Comment">
-    <p class="A_Mail"><%= comment.user.profile.name %></p>
-    <p class="A_CommentBody"><%= comment.body %></p>
+  <div class="O_Comment">
+    <div class="W_CommentProfileBody">
+      <%= image_tag comment.user.profile.avatar_url, class: "A_Avatar" %>
+      <div class="M_SubText">
+        <p class="A_Mail"><%= comment.user.profile.name %></p>
+        <p class="A_CommentBody"><%= comment.body %></p>
+      </div>
+    </div>
     <% if can?(:update, comment) || can?(:destroy, comment) %>
       <div class="W_CommentActions">
         <% if can?(:update, comment) %>
           <%= link_to "Редактировать", 
               edit_post_comment_path(comment.post, comment), 
-              class: "btn btn-primary" %>
+              class: "A_ButtonSecondary" %>
         <% end %>
         <% if can?(:destroy, comment) %>
           <%= button_to "Удалить", 
               [comment.post, comment], 
               method: :delete,
-              class: "A_Button Danger",
+              class: "A_ButtonSecondary Danger",
               data: { turbo_confirm: "Вы уверены?" } %>
         <% end %>
       </div>
