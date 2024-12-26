@@ -20,7 +20,6 @@
             <%= link_to "Изменить", edit_admin_post_path(@post), class: 'A_Edit' %>
             <%= button_to "⌦Удалить пост", admin_post_path(@post), method: :delete %>
           <% else %>
-            <p>Авторизируйтесь, чтобы редактировать</p>
           <% end %>
           <%= render partial: "like/button", locals: {likable: @post} %>
         </div>

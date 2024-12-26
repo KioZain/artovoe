@@ -15,7 +15,7 @@
   </div>
   <div class="M_CollectionDescription">
     <div class="M_SubText">
-      <%= link_to collection_path(collection), id: dom_id(collection) do %>
+      <%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none" do %>
         <h3><%= collection.title %></h3>
       <% end %>
       <% user_email = collection.posts.first&.user&.profile.name %>

@@ -9,26 +9,26 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group title-field">
+  <div class="A_Form">
     <%= f.label :title, "Название", class: "title-label", style: "display: block" %>
     <%= f.text_field :title, class: "title-input" %>
   </div>
-  <div class="form-group body-field">
+  <div class="A_Form">
     <%= f.label :body, "Описание", class: "body-label", style: "display: block" %>
     <%= f.text_area :body, class: "body-textarea" %>
   </div>
   <%# Теги %>
   <%= f.collection_check_boxes(:tag_list, valid_tags, :to_s, :to_s) do |b| %>
-    <div class="form-check">
+    <div class="">
       <label class="form-check-label">
         <%= b.check_box class: 'form-check-input' %>
         <%= b.text %>
       </label>
     </div>
   <% end %>
-  <div class="form-group posts-field">
+  <div class="">
     <%= f.label :post_ids, "Ваши посты", class: "posts-label", style: "display: block" %>
-    <% @posts = Post.all.order(:title) %> <!-- Загружаем все посты -->
+    <% @posts = Post.all.order(:title) %>
     <%= f.collection_check_boxes :post_ids, @posts, :id, :title do |b| %>
       <div style="margin: .5rem 0;" class="M_CheckboxGroup">
         <%= b.check_box(class: "post-checkbox") %>
@@ -36,7 +36,7 @@
       </div>
     <% end %>
   </div>
-  <div class="form-group submit-button">
-    <%= f.submit "Сохранить коллекцию", class: "submit-btn" %>
+  <div>
+    <%= f.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
   </div>
 <% end %>

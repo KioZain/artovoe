@@ -131,3 +131,14 @@
     }
   }
 }
+.M_BackTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 1rem;
+
+  a {
+    text-decoration: none;
+    color: var(--almost-black);
+  }
+}

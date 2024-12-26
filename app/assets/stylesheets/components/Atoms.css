@@ -166,3 +166,36 @@ input.A_Button {
 .A_LogoWhite {
   background: url("assets/etc/A_Logo_white.svg");
 }
+.A_Form {
+  margin-bottom: 1rem;
+  label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  textarea {
+    width: 600px;
+    max-width: 600px;
+    min-height: 100px;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 1rem;
+  }
+
+  select {
+    height: 48px;
+    border: none;
+    width: 300px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  input {
+    border-radius: 0.5rem;
+    border: none;
+    height: 48px;
+    width: 600px;
+    padding: 1rem;
+  }
+}

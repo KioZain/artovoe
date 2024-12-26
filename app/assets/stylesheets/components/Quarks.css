@@ -114,6 +114,9 @@ h3 {
 .pink {
   background-color: var(--pink);
 }
+.sand_bg {
+  background-color: var(--sand-yellow);
+}
 .Q_ADCLogo {
   background: url("/assets/etc/Q_ADCLogo.svg");
   width: 2rem;

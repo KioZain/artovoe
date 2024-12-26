@@ -10,73 +10,26 @@
     </div>
   <% end %>
   <%# Название %>
-  <div>
-    <%= f.label :title, "Название работы", style: "display: block" %>
-    <%= f.text_field :title %>
-  </div>
-  <%# Описание %>
-  <div>
-    <%= f.label :body, "Описание", style: "display: block" %>
-    <%= f.text_area :body %>
-  </div>
-  <%# Категория %>
-  <div>
-    <%= f.label :body, "Категория", style: "display: block" %>
-    <%= f.select :category_list, valid_categories, {} %>
-  </div>
-  <br>
-  <hr>
-  <h3>Опциональные поля</h3>
-  <br>
-  <%# Город %>
-  <div>
-    <%= f.label :city,"Город создания", style: "display: block" %>
-    <%= f.text_field :city %>
-  </div>
-  <%# Кол-вот %>
-  <div>
-    <%= f.label :amount,"Тиражность", style: "display: block" %>
-    <%= f.text_field :amount %>
-  </div>
-  <%# Цена %>
-  <div>
-    <%= f.label :price,"Стоимость работы", style: "display: block" %>
-    <%= f.text_field :price %>
-  </div>
-  <div>
-    <%= f.label :year,"Год создания работы", style: "display: block" %>
-    <%= f.text_field :year %>
-  </div>
-  <hr>
-  <br>
-  <hr>
-  <%# Данный об экспозиции %>
-  <h3>Данные экспозиции</h3>
-  <%= f.fields_for :displays do |display_form| %>
-    <div class="display-fields">
-      <div>
-        <%= display_form.label :name, "Название" %>
-        <%= display_form.text_field :name, class: "A_Form" %>
-      </div>
-      <div>
-        <%= display_form.label :year, "Год" %>
-        <%= display_form.text_field :year, class: "A_Form" %>
-      </div>
-      <div>
-        <%= display_form.label :display_type, "Тип экспозиции" %>
-        <%= display_form.select :display_type, ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"], {}, class: "A_Form" %>
-      </div>
-      <div class="field">
-        <%= display_form.label :city, "Город" %>
-        <%= display_form.text_field :city %>
-      </div>
-      <div>
-        <%= display_form.label :link, "Ссылка" %>
-        <%= display_form.text_field :link, class: "A_Form" %>
-      </div>
+  <div class="W_FirstForms">
+    <div class="A_Form">
+      <%= f.label :title, "Название работы", style: "display: block" %>
+      <%= f.text_field :title %>
     </div>
-  <% end %>
-  <hr>
+    <%# Описание %>
+    <div class="A_Form">
+      <%= f.label :body, "Описание", style: "display: block" %>
+      <%= f.text_area :body %>
+    </div>
+    <%# Категория %>
+    <div class="A_Form">
+      <%= f.label :body, "Категория", style: "display: block" %>
+      <%= f.select :category_list, valid_categories, {} %>
+    </div>
+    <div A_Form>
+      <%= f.label :post_image,"Изображение", style: "display: block" %>
+      <%= f.file_field :post_image %>
+    </div>
+  </div>
   <%# Теги %>
   <%= f.label :price,"Теги", style: "display: block" %>
   <%= f.collection_check_boxes(:tag_list, valid_tags, :to_s, :to_s) do |b| %>
@@ -87,13 +40,52 @@
       </label>
     </div>
   <% end %>
-  <%# Картинка %>
-  <div>
-    <%= f.label :post_image,"Изображение", style: "display: block" %>
-    <%= f.file_field :post_image %>
+  <%# Город %>
+  <div class="W_OptionalForms">
+    <div class="A_Form">
+      <%= f.label :city,"Город создания", style: "display: block" %>
+      <%= f.text_field :city %>
+    </div class="A_Form">
+    <%# Кол-вот %>
+    <div class="A_Form">
+      <%= f.label :amount,"Тиражность", style: "display: block" %>
+      <%= f.text_field :amount %>
+    </div>
+    <%# Цена %>
+    <div class="A_Form">
+      <%= f.label :price,"Стоимость работы", style: "display: block" %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="A_Form">
+      <%= f.label :year,"Год создания работы", style: "display: block" %>
+      <%= f.text_field :year %>
+    </div>
   </div>
   <br>
+  <%# Данный об экспозиции %>
+  <h2 style="margin-bottom: 1rem;" >Данные экспозиции</h2>
+  <%= f.fields_for :displays do |display_form| %>
+    <div class="display-fields">
+      <div class="A_Form">
+        <%= display_form.label :name, "Название" %>
+        <%= display_form.text_field :name, class: "A_Form" %>
+      </div class="A_Form">
+      <div class="A_Form">
+        <%= display_form.label :year, "Год" %>
+        <%= display_form.text_field :year, class: "A_Form" %>
+      </div class="A_Form">
+      <div class="A_Form">
+        <%= display_form.label :display_type, "Тип экспозиции" %>
+        <%= display_form.select :display_type, ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"], {}, class: "A_Form" %>
+      </div class="A_Form">
+      <div class="A_Form">
+        <%= display_form.label :city, "Город" %>
+        <%= display_form.text_field :city %>
+      </div>
+    </div>
+  <% end %>
+  <%# Картинка %>
   <div>
-    <%= f.submit %>
+    <%= f.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
   </div>
 <% end %>

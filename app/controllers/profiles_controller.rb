@@ -76,15 +76,16 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1 or /profiles/1.json
-  def destroy
-    @profile.destroy!
+# DELETE /profiles/1 or /profiles/1.json
+def destroy
+  @profile = Profile.find(params[:id])
+  authorize! :destroy, @profile
+  user = @profile.user
+  user.destroy # это удалит и пользователя, и все связанные данные
 
-    respond_to do |format|
-      format.html { redirect_to profiles_path, status: :see_other, notice: "Profile was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  redirect_to profiles_path, notice: "Profile was deleted"
+end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -9,23 +9,23 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="A_Form">
+    <%= form.label :name, "Имя", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-  <div>
-    <%= form.label :bio, style: "display: block" %>
+  <div class="A_Form">
+    <%= form.label :bio, "Описание", style: "display: block" %>
     <%= form.text_area :bio %>
   </div>
-  <div>
-    <%= form.label :contact, style: "display: block" %>
-    <%= form.text_area :contact %>
+  <div class="A_Form">
+    <%= form.label :contact, "Контакты", style: "display: block" %>
+    <%= form.text_field :contact %>
   </div>
-  <div>
-    <%= form.label :avatar, "Upload Avatar" %>
+  <div class="A_Form">
+    <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
     <%= form.file_field :avatar %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
   </div>
 <% end %>

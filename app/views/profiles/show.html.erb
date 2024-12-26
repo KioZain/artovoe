@@ -8,6 +8,14 @@
 <p style="color: green"><%= notice %></p>
 <div class="S_Profile">
   <div class="A_DisplayMetrics"></div>
+  <div class="W_Actions">
+    <% if can?(:update, @profile) %>
+      <%= link_to 'Редактировать', edit_profile_path(@profile), class: 'A_ButtonSecondary' %>
+    <% end %>
+    <% if can?(:destroy, @profile) %>
+      <%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_ButtonSecondary Danger' %>
+    <% end %>
+  </div>
   <div class="O_ProfileInfo">
     <div class="W_AllInfoProfile">
       <div class="M_ProfileHead">
