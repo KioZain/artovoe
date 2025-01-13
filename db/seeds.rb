@@ -61,7 +61,7 @@
 
 # Profile Content
 @names = [ "digitalnyan", "kiozain", "zlatko", "tuberkulexa", "Чхыф", "humanim4lien", "somebody", "nobody31", "shoegazer", "волчок" ]
-@cities = [ "Москва", "Санкт-Петербург", "Казань", "Екатеринбург", "Новосибирск", "Владивосток" ]
+@cities = [ "Москва", "Санкт-Петербург", "Казань", "Екатеринбург", "Новосибирск", "Владивосток", "Махачкала" ]
 @exibition_names = [ 'OGO×WOW' 'Market', 'YRA Fest', 'WinWin' ]
 @contacts = [ "@neuro_edge", "@VoidPulse", "@shadow-wave", "@cipher_bloom", "@freq.split", "@MIND_rift", "@noise_frame",
               "@lightCORE", "@echo.grid", "@form_SHIFT", "@zen-pix", "@null_space", "@PRISM_tear", "@byte.flow", "@quark_skin" ]
