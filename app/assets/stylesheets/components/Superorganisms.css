@@ -42,7 +42,7 @@
 }
 .S_Header {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   background-color: var(--pure-white);
   height: 100px;
   display: flex;
@@ -250,7 +250,8 @@
   width: 100%;
   display: flex;
   background-color: var(--almost-black);
-  margin-top: 10rem;
+  position: absolute;
+  bottom: 0;
   padding: 5rem 0;
   .W_FooterContainer {
     width: var(--width-container);
