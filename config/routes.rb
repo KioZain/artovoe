@@ -37,9 +37,15 @@ Rails.application.routes.draw do
   # API v1
   namespace :api, format: "json" do
     namespace :v1 do
-      resources :posts, only: [ :index, :show ]
+      resources :posts, only: [ :index, :show, :create ]
       resources :collections, only: [ :index, :show ]
       resources :profiles, only: [ :index, :show ]
+
+      devise_scope :user do
+        post "sign_up", to: "registrations#create"
+        post "sign_in", to: "sessions#create"
+        post "sign_out", to: "sessions#destroy"
+      end
     end
   end
 

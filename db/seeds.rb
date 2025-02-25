@@ -130,6 +130,7 @@ def create_users(quantity)
     user_data = {
       email: "user_#{i}@email.com",
       password: 'testtest'
+      # jti: SecureRandom.uuid
     }
 
     if i == 0
@@ -137,6 +138,7 @@ def create_users(quantity)
     end
     user = User.create!(user_data)
     puts "User created with id #{user.id}"
+     puts "User created with JTI #{user.jti}"
 
      profile_data = {
       name: @names.sample,

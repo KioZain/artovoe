@@ -21,8 +21,8 @@ gem "jbuilder"
 gem "carrierwave", "~> 3.0"
 # Devise
 gem "devise"
-
-
+gem "devise-jwt"
+gem "jwt"
 # Meta-tags
 gem "meta-tags"
 # CanCanCan

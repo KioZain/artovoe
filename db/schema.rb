@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_25_065603) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_24_170132) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -130,7 +130,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_25_065603) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "jti", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

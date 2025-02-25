@@ -3,3 +3,7 @@
 <br>
 <br>
 <%= cookies.to_json %>
+<br>
+<br>
+<p><b>My key</b></p>
+<%= Rails.application.credentials.devise_jwt_secret_key %>
