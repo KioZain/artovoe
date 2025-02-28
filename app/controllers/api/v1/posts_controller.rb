@@ -10,9 +10,10 @@ class Api::V1::PostsController < ApplicationController
     @post = Post.includes(:displays).find(params[:id])
   end
 
+
   def create
-    puts "decrypt_payload"
-    puts decrypt_payload
+    # puts decrypt_payload
+
     user = User.find_by_jti(decrypt_payload[0][":jti"])
     post = user.posts.new(post_params)
 
@@ -22,6 +23,36 @@ class Api::V1::PostsController < ApplicationController
       render json: post.errors, status: :unprocessable_entity
     end
   end
+
+
+  # destroy and update
+  def destroy
+    @post = Post.find(params[:id])
+    user = User.find_by_jti(decrypt_payload[0][":jti"])
+
+    unless @post.user == user
+      return render json: { error: "Unauthorized" }, status: :unauthorized
+    end
+
+    @post.destroy
+    head :no_content
+  end
+
+    def update
+    @post = Post.find(params[:id])
+    user = User.find_by_jti(decrypt_payload[0][":jti"])
+
+    unless @post.user == user
+      return render json: { error: "Unauthorized" }, status: :unauthorized
+    end
+
+    if @post.update(post_params)
+      render json: @post
+    else
+      render json: @post.errors, status: :unprocessable_entity
+    end
+  end
+  # ---------------------------
 
   private
 
