@@ -52,9 +52,14 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   private
 
-    def sign_in_params
-        params.require(:user).permit(:email, :password)
-      end
+  def sign_in_params
+    params.permit(:email, :password, :format)
+  end
+    # weird flex with paramss
+
+    # def sign_in_params
+    #     params.require(:user).permit(:email, :password)
+    #   end
 
     def load_user_by_email
       @user = User.find_for_database_authentication(email: sign_in_params[:email])
