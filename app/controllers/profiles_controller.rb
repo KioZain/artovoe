@@ -81,7 +81,7 @@ def destroy
   @profile = Profile.find(params[:id])
   authorize! :destroy, @profile
   user = @profile.user
-  user.destroy # это удалит и пользователя, и все связанные данные
+  user.destroy
 
   redirect_to profiles_path, notice: "Profile was deleted"
 end

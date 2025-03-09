@@ -1,6 +1,10 @@
-json.extract! profile, :id, :name, :bio, :avatar
-json.user do
-  json.email profile.user.email
-end
+json.extract! @profile, :name, :bio, :avatar, :contact
 
-json.url profile_url(profile)
+
+json.profile do
+  if collection.user&.profile.present?
+    json.extract! collection.user.profile, :name
+  else
+    json.null!
+  end
+end

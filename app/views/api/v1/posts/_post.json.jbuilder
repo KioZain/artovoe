@@ -1,4 +1,4 @@
-json.extract! post, :title, :body, :tag_list, :post_image
+json.extract! post, :id, :title, :post_image, :category_list
 
 json.profile do
   json.name post.user.profile.name if post.user&.profile

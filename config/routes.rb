@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   namespace :api, format: "json" do
     namespace :v1 do
       resources :posts, only: [ :index, :show, :create, :update, :destroy ]
-      resources :collections, only: [ :index, :show ]
+      resources :collections, only: [ :index, :show, :show, :create, :update, :destroy ]
       resources :profiles, only: [ :index, :show ]
 
       devise_scope :user do

@@ -55,7 +55,6 @@ class Api::V1::SessionsController < Devise::SessionsController
   def sign_in_params
     params.permit(:email, :password, :format)
   end
-    # weird flex with paramss
 
     # def sign_in_params
     #     params.require(:user).permit(:email, :password)

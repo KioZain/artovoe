@@ -1,11 +1,22 @@
 class Api::V1::ProfilesController < ApplicationController
-  def index
-    @profiles = Profile
-      .joins(user: [ :posts, :collections ])
-      .group("profiles.id")
-      .having("COUNT(posts.id) >= 5 AND COUNT(collections.id) >= 2")
-  end
+before_action :set_profile, only: [ :show ]
 
   def show
+  end
+
+  private
+
+def set_profile
+  @profile = Profile.includes(
+    user: [
+      :posts,
+      :collections,
+      { posts: :tags }
+    ]
+  ).find(params[:id])
+end
+
+  def profile_params
+    params.require(:profile).permit(:name, :bio, :avatar, :contact)
   end
 end
