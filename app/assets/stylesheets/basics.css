@@ -2,14 +2,27 @@
   box-sizing: border-box;
 }
 
+.aspect-3-4 {
+  aspect-ratio: 3/4;
+}
+.aspect-1-1 {
+  aspect-ratio: 1/1;
+}
+.aspect-5-4 {
+  aspect-ratio: 5/4;
+}
+.aspect-3-2 {
+  aspect-ratio: 3/2;
+}
+
 body {
-  font-family: "Geist";
+  font-family: "Kommuna-regular";
   background: var(--cream-white);
   min-height: 100vh;
   width: 100%;
 
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: "Kommuna";
     letter-spacing: 1px;
     line-height: 100%;
@@ -17,18 +30,63 @@ body {
     display: inline-block;
   }
 
-  p {
-    line-height: 140%;
-    font-family: "Geist";
-    font-weight: 400;
-    font-size: 14px;
+  h2 {
+    font-size: 2.5rem;
+    font-family: "Kommuna";
+    line-height: 100%;
   }
-}
 
-.Content {
-  width: 1285px;
-  margin: 0 auto;
-  margin-top: 4rem;
+  h3 {
+    font-size: 2rem;
+    font-family: "Kommuna-regular";
+    line-height: 130%;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    line-height: 140%;
+    font-family: "Kommuna-regular";
+  }
+
+  .subtitle {
+    font-family: "Geist Mono";
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 140%;
+    font-family: "Kommuna-regular";
+    font-weight: 400;
+  }
+  .caption {
+    font-size: 14px;
+    line-height: 140%;
+    font-family: "Kommuna-regular";
+    font-weight: 600 regular;
+  }
+
+  .caption-2 {
+    font-size: 14px;
+    line-height: 140%;
+    font-family: "Geist Mono";
+    font-weight: regular;
+  }
+
+  .footnote {
+    font-size: 13px;
+    line-height: 140%;
+    font-family: "Geist Mono";
+    font-weight: regular;
+    text-transform: uppercase;
+  }
+
+  .footnote-2 {
+    font-size: 13px;
+    line-height: 140%;
+    font-family: "Kommuna-regular";
+    font-weight: 600 regular;
+  }
 }
 
 .S_Posts {

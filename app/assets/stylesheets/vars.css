@@ -14,7 +14,7 @@
   /* SharpPoins */
   --sharp: 77.5%;
   /* ContainerSizes */
-  --width-container: 1120px;
+  --width-container: 1620px;
 }
 @media (max-width: 1240px) {
   :root {

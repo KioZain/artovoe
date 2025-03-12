@@ -18,7 +18,9 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
+# Images
 gem "carrierwave", "~> 3.0"
+gem "mini_magick"
 # Devise
 gem "devise"
 gem "devise-jwt"

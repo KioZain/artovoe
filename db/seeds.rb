@@ -188,9 +188,8 @@ end
 
 # Image creating ----------------------------------------
 def upload_random_image
-  uploader = PostImageUploader.new(Post.new, :post_image)
-  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/uploads/posts', '*')).sample))
-  uploader
+  image_path = Dir.glob(File.join(Rails.root, 'public/uploads/posts', '*')).sample
+  File.open(image_path)
 end
 
 # Tags
@@ -217,7 +216,10 @@ def create_posts(quantity)
     post.category_list =  @categories.sample.downcase
     post.save!
 
-     post.displays.create(
+    post.post_image = upload_random_image
+    post.save!
+
+    post.displays.create(
       name: @exibition_names.sample,
       year: rand(2000..2023).to_s,
       display_type: [ "Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция" ].sample,

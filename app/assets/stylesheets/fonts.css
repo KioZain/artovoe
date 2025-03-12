@@ -5,19 +5,14 @@
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: "Kommuna-regular";
+  src: local("Kommuna-600Regular.ttf"),
+    url("Kommuna-600Regular.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
 
-@font-face {
-  font-family: "InterTight";
-  src: local("InterTight"), url("InterTight-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "InterTight";
-  src: local("InterTight"), url("InterTight-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
 @font-face {
   font-family: "Geist";
   src: local("GeistMono"), url("GeistMono-Regular.woff2") format("woff2");

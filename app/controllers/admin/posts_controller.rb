@@ -3,7 +3,8 @@ class Admin::PostsController < ApplicationController
   before_action :set_post, only: %i[ edit update destroy ]
 
   def new
-    @post.displays.build if @post.displays.empty?
+    # @post.displays.build if @post.displays.empty?
+    @post.displays.build
   end
 
 
@@ -11,12 +12,11 @@ class Admin::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @posts = Post.all
-    @post.displays.build if @post.displays.empty?
+    # @post.displays.build if @post.displays.empty?
   end
 
   # POST /posts or /posts.json
   def create
-    Rails.logger.debug "PARAMS: #{params.inspect}"
     @post = current_user.posts.new(post_params)
 
     respond_to do |format|
@@ -63,7 +63,7 @@ class Admin::PostsController < ApplicationController
     def post_params
       params.require(:post).permit(
         :title, :body, :author, :post_image,  :price, :city, :amount, :category_list, :year,
-        displays_attributes: [ :name, :year, :display_type, :link, :city ], tag_list: []
+        displays_attributes: [ :id, :name, :year, :display_type, :link, :city ], tag_list: []
       )
     end
 end

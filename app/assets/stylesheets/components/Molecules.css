@@ -78,23 +78,7 @@
     }
   }
 }
-.M_HeadingArt {
-  width: var(--width-container);
-  height: 80px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4rem;
 
-  border-radius: 0.5rem;
-  background-size: cover;
-  background-position: center;
-
-  h1 {
-    font-size: 3.5rem;
-  }
-}
 .M_ArtWorksBanner {
   width: var(--width-container);
   height: 300px;
@@ -106,10 +90,19 @@
   display: flex;
   gap: 1rem;
 }
+/* Displays */
 .M_DisplayTypeYear {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+.M_Display {
+  max-width: 387px;
+  width: 100%;
+  background: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .M_CollectionDescriptionShow {
   width: var(--width-container);

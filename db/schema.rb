@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_24_170132) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_12_184111) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_24_170132) do
     t.string "city"
     t.integer "price"
     t.integer "year"
+    t.string "aspect_ratio"
   end
 
   create_table "profiles", force: :cascade do |t|

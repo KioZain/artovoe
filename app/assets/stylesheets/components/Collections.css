@@ -37,15 +37,14 @@
 }
 
 .C_AllPosts {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  width: var(--width-container);
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 10rem;
+  align-items: flex-end;
+  max-width: 1620px;
   margin: 0 auto;
-  gap: 1rem;
 
-  .O_Post {
-    grid-column: span 3;
-  }
   .FillGrid {
     grid-column: span 9;
     display: flex;
@@ -106,23 +105,16 @@
     p {
       display: inline-block;
       min-width: 110px;
-
-      &:nth-child(1) {
-        font-size: 12px;
-      }
-      &:nth-child(2) {
-        font-weight: 500;
-      }
     }
   }
 }
 
 .C_Displays {
-  display: grid;
+  display: flex;
   width: var(--width-container);
   margin: 0 auto;
-  gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-top: 3rem;
 
   .O_Display {

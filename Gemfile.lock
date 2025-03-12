@@ -392,6 +392,7 @@ DEPENDENCIES
   jwt
   letter_opener
   meta-tags
+  mini_magick
   puma (>= 5.0)
   rack-cors
   rails (~> 7.2.1)

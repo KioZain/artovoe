@@ -111,27 +111,7 @@
     height: 120px;
   }
 }
-.S_Post {
-  grid-column: 1/4;
-  grid-row: 1/2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
 
-  .M_ProfileTimeCreated {
-    display: flex;
-    gap: 0.1rem;
-    flex-direction: column;
-
-    .A_AuthorProfile {
-      color: var(--almost-black);
-    }
-    .A_Publication {
-      font-size: 12px;
-    }
-  }
-}
 .S_OtherPosts {
   display: flex;
   gap: 1.5rem;

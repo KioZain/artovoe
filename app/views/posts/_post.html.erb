@@ -1,32 +1,6 @@
-<%
-  shape_class = "default"
-
-  case post.category_list[0]&.downcase
-  when "ювелирка"
-    shape_class = "Q_JeweleryClip"
-
-  when "картина"
-    shape_class = "Q_ArtPaintClip"
-
-  when "скульптура"
-    shape_class = "Q_SculptureClip"
-
-  when "полиграфия"
-    shape_class = "Q_PrintClip"
-
-  when "текстиль"
-    shape_class = "Q_TextileClip"
-  end
-%>
-<!-- Tags -->
-<div class="C_Tags">
-  <% post.tags.each do |tag| %>
-    <%= link_to tag.name, tagged_posts_path(tag.name), class: "A_Tag" %>
-  <% end %>
-</div>
 <!-- Image -->
 <%= link_to post_path(post), class: "Q_PostImageLink" do %>
-  <div class="Q_PostWrapper <%= shape_class %>">
+  <div class="Q_PostWrapper aspect-<%= post.aspect_ratio.gsub(':', '-') %>">
     <%= image_tag post.post_image.url, class: "Q_PostImage" %>
   </div>
 <% end %>
@@ -39,7 +13,7 @@
 <!-- PostBio -->
 <div class="M_SubText">
   <%= link_to post_path(post), class: "A_PostTitleLink" do %>
-    <h3><%= post.title %></h3>
+    <h4 class="subtitle"><%= post.title %></h4>
   <% end %>
   <p><%= post.user.profile.name %></p>
 </div>
