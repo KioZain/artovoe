@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_12_184111) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_13_093821) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -42,7 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_12_184111) do
     t.string "name"
     t.string "year"
     t.string "display_type"
-    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "city"

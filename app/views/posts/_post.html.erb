@@ -7,7 +7,7 @@
 <!-- Category -->
 <div class="A_Category" style="margin-top: 1rem;">
   <% post.categories.each do |category| %>
-    <%= link_to category, tagged_posts_path(category), class: "A_Tag" %>
+    <%= link_to category, tagged_posts_path(category), class: "caption" %>
   <% end %>
 </div>
 <!-- PostBio -->
@@ -15,5 +15,5 @@
   <%= link_to post_path(post), class: "A_PostTitleLink" do %>
     <h4 class="subtitle"><%= post.title %></h4>
   <% end %>
-  <p><%= post.user.profile.name %></p>
+  <p class="caption"><%= post.user.profile.name %></p>
 </div>

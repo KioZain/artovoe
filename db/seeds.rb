@@ -224,7 +224,6 @@ def create_posts(quantity)
       year: rand(2000..2023).to_s,
       display_type: [ "Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция" ].sample,
       city: @cities.sample,
-      link: "https://example.com/display/#{post.id}"
     )
 
 

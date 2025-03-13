@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  resources :posts, only: [ :index, :show ] do
+  resources :posts do
     resources :comments
+    # displays
+    resources :displays, only: [ :create, :update, :destroy ]
+    # tags
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end
 
@@ -19,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :collections, only: [ :index, :show ] do
+  resources :collections do
     get "/by_tag/:tag", to: "collections#by_tag", on: :collection, as: "tagged"
   end
 
@@ -29,9 +32,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :collections, except: [ :index, :show ]
     resources :profiles, except: [ :index, :show ]
-    resources :posts, except: [ :index, :show ] do
-      resources :comments
-    end
+    # resources :posts, except: [ :index, :show ] do
+    #   resources :comments
+    #   resources :displays, only: [ :create, :update, :destroy ]
+    # end
   end
 
   # API v1

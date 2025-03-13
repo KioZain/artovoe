@@ -15,8 +15,8 @@
   <div class="M_Options">
     <div class="M_ActionButton">
       <% if can?(:manage, @post) %>
-        <%= link_to "Изменить", edit_admin_post_path(@post), class: 'A_Edit' %>
-        <%= button_to "⌦Удалить пост", admin_post_path(@post), method: :delete %>
+        <%= link_to "Изменить", edit_post_path(@post), class: 'A_Edit' %>
+        <%= button_to "⌦Удалить пост", post_path(@post), method: :delete %>
       <% else %>
       <% end %>
       <%= render partial: "like/button", locals: {likable: @post} %>
@@ -65,9 +65,14 @@
   <div class="C_Displays">
     <% @post.displays.each do |display| %>
       <div class="M_Display">
-        <p><%= display.display_type %></p>
-        <p><%= display.name %></p>
-        <p><%= display.year %></p>
+        <div>
+          <p><%= display.display_type %></p>
+          <p><%= display.name %></p>
+        </div>
+        <div>
+          <p><%= display.year %></p>
+          <p><%= display.city %></p>
+        </div>
       </div>
     <% end %>
   </div>

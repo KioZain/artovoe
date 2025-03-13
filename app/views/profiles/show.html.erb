@@ -55,7 +55,7 @@
   <div class="C_AllPosts">
     <% if current_user && current_user.admin? %>
       <div class="FillGrid">
-        <%= link_to new_admin_post_path, class:"A_PlusAddButton" do %>
+        <%= link_to new_post_path, class:"A_PlusAddButton" do %>
           <img src="/assets/buttons/PlusAdd.svg" alt="">
         <% end %>
       </div>

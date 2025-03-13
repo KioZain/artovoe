@@ -11,8 +11,8 @@
     <%= link_to "<- Назад", request.referer %>
     <div class="M_ActionButton">
       <% if can?(:manage, @collection) %>
-        <%= link_to 'Изменить', edit_admin_collection_path(@collection), class: 'A_Edit' %>
-        <%= button_to "⌦Удалить коллекцию", admin_collection_path(@collection), method: :delete %>
+        <%= link_to 'Изменить', edit_collection_path(@collection), class: 'A_Edit' %>
+        <%= button_to "⌦Удалить коллекцию", collection_path(@collection), method: :delete %>
       <% else %>
         <p>Авторизируйтесь</p>
       <% end %>

@@ -1,4 +1,4 @@
-<%= form_with(model: [:admin, post]) do |f| %>
+<%= form_with(model: post) do |f| %>
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,7 +12,7 @@
   <%# Название %>
   <div class="W_FirstForms">
     <div class="A_Form">
-      <%= f.label :title, "Название работы", style: "display: block" %>
+      <%= f.label :title, "Название работы", style: "display: block", class: "red" %>
       <%= f.text_field :title %>
     </div>
     <%# Описание %>
@@ -62,8 +62,9 @@
     </div>
   </div>
   <br>
-  <%# Данный об экспозиции %>
-  <h2 style="margin-bottom: 1rem;" >Данные экспозиции</h2>
+  <%# ----------------------------------------- %>
+  <hr>
+  <h3>Экспозиции</h3>
   <%= f.fields_for :displays do |display_form| %>
     <div class="display-fields">
       <div class="A_Form">
@@ -84,6 +85,8 @@
       </div>
     </div>
   <% end %>
+  <hr>
+  <%# ----------------------------------------- %>
   <%# Картинка %>
   <div>
     <%= f.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>

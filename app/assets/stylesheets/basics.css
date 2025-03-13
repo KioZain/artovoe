@@ -14,10 +14,41 @@
 .aspect-3-2 {
   aspect-ratio: 3/2;
 }
+/* ------------------------------------ */
+.display-form-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+}
 
+.added-displays-list {
+  margin: 20px 0;
+}
+
+.added-display {
+  background: #f0f0f0;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.add-display-button {
+  background: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-display-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+/* ------------------------------------ */
 body {
   font-family: "Kommuna-regular";
-  background: var(--cream-white);
+  background: var(--colors-light-100);
   min-height: 100vh;
   width: 100%;
 
@@ -64,6 +95,7 @@ body {
     line-height: 140%;
     font-family: "Kommuna-regular";
     font-weight: 600 regular;
+    text-decoration: none;
   }
 
   .caption-2 {
