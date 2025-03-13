@@ -197,9 +197,11 @@ end
 # Creating posts-----------------------------------------
 def create_posts(quantity)
   quantity.times do
-    user = User.all.sample
+    users = User.all.to_a # Получаем всех существующих пользователей
+    max_likes_per_post = users.size # Максимум лайков = количество пользователей
+    user = users.sample
 
-    post = Post.create(
+    post = Post.create!(
       title: get_random_title,
       body: create_sentence,
       author: create_author,
@@ -211,6 +213,19 @@ def create_posts(quantity)
       amount: rand(0..10),
       year: rand(1990..2025),
     )
+
+    likes_count = rand(0..max_likes_per_post)
+    # Выбираем уникальных пользователей для лайков
+    liking_users = users.sample(likes_count).uniq
+
+    liking_users.each do |liker|
+      Like.find_or_create_by!(
+        likable: post,
+        user: liker
+      )
+    end
+
+
     # post.category_list = [ @categories.sample ]
     post.tag_list = @tags.sample(rand(2..3))
     post.category_list =  @categories.sample.downcase
@@ -227,7 +242,7 @@ def create_posts(quantity)
     )
 
 
-    puts "Post with id #{post.id}, user id:#{user.id}, tags: #{post.tag_list}, displays: #{post.displays.count} just created"
+    puts "Post with id #{post.id}, user id:#{user.id}, tags: #{post.tag_list}, displays: #{post.displays.count}, likes_count:#{post.likes_count} just created"
   end
 end
 

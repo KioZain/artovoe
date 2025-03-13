@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@likable, :like) do %>
+  <%= render partial: "likes/button", locals: { likable: @likable } %>
+<% end %>

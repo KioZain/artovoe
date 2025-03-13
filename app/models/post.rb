@@ -8,6 +8,11 @@ class Post < ApplicationRecord
   # Associations-------------------------------
 
   has_many :likes, as: :likable
+
+  def update_likes_count
+    update(likes_count: likes.count)
+  end
+
   has_many :comments, dependent: :destroy
   has_many :displays, dependent: :destroy
 

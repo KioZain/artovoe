@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_13_093821) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_13_134533) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_13_093821) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.boolean "public", default: false
+    t.integer "likes_count", default: 0
   end
 
   create_table "collections_posts", id: false, force: :cascade do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_13_093821) do
     t.integer "price"
     t.integer "year"
     t.string "aspect_ratio"
+    t.integer "likes_count", default: 0
   end
 
   create_table "profiles", force: :cascade do |t|

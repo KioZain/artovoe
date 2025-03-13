@@ -19,7 +19,7 @@
         <%= button_to "⌦Удалить пост", post_path(@post), method: :delete %>
       <% else %>
       <% end %>
-      <%= render partial: "like/button", locals: {likable: @post} %>
+      <%= render partial: "likes/button", locals: {likable: @post} %>
     </div>
   </div>
 </div>

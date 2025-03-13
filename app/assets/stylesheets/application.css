@@ -5,6 +5,7 @@
  *= require home
  *= require about
  *= require formContainer
+ *= require animations
  *= require basics
  *= require_tree ./components
  *= require responsive

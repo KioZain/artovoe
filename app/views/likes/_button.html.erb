@@ -1,0 +1,14 @@
+<!-- app/views/like/_button.html.erb -->
+<div class="like-container" id="<%= dom_id(likable, :like) %>">
+  <% if user_signed_in? %>
+    <%= link_to(
+          likable.likes.exists?(user: current_user) ? "Unlike" : "Like",
+          toggle_likes_path(type: likable.class.name, id: likable.id),
+          class: "like-button",
+          data: { turbo_method: :post, turbo_stream: true }
+        ) %>
+  <% else %>
+    <%= link_to "Like", new_user_session_path, class: "like-button" %>
+  <% end %>
+  <span class="likes-count"><%= likable.likes_count %></span>
+</div>
