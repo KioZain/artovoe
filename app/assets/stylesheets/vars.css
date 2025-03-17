@@ -17,6 +17,15 @@
   --colors-light-300: #f2ebe2;
   --colors-light-400: #e8e3dc;
 
+  --colors-neutral-50: #f1f3f4;
+  --colors-neutral-100: #e3e6e8;
+  --colors-neutral-200: #c7ced1;
+  --colors-neutral-300: #abb5ba;
+  --colors-neutral-400: #8e9da4;
+  --colors-neutral-600: #5b6a71;
+  --colors-neutral-800: #2e3538;
+  --colors-neutral-900: #171a1c;
+
   /* SharpPoins */
   --sharp: 77.5%;
   /* ContainerSizes */

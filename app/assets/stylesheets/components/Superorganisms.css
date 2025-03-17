@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 .S_FiltersPosts {
-  width: var(--width-container);
+  width: 100%;
   margin: 0 auto;
   margin-top: 1.5rem;
   row-gap: 3rem;

@@ -8,24 +8,6 @@
     }
   }
 
-  img.Q_PostImage {
-    height: 300px;
-  }
-
-  .C_AllPosts {
-    grid-template-columns: repeat(6, 1fr);
-    .O_Post {
-      grid-column: span 2;
-
-      .Q_PostWrapper {
-        height: 216px;
-      }
-    }
-    .FillGrid {
-      grid-column: span 6;
-    }
-  }
-
   .C_Tags {
     .A_Tag {
       font-size: 11px;
@@ -134,12 +116,12 @@
   }
   /* Posts */
   .C_AllPosts {
-    grid-template-columns: repeat(6, 1fr);
     .O_Post {
-      grid-column: span 3;
-
+      background-color: red;
+      flex: 1 1 calc(33% - 1.5rem);
+      max-width: calc(33% - 1rem);
       .Q_PostWrapper {
-        height: 280px;
+        /* height: 280px; */
       }
     }
   }
@@ -163,10 +145,9 @@
 
 @media all and (max-width: 768px) {
   .C_AllPosts {
-    grid-template-columns: repeat(4, 1fr);
-
     .O_Post {
-      grid-column: span 4;
+      flex: 1 1 calc(50% - 1.5rem);
+      max-width: calc(50% - 1rem);
     }
   }
 

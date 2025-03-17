@@ -111,8 +111,8 @@ end
 def seed
   reset_db
   create_users(15)
-  create_posts(72)
-  create_comments(2..4)
+  create_posts(120)
+  create_comments(2..6)
   create_collections(24)
 end
 
@@ -197,8 +197,8 @@ end
 # Creating posts-----------------------------------------
 def create_posts(quantity)
   quantity.times do
-    users = User.all.to_a # Получаем всех существующих пользователей
-    max_likes_per_post = users.size # Максимум лайков = количество пользователей
+    users = User.all.to_a
+    max_likes_per_post = users.size
     user = users.sample
 
     post = Post.create!(
@@ -215,7 +215,6 @@ def create_posts(quantity)
     )
 
     likes_count = rand(0..max_likes_per_post)
-    # Выбираем уникальных пользователей для лайков
     liking_users = users.sample(likes_count).uniq
 
     liking_users.each do |liker|
@@ -288,7 +287,7 @@ def create_collections(quantity)
     else
       puts "Not enough posts"
     end
-    collection.tag_list = @tags.sample(rand(2..3))
+    collection.tag_list = @tags.sample(rand(3..4))
     collection.category_list =  @categories.sample.downcase
     collection.save!
   end
@@ -298,10 +297,10 @@ end
 def add_posts_to_collection(collection)
   user_posts = Post.where(user: collection.user)
   return false if user_posts.empty? || user_posts.count < 2
-  post_count = rand(2..[ user_posts.count, 8 ].min)
+  post_count = rand(3..[ user_posts.count, 8 ].min)
   posts_to_add = user_posts.sample(post_count)
 
-  if posts_to_add.count < 2
+  if posts_to_add.count < 3
     return false
   end
 

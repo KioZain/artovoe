@@ -1,29 +1,34 @@
 <div class="O_Collection">
-  <div class="M_CollectionImages">
-    <% collection_posts = collection.posts.limit(4) %>
-    <% if collection_posts.size >= 2 %>
-      <% collection_posts.each do |post| %>
-        <div><%= image_tag post.post_image.url %></div>
-      <% end %>
-    <% end %>
-  </div>
-  <!-- Tags -->
-  <div class="C_Tags">
-    <% collection.tags.each do |tag| %>
-      <%= link_to tag.name, tagged_collections_path(tag.name), class: "A_Tag" %>
-    <% end %>
-  </div>
-  <div class="M_CollectionDescription">
-    <div class="M_SubText">
-      <%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none" do %>
-        <h4 class="subtitle"><%= collection.title %></h4>
-      <% end %>
-      <% user_email = collection.posts.first&.user&.profile.name %>
-      <% if user_email %>
-        <p class="A_CreatedBy"><%= user_email %></p>
+  <div class="W_CollectionGridAbout">
+    <div class="M_CollectionImages">
+      <% collection_posts = collection.posts.limit(4) %>
+      <% if collection_posts.size >= 3 %>
+        <% collection_posts.each do |post| %>
+          <div class="aspect-<%= post.aspect_ratio.gsub(':', '-') %>"><%= image_tag post.post_image.url %></div>
+        <% end %>
       <% end %>
     </div>
-    <p class="A_ThingsCount">Коллекция: <br>
-      <%= collection.posts.count %> работы.</p>
+    <div class="M_CollectionIndexData">
+      <%= collection.created_at.strftime("%Y") %>
+      <p class="A_CreatedBy"><%= collection.user.profile.name %></p>
+      <%= collection.posts.count %> работы.
+    </div>
+  </div>
+  <!-- Tags -->
+  <div class="W_CollectionIndexAbout">
+    <div class="M_CollectionDescription">
+      <div class="M_CollectionIndexDesc">
+        <h4 class="subtitle"><%= collection.title %></h4>
+        <p><%= collection.body %></p>
+      </div>
+      <div class="C_Tags">
+        <% collection.tags.each do |tag| %>
+          <%= link_to tag.name, tagged_collections_path(tag.name), class: "A_Tag" %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none" do %>
+      <p><u>Посмотреть</u></p>
+    <% end %>
   </div>
 </div>

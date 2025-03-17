@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   get "artists/index"
 
-  # get "like/toggle"
 
   resources :likes, only: [] do
     collection do
       post :toggle
     end
   end
-
 
   devise_for :users
 

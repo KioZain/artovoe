@@ -23,7 +23,7 @@
     <%# Категория %>
     <div class="A_Form">
       <%= f.label :body, "Категория", style: "display: block" %>
-      <%= f.select :category_list, valid_categories, {} %>
+      <%= f.select :category_list, valid_categories, { include_blank: "Выберите категорию" } %>
     </div>
     <div A_Form>
       <%= f.label :post_image,"Изображение", style: "display: block" %>
@@ -77,7 +77,7 @@
       </div class="A_Form">
       <div class="A_Form">
         <%= display_form.label :display_type, "Тип экспозиции" %>
-        <%= display_form.select :display_type, ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"], {}, class: "A_Form" %>
+        <%= display_form.select :display_type, ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"], { include_blank: "Выберите тип выставки" }, class: "A_Form" %>
       </div class="A_Form">
       <div class="A_Form">
         <%= display_form.label :city, "Город" %>

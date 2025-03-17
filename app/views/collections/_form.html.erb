@@ -26,7 +26,7 @@
       </label>
     </div>
   <% end %>
-  <div class="">
+  <div>
     <%= f.label :post_ids, "Ваши посты", class: "posts-label", style: "display: block" %>
     <% @posts = Post.all.order(:title) %>
     <%= f.collection_check_boxes :post_ids, @posts, :id, :title do |b| %>

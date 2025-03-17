@@ -6,6 +6,11 @@
   height: 67px;
   margin-left: 3.3rem;
 }
+/* Links */
+
+a.caption {
+  color: var(--colors-neutral-900);
+}
 
 .A_Avatar {
   width: 4rem;
