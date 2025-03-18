@@ -1,0 +1,43 @@
+<div class="W_SortingFilters" data-controller="sort-dropdown">
+  <!-- Сортировка -->
+  <div class="M_DropDown">
+    <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
+      <span>Сортировать по:</span>
+      <span class="selected-value">
+        <%= @sort == 'likes_count' ? 'популярности' : 
+             @sort == 'created_at' ? 'дате публикации' : 
+             @sort == 'year' ? 'году создания' : 'по умолчанию' %>
+      </span>
+      <span class="Q_Arrow"></span>
+    </button>
+    <div class="M_DropDown-content">
+      <%= link_to "Популярности", 
+                  posts_path(sort: 'likes_count', direction: @direction),
+                  class: "A_DropdownItem #{'active' if @sort == 'likes_count'}" %>
+      <%= link_to "Дате публикации", 
+                  posts_path(sort: 'created_at', direction: @direction),
+                  class: "A_DropdownItem #{'active' if @sort == 'created_at'}" %>
+      <%= link_to "Году создания", 
+                  posts_path(sort: 'year', direction: @direction),
+                  class: "A_DropdownItem #{'active' if @sort == 'year'}" %>
+    </div>
+  </div>
+  <!-- Порядок -->
+  <div class="M_DropDown">
+    <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
+      <span>Порядок:</span>
+      <span class="selected-value">
+        <%= @direction == 'asc' ? 'по возрастанию' : 'по убыванию' %>
+      </span>
+      <span class="Q_Arrow"></span>
+    </button>
+    <div class="M_DropDown-content">
+      <%= link_to "По убыванию", 
+                  posts_path(sort: @sort, direction: 'desc'),
+                  class: "A_DropdownItem #{'active' if @direction == 'desc'}" %>
+      <%= link_to "По возрастанию", 
+                  posts_path(sort: @sort, direction: 'asc'),
+                  class: "A_DropdownItem #{'active' if @direction == 'asc'}" %>
+    </div>
+  </div>
+</div>

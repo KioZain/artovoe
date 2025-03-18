@@ -7,11 +7,7 @@
 %>
 <p style="color: green"><%= notice %></p>
 <div class="M_HeadLinks">
-  <% if params[:collection_id].present? %>
-    <%= link_to "<- Вернуться в коллекцию", collection_path(params[:collection_id]) %>
-  <% else %>
-    <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
-  <% end %>
+  <%= link_to "Все работы", posts_url,class: "A_BackLink" %>
   <div class="M_Options">
     <div class="M_ActionButton">
       <% if can?(:manage, @post) %>

@@ -20,20 +20,25 @@
   position: absolute;
   top: 120%;
   left: 0;
-  background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 1001;
   display: none;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 [data-dropdown-target="content"] a {
   display: block;
+  padding: 1rem;
+  width: 15rem;
   padding: 12px 16px;
   text-decoration: none;
-  color: black;
+  background-color: var(--colors-light-300);
+  color: var(--colors-neutral-900);
 }
 
 [data-dropdown-target="content"] a:hover {
-  background-color: #ddd;
+  background-color: var(--colors-light-400);
 }
+
+/* ---------------------- */

@@ -4,9 +4,23 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
 
-  def index
-    @posts = Post.all.page(params[:page]).per(24)
-  end
+def index
+  puts "--------Before load_and_authorize_resource: #{Post.all.to_sql}----------"
+  @sort = params[:sort] || "created_at"
+  @direction = params[:direction] || "desc"
+
+  puts "Sort: #{@sort}, Direction: #{@direction}"
+
+
+base_posts = if valid_sort? && valid_direction?
+  Post.reorder(@sort => @direction) # Используйте reorder
+else
+  Post.reorder(created_at: :desc)
+end
+
+  @posts = base_posts.page(params[:page]).per(24)
+  puts "SQL: #{@posts.to_sql}"
+end
 
   def by_tag
     @posts = Post.tagged_with(params[:tag])
@@ -62,6 +76,14 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def valid_sort?
+    %w[likes_count created_at year].include?(@sort)
+  end
+
+  def valid_direction?
+    %w[asc desc].include?(@direction)
+  end
 
   def set_post
     @post = Post.find(params[:id])

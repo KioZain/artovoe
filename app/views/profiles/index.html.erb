@@ -4,9 +4,6 @@
     description: "Самые классные и интересные авторы нашего медиа",
   )
 %>
-<div style="margin-bottom: 3rem;"  class="M_HeadingArt Q_CollectionWorks"">
-  <h1 class="sand">Художники</h1>
-</div>
 <p style="color: green"><%= notice %></p>
 <div class="C_ProfilesArtists">
   <% @profiles.select { |profile| @profile_post_counts[profile.user_id].to_i >= 4 }.each do |profile| %>

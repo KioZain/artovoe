@@ -139,6 +139,30 @@
   flex-direction: column;
   gap: 1rem;
 }
+/* Header */
+.С_LinksNavigation {
+  display: flex;
+  max-width: var(--max-desktop);
+  margin: 0 auto;
+  .A_MenuLinkGIant {
+    flex: 1;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--colors-neutral-400);
+    text-decoration: none;
+    color: var(--colors-neutral-400);
+    background-color: var(--light-colors-100);
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    margin-left: -1px;
 
+    &:hover {
+      background-color: var(--sun-yellow);
+      border-radius: 600rem;
+    }
+  }
+}
 /* Profile */
 /* Общие стили для блоков в профиле */

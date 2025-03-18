@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   get "static_pages/home", to: "static_pages#home"
   get "static_pages/output"
+  get "search", to: "search#index", as: "search"
   get "/about", to: "static_pages#about"
 
   get "up" => "rails/health#show", as: :rails_health_check

@@ -89,8 +89,9 @@
 }
 
 .M_HeadLinks {
-  width: var(--width-container);
   display: flex;
+  max-width: var(--max-desktop);
+  padding: var(--calc-padding);
   justify-content: space-between;
   margin: 2rem auto;
 
@@ -107,6 +108,7 @@
   .M_ActionButton {
     display: flex;
     gap: 1rem;
+    align-items: center;
     .A_Edit {
       height: 2rem;
       text-align: center;
@@ -184,4 +186,26 @@
     text-decoration: none;
     color: var(--almost-black);
   }
+}
+/* DropDown */
+.M_DropDown {
+  position: relative;
+  display: inline-block;
+}
+.M_DropDown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--colors-light-300);
+  border-radius: 4px;
+  z-index: 1000;
+  width: 200px;
+  margin-top: 0.5rem;
+  right: 0;
+}
+.M_DropDown.active .M_DropDown-content {
+  display: block;
+}
+
+.M_DropDown.active .Q_Arrow {
+  transform: scale(-1, -1);
 }

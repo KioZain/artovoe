@@ -26,6 +26,12 @@
   --colors-neutral-800: #2e3538;
   --colors-neutral-900: #171a1c;
 
+  /* Max-width */
+  --max-desktop: 1620px;
+
+  /* CalcPaddingGrid */
+  --calc-padding: clamp(2rem, 6vw, 6rem);
+
   /* SharpPoins */
   --sharp: 77.5%;
   /* ContainerSizes */

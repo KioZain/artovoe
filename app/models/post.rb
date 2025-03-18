@@ -2,8 +2,16 @@ class Post < ApplicationRecord
   TAGS = [ "cюрреализм", "нежность", "онтология", "природа", "повседневность", "философия", "жизнь", "шляпа", "семантика" ]
   CATEGORIES = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия" ]
 
+  # массив хешей
+  # path и name
+  # сюрреализм - name
+  # sur - path
+  #
+
+
   validates :title, presence: true
   validates :post_image, presence: true
+  validates :category_list, presence: true
 
   # Associations-------------------------------
 

@@ -1,27 +1,37 @@
-<header class="S_Header">
+<header class="S_Header" data-controller="search">
   <div class="O_HeaderMenu">
     <%= link_to root_path do %>
       <div class="A_Logo"></div>
     <% end%>
-    <%# Admin link %>
-    <div class="M_LinksInner">
-      <div class="W_NavLinks">
-        <%= link_to "Работы", posts_url,class: "nav_link" %>
-        <%= link_to "Коллекции", collections_path,class: "nav_link" %>
-        <%= link_to "Художники", profiles_path,class: "nav_link" %>
+    <%= form_with url: search_path, method: :get do |form| %>
+      <%= form.text_field :query, 
+        placeholder: "Поиск", 
+        class: "M_MenuSearch",
+        data: { action: "focus->search#showModal" } %>
+    <% end %>
+    <div class="search-modal" data-search-target="modal">
+      <div class="W_NavigationContent">
+        <%= button_tag "×", type: :button, class: "A_CloseMenu", 
+          data: { action: "click->search#hideModal" } %>
+        <div class="С_LinksNavigation">
+          <%= link_to "Работы", posts_url,class: "A_MenuLinkGIant" %>
+          <%= link_to "Коллекции", collections_path,class: "A_MenuLinkGIant" %>
+          <%= link_to "Художники", profiles_path,class: "A_MenuLinkGIant" %>
+          <%= link_to "О нас", profiles_path,class: "A_MenuLinkGIant" %>
+        </div>
+        <nav class="C_Links">
+          <% if user_signed_in? %>
+            <%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete }%>
+          <% else %>
+          <% end %>
+        </nav>
       </div>
-      <nav class="C_Links">
-        <% if user_signed_in? %>
-          <%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete }%>
-        <% else %>
-        <% end %>
-      </nav>
     </div>
     <% if current_user%>
       <div class="W_UserOptions">
         <div data-controller="dropdown" class="dropdown"
      data-action="mouseenter->dropdown#mouseEnter mouseleave->dropdown#mouseLeave">
-          <div class="A_Button" data-action="mouseenter->dropdown#show">Создать</div>
+          <div class="A_Button medium" data-action="mouseenter->dropdown#show">Создать</div>
           <div data-dropdown-target="content" style="display: none;">
             <%= link_to "Работу", new_post_path,style: "text-decoration: none"; %>
             <%= link_to "Коллекцию", new_collection_path,style: "text-decoration: none"; %>

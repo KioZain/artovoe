@@ -33,6 +33,14 @@
   color: #666;
 }
 
+input,
+form {
+  /* height: 52px; */
+  font-family: "Kommuna-regular";
+  padding: 1rem 0.5rem;
+  /* background: var(--light-colors-); */
+}
+
 /* ------------------------------------ */
 body {
   font-family: "Kommuna-regular";
