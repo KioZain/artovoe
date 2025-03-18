@@ -10,7 +10,9 @@
     </div>
     <div class="M_CollectionIndexData">
       <%= collection.created_at.strftime("%Y") %>
-      <p class="A_CreatedBy"><%= collection.user.profile.name %></p>
+      <%= link_to profile_path(collection.user.profile) do %>
+        <p class="A_CreatedBy"><%= collection.user.profile.name %></p>
+      <% end %>
       <%= collection.posts.count %> работы.
     </div>
   </div>

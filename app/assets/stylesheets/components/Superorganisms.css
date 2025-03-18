@@ -10,6 +10,8 @@
 }
 .S_FiltersPosts {
   width: 100%;
+  max-width: var(--max-desktop);
+  padding: var(--calc-padding);
   margin: 0 auto;
   margin-top: 1.5rem;
   row-gap: 3rem;

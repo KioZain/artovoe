@@ -85,7 +85,7 @@
   }
 }
 .O_Collection {
-  padding: 10rem 4rem;
+  padding: 10rem 0;
   border-bottom: 1px solid var(--colors-neutral-300);
   display: flex;
   gap: 2rem;

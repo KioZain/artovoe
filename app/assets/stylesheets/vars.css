@@ -27,7 +27,7 @@
   --colors-neutral-900: #171a1c;
 
   /* Max-width */
-  --max-desktop: 1620px;
+  --max-desktop: 1728px;
 
   /* CalcPaddingGrid */
   --calc-padding: clamp(2rem, 6vw, 6rem);
