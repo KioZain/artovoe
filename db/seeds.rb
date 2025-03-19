@@ -54,7 +54,10 @@
     "bio": "A senior at the China International Art University, Xhou has become well-known for his miniature sculptures, often the size of a rice granule, that are displayed by rear projection of microscope images on canvas. Xhou will discuss the art and science behind his incredibly detailed works of art."
   }
 ]
-@tags = [ "cюрреализм", "нежность", "онтология", "природа", "повседневность", "философия", "жизнь", "шляпа", "семантика" ]
+MATERIAL_TAGS = %w[масло холст дерево металл глина акрил].freeze
+MOOD_TAGS = %w[меланхолия эйфория ностальгия тревога вдохновение].freeze
+GENRE_TAGS = %w[абстракция реализм кубизм сюрреализм поп-арт].freeze
+THEME_TAGS = %w[природа война любовь космос экзистенциализм].freeze
 
 @price = [ 10000, 500, 200, 2200, 3200, 4200, 6200 ]
 @categories = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия" ]
@@ -225,8 +228,11 @@ def create_posts(quantity)
     end
 
 
-    # post.category_list = [ @categories.sample ]
-    post.tag_list = @tags.sample(rand(2..3))
+     # post.category_list = [ @categories.sample ]
+     post.material_list = MATERIAL_TAGS.sample(rand(1..3))
+    post.mood_list = MOOD_TAGS.sample(rand(1..3))
+    post.genre_list = GENRE_TAGS.sample(rand(1..3))
+    post.theme_list = THEME_TAGS.sample(rand(1..3))
     post.category_list =  @categories.sample.downcase
     post.save!
 
@@ -287,8 +293,8 @@ def create_collections(quantity)
     else
       puts "Not enough posts"
     end
-    collection.tag_list = @tags.sample(rand(3..4))
-    collection.category_list =  @categories.sample.downcase
+    # collection.tag_list = @tags.sample(rand(3..4))
+    # collection.category_list =  @categories.sample.downcase
     collection.save!
   end
 end
@@ -297,10 +303,10 @@ end
 def add_posts_to_collection(collection)
   user_posts = Post.where(user: collection.user)
   return false if user_posts.empty? || user_posts.count < 2
-  post_count = rand(3..[ user_posts.count, 8 ].min)
+  post_count = rand(2..[ user_posts.count, 8 ].min)
   posts_to_add = user_posts.sample(post_count)
 
-  if posts_to_add.count < 3
+  if posts_to_add.count < 2
     return false
   end
 

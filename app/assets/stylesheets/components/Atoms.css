@@ -47,6 +47,32 @@ a.caption {
     }
   }
 }
+/* Tag */
+.A_Tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 28px;
+  /* background-color: var(--colors-light-200); */
+  font-family: "Geist";
+  border-radius: 4px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--colors-neutral-900);
+  border: 1px solid var(--colors-neutral-300);
+  text-transform: uppercase;
+
+  &:hover {
+    background: #e0e0e0;
+  }
+
+  &.selected {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+}
 .A_Button {
   background-image: url("/assets/buttons/A_ButtonSmall.svg");
   background-size: cover;

@@ -27,9 +27,13 @@
     <div class="W_PostShowHead">
       <p><%= @post.category_list %></p>
       <h1><%= @post.title %></h1>
+      <%# tags %>
       <div class="C_Tags">
-        <% @post.tags.each do |tag| %>
-          <%= link_to tag.name, tagged_posts_path(tag.name), class: "A_Tag" %>
+        <% all_tags = @post.material_list + @post.mood_list + @post.genre_list + @post.theme_list %>
+        <% unless all_tags.empty? %>
+          <% all_tags.each do |tag| %>
+            <%= link_to tag, tagged_posts_path(tag), class: "A_Tag" %>
+          <% end %>
         <% end %>
       </div>
     </div>

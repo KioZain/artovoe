@@ -11,11 +11,12 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :post_image, presence: true
-  validates :category_list, presence: true
+  # validates :category_list, presence: true
 
   # Associations-------------------------------
 
   has_many :likes, as: :likable
+
 
   def update_likes_count
     update(likes_count: likes.count)
@@ -30,7 +31,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   acts_as_taggable_on :tags
-  acts_as_taggable_on :categories
+  acts_as_taggable_on :categories, :materials, :moods, :genres, :themes
 
   # ImagesUploader----------------------------
   mount_uploader :post_image, PostImageUploader

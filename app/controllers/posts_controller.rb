@@ -35,7 +35,7 @@ end
   # POST /posts
   def create
     @post = current_user.posts.new(post_params)
-
+    puts "Параметры тегов: #{@post.material_list.inspect}"
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Пост успешно создан" }
@@ -49,7 +49,7 @@ end
 
   # GET /posts/1/edit
   def edit
-    @posts = Post.all # Если это нужно для какого-то функционала
+    @posts = Post.all
   end
 
   # PATCH/PUT /posts/1
@@ -93,7 +93,7 @@ end
     params.require(:post).permit(
       :title, :body, :author, :post_image, :price, :city, :amount, :category_list, :year,
       displays_attributes: [ :id, :name, :year, :display_type, :city, :_destroy ],
-      tag_list: []
+      tag_list: [], material_list: [], mood_list: [], genre_list: [], theme_list: []
     )
   end
 end
