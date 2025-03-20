@@ -9,12 +9,14 @@
     <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
+      data-tag-context="materials"
       data-tag-selector-target="tag">
       <%= tag.name %>
     </div>
   <% end %>
-  <%= hidden_field_tag 'post[material_list]', '[]', 
-                      data: { tag_selector_target: 'hiddenInput' } %>
+  <%= hidden_field_tag 'post[material_list][]', nil, 
+                    multiple: true, 
+                    data: { tag_selector_target: 'hiddenInput' } %>
 </div>
 <%# mood %>
 <h4>Настроение</h4>
@@ -27,12 +29,14 @@
     <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
+      data-tag-context="moods"
       data-tag-selector-target="tag">
       <%= tag.name %>
     </div>
   <% end %>
-  <%= hidden_field_tag 'post[mood_list]', '[]', 
-                      data: { tag_selector_target: 'hiddenInput' } %>
+  <%= hidden_field_tag 'post[mood_list][]', nil, 
+                    multiple: true, 
+                    data: { tag_selector_target: 'hiddenInput' } %>
 </div>
 <%# genre %>
 <h4>Жанр</h4>
@@ -45,12 +49,14 @@
     <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
+      data-tag-context="genres"
       data-tag-selector-target="tag">
       <%= tag.name %>
     </div>
   <% end %>
-  <%= hidden_field_tag 'post[genre_list]', '[]', 
-                      data: { tag_selector_target: 'hiddenInput' } %>
+  <%= hidden_field_tag 'post[genre_list][]', nil, 
+                    multiple: true, 
+                    data: { tag_selector_target: 'hiddenInput' } %>
 </div>
 <%# themeees %>
 <h4>Тема</h4>
@@ -62,11 +68,13 @@
   <% Post.tag_counts_on(:themes).each do |tag| %>
     <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
+         data-tag-context="themes"
          data-action="click->tag-selector#toggleTag"
       data-tag-selector-target="tag">
       <%= tag.name %>
     </div>
   <% end %>
-  <%= hidden_field_tag 'post[theme_list]', '[]', 
-                      data: { tag_selector_target: 'hiddenInput' } %>
+  <%= hidden_field_tag 'post[theme_list][]', nil, 
+                    multiple: true, 
+                    data: { tag_selector_target: 'hiddenInput' } %>
 </div>

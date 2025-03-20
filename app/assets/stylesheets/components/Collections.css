@@ -15,10 +15,24 @@
   gap: 0.5rem;
   position: relative;
 }
+.C_FilterTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  .A_Tag {
+    background: var(--colors-light-300);
+  }
+}
 .C_TagsForm {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  background-color: var(--colors-light-50);
+  padding: 1rem;
+
+  .A_Tag {
+    background: var(--colors-light-300);
+  }
 }
 
 .Navigation {

@@ -1,0 +1,30 @@
+<div class="C_Tags">
+  <%# materials %>
+  <% @post.material_list.each do |tag| %>
+    <%= link_to tag, 
+                tagged_posts_path(tag, context: 'materials'), 
+                class: "A_Tag", 
+                data: { tag_context: 'materials' } %>
+  <% end %>
+  <%# moods %>
+  <% @post.mood_list.each do |tag| %>
+    <%= link_to tag, 
+                tagged_posts_path(tag, context: 'moods'), 
+                class: "A_Tag", 
+                data: { tag_context: 'moods' } %>
+  <% end %>
+  <%# themes %>
+  <% @post.theme_list.each do |tag| %>
+    <%= link_to tag, 
+                tagged_posts_path(tag, context: 'themes'), 
+                class: "A_Tag", 
+                data: { tag_context: 'themes' } %>
+  <% end %>
+  <%# genres %>
+  <% @post.genre_list.each do |tag| %>
+    <%= link_to tag, 
+                tagged_posts_path(tag, context: 'genres'), 
+                class: "A_Tag", 
+                data: { tag_context: 'genres' } %>
+  <% end %>
+</div>

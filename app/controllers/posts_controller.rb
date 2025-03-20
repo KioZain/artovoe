@@ -5,22 +5,34 @@ class PostsController < ApplicationController
 
 
 def index
-  puts "--------Before load_and_authorize_resource: #{Post.all.to_sql}----------"
-  @sort = params[:sort] || "created_at"
-  @direction = params[:direction] || "desc"
+    @sort = params[:sort] || "created_at"
+    @direction = params[:direction] || "desc"
 
-  puts "Sort: #{@sort}, Direction: #{@direction}"
+    permitted_params = params.permit(materials: [], moods: [], genres: [], themes: [], sort: {}, direction: {}, page: {})
 
+    base_posts = Post.all
 
-base_posts = if valid_sort? && valid_direction?
-  Post.reorder(@sort => @direction) # Используйте reorder
-else
-  Post.reorder(created_at: :desc)
-end
+    %i[materials moods genres themes].each do |context|
+      if permitted_params[context].present?
+        if permitted_params[context].all? { |tag| valid_tag?(context, tag) }
+          Rails.logger.info("Filtering by #{context}: #{permitted_params[context].join(', ')}")
+          base_posts = base_posts.tagged_with(permitted_params[context], on: context, any: false) # `any: false` означает "все теги"
+        else
+        end
+      end
+    end
 
-  @posts = base_posts.page(params[:page]).per(24)
-  puts "SQL: #{@posts.to_sql}"
-end
+    # Сортировка
+    base_posts = if valid_sort? && valid_direction?
+      base_posts.reorder(@sort => @direction)
+    else
+      base_posts.reorder(created_at: :desc)
+    end
+
+    @posts = base_posts.page(params[:page]).per(24)
+
+    Rails.logger.info("Filtered posts count: #{@posts.total_count}")
+  end
 
   def by_tag
     @posts = Post.tagged_with(params[:tag])
@@ -35,7 +47,7 @@ end
   # POST /posts
   def create
     @post = current_user.posts.new(post_params)
-    puts "Параметры тегов: #{@post.material_list.inspect}"
+     puts "--------------Material list-----------------: #{@post.material_list.inspect}"
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Пост успешно создан" }
@@ -77,6 +89,17 @@ end
 
   private
 
+  def valid_tag?(context, tag)
+    case context
+    when :materials then MATERIAL_TAGS.include?(tag)
+    when :moods     then MOOD_TAGS.include?(tag)
+    when :genres    then GENRE_TAGS.include?(tag)
+    when :themes    then THEME_TAGS.include?(tag)
+    else
+      false
+    end
+  end
+
   def valid_sort?
     %w[likes_count created_at year].include?(@sort)
   end
@@ -92,8 +115,11 @@ end
   def post_params
     params.require(:post).permit(
       :title, :body, :author, :post_image, :price, :city, :amount, :category_list, :year,
-      displays_attributes: [ :id, :name, :year, :display_type, :city, :_destroy ],
-      tag_list: [], material_list: [], mood_list: [], genre_list: [], theme_list: []
+      displays_attributes: [ :id, :name, :year, :display_type, :city, :_destroy ], tag_list: [],
+      material_list: [],
+      mood_list: [],
+      genre_list: [],
+      theme_list: []
     )
   end
 end

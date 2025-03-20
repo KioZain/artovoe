@@ -54,10 +54,7 @@
     "bio": "A senior at the China International Art University, Xhou has become well-known for his miniature sculptures, often the size of a rice granule, that are displayed by rear projection of microscope images on canvas. Xhou will discuss the art and science behind his incredibly detailed works of art."
   }
 ]
-MATERIAL_TAGS = %w[масло холст дерево металл глина акрил].freeze
-MOOD_TAGS = %w[меланхолия эйфория ностальгия тревога вдохновение].freeze
-GENRE_TAGS = %w[абстракция реализм кубизм сюрреализм поп-арт].freeze
-THEME_TAGS = %w[природа война любовь космос экзистенциализм].freeze
+
 
 @price = [ 10000, 500, 200, 2200, 3200, 4200, 6200 ]
 @categories = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия" ]
@@ -228,12 +225,12 @@ def create_posts(quantity)
     end
 
 
-     # post.category_list = [ @categories.sample ]
-     post.material_list = MATERIAL_TAGS.sample(rand(1..3))
+      # post.category_list = [ @categories.sample ]
+      post.material_list = MATERIAL_TAGS.sample(rand(1..3))
     post.mood_list = MOOD_TAGS.sample(rand(1..3))
     post.genre_list = GENRE_TAGS.sample(rand(1..3))
     post.theme_list = THEME_TAGS.sample(rand(1..3))
-    post.category_list =  @categories.sample.downcase
+    post.category_list = @categories.sample.downcase
     post.save!
 
     post.post_image = upload_random_image
@@ -247,7 +244,7 @@ def create_posts(quantity)
     )
 
 
-    puts "Post with id #{post.id}, user id:#{user.id}, tags: #{post.tag_list}, displays: #{post.displays.count}, likes_count:#{post.likes_count} just created"
+    puts "Post with id #{post.id}, user id:#{user.id}, tags: #{post.material_list}, displays: #{post.displays.count}, likes_count:#{post.likes_count} just created"
   end
 end
 

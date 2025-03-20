@@ -17,7 +17,8 @@ class Api::V1::SessionsController < Devise::SessionsController
       render json: {
         messages: "Signed In Successfully",
         is_success: true,
-        jwt: encrypt_payload
+        jwt: encrypt_payload,
+        profile_id: @user.profile&.id
         },
         status: :ok
      else

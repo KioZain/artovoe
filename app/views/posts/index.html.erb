@@ -1,37 +1,39 @@
 <% title "Работы художников" %>
 <p style="color: green"><%= notice %></p>
-<div class="S_FiltersPosts">
-  <div class="W_TypesOfContent">
-    <%= link_to "Работы", posts_url, class: "A_TypeOfContent" %>
-    <%= link_to "Коллекции",collections_path, class: "A_TypeOfContent" %>
-  </div>
-  <div class="O_Filter">
-    <div class="W_CategoriesFilter">
-      <p>Категории</p>
-      <div class="C_Categoires">
-        <%= link_to "все", posts_path, class:"A_Tag",id:"CategoryTag" %>
-        <% Post.tag_counts_on(:categories).each do |tag| %>
-          <%= link_to tag.name, tagged_posts_path(tag.name), class:"A_Tag",id:"CategoryTag" %>
-        <% end %>
+<!-- Основной фрейм для фильтров и постов -->
+<%= turbo_frame_tag "posts_with_filters" do %>
+  <div class="S_Filter">
+    <div class="O_FilterTopBar">
+      <div class="M_FilterChosen">
+        <!-- Контроллер прикреплен к этому элементу -->
+        <div class="A_FiltersDropdown" 
+           data-controller="filter-dropdown" 
+           data-action="click->filter-dropdown#toggle">
+          <h2>Фильтры</h2>
+          <%= image_tag "icons/Q_IconArrowDown.svg", class: "icon-arrow" %>
+          <!-- Целевой элемент теперь внутри контроллера -->
+          <div class="O_FilterCategoryTags" 
+             data-filter-dropdown-target="content"
+             style="max-height: 0;">
+            <%= render 'tags/tags_filter' %>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="W_TagsFilter">
-      <p>Теги</p>
-      <div class="C_Tags Navigation">
-        <% Post.tag_counts_on(:tags).each do |tag| %>
-          <%= link_to tag.name, tagged_posts_path(tag.name), class:"A_Tag" %>
-        <% end %>
-      </div>
+      <!-- ... -->
     </div>
   </div>
-  <div data-controller="sort-dropdown">
-    <%= render 'sort_form' %>
+  <%# -------------------------------------------------- %>
+  <div class="C_AllPosts">
+    <% @posts.each do |post| %>
+      <div class="O_Post"><%= render 'posts/post', post: post %></div>
+    <% end %>
   </div>
-</div>
-<%# Render %>
-<div class="C_AllPosts">
-  <% @posts.each do |post| %>
-    <div class="O_Post"><%= render 'posts/post', post: post %></div>
-  <% end %>
-</div>
-<%# paginate @posts %>
+  <%= paginate @posts %>
+<% end %>
+<%# <p>Категории</p> %>
+<%# <div class="C_Categoires"> %>
+<%# link_to "все", posts_path, class: "A_Tag", id: "CategoryTag" %>
+<%# Post.tag_counts_on(:categories).each do |tag| %>
+  <%# link_to tag.name, tagged_posts_path(tag.name), class: "A_Tag", id: "CategoryTag" %>
+  <%# end %>
+  <%# </div> %>

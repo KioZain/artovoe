@@ -130,6 +130,23 @@
     letter-spacing: 1px;
   }
 }
+.O_FilterTopBar {
+  display: flex;
+  justify-content: space-between;
+}
+.O_FilterCategoryTags {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  gap: 1.5rem;
+
+  &.expanded {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
 /* Display */
 .O_Display {
   display: flex;

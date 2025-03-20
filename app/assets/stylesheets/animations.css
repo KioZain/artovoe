@@ -57,3 +57,9 @@ body.search-modal-open {
     opacity: 1;
   }
 }
+
+turbo-frame[busy] {
+  opacity: 0.6;
+  cursor: progress;
+  position: relative;
+}

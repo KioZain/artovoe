@@ -10,8 +10,8 @@ def set_profile
   @profile = Profile.includes(
     user: [
       :posts,
-      :collections,
-      { posts: :tags }
+      :collections
+      # { posts: :tags }
     ]
   ).find(params[:id])
 end

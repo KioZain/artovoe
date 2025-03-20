@@ -60,17 +60,39 @@ a.caption {
   font-size: 13px;
   text-decoration: none;
   color: var(--colors-neutral-900);
-  border: 1px solid var(--colors-neutral-300);
   text-transform: uppercase;
 
+  &[data-tag-context="materials"] {
+    background: #ff94d3;
+  }
+  &[data-tag-context="moods"] {
+    background: #6bb5ff;
+  }
+  &[data-tag-context="genres"] {
+    background: #f7d803;
+  }
+  &[data-tag-context="themes"] {
+    background: #2ddc63;
+  }
+
   &:hover {
-    background: #e0e0e0;
+    cursor: pointer;
+    opacity: 90%;
   }
 
   &.selected {
-    background: #4caf50;
-    color: white;
-    font-weight: bold;
+    &[data-tag-context="materials"] {
+      background: #ff94d3;
+    }
+    &[data-tag-context="moods"] {
+      background: #6bb5ff;
+    }
+    &[data-tag-context="genres"] {
+      background: #f7d803;
+    }
+    &[data-tag-context="themes"] {
+      background: #2ddc63;
+    }
   }
 }
 .A_Button {
@@ -275,4 +297,10 @@ input.A_Button {
   background-image: url("icons/Q_Check.svg");
   background-repeat: no-repeat;
   background-position: 94%;
+}
+
+.A_FiltersDropdown {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
 }

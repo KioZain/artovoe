@@ -5,14 +5,14 @@ export default class extends Controller {
   static values = { context: String }
 
   connect() {
-    console.log("Контроллер tag-selector подключен для контекста:", this.contextValue)
+    console.log("Connected:", this.contextValue)
     this.selectedTags = []
     this.updateSelectedTagsUI()
   }
 
   toggleTag(event) {
     const tagName = event.currentTarget.dataset.tagName
-    console.log("Кликнут тег:", tagName)
+    console.log("clicked:", tagName)
 
     if (this.selectedTags.includes(tagName)) {
       this.selectedTags = this.selectedTags.filter(t => t !== tagName)
@@ -20,15 +20,24 @@ export default class extends Controller {
       this.selectedTags.push(tagName)
     }
 
-    console.log("Выбранные теги:", this.selectedTags)
+    console.log("tags:", this.selectedTags)
     this.updateHiddenInput()
     this.updateSelectedTagsUI()
   }
 
   updateHiddenInput() {
-    this.hiddenInputTarget.value = JSON.stringify(this.selectedTags)
-    console.log("Скрытое поле обновлено:", this.hiddenInputTarget.value)
+  while (this.hiddenInputTarget.firstChild) {
+    this.hiddenInputTarget.removeChild(this.hiddenInputTarget.firstChild)
   }
+
+  this.selectedTags.forEach(tag => {
+    const input = document.createElement('input')
+    input.type = 'hidden'
+    input.name = this.hiddenInputTarget.name
+    input.value = tag
+    this.hiddenInputTarget.appendChild(input)
+  })
+}
 
   updateSelectedTagsUI() {
     this.tagTargets.forEach(tagElement => {

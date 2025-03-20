@@ -1,8 +1,10 @@
 <%
+  all_tags = @post.material_list + @post.mood_list + @post.genre_list + @post.theme_list 
+
   set_meta_tags(
     title: @post.title,
     description: @post.body,
-    keywords: @post.tag_list
+    keywords: all_tags
   )
 %>
 <p style="color: green"><%= notice %></p>
@@ -28,14 +30,7 @@
       <p><%= @post.category_list %></p>
       <h1><%= @post.title %></h1>
       <%# tags %>
-      <div class="C_Tags">
-        <% all_tags = @post.material_list + @post.mood_list + @post.genre_list + @post.theme_list %>
-        <% unless all_tags.empty? %>
-          <% all_tags.each do |tag| %>
-            <%= link_to tag, tagged_posts_path(tag), class: "A_Tag" %>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render 'tags/taglist' %>
     </div>
     <p class="A_ShowDescription"><%= @post.body%></p>
     <div class="M_ProfileTimeCreated">

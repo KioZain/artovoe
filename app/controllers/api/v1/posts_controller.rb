@@ -59,7 +59,7 @@ class Api::V1::PostsController < ApplicationController
    def post_params
       params.require(:post).permit(
         :title, :body, :author, :post_image,  :price, :city, :amount, :category_list, :year,
-        displays_attributes: [ :name, :year, :display_type, :link, :city ], tag_list: []
+        displays_attributes: [ :name, :year, :display_type, :link, :city ], tag_list: [],
       )
     end
 

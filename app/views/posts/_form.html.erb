@@ -30,16 +30,7 @@
       <%= f.file_field :post_image %>
     </div>
   </div>
-  <%# Теги %>
-  <%= f.label :price,"Теги", style: "display: block" %>
-  <%= f.collection_check_boxes(:tag_list, valid_tags, :to_s, :to_s) do |b| %>
-    <div class="form-check">
-      <label class="form-check-label">
-        <%= b.check_box class: 'form-check-input' %>
-        <%= b.text %>
-      </label>
-    </div>
-  <% end %>
+  <%# Tags %>
   <%= render 'tags/tag_selector' %>
   <%# Город %>
   <div class="W_OptionalForms">
