@@ -11,13 +11,12 @@
 .S_Filter {
   width: 100%;
   max-width: var(--max-desktop);
-  padding: var(--calc-padding);
+  padding: 2rem 0rem 2rem 0rem;
   margin: 0 auto;
-  margin-top: 1.5rem;
-  row-gap: 3rem;
-  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  border-top: 1px solid var(--colors-neutral-300);
+  border-bottom: 1px solid var(--colors-neutral-300);
 
   .W_CategoriesFilter {
     width: 45%;

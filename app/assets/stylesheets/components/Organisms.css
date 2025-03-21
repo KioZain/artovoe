@@ -138,11 +138,13 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition: all 0.3s ease;
+  max-height: 0;
   opacity: 0;
   gap: 1.5rem;
 
   &.expanded {
+    margin-top: 2rem;
     max-height: 500px;
     opacity: 1;
   }

@@ -22,7 +22,7 @@ def index
       end
     end
 
-    # Сортировка
+    # sort
     base_posts = if valid_sort? && valid_direction?
       base_posts.reorder(@sort => @direction)
     else
@@ -30,8 +30,6 @@ def index
     end
 
     @posts = base_posts.page(params[:page]).per(24)
-
-    Rails.logger.info("Filtered posts count: #{@posts.total_count}")
   end
 
   def by_tag

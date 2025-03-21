@@ -303,4 +303,5 @@ input.A_Button {
   display: flex;
   gap: 1rem;
   cursor: pointer;
+  user-select: none;
 }

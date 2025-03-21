@@ -191,6 +191,7 @@
 .M_DropDown {
   position: relative;
   display: inline-block;
+  margin-top: auto;
 }
 .M_DropDown-content {
   display: none;

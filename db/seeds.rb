@@ -118,7 +118,7 @@ end
 
 
 def upload_random_avatar
-  uploader = AvatarUploader.new(Profile.new, :avatar) # Используем загрузчик для аватаров
+  uploader = AvatarUploader.new(Profile.new, :avatar)
   uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/uploads/avatars', '*')).sample))
   uploader
 end
@@ -137,7 +137,7 @@ def create_users(quantity)
       user_data[:admin] = true
     end
     user = User.create!(user_data)
-    puts "User created with id #{user.id}"
+      puts "User created with id #{user.id}"
      puts "User created with JTI #{user.jti}"
 
      profile_data = {
@@ -148,7 +148,6 @@ def create_users(quantity)
       avatar: upload_random_avatar
     }
 
-    # Создание профиля для пользователя
     user.create_profile!(profile_data)
     puts "Profile created for user with id #{user.id}: #{profile_data[:name]}"
 

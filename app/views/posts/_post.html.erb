@@ -1,5 +1,5 @@
 <!-- Image -->
-<%= link_to post_path(post), class: "Q_PostImageLink" do %>
+<%= link_to post_path(post), class: "Q_PostImageLink",data: { turbo_frame: "_top" } do %>
   <div class="Q_PostWrapper aspect-<%= post.aspect_ratio.gsub(':', '-') %>">
     <%= image_tag post.post_image.url, class: "Q_PostImage" %>
   </div>
