@@ -95,6 +95,65 @@ a.caption {
     }
   }
 }
+
+/* Post */
+.A_CreatorPost {
+  display: flex;
+  width: fit-content;
+  padding: 4px 0.5rem;
+  cursor: pointer;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--colors-neutral-900);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    p {
+      color: var(--colors-neutral-600);
+    }
+  }
+}
+
+/* PostShow */
+.A_NavigationPost {
+  flex: 1;
+}
+
+.A_ImageContainer {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ArrowsSwitcher */
+.A_ArrowSwitcher {
+  width: 80px;
+  height: 50px;
+
+  &.left {
+    background-image: url("icons/A_ArrowForward.svg");
+    transform: rotate(180deg);
+  }
+  &.right {
+    background-image: url("icons/A_ArrowForward.svg");
+  }
+
+  &:hover {
+    opacity: 60%;
+    transition: 0.3s all;
+    cursor: pointer;
+  }
+}
+
+/* Buttons */
 .A_Button {
   background-image: url("/assets/buttons/A_ButtonSmall.svg");
   background-size: cover;
@@ -174,6 +233,28 @@ input.A_Button {
     transform: scale(1.2);
   }
 }
+
+.A_SaveButton {
+  width: 120px;
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colors-light-300);
+  border-radius: 8px;
+  border: none;
+  font-family: "Kommuna-regular";
+  height: 2.5rem;
+
+  .saved {
+    background-color: var(--colors-neutral-900);
+    color: var(--colors-neutral-50);
+  }
+  &:hover {
+    background-color: var(--colors-light-400);
+  }
+}
+
 /* TabsProfile */
 .A_TabButton {
   padding: 0.5rem 1rem;

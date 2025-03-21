@@ -60,42 +60,11 @@
   }
 }
 
-.W_Post {
-  max-width: var(--max-desktop);
-  padding: var(--calc-padding);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-
-  .M_PostOtherData {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .A_ImageContainer {
-    width: 100%;
-    height: 488px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--almost-black);
-    overflow: hidden;
-  }
-
-  .O_Display {
-    grid-column: 8/10;
-  }
-}
 /* PostShow */
-.W_PostShowHead {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
 
-.W_TitleTags {
-  margin-bottom: 1rem;
+.W_PostImageDescription {
+  display: flex;
+  gap: 1.5rem;
 }
 .W_EditButtonsProfile {
   padding: 3rem 0;

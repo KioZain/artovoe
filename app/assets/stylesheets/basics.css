@@ -106,6 +106,7 @@ body {
     font-family: "Geist Mono";
     font-weight: regular;
     text-transform: uppercase;
+    color: var(--colors-neutral-400);
   }
 
   .footnote-2 {

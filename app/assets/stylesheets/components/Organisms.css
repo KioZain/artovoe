@@ -8,7 +8,7 @@
   justify-content: space-between;
   border-bottom: 1px solid var(--ash-grey);
 }
-
+/* Posts */
 .O_Post {
   flex: 1 1 calc(25% - 1.5rem);
   max-width: calc(25% - 1rem);
@@ -33,6 +33,26 @@
       }
     }
   }
+}
+/* PostsShow */
+.O_NameSwitcher {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.O_PostInformation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+.O_ImageSliderBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 4.5rem);
 }
 
 .O_ProfileInfo {
@@ -116,20 +136,13 @@
 }
 /* CollectionShow */
 
-/* ArtworksFilter */
-.O_Filter {
+.O_PostActionMenu {
   display: flex;
-  width: 90%;
   justify-content: space-between;
-  margin-bottom: 2rem;
-
-  p {
-    margin-bottom: 0.5rem;
-    color: var(--ash-grey);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+  gap: 1.5rem;
+  align-items: center;
 }
+
 .O_FilterTopBar {
   display: flex;
   justify-content: space-between;

@@ -95,25 +95,10 @@
     }
   }
 }
-.C_DataPost {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-
-  .A_DataColumn {
-    display: flex;
-    flex-direction: column;
-
-    p {
-      display: inline-block;
-      min-width: 110px;
-    }
-  }
-}
 
 .C_Displays {
   display: flex;
-  width: var(--width-container);
+  max-width: var(--max-desktop);
   margin: 0 auto;
   flex-wrap: wrap;
   gap: 1.5rem;

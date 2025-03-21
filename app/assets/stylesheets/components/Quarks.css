@@ -34,32 +34,6 @@
 .default {
   clip-path: none;
 }
-.Q_JeweleryClip {
-  -webkit-mask-image: url("/assets/clip_images/Q_CeramicClip.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-}
-.Q_ArtPaintClip {
-  -webkit-mask-image: url("/assets/clip_images/Q_PictureClip.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-}
-.Q_TextileClip {
-  -webkit-mask-image: url("/assets/clip_images/Q_Textile.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-}
-.Q_SculptureClip {
-  -webkit-mask-image: url("/assets/clip_images/Q_SculptureClip.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-}
-.Q_PrintClip {
-  width: 50%;
-  -webkit-mask-image: url("/assets/clip_images/Q_PrintClip.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-}
 .Q_PostWrapper {
   width: 100%;
 
@@ -84,32 +58,14 @@
 .Q_CollectionWorks {
   background-image: url("/assets/shapes_heading/collections_cover.svg");
 }
-/* Colors for font */
-.sand {
-  color: var(--sand-yellow);
-}
-.green {
-  background-color: var(--diamine-green);
-}
-.yellow {
-  background-color: var(--sun-yellow);
-}
-.blue {
-  background-color: var(--lyons-blue);
-}
-.pink {
-  background-color: var(--pink);
-}
-.sand_bg {
-  background-color: var(--sand-yellow);
-}
-.Q_ADCLogo {
-  background: url("/assets/etc/Q_ADCLogo.svg");
-  width: 2rem;
-  height: 2rem;
-  background-size: cover;
-}
+
 /* ButtonsForm */
 .Q_ActionButtonSharp {
   background-image: url("/assets/buttons/A_ActionButtonSharp.svg");
+}
+/* ProfileAvatar */
+.Q_ProfileImage {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 600rem;
 }

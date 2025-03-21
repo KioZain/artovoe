@@ -106,6 +106,15 @@
   }
 }
 
+/* PostShow */
+.S_PostShowHead {
+  max-width: var(--max-desktop);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 4vw, 4.5rem);
+}
+
 .S_OtherPosts {
   display: flex;
   gap: 1.5rem;
