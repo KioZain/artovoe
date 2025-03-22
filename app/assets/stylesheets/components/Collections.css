@@ -122,29 +122,12 @@
   border-radius: 0.5rem;
 }
 /* Header */
-.С_LinksNavigation {
+.C_CategoresLinks {
+  flex: 1;
   display: flex;
-  max-width: var(--max-desktop);
-  margin: 0 auto;
-  .A_MenuLinkGIant {
-    flex: 1;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--colors-neutral-400);
-    text-decoration: none;
-    color: var(--colors-neutral-400);
-    background-color: var(--light-colors-100);
-    text-transform: uppercase;
-    transition: 0.3s ease-in-out;
-    margin-left: -1px;
+  flex-direction: column;
 
-    &:hover {
-      background-color: var(--sun-yellow);
-      border-radius: 600rem;
-    }
-  }
+  border: 1px solid var(--colors-neutral-400);
 }
 /* Profile */
 .C_Tabs {

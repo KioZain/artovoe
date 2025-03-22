@@ -15,8 +15,7 @@ def index
     %i[materials moods genres themes].each do |context|
       if permitted_params[context].present?
         if permitted_params[context].all? { |tag| valid_tag?(context, tag) }
-          Rails.logger.info("Filtering by #{context}: #{permitted_params[context].join(', ')}")
-          base_posts = base_posts.tagged_with(permitted_params[context], on: context, any: false) # `any: false` означает "все теги"
+          base_posts = base_posts.tagged_with(permitted_params[context], on: context, any: false)
         else
         end
       end

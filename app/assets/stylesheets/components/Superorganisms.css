@@ -73,6 +73,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    gap: 1.5rem;
   }
 
   .M_LinksAbout {
@@ -98,8 +99,10 @@
   }
   .W_UserOptions {
     display: flex;
+    flex: 1;
     gap: 1rem;
     align-items: center;
+    justify-content: flex-end;
 
     img.A_Avatar {
       width: 2.5rem;

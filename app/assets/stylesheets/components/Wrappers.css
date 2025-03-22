@@ -33,6 +33,40 @@
   justify-content: space-between;
 }
 
+.W_SearchMenu {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+/* Header */
+.W_NavigationFull {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--calc-padding) 0;
+  max-width: var(--max-desktop);
+  margin: 0 auto;
+}
+.W_NavigationBottom {
+  display: flex;
+
+  .A_MenuLinkGIant {
+    flex: 1;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--colors-neutral-400);
+    text-decoration: none;
+    color: var(--colors-neutral-900);
+    background-color: var(--light-colors-100);
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    margin-left: -1px;
+  }
+}
+
 /* Collection */
 .W_CollectionIndexAbout {
   width: 450px;

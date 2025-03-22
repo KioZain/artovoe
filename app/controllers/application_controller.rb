@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   before_action :authenicate_guest
 
+  helper_method :all_categories
+  def all_categories
+    @all_categories ||= ActsAsTaggableOn::Tag
+      .joins(:taggings)
+      .where(taggings: { context: "categories" })
+      .distinct
+      .order(:name)
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden }

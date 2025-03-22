@@ -25,6 +25,12 @@
   }
 }
 
+.M_LogoDescription {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
 .M_PostNameCategory {
   display: flex;
   flex-direction: column;
@@ -249,4 +255,15 @@
     cursor: pointer;
     background-color: var(--colors-light-400);
   }
+}
+.M_MenuSearch {
+  height: 48px;
+  width: 16rem;
+  border: none;
+  padding: 0.5rem 12px;
+  border-radius: 0.5rem;
+  background-color: var(--colors-light-300);
+  background-image: url("assets/icons/Q_Search.svg");
+  background-repeat: no-repeat;
+  background-position: bottom 13px right 12px;
 }

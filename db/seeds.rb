@@ -56,7 +56,7 @@
 ]
 
 @price = [ 10000, 500, 200, 2200, 3200, 4200, 6200 ]
-@categories = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия" ]
+@categories = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия", "диджитал-арт" ]
 
 # Profile Content
 @names = [ "digitalnyan", "kiozain", "zlatko", "tuberkulexa", "Чхыф", "humanim4lien", "somebody", "nobody31", "shoegazer", "волчок" ]

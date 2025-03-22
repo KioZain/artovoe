@@ -9,20 +9,22 @@ export default class extends Controller {
   }
 
   showModal(event) {
-    event.target.placeholder = "Тут поиск"
-    
-    this.modalTarget.classList.add('active')
+
+  if (this.modalTarget.classList.contains('active')) {
+    this.hideModal();
+    return;
+  }
+
+  this.modalTarget.classList.add('active')    
+  document.addEventListener('keyup', this.handleKeyup);
     
     // document.body.style.paddingRight = `${this.scrollBarWidth}px`;
     // document.body.classList.add('search-modal-open');
-    
 
-    document.addEventListener('keyup', this.handleKeyup);
   }
 
   hideModal = () => {
     const input = this.element.querySelector('.M_MenuSearch')
-    input.placeholder = "Поиск"
     
     this.modalTarget.classList.remove('active')
     this.modalTarget.classList.add('closing')
