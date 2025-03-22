@@ -19,13 +19,7 @@ Rails.application.routes.draw do
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end
 
-  resources :profiles do
-    member do
-      get :posts
-      get :collections
-      get :displays
-    end
-  end
+  resources :profiles
 
   resources :collections do
     get "/by_tag/:tag", to: "collections#by_tag", on: :collection, as: "tagged"

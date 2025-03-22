@@ -4,31 +4,37 @@ export default class extends Controller {
   static targets = ["content"];
 
   connect() {
-
-    this.isHovered = false;
+    this.isVisible = false;
+    document.addEventListener("click", this.handleOutsideClick.bind(this));
   }
 
+  disconnect() {
+    document.removeEventListener("click", this.handleOutsideClick.bind(this));
+  }
+
+  toggle(event) {
+    event.stopPropagation(); 
+    if (this.isVisible) {
+      this.hide();
+    } else {
+      this.show();
+    }
+  }
   show() {
-    this.contentTarget.style.display = "block";
-    this.isHovered = true;
+    this.contentTarget.style.display = "block"; 
+    this.isVisible = true;
   }
 
   hide() {
-    if (!this.isHovered) {
-      this.contentTarget.style.display = "none";
+    this.contentTarget.style.display = "none"; 
+    this.isVisible = false;
+  }
+
+  handleOutsideClick(event) {
+    const dropdownElement = this.element; 
+
+    if (!dropdownElement.contains(event.target)) {
+      this.hide();
     }
-  }
-
-  mouseEnter() {
-    this.isHovered = true;
-  }
-
-  mouseLeave() {
-    this.isHovered = false;
-    setTimeout(() => {
-      if (!this.isHovered) {
-        this.contentTarget.style.display = "none";
-      }
-    }, 100);
   }
 }

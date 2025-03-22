@@ -8,6 +8,13 @@
   gap: 2rem;
   flex-direction: column;
 }
+
+.S_TabsProfile {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--calc-padding) 0;
+}
+
 .S_Filter {
   width: 100%;
   max-width: var(--max-desktop);
@@ -180,7 +187,6 @@
   }
 }
 .S_Profile {
-  background: var(--sand-yellow);
   width: 100%;
   margin-top: 4rem;
 }

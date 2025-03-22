@@ -55,7 +55,6 @@
   }
 ]
 
-
 @price = [ 10000, 500, 200, 2200, 3200, 4200, 6200 ]
 @categories = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия" ]
 
@@ -135,6 +134,7 @@ def create_users(quantity)
 
     if i == 0
       user_data[:admin] = true
+      puts("----------Admin created----------")
     end
     user = User.create!(user_data)
       puts "User created with id #{user.id}"

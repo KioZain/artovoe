@@ -229,3 +229,24 @@
 .M_DropDown.active .Q_Arrow {
   transform: scale(-1, -1);
 }
+.M_CreateDropDown {
+  position: relative;
+  display: inline-block;
+}
+/* DotDropdown */
+.M_DotsDropdown {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--colors-light-300);
+  background-image: url("icons/Q_Dots.svg");
+  border-radius: 600rem;
+  position: relative;
+  display: block;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--colors-light-400);
+  }
+}

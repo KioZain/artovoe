@@ -400,6 +400,30 @@ input.A_Button {
     padding: 1rem;
   }
 }
+
+/* Tabs */
+.A_Tab {
+  width: 160px;
+  height: 48px;
+  font-family: "Kommuna-regular";
+  display: flex;
+  color: var(--colors-neutral-400);
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: inherit;
+
+  &:hover {
+    color: var(--colors-neutral-600);
+    cursor: pointer;
+  }
+
+  &.active {
+    border-bottom: 1px solid var(--colors-neutral-900);
+    color: var(--colors-neutral-900);
+  }
+}
 /* DropDown */
 .A_SortButton {
   height: 1.5rem;
@@ -444,4 +468,38 @@ input.A_Button {
   gap: 1rem;
   cursor: pointer;
   user-select: none;
+}
+
+/* -------------------------- */
+
+[data-dropdown-target="content"] {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  min-width: 160px;
+  z-index: 1001;
+  display: none;
+  border-radius: 4px;
+  overflow: hidden;
+  display: none;
+}
+
+.A_DropdownItem {
+  display: block;
+  padding: 1rem;
+  width: 15rem;
+  padding: 12px 16px;
+  text-decoration: none;
+  background-color: var(--colors-light-300);
+  color: var(--colors-neutral-900);
+
+  &:hover {
+    background-color: var(--colors-light-400);
+  }
+}
+button.A_DropdownItem {
+  border: none;
+  font-family: "Kommuna-regular";
+  font-size: 1rem;
+  display: flex;
 }
