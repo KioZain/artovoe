@@ -2,12 +2,12 @@
   <%= form_with(model: [@post, @comment], 
       class: "O_CommentForm",
       data: { turbo: true }) do |f| %>
-    <div class="M_FormGroup">
-      <%= f.label :body, "Редактировать комментарий", class: "form-label" %>
-      <%= f.text_field :body, class: "A_TextField" %>
+    <div class="M_CommentEdit">
+      <%= f.label :body, "Редактирование комментария", class: "caption" %>
+      <%= f.text_area :body, class: "A_TextArea" %>
     </div>
-    <div class="form-actions">
-      <%= f.submit "Сохранить", class: "A_SubmitForm" %>
+    <div class="W_CommentActions">
+      <%= f.submit "Сохранить", class: "A_SmallButton" %>
       <%= link_to "Отмена", 
           post_path(@post), 
           class: "btn btn-secondary" %>

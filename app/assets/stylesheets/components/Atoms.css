@@ -120,6 +120,33 @@ a.caption {
 /* PostShow */
 .A_NavigationPost {
   flex: 1;
+  display: flex;
+  height: 22px;
+
+  gap: 0.5rem;
+  align-items: center;
+
+  a {
+    color: var(--colors-neutral-300);
+    text-decoration: none;
+    font-family: "Geist";
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--colors-neutral-600);
+      cursor: pointer;
+    }
+  }
+
+  p.artname {
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Geist";
+    text-transform: uppercase;
+    margin-top: auto;
+  }
 }
 
 .A_ImageContainer {
@@ -156,6 +183,7 @@ a.caption {
 /* Buttons */
 .A_Button {
   background-image: url("/assets/buttons/A_ButtonSmall.svg");
+  background-color: inherit;
   background-size: cover;
   background-repeat: no-repeat;
   width: 144px;
@@ -191,6 +219,33 @@ a.caption {
   background-image: url("/assets/buttons/A_ButtonLarge.svg");
   width: 204px;
 }
+
+.A_SmallButton {
+  background-color: var(--colors-light-300);
+  padding: 0.5rem;
+  width: 132px;
+  height: 30px;
+  text-decoration: none;
+  color: var(--colors-neutral-900);
+  font-family: "Kommuna-regular";
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: var(--colors-neutral-600);
+    cursor: pointer;
+  }
+
+  &.danger {
+    background: var(--colors-light-400);
+    color: var(--system-danger);
+  }
+}
+
 a.A_ButtonSecondary,
 button.A_ButtonSecondary {
   background-color: none;
@@ -207,11 +262,7 @@ button.A_ButtonSecondary {
   }
 }
 input.A_Button {
-  background-color: var(--pure-white);
   border: none;
-
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 .A_ButtonSecondary.Danger {
   background-color: #ff7171;
@@ -298,12 +349,20 @@ input.A_Button {
   gap: 0.5rem;
 }
 /* Forms */
-.A_TextField {
+.A_TextArea {
   width: 100%;
-  height: 54px;
+  max-width: 100%;
+  min-height: 80px;
   border-radius: 0.3rem;
+  resize: none;
   padding: 0.5rem;
-  border: 1px solid var(--almost-black);
+  border: none;
+  font-family: "Kommuna-regular";
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+  }
 }
 .A_LogoWhite {
   background: url("assets/etc/A_Logo_white.svg");

@@ -113,6 +113,7 @@
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 4vw, 4.5rem);
+  padding: var(--calc-padding);
 }
 
 .S_OtherPosts {
@@ -134,15 +135,17 @@
 }
 .S_Comments {
   width: 100%;
-  max-width: var(--max-desktop);
-  padding: clamp(2rem, 6vw, 6rem);
+  max-width: 824px;
   margin: 0 auto;
   margin-bottom: 15rem;
-  background-color: var(--pure-white);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+
+  #comments {
+    background-color: var(--colors-light-200);
+  }
 }
 .S_Works {
   grid-template-columns: repeat(9, 1fr);

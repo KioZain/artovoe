@@ -69,7 +69,7 @@ body {
   }
 
   h4 {
-    font-size: clamp(16px, 4vw, 20px);
+    font-size: clamp(16px, 1vw, 18px);
     line-height: 140%;
     font-family: "Kommuna-regular";
   }

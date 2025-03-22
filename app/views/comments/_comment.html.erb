@@ -1,9 +1,14 @@
 <%= turbo_frame_tag dom_id(comment) do %>
   <div class="O_Comment">
     <div class="W_CommentProfileBody">
-      <%= image_tag comment.user.profile.avatar_url, class: "A_Avatar" %>
+      <%= image_tag comment.user.profile.avatar_url, class: "Q_ProfileImage" %>
       <div class="M_SubText">
-        <p class="A_Mail"><%= comment.user.profile.name %></p>
+        <div class="M_AuthorPublishedDate">
+          <p><%= comment.user.profile.name %></p>
+          <p class="footnote-2">
+            <%= comment.created_at.strftime("%d.%m.%Y") %>
+          </p>
+        </div>
         <p class="A_CommentBody"><%= comment.body %></p>
       </div>
     </div>
@@ -12,13 +17,13 @@
         <% if can?(:update, comment) %>
           <%= link_to "Редактировать", 
               edit_post_comment_path(comment.post, comment), 
-              class: "A_ButtonSecondary" %>
+              class: "A_SmallButton" %>
         <% end %>
         <% if can?(:destroy, comment) %>
           <%= button_to "Удалить", 
               [comment.post, comment], 
               method: :delete,
-              class: "A_ButtonSecondary Danger",
+              class: "A_SmallButton danger",
               data: { turbo_confirm: "Вы уверены?" } %>
         <% end %>
       </div>

@@ -66,58 +66,7 @@
   display: flex;
   gap: 1.5rem;
 }
-.W_EditButtonsProfile {
-  padding: 3rem 0;
-}
-.W_TypesOfContent {
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
 
-  .A_TypeOfContent {
-    font-family: "Kommuna";
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--almost-dark);
-    padding: 0.5rem 2rem;
-    min-width: 200px;
-    text-align: center;
-    display: inline-block;
-    transition: transform 0.3s ease;
-
-    &:nth-child(1) {
-      border-right: 2px solid var(--almost-black);
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-.W_TypesOfContent.ProfileMenu {
-  width: var(--width-container);
-  margin: 0 auto;
-  .A_TypeOfContent:nth-child(1) {
-    border-right: none;
-  }
-
-  .A_TypeOfContent:nth-child(2),
-  .A_TypeOfContent:nth-child(3) {
-    margin-left: -1px;
-  }
-  .A_TypeOfContent {
-    border: 1px solid var(--almost-black);
-    width: 33.3%;
-  }
-}
-.W_RateWorks {
-  gap: 0.5rem;
-  display: flex;
-  flex-direction: column;
-}
 .W_AllInfoProfile {
   display: flex;
   align-items: flex-end;
@@ -135,6 +84,18 @@
       display: flex;
       flex-direction: column;
     }
+  }
+}
+
+/* Comments */
+.W_CommentActions {
+  display: flex;
+  gap: 1rem;
+  padding-left: 3.5rem;
+  align-items: center;
+
+  a {
+    color: var(--colors-neutral-600);
   }
 }
 .W_Media {

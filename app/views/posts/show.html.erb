@@ -11,7 +11,8 @@
 <div class="S_PostShowHead">
   <div class="O_PostActionMenu">
     <div class="A_NavigationPost">
-      <%= link_to "Все работы", posts_url %>
+      <%= link_to "Все работы | ", posts_url %>
+      <p class="artname"><%= @post.title %></p>
     </div>
     <div class="M_LikeFavourite">
       <%= render partial: "likes/button", locals: {likable: @post} %>
@@ -28,7 +29,9 @@
     </div>
   </div>
   <div class="O_NameSwitcher">
-    <div class="A_ArrowSwitcher left"></div>
+    <div class="W_ArrowContainer">
+      <div class="A_ArrowSwitcher left"></div>
+    </div>
     <div class="M_TitleCreatorName">
       <div class="A_CreatorPost">
         <%= link_to profile_path(@post.user.profile),class: "A_CreatorPost" do %>
@@ -38,13 +41,15 @@
       </div>
       <h1><%= @post.title %></h1>
     </div>
-    <div class="A_ArrowSwitcher right"></div>
+    <div class="W_ArrowContainer right">
+      <div class="A_ArrowSwitcher right"></div>
+    </div>
   </div>
   <%# ------------------------------------------ %>
   <div class="W_PostImageDescription">
     <div class="M_TypeDate">
       <div class="M_InfoRow">
-        <p><%= @post.category_list %></p>
+        <p><%= @post.category_list.map(&:capitalize).join(', ') %></p>
         <p><%= @post.year %></p>
       </div>
       <p class="A_Publication footnote">Опубликовано:<br>
@@ -66,7 +71,7 @@
       </div>
       <div class="M_InfoRow">
         <p class="footnote">Категория</p>
-        <p class="caption"><%= @post.category_list %></p>
+        <p class="caption"><%= @post.category_list.map(&:capitalize).join(', ') %></p>
       </div>
       <div class="M_InfoRow">
         <p class="footnote">Место создания</p>

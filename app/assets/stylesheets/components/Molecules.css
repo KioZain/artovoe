@@ -80,11 +80,10 @@
 /* Post */
 .M_TitleCreatorName {
   display: flex;
+  flex: 2;
   flex-direction: column;
   align-items: center;
-  max-width: 840px;
-
-  gap: 1rem;
+  text-align: center;
 }
 
 .M_Options {
@@ -111,7 +110,22 @@
   justify-content: center;
   flex: 1;
 }
+/* Comement */
+.M_AuthorPublishedDate {
+  display: flex;
+  justify-content: space-between;
+  min-width: 100%;
 
+  p.footnote-2 {
+    color: var(--colors-neutral-400);
+  }
+  .caption {
+    color: var(--colors-neutral-400);
+  }
+}
+.M_FormGroup {
+  width: 100%;
+}
 /* Profile */
 
 .M_ProfileBio {
