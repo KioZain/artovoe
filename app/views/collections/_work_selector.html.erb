@@ -1,0 +1,42 @@
+<div data-controller="post-selector">
+  <p>Ваши работы</p>
+  <div class="M_SelectTrigger" data-action="click->post-selector#toggleModal">
+    <div class="A_Form">
+      <p>Выберите работы</p>
+      <%= image_tag("icons/Q_IconArrowDown.svg") %>
+    </div>
+    <%# ------------modal--------------- %>
+    <div class="O_SearchPostForm"
+      data-post-selector-target="modal"
+      style="display: none;">
+      <% @posts.each do |post| %>
+        <div class="M_PostItem" 
+          data-post-id="<%= post.id %>"
+          data-action="click->post-selector#togglePost">
+          <div class="Q_PostImage">
+            <%= image_tag post.post_image.url %>
+          </div>
+          <div class="post-info">
+            <p class="footnote-2"><%= post.category_list.join(', ')%></p>
+            <p class="caption"><%= post.title %></p>
+          </div>
+          <button class="toggle-btn" type="button">
+            <span class="add">+</span>
+            <span class="remove" style="display: none;">-</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%# addedworks %>
+  <div class="C_AddedWorks" 
+    data-post-selector-target="addedWorks">
+    <div class="empty-state">Нет добавленных работ</div>
+  </div>
+  <%#hidden field%>
+  <div data-post-selector-target="hiddenFields">
+    <% @collection.post_ids.each do |post_id| %>
+      <%= hidden_field_tag 'collection[post_ids][]', post_id, id: nil %>
+    <% end %>
+  </div>
+</div>

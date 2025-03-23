@@ -65,6 +65,20 @@
   gap: 8rem;
 }
 
+/* FormCollection */
+.C_AddedWorks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 4rem;
+  max-width: 500px;
+  padding: 1rem;
+  border: 1px solid var(--colors-neutral-200);
+  font-size: 14px;
+  color: var(--colors-neutral-200);
+  border-radius: 0.5rem;
+}
+
 .S_FiltersPosts {
   .C_Categoires {
     margin-bottom: 0.5rem;

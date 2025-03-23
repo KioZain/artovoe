@@ -13,6 +13,10 @@ class Collection < ApplicationRecord
     update(likes_count: likes.count)
   end
 
+   def post_ids=(ids)
+    super(ids.reject(&:blank?))
+  end
+
   acts_as_taggable_on :tags
   acts_as_taggable_on :categories
 
@@ -20,7 +24,7 @@ class Collection < ApplicationRecord
   private
 
   def must_have_at_least_two_posts
-    if posts.size < 2
+    if post_ids.size < 2
       errors.add(:base, "Коллекция должна содержать как минимум 2 поста.")
     end
   end

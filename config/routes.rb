@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   # Admin namespace
   namespace :admin do
-    resources :collections, except: [ :index, :show ]
+    # resources :collections, except: [ :index, :show ]
     resources :profiles, except: [ :index, :show ]
     # resources :posts, except: [ :index, :show ] do
     #   resources :comments

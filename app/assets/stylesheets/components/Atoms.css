@@ -416,7 +416,7 @@ input.A_Button {
   }
 }
 
-.A_Form {
+/* .A_Form {
   margin-bottom: 1rem;
   label {
     font-size: 1rem;
@@ -448,6 +448,33 @@ input.A_Button {
     width: 600px;
     padding: 1rem;
   }
+} */
+
+.A_Label {
+  font-size: 12px;
+  color: var(--colors-neutral-600);
+}
+
+.A_Form {
+  background-color: var(--colors-light-50);
+  display: flex;
+  justify-content: space-between;
+  height: 52px;
+  max-width: 500px;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  &:focus {
+    outline: 1px solid var(--brand-blue);
+    border: 1px solid var(--brand-blue);
+  }
+}
+textarea.A_Form {
+  min-height: 112px;
+  resize: none;
+  font-size: 14px;
+  font-family: "Kommuna-regular";
 }
 
 /* Tabs */

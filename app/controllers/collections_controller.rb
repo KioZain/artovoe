@@ -17,12 +17,19 @@ class CollectionsController < ApplicationController
 
 
   def edit
+    @posts = current_user.posts
     @collection = Collection.find(params[:id])
   end
 
-  def create
-    @collection = current_user.collections.new(collection_params)
+  def new
+    @collection = Collection.new
+    @posts = current_user.posts.order(:title) # Добавить эту строку
+  end
 
+  def create
+    @posts = current_user.posts
+    @collection = current_user.collections.new(collection_params)
+    Rails.logger.info "Creating collection with params: #{collection_params.inspect}"
     respond_to do |format|
       if @collection.save
         format.html { redirect_to collection_path(@collection), notice: "Collection was successfully created." }
@@ -35,6 +42,7 @@ class CollectionsController < ApplicationController
   end
 
   def update
+    @posts = current_user.posts
     respond_to do |format|
       if @collection.update(collection_params)
         format.html { redirect_to collection_path(@collection), notice: "Collection was successfully updated." }

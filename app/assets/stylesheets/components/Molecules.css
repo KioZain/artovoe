@@ -132,6 +132,52 @@
 .M_FormGroup {
   width: 100%;
 }
+
+/* FORMS */
+
+.M_SelectTrigger {
+  position: relative;
+}
+
+.M_FormLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 15px;
+  font-family: "Kommuna-regular";
+  color: var(--colors-neutral-600);
+}
+
+.M_PostItem {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  gap: 1rem;
+  background-color: var(--colors-light-50);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .Q_PostImage {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 /* Profile */
 
 .M_ProfileBio {

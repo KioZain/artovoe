@@ -188,6 +188,16 @@
     }
   }
 }
+/* CollectionForm */
+.O_SearchPostForm {
+  position: absolute;
+  z-index: 1;
+  max-width: 500px;
+  flex-direction: column;
+  background-color: var(--colors-light-50);
+  padding: 1rem;
+  margin-top: 1rem;
+}
 /* CollectionShow */
 
 .O_PostActionMenu {
