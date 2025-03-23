@@ -57,17 +57,12 @@
   flex-direction: column;
   max-width: var(--max-desktop);
   padding: var(--calc-padding);
+}
 
-  p {
-    grid-column: span 6;
-  }
-  .FillGrid {
-    grid-column: span 6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
-  }
+.C_CollectionObjects {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
 }
 
 .S_FiltersPosts {

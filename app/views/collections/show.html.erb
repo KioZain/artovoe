@@ -6,53 +6,74 @@
   )
 %>
 <p style="color: green"><%= notice %></p>
-<div class="S_CollectionHead">
-  <div class="M_HeadLinks">
-    <%= link_to "<- Назад", request.referer %>
-    <div class="M_ActionButton">
-      <% if can?(:manage, @collection) %>
-        <%= link_to 'Изменить', edit_collection_path(@collection), class: 'A_Edit' %>
-        <%= button_to "⌦Удалить коллекцию", collection_path(@collection), method: :delete %>
-      <% else %>
-        <p>Авторизируйтесь</p>
-      <% end %>
-    </div>
-  </div>
-  <div class="O_CollectionBio">
-    <div class="Q_SharpPoint Q_SharpBodyColor"></div>
-    <div class="Q_SharpPoint Q_SharpBodyColor"></div>
-    <div class="Q_SharpPoint Q_SharpBodyColor"></div>
-    <div class="Q_SharpPoint Q_SharpBodyColor"></div>
-    <div class="W_CollectionHead">
-      <div class="M_SubText">
-        <h1 class="A_CollectionHeading"><%= @collection.title %></h1>
-        <div class="C_Tags">
-          <% @collection.tags.each do |tag| %>
-            <%= link_to tag.name, tagged_collections_path(tag.name), class: "A_Tag" %>
+<div class="L_CollectionShow">
+  <div class="W_CollectionShowHead">
+    <div class="O_PostActionMenu">
+      <div class="A_NavigationPost">
+        <%= link_to "Все коллекции | ", collections_url %>
+        <p class="artname"><%= @collection.title %></p>
+      </div>
+      <div class="M_LikeFavourite">
+        <%= render partial: "likes/button", locals: {likable: @collection} %>
+        <button class="A_SaveButton">Сохранить</button>
+      </div>
+      <div class="M_Options">
+        <div class="M_ActionButton">
+          <% if can?(:manage, @post) %>
+            <%= link_to "Изменить", edit_post_path(@collection), class: 'A_Edit' %>
+            <%= button_to "⌦Удалить пост", post_path(@collection), method: :delete %>
+          <% else %>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="W_CollectionBotom">
-      <div class="M_SubText">
-        <%= link_to profile_path(@collection.user.profile),class: "A_AuthorProfile" do %>
-          <p><%= @collection.user.profile.name %></p>
-        <% end %>
-        <p>Опубликовано: <%= @collection.created_at.strftime("%d.%m.%Y") %></p>
+    <div class="W_СollectionInfoNavigation">
+      <div style="flex: 1;"></div>
+      <div class="O_CollectionInfo">
+        <div class="M_TitleCreatorName">
+          <div class="A_CreatorPost">
+            <%= link_to profile_path(@collection.user.profile),class: "A_CreatorPost" do %>
+              <%= image_tag(@collection.user.profile.avatar_url, class: "Q_ProfileImage") %>
+              <p><%= @collection.user.profile.name %></p>
+            <% end%>
+          </div>
+          <h1><%= @collection.title %></h1>
+        </div>
+        <h4><%= @collection.body %></h4>
+        <p class="footnote">Опубликовано: <%= @collection.created_at.strftime("%d.%m.%Y") %></p>
       </div>
-      <p class="A_ObjectsInside">Коллекция: <br>
-        <%= @collection.posts.count %> работ</p>
+      <div class="W_WorksAmount">
+        <div class="M_InfoRow">
+          <p class="footnote">Работ:</p>
+          <p><%= @collection.posts.count %></p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="M_CollectionDescriptionShow">
-  <div class="M_SubText">
-    <p>Описание</p>
-    <p><%= @collection.body %></p>
+  <div class="C_CollectionObjects">
+    <% @collection.posts.each do |post| %>
+      <div class="O_CollectionObject">
+        <div class="M_InfoRow">
+          <p><%= post.category_list.map(&:capitalize).join(', ') %></p>
+          <p><%= post.year %></p>
+        </div>
+        <div class="M_ImagePostDate">
+          <div class="A_ImageContainer aspect-<%= post.aspect_ratio.gsub(':', '-') %>">
+            <%= image_tag post.post_image.url, class: "Q_ShowPostImage"  %>
+          </div>
+          <p class="footnote">Дата добавления: <%=post.created_at.strftime("%d.%m.%Y") %></p>
+        </div>
+        <div class="W_ObjectLook">
+          <div class="M_ObjectInfo">
+            <h4 class="subtitle"><%= post.title %></h4>
+            <p><%= post.body %></p>
+          </div>
+          <%= link_to post_path(post), class: "Q_PostImageLink" do %>
+            <p>Посмотреть работу</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-<div class="C_AllPosts">
-  <% @collection.posts.each do |post| %>
-    <div class="O_Post"><%= render 'posts/post', post: post %></div>
-  <% end %>
 </div>

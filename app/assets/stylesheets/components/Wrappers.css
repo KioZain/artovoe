@@ -68,6 +68,21 @@
 }
 
 /* Collection */
+.W_CollectionShowHead {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.W_WorksAmount {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.W_СollectionInfoNavigation {
+  display: flex;
+  gap: 1.5rem;
+}
+
 .W_CollectionIndexAbout {
   width: 450px;
   display: flex;

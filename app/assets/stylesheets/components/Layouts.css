@@ -1,0 +1,8 @@
+.L_CollectionShow {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  max-width: var(--max-desktop);
+  padding: 0 var(--calc-padding) 0;
+  margin: 0 auto;
+}

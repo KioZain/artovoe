@@ -194,54 +194,7 @@
   margin-top: 4rem;
 }
 /* CollectionShow */
-.S_CollectionHead {
-  width: 100%;
-  background-color: var(--pink);
 
-  margin-top: 4rem;
-  padding: 3rem 3rem 4rem 3rem;
-
-  .O_CollectionBio {
-    width: var(--width-container);
-    min-height: 200px;
-    width: var(--width-container);
-    padding: 1rem;
-    justify-content: space-between;
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
-    .Q_SharpPoint:nth-child(1),
-    .Q_SharpPoint:nth-child(2) {
-      top: -9rem;
-    }
-
-    .Q_SharpPoint:nth-child(4) {
-      left: var(--sharp);
-    }
-
-    .Q_SharpPoint:nth-child(3),
-    .Q_SharpPoint:nth-child(4) {
-      bottom: -4.1rem;
-      transform: rotate(180deg);
-    }
-
-    .W_CollectionBotom {
-      display: flex;
-      justify-content: space-between;
-
-      .M_SubText {
-        gap: 0.2rem;
-
-        p:nth-child(2) {
-          font-size: 12px;
-        }
-      }
-    }
-  }
-}
 .S_Footer {
   width: 100%;
   display: flex;

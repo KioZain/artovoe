@@ -9,6 +9,10 @@ class Collection < ApplicationRecord
   validate :must_have_at_least_two_posts
 
 
+  def update_likes_count
+    update(likes_count: likes.count)
+  end
+
   acts_as_taggable_on :tags
   acts_as_taggable_on :categories
 

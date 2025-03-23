@@ -263,13 +263,12 @@ def create_comments(quantity)
 end
 
 
-# Creating collections
 def create_collections(quantity)
   quantity.times do
     user = User.all.sample
     public_status = get_random_bool
 
-    # New Collection
+    # Создаем коллекцию
     collection = Collection.new(
       user: user,
       title: create_post_name,
@@ -277,42 +276,52 @@ def create_collections(quantity)
       public: public_status
     )
 
-
-
-    # Adding posts to collection
+    # Добавляем посты в коллекцию
     if add_posts_to_collection(collection)
       if collection.save
         puts "Collection '#{collection.title}' with id #{collection.id} created"
+
+        # Генерация лайков для коллекции
+        create_likes_for(collection)
+
       else
         puts "Failed to create Collection: #{collection.errors.full_messages.join(", ")}"
       end
     else
-      puts "Not enough posts"
+      puts "Not enough posts for user #{user.id}"
     end
-    # collection.tag_list = @tags.sample(rand(3..4))
-    # collection.category_list =  @categories.sample.downcase
-    collection.save!
   end
 end
 
-# Linking posts to collection---------------------
+# Добавление постов в коллекцию
 def add_posts_to_collection(collection)
   user_posts = Post.where(user: collection.user)
-  return false if user_posts.empty? || user_posts.count < 2
+  return false if user_posts.count < 2
+
   post_count = rand(2..[ user_posts.count, 8 ].min)
-  posts_to_add = user_posts.sample(post_count)
+  posts_to_add = user_posts.sample(post_count).uniq
 
-  if posts_to_add.count < 2
-    return false
-  end
-
-  # Adding again
   posts_to_add.each do |post|
     collection.posts << post unless collection.posts.include?(post)
-    puts "Post with id #{post.id} added to Collection '#{collection.title}'"
+    puts "Post #{post.id} added to Collection '#{collection.title}'"
   end
 
   true
+end
+
+# Генерация лайков для сущности (posts/collections)
+def create_likes_for(likable)
+  users = User.where.not(id: likable.user.id).to_a # Исключаем автора
+  max_likes = users.size
+  likes_count = rand(0..max_likes)
+  liking_users = users.sample(likes_count).uniq
+
+  liking_users.each do |liker|
+    Like.find_or_create_by!(
+      likable: likable,
+      user: liker
+    )
+  end
 end
 
 seed
