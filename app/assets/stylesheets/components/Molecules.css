@@ -180,26 +180,30 @@
 
 /* Profile */
 
-.M_ProfileBio {
+.M_ArtistRatings {
   display: flex;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--almost-black);
+  gap: 2rem;
 }
-.M_ProfileStats {
+
+.M_ProfileCardPreview {
+  width: 100%;
+}
+.M_ProfilePreviewInfo {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  p {
-    display: inline-block;
-    width: 100%;
-    font-size: 12px;
-    padding: 0.5rem 0.5rem 0.5rem 0;
+  gap: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--colors-neutral-900);
 
-    &:nth-child(1) {
-      border-bottom: 0.5px solid var(--almost-black);
-    }
+  .W_Ratings {
+    gap: clamp(1rem, 3.5vw, 4rem);
   }
+}
+.M_ArtistRatings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .M_ArtWorksBanner {

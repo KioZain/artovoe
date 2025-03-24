@@ -112,7 +112,8 @@ def index
   def post_params
     params.require(:post).permit(
       :title, :body, :author, :post_image, :price, :city, :amount, :category_list, :year,
-      displays_attributes: [ :id, :name, :year, :display_type, :city, :_destroy ], tag_list: [],
+      displays_attributes: [ :id, :name, :year, :display_type, :city, :_destroy ],
+      tag_list: [],
       material_list: [],
       mood_list: [],
       genre_list: [],

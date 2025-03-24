@@ -1,0 +1,34 @@
+<div class="S_TabsProfile" 
+    data-controller="tabs"
+    data-tabs-active-class="active"
+    data-tabs-default-tab-value="tab1">
+  <div class="C_Tabs">
+    <button class="A_Tab" id="tab1" data-tabs-target="btn" data-action="click->tabs#select">Работы</button>
+    <button class="A_Tab" id="tab2" data-tabs-target="btn" data-action="click->tabs#select">Коллекции</button>
+    <button class="A_Tab" id="tab3" data-tabs-target="btn" data-action="click->tabs#select">Выставки</button>
+    <button class="A_Tab" id="tab4" data-tabs-target="btn" data-action="click->tabs#select">Об авторе</button>
+  </div>
+  <div class="O_TabContent">
+    <div data-tabs-target="tab" id="tab1">
+      <div class="C_AllPosts">
+        <% @posts.each do |post| %>
+          <div class="O_Post"><%= render 'posts/post', post: post %></div>
+        <% end %>
+      </div>
+    </div>
+    <div data-tabs-target="tab" id="tab2" class='hidden'>
+      <div class="C_Collections">
+        <% @collections.each do |collection| %>
+          <%= render 'collections/collection', collection: collection %>
+        <% end %>
+      </div>
+    </div>
+    <div data-tabs-target="tab" id="tab3" class='hidden'>
+      <div class="C_Displays">
+        <% @displays.each do |display| %>
+          <%= render 'displays/display', display: display %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

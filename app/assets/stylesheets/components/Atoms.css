@@ -376,20 +376,7 @@ input.A_Button {
   }
 }
 /* ProfileShow */
-.A_BestStar {
-  width: 3rem;
-  height: 3rem;
-  background-image: url("/assets/etc/A_Best.svg");
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  p {
-    color: var(--pure-white);
-    font-size: 12px;
-  }
-}
 .A_SquareType {
   width: 1rem;
   height: 1rem;
@@ -558,6 +545,11 @@ textarea.A_Form {
   border-radius: 4px;
   overflow: hidden;
   display: none;
+
+  &.right {
+    left: auto;
+    right: 0;
+  }
 }
 
 .A_DropdownItem {

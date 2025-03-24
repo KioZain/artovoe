@@ -1,34 +1,30 @@
-      <% user_tags = profile.user.posts.tag_counts_on(:tags).pluck(:name).uniq 
-        random_count = [rand(2..4), user_tags.size].min 
-        random_tags = user_tags.sample(random_count).join(" / ") 
-    %>
-<div class="O_Profile">
-  <div class="W_ProfileBioStats">
-    <%= link_to profile_path(profile),class:"M_ProfileBio", id: dom_id(profile) do %>
-      <%= image_tag profile.avatar_url, class: "A_Avatar" %>
-      <div class="W_ProfileBio">
-        <div class="M_SubText">
-          <h3 class="Subtitle_20"><%= profile.name %></h3>
-          <p><%= random_tags.presence || "Нет тегов" %></p>
-        </div>
-        <p><%= profile.contact %></p>
-      </div>
-    <% end %>
-    <div class="W_StatsMetrics">
-      <div class="M_ProfileStats">
-        <p>Лайков: <%= rand(12..3000) %></p>
-        <p>Работ:<%= @profile_post_counts[profile.user_id] || 0 %></p>
-      </div>
-      <div class="A_DisplayMetrics"></div>
+  <%= link_to profile_path(profile), id: dom_id(profile), class: "O_Profile" do %>
+  <div class="M_ProfileCardPreview">
+    <div class="Q_ArtistCardPreview">
+      <% if profile.user.popular_post&.post_image&.url.present? %>
+        <%= image_tag profile.user.popular_post.post_image.url, class: "popular-post" %>
+      <% else %>
+        <%= image_tag("Q_PlaceHolder.png") %>
+      <% end %>
     </div>
   </div>
-  <div class="C_ProfileWorks">
-    <% profile.user.posts.limit(4).each do |post| %>
-      <% if post.post_image.present? %>
-        <%= link_to post_path(post), class: "A_PostLink" do %>
-          <%= image_tag post.post_image.url, class: "Q_ProfilePostImage" %>
-        <% end %>
-      <% end %>
+  <%= image_tag profile.avatar_url, class: "Q_ProfileImage index" %>
+  <div class="M_ProfilePreviewInfo">
+    <h4 class="subtitle"><%= profile.name %></h4>
+    <div class="W_Ratings">
+      <div class="M_InfoRow">
+        <p class="footnote">Оценки <br>
+          <%= rand(12..150) %>
+        </p>
+      </div>
+      <div class="M_InfoRow">
+        <p class="footnote">Работ <br>
+          <%= @profile_post_counts[profile.user_id] || 0 %>
+        </div>
+        <div class="M_InfoRow">
+          <p class="footnote">Коллекций <br>
+            <%= @profile_collection_counts[profile.user_id] || 0 %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </div>
-</div>

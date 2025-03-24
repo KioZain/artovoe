@@ -19,13 +19,18 @@
       <button class="A_SaveButton">Сохранить</button>
     </div>
     <div class="M_Options">
-      <div class="M_ActionButton">
-        <% if can?(:manage, @post) %>
-          <%= link_to "Изменить", edit_post_path(@post), class: 'A_Edit' %>
-          <%= button_to "⌦Удалить пост", post_path(@post), method: :delete %>
-        <% else %>
-        <% end %>
-      </div>
+      <% if can?(:update, @post) || can?(:destroy, @post) || current_user&.admin? %>
+        <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
+          <div class="right"data-dropdown-target="content">
+            <% if can?(:update, @post) %>
+              <%= link_to 'Редактировать', edit_post_path(@post), class: 'A_DropdownItem' %>
+            <% end %>
+            <% if can?(:destroy, @post) %>
+              <%= button_to 'Удалить профиль', @post, method: :delete, class: 'A_DropdownItem Danger' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="O_NameSwitcher">

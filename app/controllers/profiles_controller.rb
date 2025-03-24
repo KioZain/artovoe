@@ -1,9 +1,40 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [ :show, :edit, :update, :destroy, :posts, :collections, :displays ]
+  before_action :set_profile, only: [
+    :step1, :step2, :update_step1, :update_step2,
+    :show, :edit, :update, :destroy, :posts, :collections, :displays
+  ]
+
+  def step1
+    @profile ||= current_user.create_profile!
+  end
+
+  def step2
+    unless @profile.name.present? && @profile.avatar.present?
+      redirect_to step1_profiles_path and return
+    end
+  end
+
+  def update_step1
+    if @profile.update(profile_params_step1)
+      redirect_to step2_profiles_path
+    else
+      render :step1
+    end
+  end
+
+  def update_step2
+    if @profile.update(profile_params_step2)
+      session[:profile_setup_complete] = true
+      redirect_to profile_path(@profile), notice: "Регистрация завершена!"
+    else
+      render :step2
+    end
+  end
+
 
   # GET /profiles or /profiles.json
   def index
-    @profiles = Profile.includes(:user)
+    @profiles = Profile.includes(user: :posts).all
     @profile_post_counts = Post.group(:user_id).count
     @profile_collection_counts = Collection.group(:user_id).count
   end
@@ -14,6 +45,7 @@ class ProfilesController < ApplicationController
     @posts = @user.posts
     @collections = @user.collections
     @profile = Profile.find(params[:id])
+    authorize! :read, @profile
     @posts = @profile.user.posts
     @displays = Display.where(post_id: @posts.pluck(:id))
   end
@@ -88,9 +120,23 @@ end
 
 
   private
+
+    def profile_params_step1
+      params.require(:profile).permit(:name, :bio, :avatar)
+    end
+
+    def profile_params_step2
+      params.require(:profile).permit(:contact)
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      if current_user
+        @profile = current_user.profile || current_user.create_profile!
+      else
+        @profile = Profile.find_by(id: params[:id]) if params[:id]
+      end
     end
 
     # Only allow a list of trusted parameters through.

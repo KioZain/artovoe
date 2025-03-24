@@ -7,81 +7,56 @@
 %>
 <p style="color: green"><%= notice %></p>
 <%= @user.email %>
-<div class="S_Profile">
-  <% if can?(:update, @profile) || can?(:destroy, @profile) || current_user&.admin? %>
-    <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
-      <div data-dropdown-target="content">
-        <% if can?(:update, @profile) %>
-          <%= link_to 'Редактировать', edit_profile_path(@profile), class: 'A_DropdownItem' %>
-        <% end %>
-        <% if can?(:destroy, @profile) %>
-          <%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_DropdownItem Danger' %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-  <div class="O_ProfileInfo">
-    <div class="W_AllInfoProfile">
-      <div class="M_ProfileHead">
-        <%= image_tag @profile.avatar_url,class: "A_ProfileAvatar"%>
-        <div class="M_Subtext">
-          <h1 ><%= @profile.name %></h1>
-          <p><%= @profile.contact %></p>
+<%= @profile.total_likes %> лайков
+<div class="L_Profile">
+  <div class="S_Profile">
+    <div class="W_HeadOptions">
+      <div class="O_ArtistHead">
+        <div class="Q_ProfileImage profile">
+          <%= image_tag @profile.avatar_url%>
         </div>
-        <div class="W_Media">
-          <img src="/assets/etc/Q_Telegram.png" alt="">
-          <img src="/assets/etc/Q_Vk.png" alt="">
-        </div>
-      </div>
-      <div class="W_BestCounting">
-        <div class="A_BestStar">
-          <p><%= rand(1..12) %></p>
-        </div>
-        <div class="W_RateWorks">
-          <p>Оценки: <%= rand(12..150) %></p>
-          <div class="M_WorksCount">
-            <p>Работ: <%= @profile.user.posts.count %></p>
-            <p>Коллекций: <%= @profile.user.collections.count %></p>
+        <div class="M_ArtistRatings">
+          <h1><%= @profile.name %></h1>
+          <div class="W_Ratings">
+            <div class="M_InfoRow">
+              <p class="footnote">Оценки <br>
+                <%= rand(12..150) %>
+              </p>
+            </div>
+            <div class="M_InfoRow">
+              <p class="footnote">Работ <br>
+                <%= @profile.user.posts.count %></p>
+            </div>
+            <div class="M_InfoRow">
+              <p class="footnote">Коллекций <br>
+                <%= @profile.user.collections.count %></p>
+            </div>
           </div>
         </div>
       </div>
+      <% if can?(:update, @profile) || can?(:destroy, @profile) || current_user&.admin? %>
+        <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
+          <div class="right"data-dropdown-target="content">
+            <% if can?(:update, @profile) %>
+              <%= link_to 'Редактировать', edit_profile_path(@profile), class: 'A_DropdownItem' %>
+            <% end %>
+            <% if can?(:destroy, @profile) %>
+              <%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_DropdownItem Danger' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <p class="A_Bio"><%= @profile.bio %></p>
-  </div>
-</div>
-<%# Tabs %>
-<!-- Работы пользователя -->
-<div class="S_TabsProfile" 
-  data-controller="tabs"
-  data-tabs-active-class="active"
-  data-tabs-default-tab-value="tab1">
-  <div class="C_Tabs">
-    <button class="A_Tab" id="tab1" data-tabs-target="btn" data-action="click->tabs#select">Работы</button>
-    <button class="A_Tab" id="tab2" data-tabs-target="btn" data-action="click->tabs#select">Коллекции</button>
-    <button class="A_Tab" id="tab3" data-tabs-target="btn" data-action="click->tabs#select">Выставки</button>
-    <button class="A_Tab" id="tab4" data-tabs-target="btn" data-action="click->tabs#select">Об авторе</button>
-  </div>
-  <div class="O_TabContent">
-    <div data-tabs-target="tab" id="tab1">
-      <div class="C_AllPosts">
-        <% @posts.each do |post| %>
-          <div class="O_Post"><%= render 'posts/post', post: post %></div>
-        <% end %>
+    <div class="O_ProfileInfo">
+      <div class="W_AllInfoProfile">
+        <div class="M_ProfileHead">
+          <div class="M_Subtext">
+            <p><%= @profile.contact %></p>
+          </div>
+        </div>
+        <p class="A_Bio"><%= @profile.bio %></p>
       </div>
     </div>
-    <div data-tabs-target="tab" id="tab2" class='hidden'>
-      <div class="C_Collections">
-        <% @collections.each do |collection| %>
-          <%= render 'collections/collection', collection: collection %>
-        <% end %>
-      </div>
-    </div>
-    <div data-tabs-target="tab" id="tab3" class='hidden'>
-      <div class="C_Displays">
-        <% @displays.each do |display| %>
-          <%= render 'displays/display', display: display %>
-        <% end %>
-      </div>
-    </div>
+    <%# Tabs %>
+    <%= render "tabs_profile" %>
   </div>
-</div>

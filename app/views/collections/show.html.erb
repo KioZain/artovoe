@@ -18,15 +18,23 @@
         <button class="A_SaveButton">Сохранить</button>
       </div>
       <div class="M_Options">
-        <div class="M_ActionButton">
-          <% if can?(:manage, @post) %>
-            <%= link_to "Изменить", edit_post_path(@collection), class: 'A_Edit' %>
-            <%= button_to "⌦Удалить пост", post_path(@collection), method: :delete %>
-          <% else %>
-          <% end %>
-        </div>
+        <% if can?(:update, @collection) || can?(:destroy, @collection) || current_user&.admin? %>
+          <div class="M_DotsDropdown" 
+          data-controller="dropdown" 
+          data-action="click->dropdown#toggle">
+            <div class="right" data-dropdown-target="content">
+              <% if can?(:update, @collection) %>
+                <%= link_to 'Редактировать', edit_collection_path(@collection), class: 'A_DropdownItem' %>
+              <% end %>
+              <% if can?(:destroy, @collection) %>
+                <%= button_to 'Удалить', @collection, method: :delete, class: 'A_DropdownItem Danger' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
+    <%#---------------------------------------------%>
     <div class="W_СollectionInfoNavigation">
       <div style="flex: 1;"></div>
       <div class="O_CollectionInfo">

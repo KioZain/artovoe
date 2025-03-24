@@ -5,6 +5,22 @@
   background-image: url("icons/Q_IconArrowDown.svg");
 }
 
+.Q_ArtistCardPreview {
+  aspect-ratio: 3/2;
+  min-width: 100%;
+  min-height: 100%;
+  height: clamp();
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid var(--colors-light-400);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .O_HeaderMenu {
 }
 .Q_SharpPoint {
@@ -68,4 +84,25 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 600rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.profile {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 4px;
+  }
+
+  &.index {
+    width: clamp(2rem, 5vw, 4.5rem);
+    height: clamp(2rem, 5vw, 4.5rem);
+    border: 3px solid var(--colors-light-50);
+    margin-top: -2rem;
+    margin-bottom: 1.5rem;
+  }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_13_134533) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_23_191534) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_13_134533) do
     t.datetime "updated_at", null: false
     t.text "placed"
     t.string "contact"
+    t.integer "total_likes", default: 0
   end
 
   create_table "subscriptions", force: :cascade do |t|

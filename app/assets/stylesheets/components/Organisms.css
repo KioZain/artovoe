@@ -1,13 +1,21 @@
 .O_Profile {
-  padding: 2.5rem 0rem 2.5rem 0rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   text-decoration: none;
-  color: var(--almost-black);
-
   justify-content: space-between;
-  border-bottom: 1px solid var(--ash-grey);
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
 }
+
+.O_ArtistHead {
+  display: flex;
+  gap: 1.5rem;
+}
+
 /* Posts */
 .O_Post {
   flex: 1 1 calc(25% - 1.5rem);
@@ -63,19 +71,6 @@
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 2vw, 4.5rem);
-}
-
-.O_ProfileInfo {
-  display: flex;
-  width: var(--width-container);
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 4rem 0;
-
-  .A_Bio {
-    width: 360px;
-  }
 }
 
 .O_CollectionDescription {

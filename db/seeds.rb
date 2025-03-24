@@ -224,8 +224,8 @@ def create_posts(quantity)
     end
 
 
-      # post.category_list = [ @categories.sample ]
-      post.material_list = MATERIAL_TAGS.sample(rand(1..3))
+    # post.category_list = [ @categories.sample ]
+    post.material_list = MATERIAL_TAGS.sample(rand(1..3))
     post.mood_list = MOOD_TAGS.sample(rand(1..3))
     post.genre_list = GENRE_TAGS.sample(rand(1..3))
     post.theme_list = THEME_TAGS.sample(rand(1..3))
@@ -298,7 +298,7 @@ def add_posts_to_collection(collection)
   user_posts = Post.where(user: collection.user)
   return false if user_posts.count < 2
 
-  post_count = rand(2..[ user_posts.count, 8 ].min)
+  post_count = rand(3..[ user_posts.count, 8 ].min)
   posts_to_add = user_posts.sample(post_count).uniq
 
   posts_to_add.each do |post|

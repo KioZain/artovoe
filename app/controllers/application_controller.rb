@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   before_action :authenicate_guest
 
+
   helper_method :all_categories
   def all_categories
     @all_categories ||= ActsAsTaggableOn::Tag
@@ -26,6 +27,17 @@ class ApplicationController < ActionController::Base
       else
         cookies[:guest_token] = current_user.jti
       end
+    end
+  end
+
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    if resource.profile.present? && resource.profile.contact.present?
+      super
+    else
+      step1_profiles_path
     end
   end
 end

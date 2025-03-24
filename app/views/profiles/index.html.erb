@@ -5,8 +5,11 @@
   )
 %>
 <p style="color: green"><%= notice %></p>
-<div class="C_ProfilesArtists">
-  <% @profiles.select { |profile| @profile_post_counts[profile.user_id].to_i >= 4 }.each do |profile| %>
-    <%= render 'profiles/profile', profile: profile %>
-  <% end %>
+<div class="L_Artists">
+  <div class="C_ProfilesArtists">
+    <% @profiles.each do |profile| %>
+      <%= render 'profiles/profile', profile: profile %>
+    <% end %>
+  </div>
+</div>
 </div>

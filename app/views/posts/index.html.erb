@@ -1,30 +1,32 @@
 <% title "Работы художников" %>
 <p style="color: green"><%= notice %></p>
-<%= turbo_frame_tag "posts_with_filters" do %>
-  <div class="S_Filter">
-    <div class="O_FilterTopBar">
-      <div class="M_FilterChosen">
-        <div class="A_FiltersDropdown" 
+<div class="L_Posts">
+  <%= turbo_frame_tag "posts_with_filters" do %>
+    <div class="S_Filter">
+      <div class="O_FilterTopBar">
+        <div class="M_FilterChosen">
+          <div class="A_FiltersDropdown" 
              data-controller="filter-dropdown" 
             data-action="click->filter-dropdown#toggle"
-          data-filter-dropdown-target-id="filter-content"
-          data-turbo-permanent>
-          <h2>Фильтры</h2>
-          <%= image_tag "icons/Q_IconArrowDown.svg", class: "icon-arrow" %>
+            data-filter-dropdown-target-id="filter-content"
+            data-turbo-permanent>
+            <h2>Фильтры</h2>
+            <%= image_tag "icons/Q_IconArrowDown.svg", class: "icon-arrow" %>
+          </div>
         </div>
+        <%= render 'posts/sort_form' %>
       </div>
-      <%= render 'posts/sort_form' %>
-    </div>
-    <div id="filter-content" 
+      <div id="filter-content" 
          class="O_FilterCategoryTags" 
          data-expanded="<%= params[:filter_expanded].present? %>">
-      <%= render 'tags/tags_filter' %>
+        <%= render 'tags/tags_filter' %>
+      </div>
     </div>
-  </div>
-  <div class="C_AllPosts">
-    <% @posts.each do |post| %>
-      <div class="O_Post"><%= render 'posts/post', post: post %></div>
-    <% end %>
-  </div>
-<% end %>
-<%= paginate @posts %>
+    <div class="C_AllPosts">
+      <% @posts.each do |post| %>
+        <div class="O_Post"><%= render 'posts/post', post: post %></div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= paginate @posts %>
+</div>

@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   #
 
 
+
   validates :title, presence: true
   validates :post_image, presence: true
   # validates :category_list, presence: true
@@ -21,6 +22,9 @@ class Post < ApplicationRecord
   def update_likes_count
     update(likes_count: likes.count)
   end
+
+  # after_save :update_profile_total_likes
+  # after_destroy :update_profile_total_likes
 
   has_many :comments, dependent: :destroy
   has_many :displays, dependent: :destroy
@@ -38,4 +42,9 @@ class Post < ApplicationRecord
 
 
   default_scope { order(created_at: "DESC") }
+
+  private
+   def update_profile_total_likes
+    user&.profile&.update_total_likes!
+  end
 end

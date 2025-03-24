@@ -1,0 +1,11 @@
+<% content_for :title, "Завершение создания профиля (шаг 2/2)" %>
+<div class="S_FormBody">
+  <%= form_with model: @profile, url: update_step2_profiles_path, local: true do |form| %>
+    <div class="A_Form">
+      <%= form.label :contact, "Контакты (опционально)" %>
+      <%= form.text_field :contact %>
+    </div>
+    <%= form.submit "Завершить регистрацию", class: "A_Button" %>
+    <%= link_to "Пропустить", profile_path(@profile), class: "A_Link" %>
+  <% end %>
+</div>

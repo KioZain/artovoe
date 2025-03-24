@@ -1,0 +1,18 @@
+<% content_for :title, "Создания профиля (шаг 1/2)" %>
+<div class="S_FormBody">
+  <%= form_with model: @profile, url: update_step1_profiles_path, method: :post, local: true do |form| %>
+    <div class="A_Form">
+      <%= form.label :name, "Имя профиля" %>
+      <%= form.text_field :name, required: true %>
+    </div>
+    <div class="A_Form">
+      <%= form.label :bio, "Описание" %>
+      <%= form.text_area :bio %>
+    </div>
+    <div class="A_Form">
+      <%= form.label :avatar, "Аватар" %>
+      <%= form.file_field :avatar, required: true %>
+    </div>
+    <%= form.submit "Далее", class: "A_Button" %>
+  <% end %>
+</div>

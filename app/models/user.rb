@@ -26,6 +26,14 @@ class User < ApplicationRecord
       .pluck(:name)
   end
 
+
+  def popular_post
+    posts.loaded? ? posts.max_by(&:likes_count) :
+      Rails.cache.fetch("#{cache_key}/popular_post", expires_in: 12.hours) do
+        posts.order(likes_count: :desc).first
+      end
+  end
+
   private
 
     def create_user_profile

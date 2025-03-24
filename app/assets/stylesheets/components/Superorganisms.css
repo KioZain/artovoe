@@ -12,7 +12,6 @@
 .S_TabsProfile {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--calc-padding) 0;
 }
 
 .S_Filter {

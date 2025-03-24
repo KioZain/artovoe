@@ -12,6 +12,22 @@
     display: inline-block;
   }
 }
+.W_Ratings {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+
+  .M_InfoRow {
+    flex: 1;
+  }
+}
+.W_HeadOptions {
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--colors-neutral-300);
+}
+
 .W_ProfileBioStats {
   display: flex;
   justify-content: space-between;
@@ -116,26 +132,6 @@
   gap: 1.5rem;
 }
 
-.W_AllInfoProfile {
-  display: flex;
-  align-items: flex-end;
-  gap: 2rem;
-
-  .M_ProfileHead {
-    min-width: 240px;
-    max-width: 340px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    .M_Subtext {
-      gap: 1rem;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-}
-
 /* Comments */
 .W_CommentActions {
   display: flex;
@@ -147,17 +143,7 @@
     color: var(--colors-neutral-600);
   }
 }
-.W_Media {
-  img {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-}
-.W_BestCounting {
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
-}
+
 .W_CollectionHead {
   display: flex;
   flex-direction: column;
