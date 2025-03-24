@@ -1,9 +1,9 @@
 class Api::V1::CollectionsController < ApplicationController
   def index
-    @collections = Collection.all
+   @collections = Collection.includes(:posts).all
   end
 
   def show
-    @collection = Collection.find(params[:id])
+    @collection = Collection.includes(:posts).find(params[:id])
   end
 end

@@ -197,7 +197,6 @@ end
 def create_posts(quantity)
   quantity.times do
     users = User.all.to_a
-    max_likes_per_post = users.size
     user = users.sample
 
     post = Post.create!(
@@ -213,26 +212,13 @@ def create_posts(quantity)
       year: rand(1990..2025),
     )
 
-    likes_count = rand(0..max_likes_per_post)
-    liking_users = users.sample(likes_count).uniq
+    create_likes_for(post)
 
-    liking_users.each do |liker|
-      Like.find_or_create_by!(
-        likable: post,
-        user: liker
-      )
-    end
-
-
-    # post.category_list = [ @categories.sample ]
     post.material_list = MATERIAL_TAGS.sample(rand(1..3))
     post.mood_list = MOOD_TAGS.sample(rand(1..3))
     post.genre_list = GENRE_TAGS.sample(rand(1..3))
     post.theme_list = THEME_TAGS.sample(rand(1..3))
     post.category_list = @categories.sample.downcase
-    post.save!
-
-    post.post_image = upload_random_image
     post.save!
 
     post.displays.create(
@@ -241,7 +227,6 @@ def create_posts(quantity)
       display_type: [ "Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция" ].sample,
       city: @cities.sample,
     )
-
 
     puts "Post with id #{post.id}, user id:#{user.id}, tags: #{post.material_list}, displays: #{post.displays.count}, likes_count:#{post.likes_count} just created"
   end
@@ -268,7 +253,7 @@ def create_collections(quantity)
     user = User.all.sample
     public_status = get_random_bool
 
-    # Создаем коллекцию
+
     collection = Collection.new(
       user: user,
       title: create_post_name,
@@ -276,12 +261,12 @@ def create_collections(quantity)
       public: public_status
     )
 
-    # Добавляем посты в коллекцию
+
     if add_posts_to_collection(collection)
       if collection.save
         puts "Collection '#{collection.title}' with id #{collection.id} created"
 
-        # Генерация лайков для коллекции
+
         create_likes_for(collection)
 
       else
@@ -309,9 +294,8 @@ def add_posts_to_collection(collection)
   true
 end
 
-# Генерация лайков для сущности (posts/collections)
 def create_likes_for(likable)
-  users = User.where.not(id: likable.user.id).to_a # Исключаем автора
+  users = User.where.not(id: likable.user.id).to_a
   max_likes = users.size
   likes_count = rand(0..max_likes)
   liking_users = users.sample(likes_count).uniq
