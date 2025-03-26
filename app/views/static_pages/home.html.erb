@@ -1,11 +1,51 @@
 <%# FirstScreenCover %>
-<h1>Здарова, салага</h1>
-<div class="test"></div>
-<div data-controller="hello">
-  <button data-action="click->hello#greet">Click me</button>
+<div class="L_Home">
+  <%# -------------------first------------------- %>
+  <div class="M_MainAnnounce">
+    <div class="W_AnnounceText"></div>
+  </div>
+  <%# ----------------second----------------- %>
+  <div class="A_Ticker"></div>
+  <%# ----------------third----------------- %>
+  <div class="S_MainWeekWorks">
+    <div class="W_WeekAboutTop">
+      <div class="W_WeekAboutLeft">
+        <div class="O_WeekWorksInfo">
+          <div class="M_HeadingDates">
+            <h1 class="hero">Работы недели</h1>
+            <h2>21.03 — <br>
+              28.03</h2>
+          </div>
+          <div class="M_DescriptionTransit">
+            <p>Что больше всего привлекло внимание? Работы, которые отмечают, обсуждают, пересматривают. Посмотрите, что стало главным за эти дни.</p>
+            <%= link_to posts_path, class: "A_NextArrow" do %>
+              <p>Все работы</p>
+              <%= image_tag 'icons/Q_Arrow.svg' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="O_MainWeekPost"></div>
+    </div>
+    <%# ------------------ %>
+    <div class="W_MainWeekPostsBottom">
+      <% @top_posts[3..6].each do |post| %>
+        <div class="post-item">
+          <%= render partial: 'week_post', locals: { post: post } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%# ----------------fourth----------------- %>
+  <div class="S_MainNewPosts">
+  </div>
+  <%# ----------------fifth----------------- %>
+  <div class="O_MainPageAuthors"></div>
 </div>
-<div class='large-font text-center top-20'>
-  <ion-icon name="heart">
-    <div class='red-bg'></div>
-  </ion-icon>
+<div class="additional-posts">
 </div>
+<% @top_posts[1..2].each do |post| %>
+  <div class="post-item">
+    <%= render partial: 'week_post', locals: { post: post } %>
+  </div>
+<% end %>

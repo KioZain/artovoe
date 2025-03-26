@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get "step2"
       post "update_step2"
     end
+    get "/by_tag/:tag", to: "profiles#by_tag", on: :collection, as: "tagged"
   end
 
   resources :collections do

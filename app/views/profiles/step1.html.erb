@@ -1,18 +1,66 @@
 <% content_for :title, "Создания профиля (шаг 1/2)" %>
-<div class="S_FormBody">
-  <%= form_with model: @profile, url: update_step1_profiles_path, method: :post, local: true do |form| %>
-    <div class="A_Form">
-      <%= form.label :name, "Имя профиля" %>
-      <%= form.text_field :name, required: true %>
+<div class="W_AuthForm">
+  <div class="A_Plate"></div>
+  <div class="W_RegFormCounter">
+    <div class="M_RegistrationCounter">
+      <div class="A_Counter ">
+        <div class="Q_Counter">
+          <h4>1</h4>
+        </div>
+        <h4 class="footnote">Почта <br>
+          и пароль</h4>
+      </div>
+      <hr>
+      <div class="A_Counter active">
+        <div class="Q_Counter">
+          <p class="footnote">2</p>
+        </div>
+        <p class="footnote">Создание профиля</p>
+      </div>
+      <hr>
+      <div class="A_Counter">
+        <div class="Q_Counter">
+          <p>3</p>
+        </div>
+        <p class="footnote">Добавление контактов</p>
+      </div>
     </div>
-    <div class="A_Form">
-      <%= form.label :bio, "Описание" %>
-      <%= form.text_area :bio %>
+    <div class="O_AuthForm">
+      <%= form_with model: @profile, 
+          url: update_step1_profiles_path, 
+          method: :post, 
+          local: true,
+          multipart: true,
+          class: "new_user", 
+          data: { controller: "file-upload" } do |form| %>
+        <div class="A_UploadButton" data-file-upload-target="dropzone">
+          <%= image_tag 'icons/Q_Upload.svg' %>
+          <div class="p">Добавить фото</div>
+          <div class="preview" data-file-upload-target="preview"></div>
+          <input 
+              type="file" 
+              name="profile[avatar]" 
+              id="profile_avatar" 
+              required="required" 
+              class="hidden-input" 
+              data-file-upload-target="input"
+              data-action="change->file-upload#handleFileSelect">
+          <button type="button" class="replace-btn" 
+                data-file-upload-target="replaceBtn" 
+                data-action="click->file-upload#resetFile">Удалить</button>
+        </div>
+        <%# other %>
+        <div class="M_FormLabel">
+          <%= form.label :name, "Имя профиля" %>
+          <%= form.text_field :name, required: true, class: "A_Form" %>
+        </div>
+        <div class="M_FormLabel">
+          <%= form.label :bio, "Описание" %>
+          <%= form.text_area :bio, class: "A_Form" %>
+        </div>
+        <%= form.submit "Далее", class: "A_Button green" %>
+      <% end %>
     </div>
-    <div class="A_Form">
-      <%= form.label :avatar, "Аватар" %>
-      <%= form.file_field :avatar, required: true %>
-    </div>
-    <%= form.submit "Далее", class: "A_Button" %>
-  <% end %>
+  </div>
+  <div class="A_Plate"></div>
 </div>

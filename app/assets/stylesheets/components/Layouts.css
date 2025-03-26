@@ -12,6 +12,8 @@
   flex-direction: column;
   gap: 3rem;
   padding: 0 var(--calc-padding) 0;
+  max-width: var(--max-desktop);
+  margin: 0 auto;
 }
 .L_Artists {
   max-width: var(--max-desktop);
@@ -21,6 +23,12 @@
 .L_Posts {
   max-width: var(--max-desktop);
   padding: 0 var(--calc-padding) 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.L_Home {
   margin: 0 auto;
   display: flex;
   flex-direction: column;

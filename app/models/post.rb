@@ -1,17 +1,12 @@
 class Post < ApplicationRecord
-  TAGS = [ "cюрреализм", "нежность", "онтология", "природа", "повседневность", "философия", "жизнь", "шляпа", "семантика" ]
   CATEGORIES = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия", "диджитал-арт" ]
-
-  # массив хешей
-  # path и name
-  # сюрреализм - name
-  # sur - path
-  #
-
-
 
   validates :title, presence: true
   validates :post_image, presence: true
+
+  after_save :update_collections_tags_if_needed, :update_profile_tags
+  before_destroy :update_collections_before_destroy, :update_profile_tags
+
   # validates :category_list, presence: true
 
   # Associations-------------------------------
@@ -20,7 +15,7 @@ class Post < ApplicationRecord
 
 
   def update_likes_count
-    update(likes_count: likes.count)
+    update!(likes_count: likes.count)
   end
 
   # after_save :update_profile_total_likes
@@ -44,6 +39,24 @@ class Post < ApplicationRecord
   default_scope { order(created_at: "DESC") }
 
   private
+
+  def update_profile_tags
+    profile = user.profile
+    profile&.update_tags_from_user_posts
+  end
+
+  def update_collections_tags_if_needed
+    if saved_change_to_category_list? || saved_change_to_material_list? ||
+       saved_change_to_mood_list? || saved_change_to_genre_list? ||
+       saved_change_to_theme_list?
+      collections.each(&:update_tags_from_posts)
+    end
+  end
+
+  def update_collections_before_destroy
+    collections.each(&:update_tags_from_posts)
+  end
+
    def update_profile_total_likes
     user&.profile&.update_total_likes!
   end

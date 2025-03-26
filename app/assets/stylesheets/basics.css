@@ -28,6 +28,22 @@
   }
 }
 
+.account_new {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  p {
+    color: var(--colors-neutral-400);
+  }
+
+  a {
+    color: var(--colors-neutral-600);
+  }
+}
+
 .likes-count {
   font-weight: 500;
   color: #666;
@@ -76,6 +92,10 @@ body {
 
   .subtitle {
     font-family: "Geist Mono";
+    text-transform: uppercase;
+  }
+  .hero {
+    font-size: 6.5rem;
     text-transform: uppercase;
   }
 

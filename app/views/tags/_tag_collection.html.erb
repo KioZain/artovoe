@@ -1,0 +1,30 @@
+<div class="C_Tags">
+  <%# Materials %>
+  <% @collection.material_list.take(2).each do |tag| %>
+    <%= link_to tag, 
+                tagged_collections_path(tag, context: 'materials'), 
+                class: "A_Tag", 
+                data: { tag_context: 'materials' } %>
+  <% end %>
+  <%# Moods %>
+  <% @collection.mood_list.take(2).each do |tag| %>
+    <%= link_to tag, 
+                tagged_collections_path(tag, context: 'moods'), 
+                class: "A_Tag", 
+                data: { tag_context: 'moods' } %>
+  <% end %>
+  <%# Themes %>
+  <% @collection.theme_list.take(2).each do |tag| %>
+    <%= link_to tag, 
+                tagged_collections_path(tag, context: 'themes'), 
+                class: "A_Tag", 
+                data: { tag_context: 'themes' } %>
+  <% end %>
+  <%# Genres %>
+  <% @collection.genre_list.take(2).each do |tag| %>
+    <%= link_to tag, 
+                tagged_collections_path(tag, context: 'genres'), 
+                class: "A_Tag", 
+                data: { tag_context: 'genres' } %>
+  <% end %>
+</div>

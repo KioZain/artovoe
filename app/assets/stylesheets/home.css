@@ -5,3 +5,176 @@
 }
 
 /* ---------------------- */
+.A_UploadButton {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: var(--colors-light-300);
+  border-radius: 600rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+
+  font-size: 13px;
+  line-height: 130%;
+  overflow: hidden;
+
+  .hidden-input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.has-image {
+      opacity: 1;
+    }
+  }
+
+  .replace-btn {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: none;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.M_MainAnnounce {
+  width: 100%;
+  background-color: var(--colors-shade-blue);
+  height: 300px;
+}
+
+.S_MainWeekWorks {
+  width: 100%;
+  background-color: var(--colors-shade-pink);
+  padding: ;
+  padding: 8rem var(--calc-padding) 8rem;
+  min-height: 200px;
+  flex-direction: column;
+
+  .W_WeekAboutTop {
+    padding: 0 var(--calc-padding) 0;
+    max-width: var(--max-desktop);
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+
+    .O_MainWeekPost {
+      flex: 1;
+    }
+    .W_WeekAboutLeft {
+      flex: 1;
+    }
+  }
+  .W_MainWeekPostsBottom {
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+    padding: 0 var(--calc-padding) 0;
+    max-width: var(--max-desktop);
+    margin: 0 auto;
+
+    .O_MainWeekPost:first-child {
+      background-color: red;
+    }
+    .O_MainWeekPost:nth-child(2) {
+      background-color: blue;
+    }
+    .O_MainWeekPost:nth-child(3) {
+      background-color: purple;
+    }
+  }
+}
+.O_MainWeekPost {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .Q_PostGridImage {
+    width: 100%;
+    aspect-ratio: 1/1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .M_ObjectAuthorLikes {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.W_WeekAboutLeft {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.O_WeekWorksInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+
+  .M_HeadingDates {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .M_DescriptionTransit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    p {
+      max-width: 390px;
+    }
+  }
+}
+.A_NextArrow {
+  display: flex;
+  text-decoration: none;
+  width: 8rem;
+  height: 30px;
+  color: var(--colors-neutral-800);
+  gap: 0.5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--colors-neutral-800);
+
+  p {
+    text-decoration: none;
+  }
+}

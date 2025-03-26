@@ -4,12 +4,14 @@ class Like < ApplicationRecord
 
    validates :user, uniqueness: { scope: [ :likable_type, :likable_id ] }
 
-  after_create_commit :update_likes_count
-  after_destroy_commit :update_likes_count
+  after_create :update_likes_count
+  after_destroy :update_likes_count
 
   private
 
   def update_likes_count
     likable.update_likes_count
+
+    likable.user.profile.update_total_likes
   end
 end

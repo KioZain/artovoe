@@ -56,8 +56,6 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  max-width: var(--max-desktop);
-  padding: var(--calc-padding);
 }
 
 .C_CollectionObjects {
@@ -129,8 +127,6 @@
 /* Profile */
 .C_Tabs {
   display: flex;
+  margin: 3rem 0 0rem;
   gap: 0;
-  padding: 0 clamp(2rem, 6vw, 6rem) 0;
 }
-
-/* Общие стили для блоков в профиле */

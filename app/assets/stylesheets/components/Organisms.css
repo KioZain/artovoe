@@ -10,6 +10,18 @@
     text-decoration: none;
   }
 }
+.O_AboutArtis {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 850px;
+  width: 100%;
+
+  .W_Rows {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 .O_ArtistHead {
   display: flex;
@@ -282,5 +294,39 @@
         font-weight: 500;
       }
     }
+  }
+}
+/* Form sing-in sign up */
+
+.O_AuthForm {
+  max-width: 560px;
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  background: var(--colors-light-200);
+  a {
+    color: var(--colors-neutral-900);
+  }
+
+  .M_SubText {
+    text-align: center;
+  }
+
+  .new_user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    .M_FormLabel {
+      width: 100%;
+    }
+  }
+  &.step {
+    min-height: 230px;
   }
 }

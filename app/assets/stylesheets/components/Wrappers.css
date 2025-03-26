@@ -1,17 +1,17 @@
-.W_ProfileBio {
+.W_AboutUser {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
   justify-content: space-between;
+  width: 100%;
+  gap: 2.5rem;
+  margin-top: 6rem;
 
-  .M_SubText {
-    width: 240px;
-  }
-
-  .A_CategoryData {
-    display: inline-block;
+  .M_ArtistActivity {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
+
 .W_Ratings {
   display: flex;
   gap: 2rem;
@@ -178,4 +178,38 @@
 .dropdown {
   position: relative;
   display: inline-block;
+}
+/* Sign In  */
+.W_AuthForm {
+  display: flex;
+  height: fit-content;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 40rem;
+  transform: translateY(5%);
+  align-items: center;
+
+  .A_Plate {
+    background-color: var(--colors-light-200);
+    justify-content: center;
+    height: 400px;
+    width: 3rem;
+    border-radius: 0.5rem;
+
+    &.step {
+      height: 16rem;
+    }
+  }
+}
+/* SIGN UP */
+.W_RegFormCounter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--colors-light-200);
+  border-radius: 1.5rem;
+
+  .A_Plate {
+    height: 500px;
+  }
 }

@@ -35,9 +35,15 @@ class ProfilesController < ApplicationController
   # GET /profiles or /profiles.json
   def index
     @profiles = Profile.includes(user: :posts).all
-    @profile_post_counts = Post.group(:user_id).count
-    @profile_collection_counts = Collection.group(:user_id).count
+    initialize_counts
   end
+
+  def by_tag
+    @profiles = Profile.tagged_with(params[:tag])
+    initialize_counts
+    render :index
+  end
+
 
   # GET /profiles/1 or /profiles/1.json
   def show
@@ -120,6 +126,12 @@ end
 
 
   private
+
+    def initialize_counts
+      @profile_post_counts = Post.group(:user_id).count
+      @profile_collection_counts = Collection.group(:user_id).count
+    end
+
 
     def profile_params_step1
       params.require(:profile).permit(:name, :bio, :avatar)

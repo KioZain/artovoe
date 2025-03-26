@@ -2,7 +2,7 @@
   set_meta_tags(
     title: @collection.title,
     description: @collection.body,
-    keywords: @collection.tag_list
+    # keywords: @collection.tag_list
   )
 %>
 <p style="color: green"><%= notice %></p>
@@ -47,6 +47,8 @@
           </div>
           <h1><%= @collection.title %></h1>
         </div>
+        <%# -----------------tags here -----------%>
+        <%= render 'tags/tag_collection' %>
         <h4><%= @collection.body %></h4>
         <p class="footnote">Опубликовано: <%= @collection.created_at.strftime("%d.%m.%Y") %></p>
       </div>

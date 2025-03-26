@@ -243,14 +243,26 @@ a.caption {
     letter-spacing: 1px;
     color: var(--almost-black);
   }
+
+  &.green {
+    background-image: url("/assets/buttons/Q_Green.svg");
+  }
 }
 .medium {
   background-image: url("/assets/buttons/A_ButtonMedium.svg");
   width: 174px;
+
+  &.green {
+    background-image: url("/assets/buttons/Q_GreenMedium.svg");
+  }
 }
-.lage {
+.large {
   background-image: url("/assets/buttons/A_ButtonLarge.svg");
   width: 204px;
+
+  &.green {
+    background-image: url("/assets/buttons/Q_GreenLarge.svg");
+  }
 }
 
 .A_ButtonSecondary {
@@ -448,14 +460,22 @@ input.A_Button {
   justify-content: space-between;
   height: 52px;
   max-width: 500px;
+  width: 100%;
   border: none;
   border-radius: 0.5rem;
   padding: 1rem;
+  font-size: 1rem;
 
   &:focus {
     outline: 1px solid var(--brand-blue);
-    border: 1px solid var(--brand-blue);
   }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--colors-neutral-900);
+  transition: background-color 5000s ease-in-out 0s;
 }
 textarea.A_Form {
   min-height: 112px;
@@ -571,3 +591,4 @@ button.A_DropdownItem {
   font-size: 1rem;
   display: flex;
 }
+/* FORM SIGN IN REG */

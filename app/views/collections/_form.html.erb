@@ -17,15 +17,6 @@
     <%= f.label :body, "Описание", class: "body-label", style: "display: block" %>
     <%= f.text_area :body, class: "A_Form" %>
   </div>
-  <%# Теги %>
-  <%= f.collection_check_boxes(:tag_list, valid_tags, :to_s, :to_s) do |b| %>
-    <div class="">
-      <label class="form-check-label">
-        <%= b.check_box class: 'form-check-input' %>
-        <%= b.text %>
-      </label>
-    </div>
-  <% end %>
   <%= render "work_selector" %>
   <%#-------------submit--------------%>
   <%= f.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>

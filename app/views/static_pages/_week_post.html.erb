@@ -1,0 +1,12 @@
+<div class="O_MainWeekPost">
+  <div class="Q_PostGridImage">
+    <%= image_tag post.post_image.url, class: "Q_PostImage" %>
+  </div>
+  <div class="M_ObjectAuthorLikes">
+    <h4 class="subtitle"><%= post.title %></h4>
+    <div class="M_AuthorLikes">
+      <p>Автор: <%= post.user.profile.name %></p>
+      <p><%= post.likes_count %></p>
+    </div>
+  </div>
+</div>

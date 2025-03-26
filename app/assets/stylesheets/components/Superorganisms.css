@@ -12,6 +12,13 @@
 .S_TabsProfile {
   display: flex;
   flex-direction: column;
+
+  .C_AllPosts {
+    margin-top: 6rem;
+  }
+
+  .C_Collections {
+  }
 }
 
 .S_Filter {

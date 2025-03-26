@@ -6,8 +6,6 @@
   )
 %>
 <p style="color: green"><%= notice %></p>
-<%= @user.email %>
-<%= @profile.total_likes %> лайков
 <div class="L_Profile">
   <div class="S_Profile">
     <div class="W_HeadOptions">
@@ -20,7 +18,7 @@
           <div class="W_Ratings">
             <div class="M_InfoRow">
               <p class="footnote">Оценки <br>
-                <%= rand(12..150) %>
+                <%= @profile.total_likes %>
               </p>
             </div>
             <div class="M_InfoRow">
@@ -48,14 +46,6 @@
       <% end %>
     </div>
     <div class="O_ProfileInfo">
-      <div class="W_AllInfoProfile">
-        <div class="M_ProfileHead">
-          <div class="M_Subtext">
-            <p><%= @profile.contact %></p>
-          </div>
-        </div>
-        <p class="A_Bio"><%= @profile.bio %></p>
-      </div>
     </div>
     <%# Tabs %>
     <%= render "tabs_profile" %>

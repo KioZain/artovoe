@@ -30,5 +30,70 @@
         <% end %>
       </div>
     </div>
+    <div data-tabs-target="tab" id="tab4" class='hidden'>
+      <%# -------------------------------------------------- %>
+      <div class="W_AboutUser">
+        <div class="O_AboutArtis">
+          <div class="W_Rows">
+            <div class="M_InfoRow">
+              <p class="footnote">Имя художника</p>
+              <p><%= @profile.name %></p>
+            </div>
+            <div class="M_InfoRow">
+              <p class="footnote">Тelegram</p>
+              <p><%= @profile.contact %></p>
+            </div>
+          </div>
+          <div class="M_InfoRow">
+            <p class="footnote">Теги автора</p>
+            <div class="C_Tags">
+              <%# materials %>
+              <% @profile.material_list.take(2).each do |tag| %>
+                <%= link_to tag, 
+                tagged_profiles_path(tag, context: 'materials'), 
+                class: "A_Tag", 
+                data: { tag_context: 'materials' } %>
+              <% end %>
+              <%# moods %>
+              <% @profile.mood_list.take(2).each do |tag| %>
+                <%= link_to tag, 
+                tagged_profiles_path(tag, context: 'moods'), 
+                class: "A_Tag", 
+                data: { tag_context: 'moods' } %>
+              <% end %>
+              <%# themes %>
+              <% @profile.theme_list.take(2).each do |tag| %>
+                <%= link_to tag, 
+                tagged_profiles_path(tag, context: 'themes'), 
+                class: "A_Tag", 
+                data: { tag_context: 'themes' } %>
+              <% end %>
+              <%# genres %>
+              <% @profile.genre_list.take(2).each do |tag| %>
+                <%= link_to tag, 
+                tagged_profiles_path(tag, context: 'genres'), 
+                class: "A_Tag", 
+                data: { tag_context: 'genres' } %>
+              <% end %>
+            </div>
+          </div>
+          <div class="M_InfoRow">
+            <p class="footnote">О художнике</p>
+            <p class="A_Bio"><%= @profile.bio %></p>
+          </div>
+        </div>
+        <div class="M_ArtistActivity">
+          <div class="M_InfoRow">
+            <p class="footnote">На сайте</p>
+            <p class="A_Bio">1 день</p>
+          </div>
+          <div class="M_InfoRow">
+            <p class="footnote">Последняя публикация</p>
+            <p class="A_Bio"><%= Post.last.created_at.strftime("%d.%m.%Y") %></p>
+          </div>
+        </div>
+      </div>
+      <%# ----------------------------------------------------  %>
+    </div>
   </div>
 </div>

@@ -19,6 +19,9 @@
   --colors-neutral-800: #2e3538;
   --colors-neutral-900: #171a1c;
 
+  --colors-shade-blue: #baddff;
+  --colors-shade-pink: #f7bee0;
+
   --system-danger: #ff3b30;
   /* Max-width */
   --max-desktop: 1728px;

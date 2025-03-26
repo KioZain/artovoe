@@ -1,31 +1,30 @@
-<div class="Alignment">
-  
-  <div class="O_FormRegistraion">
-    <h2>Войти</h2>
-
+<div class="W_AuthForm">
+  <div class="A_Plate"></div>
+  <div class="O_AuthForm">
+    <div class="M_SubText">
+      <h3>Авторизация</h3>
+      <p>Войдите в свой аккаунт, чтобы пользоваться
+        всеми <br>
+        благами нашего артового сервиса</p>
+    </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email, "Ваш Email" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="M_FormLabel">
+        <%= f.label :email, "Ваш Email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "A_Form" %>
       </div>
-
-      <div class="field">
-        <%= f.label :password, "Пароль" %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="M_FormLabel">
+        <%= f.label :password, "Пароль" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "A_Form" %>
       </div>
-
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div class="">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, "Запомнить меня" %>
+          <%= f.label :remember_me, "Запомнить меня", style: "color:black" %>
         </div>
       <% end %>
-
-      <div class="A_SignUp">
-        <%= f.submit "Войти" %>
-      </div>
+      <%= f.submit "Войти", class:"A_Button medium green" %>
     <% end %>
-  
     <%= render "devise/shared/links" %>
   </div>
+  <div class="A_Plate"></div>
 </div>
