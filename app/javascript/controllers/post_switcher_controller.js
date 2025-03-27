@@ -2,16 +2,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["arrow"]
-
   navigate(event) {
-    const url = event.currentTarget.dataset.url
-    console.log("Attempting to navigate to:", url) // Добавлено логирование
+    const url = event.currentTarget.dataset.postSwitcherUrl
+    const isDisabled = event.currentTarget.classList.contains('disabled')
     
-    if (url && url !== '#') {
+    if (url && !isDisabled) {
       window.location.href = url
-    } else {
-      console.error("Invalid URL:", url)
     }
   }
 }

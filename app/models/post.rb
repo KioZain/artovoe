@@ -12,33 +12,6 @@ class Post < ApplicationRecord
   # Associations-------------------------------
 
   has_many :likes, as: :likable
-
-
-  def update_likes_count
-    update!(likes_count: likes.count)
-  end
-
-  def next
-    Post.unscoped do
-      user.posts
-        .where("created_at > ?", created_at)
-        .reorder(created_at: :asc) # Используйте reorder вместо order
-        .first || user.posts.reorder(created_at: :asc).first
-    end
-  end
-
-  def previous
-    Post.unscoped do
-      user.posts
-        .where("created_at < ?", created_at)
-        .reorder(created_at: :desc)
-        .first || user.posts.reorder(created_at: :desc).first
-    end
-  end
-
-  # after_save :update_profile_total_likes
-  # after_destroy :update_profile_total_likes
-
   has_many :comments, dependent: :destroy
   has_many :displays, dependent: :destroy
 
@@ -47,6 +20,29 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :collections
   belongs_to :user
 
+  # Post switching
+  def next_post
+    user.posts
+        .where("created_at > ? OR (created_at = ? AND id > ?)", created_at, created_at, id)
+        .order(created_at: :asc, id: :asc)
+        .first
+  end
+
+  def previous_post
+    user.posts
+        .where("created_at < ? OR (created_at = ? AND id < ?)", created_at, created_at, id)
+        .order(created_at: :desc, id: :desc)
+        .first
+  end
+
+  def cyclic_next_post
+    next_post || user.posts.order(created_at: :asc, id: :asc).first
+  end
+
+  def cyclic_previous_post
+    previous_post || user.posts.order(created_at: :desc, id: :desc).first
+  end
+  # -----------------------------------------------------
   # acts_as_taggable_on :tags
   acts_as_taggable_on :categories, :materials, :moods, :genres, :themes
 

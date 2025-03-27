@@ -35,16 +35,13 @@
       </div>
     </div>
     <%# ---------------------------------------------- %>
-    <div class="O_NameSwitcher">
-      <% if @post.user.posts.count > 1 %>
-        <div class="W_ArrowContainer">
-          <div class="A_ArrowSwitcher left" 
-     data-post-switcher-target="arrow"
-     data-action="click->post-switcher#navigate"
-            data-url="<%= @previous_post ? post_path(@previous_post) : '#' %>">
-          </div>
+    <div class="O_NameSwitcher" data-controller="post-switcher">
+      <div class="W_ArrowContainer">
+        <div class="A_ArrowSwitcher left <%= 'disabled' unless @has_previous %>" 
+         data-action="click->post-switcher#navigate"
+          data-post-switcher-url="<%= post_path(@previous_post) %>">
         </div>
-      <% end %>
+      </div>
       <div class="M_TitleCreatorName">
         <div class="A_CreatorPost">
           <%= link_to profile_path(@post.user.profile), class: "A_CreatorPost" do %>
@@ -54,13 +51,12 @@
         </div>
         <h1><%= @post.title %></h1>
       </div>
-      <% if @post.user.posts.count > 1 %>
-        <div class="A_ArrowSwitcher right" 
-     data-post-switcher-target="arrow"
-     data-action="click->post-switcher#navigate"
-          data-url="<%= @next_post ? post_path(@next_post) : '#' %>">
+      <div class="W_ArrowContainer right">
+        <div class="A_ArrowSwitcher right <%= 'disabled' unless @has_next %>"
+         data-action="click->post-switcher#navigate"
+          data-post-switcher-url="<%= post_path(@next_post) %>">
         </div>
-      <% end %>
+      </div>
     </div>
     <%# ------------------------------------------ %>
     <div class="W_PostImageDescription">

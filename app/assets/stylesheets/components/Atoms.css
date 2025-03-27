@@ -197,20 +197,32 @@ a.caption {
 .A_ArrowSwitcher {
   width: 80px;
   height: 50px;
+  transition: 0.3s all;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
 
-  &.left {
-    background-image: url("icons/A_ArrowForward.svg");
-    transform: rotate(180deg);
-  }
-  &.right {
-    background-image: url("icons/A_ArrowForward.svg");
-  }
+.A_ArrowSwitcher.left {
+  background-image: url("icons/A_ArrowForward.svg");
+  transform: rotate(180deg);
+}
 
-  &:hover {
-    opacity: 60%;
-    transition: 0.3s all;
-    cursor: pointer;
-  }
+.A_ArrowSwitcher.right {
+  background-image: url("icons/A_ArrowForward.svg");
+}
+
+/* Стили для неактивных стрелок */
+.A_ArrowSwitcher.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none; /* Блокируем клики */
+}
+
+/* Hover-эффект только для активных стрелок */
+.A_ArrowSwitcher:not(.disabled):hover {
+  opacity: 0.6;
 }
 
 /* Buttons */
