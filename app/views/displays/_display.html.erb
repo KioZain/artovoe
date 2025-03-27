@@ -1,33 +1,5 @@
-<%
-  square_color = "default"
-
-  case display.display_type.downcase
-  when "выставка"
-    square_color = "green"
-
-  when "арт-маркет"
-    square_color = "pink"
-
-  when "галерея"
-    square_color = "yellow"
-
-  when "цифровая экспозиция"
-    square_color = "blue"
-  end
-%>
-<div class="O_Display">
-  <div class="M_DisplayTypeYear">
-    <div class="A_DisplayColorSigned">
-      <div class="A_SquareType <%= square_color %>"></div>
-      <p><%= display.display_type %></p>
-    </div>
-    <p><%= display.year %></p>
-  </div>
-  <div class="W_NameDisplay">
-    <div class="M_SubText">
-      <h3><%= display.name %> </h3>
-      <p><%= display.city %></p>
-    </div>
-    <p><%= display.post.title %></p>
-  </div>
+<div class="M_Display">
+  <h4><%= @display.display_type %></h4>
+  <h3><%= @display.name %> </h3>
+  <p><%= @display.city %></p>
 </div>

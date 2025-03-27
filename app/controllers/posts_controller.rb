@@ -56,6 +56,22 @@ def index
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @next_post = @post.next
+    @previous_post = @post.previous
+
+    # Если следующий пост равен текущему (последний в списке)
+    if @next_post == @post
+      @next_post = @post.user.posts.order(:created_at).first
+    end
+
+    # Если предыдущий пост равен текущему (первый в списке)
+    if @previous_post == @post
+      @previous_post = @post.user.posts.order(created_at: :desc).first
+    end
+  end
+
   # GET /posts/1/edit
   def edit
     @posts = Post.all

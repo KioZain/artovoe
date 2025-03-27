@@ -32,6 +32,7 @@
   gap: 0.5rem;
   background-color: var(--colors-light-50);
   padding: 1rem;
+  border-radius: 0.5rem;
 
   .A_Tag {
     background: var(--colors-light-300);
@@ -56,6 +57,27 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+.C_DisplaysSorted {
+  display: flex;
+  flex-direction: column;
+  width: 72%;
+
+  .O_Displays {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(2rem, 6vw, 6rem) 0;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--colors-neutral-300);
+
+    p.year-display {
+      flex: 1.5;
+    }
+  }
+
+  &.profile {
+    width: 100%;
+  }
 }
 
 .C_CollectionObjects {
@@ -97,15 +119,13 @@
 
 .C_Displays {
   display: flex;
-  max-width: var(--max-desktop);
-  margin: 0 auto;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 3rem;
-
-  .O_Display {
-    grid-column: span 1;
-  }
+  margin: 0 auto;
+  column-gap: 1.5rem;
+  row-gap: 3rem;
+  width: 100%;
+  flex: 3;
+  justify-content: flex-start;
 }
 
 /* Comments */

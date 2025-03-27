@@ -1,11 +1,9 @@
-<div class="S_FormBody">
-  <% content_for :title, "New post" %>
-  <div class="M_BackTitle">
-    <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
-    <h1>Добавить вещицу</h1>
-  </div>
-  <%= render "form", post: @post %>
-  <br>
-  <div>
-  </div>
+<% content_for :title, "New post" %>
+<div class="M_BackTitle">
+  <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
+  <h1>Добавить вещицу</h1>
+</div>
+<%= render "form", post: @post %>
+<br>
+<div>
 </div>

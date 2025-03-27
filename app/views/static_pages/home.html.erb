@@ -13,7 +13,7 @@
         <div class="O_WeekWorksInfo">
           <div class="M_HeadingDates">
             <h1 class="hero">Работы недели</h1>
-            <h2>21.03 — <br>
+            <h2>21.03 —<br>
               28.03</h2>
           </div>
           <div class="M_DescriptionTransit">
@@ -24,15 +24,20 @@
             <% end %>
           </div>
         </div>
+        <div class="W_TwoWeekPosts">
+          <% @top_posts[1..2].each do |post| %>
+            <%= render partial: 'week_post', locals: { post: post } %>
+          <% end %>
+        </div>
       </div>
-      <div class="O_MainWeekPost"></div>
+      <% if @top_posts.first.present? %>
+        <%= render partial: 'week_post', locals: { post: @top_posts.first } %>
+      <% end %>
     </div>
     <%# ------------------ %>
     <div class="W_MainWeekPostsBottom">
       <% @top_posts[3..6].each do |post| %>
-        <div class="post-item">
-          <%= render partial: 'week_post', locals: { post: post } %>
-        </div>
+        <%= render partial: 'week_post', locals: { post: post } %>
       <% end %>
     </div>
   </div>
@@ -44,8 +49,3 @@
 </div>
 <div class="additional-posts">
 </div>
-<% @top_posts[1..2].each do |post| %>
-  <div class="post-item">
-    <%= render partial: 'week_post', locals: { post: post } %>
-  </div>
-<% end %>

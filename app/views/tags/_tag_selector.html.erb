@@ -1,80 +1,88 @@
 <%# materiallll %>
-<h4>Материал</h4>
-<div class="C_TagsForm" 
+<div class="M_FormLabel">
+  <p>Материал</p>
+  <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="materials"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-  <% Post.tag_counts_on(:materials).each do |tag| %>
-    <div class="A_Tag" 
+    <% Post.tag_counts_on(:materials).each do |tag| %>
+      <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
-      data-tag-context="materials"
-      data-tag-selector-target="tag">
-      <%= tag.name %>
-    </div>
-  <% end %>
-  <%= hidden_field_tag 'post[material_list][]', nil, 
+        data-tag-context="materials"
+        data-tag-selector-target="tag">
+        <%= tag.name %>
+      </div>
+    <% end %>
+    <%= hidden_field_tag 'post[material_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+  </div>
 </div>
 <%# mood %>
-<h4>Настроение</h4>
-<div class="C_TagsForm" 
+<div class="M_FormLabel">
+  <p>Настроение</p>
+  <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="moods"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-  <% Post.tag_counts_on(:moods).each do |tag| %>
-    <div class="A_Tag" 
+    <% Post.tag_counts_on(:moods).each do |tag| %>
+      <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
-      data-tag-context="moods"
-      data-tag-selector-target="tag">
-      <%= tag.name %>
-    </div>
-  <% end %>
-  <%= hidden_field_tag 'post[mood_list][]', nil, 
+        data-tag-context="moods"
+        data-tag-selector-target="tag">
+        <%= tag.name %>
+      </div>
+    <% end %>
+    <%= hidden_field_tag 'post[mood_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+  </div>
 </div>
 <%# genre %>
-<h4>Жанр</h4>
-<div class="C_TagsForm" 
+<div class="M_FormLabel">
+  <p>Жанр</p>
+  <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="genres"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-  <% Post.tag_counts_on(:genres).each do |tag| %>
-    <div class="A_Tag" 
+    <% Post.tag_counts_on(:genres).each do |tag| %>
+      <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
-      data-tag-context="genres"
-      data-tag-selector-target="tag">
-      <%= tag.name %>
-    </div>
-  <% end %>
-  <%= hidden_field_tag 'post[genre_list][]', nil, 
+        data-tag-context="genres"
+        data-tag-selector-target="tag">
+        <%= tag.name %>
+      </div>
+    <% end %>
+    <%= hidden_field_tag 'post[genre_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+  </div>
 </div>
 <%# themeees %>
-<h4>Тема</h4>
-<div class="C_TagsForm" 
+<div class="M_FormLabel">
+  <p>Тема</p>
+  <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="themes"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-  <% Post.tag_counts_on(:themes).each do |tag| %>
-    <div class="A_Tag" 
+    <% Post.tag_counts_on(:themes).each do |tag| %>
+      <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-tag-context="themes"
          data-action="click->tag-selector#toggleTag"
-      data-tag-selector-target="tag">
-      <%= tag.name %>
-    </div>
-  <% end %>
-  <%= hidden_field_tag 'post[theme_list][]', nil, 
+        data-tag-selector-target="tag">
+        <%= tag.name %>
+      </div>
+    <% end %>
+    <%= hidden_field_tag 'post[theme_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+  </div>
 </div>

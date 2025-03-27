@@ -18,6 +18,24 @@ class Post < ApplicationRecord
     update!(likes_count: likes.count)
   end
 
+  def next
+    Post.unscoped do
+      user.posts
+        .where("created_at > ?", created_at)
+        .reorder(created_at: :asc) # Используйте reorder вместо order
+        .first || user.posts.reorder(created_at: :asc).first
+    end
+  end
+
+  def previous
+    Post.unscoped do
+      user.posts
+        .where("created_at < ?", created_at)
+        .reorder(created_at: :desc)
+        .first || user.posts.reorder(created_at: :desc).first
+    end
+  end
+
   # after_save :update_profile_total_likes
   # after_destroy :update_profile_total_likes
 

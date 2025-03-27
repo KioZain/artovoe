@@ -75,7 +75,8 @@
 .S_MainWeekWorks {
   width: 100%;
   background-color: var(--colors-shade-pink);
-  padding: ;
+  display: flex;
+  gap: 2rem;
   padding: 8rem var(--calc-padding) 8rem;
   min-height: 200px;
   flex-direction: column;
@@ -89,10 +90,20 @@
     gap: 1.5rem;
 
     .O_MainWeekPost {
-      flex: 1;
+      flex: 1 calc(50% - 1.5rem);
+      flex-shrink: 0;
     }
+
     .W_WeekAboutLeft {
-      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1 calc(50% - 1.5rem);
+      flex-shrink: 1;
+
+      .O_MainWeekPost {
+        flex: 1;
+        width: calc(50% - 1.5rem);
+      }
     }
   }
   .W_MainWeekPostsBottom {
@@ -104,13 +115,14 @@
     margin: 0 auto;
 
     .O_MainWeekPost:first-child {
-      background-color: red;
+      flex: 1.5;
     }
     .O_MainWeekPost:nth-child(2) {
-      background-color: blue;
+      aspect-ratio: 1/1;
+      flex: 1;
     }
     .O_MainWeekPost:nth-child(3) {
-      background-color: purple;
+      flex: 1.5;
     }
   }
 }
@@ -118,10 +130,22 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  height: fit-content;
+
+  .like-container:hover {
+    background-color: inherit;
+  }
+
+  h4 {
+    max-width: 320px;
+    height: 3rem;
+    overflow-y: hidden;
+  }
 
   .Q_PostGridImage {
     width: 100%;
     aspect-ratio: 1/1;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -137,21 +161,33 @@
   }
 }
 
+.W_TwoWeekPosts {
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+}
+
 .W_WeekAboutLeft {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .O_WeekWorksInfo {
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 2rem;
-  flex: 1;
 
   .M_HeadingDates {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 1.5rem;
+
+    h2 {
+      min-width: 120px;
+    }
   }
 
   .M_DescriptionTransit {

@@ -8,106 +8,119 @@
   )
 %>
 <p style="color: green"><%= notice %></p>
-<div class="S_PostShowHead">
-  <div class="O_PostActionMenu">
-    <div class="A_NavigationPost">
-      <%= link_to "Все работы | ", posts_url %>
-      <p class="artname"><%= @post.title %></p>
+<div class="L_Post">
+  <div class="S_PostShowHead">
+    <div class="O_PostActionMenu">
+      <div class="A_NavigationPost">
+        <%= link_to "Все работы | ", posts_url %>
+        <p class="artname"><%= @post.title %></p>
+      </div>
+      <div class="M_LikeFavourite">
+        <%= render partial: "likes/button", locals: {likable: @post} %>
+        <button class="A_SaveButton">Сохранить</button>
+      </div>
+      <div class="M_Options">
+        <% if can?(:update, @post) || can?(:destroy, @post) || current_user&.admin? %>
+          <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
+            <div class="right"data-dropdown-target="content">
+              <% if can?(:update, @post) %>
+                <%= link_to 'Редактировать', edit_post_path(@post), class: 'A_DropdownItem' %>
+              <% end %>
+              <% if can?(:destroy, @post) %>
+                <%= button_to 'Удалить работу', @post, method: :delete, class: 'A_DropdownItem Danger' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="M_LikeFavourite">
-      <%= render partial: "likes/button", locals: {likable: @post} %>
-      <button class="A_SaveButton">Сохранить</button>
-    </div>
-    <div class="M_Options">
-      <% if can?(:update, @post) || can?(:destroy, @post) || current_user&.admin? %>
-        <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
-          <div class="right"data-dropdown-target="content">
-            <% if can?(:update, @post) %>
-              <%= link_to 'Редактировать', edit_post_path(@post), class: 'A_DropdownItem' %>
-            <% end %>
-            <% if can?(:destroy, @post) %>
-              <%= button_to 'Удалить работу', @post, method: :delete, class: 'A_DropdownItem Danger' %>
-            <% end %>
+    <%# ---------------------------------------------- %>
+    <div class="O_NameSwitcher">
+      <% if @post.user.posts.count > 1 %>
+        <div class="W_ArrowContainer">
+          <div class="A_ArrowSwitcher left" 
+     data-post-switcher-target="arrow"
+     data-action="click->post-switcher#navigate"
+            data-url="<%= @previous_post ? post_path(@previous_post) : '#' %>">
           </div>
         </div>
       <% end %>
-    </div>
-  </div>
-  <div class="O_NameSwitcher">
-    <div class="W_ArrowContainer">
-      <div class="A_ArrowSwitcher left"></div>
-    </div>
-    <div class="M_TitleCreatorName">
-      <div class="A_CreatorPost">
-        <%= link_to profile_path(@post.user.profile),class: "A_CreatorPost" do %>
-          <%= image_tag(@post.user.profile.avatar_url, class: "Q_ProfileImage") %>
-          <p><%= @post.user.profile.name %></p>
-        <% end%>
+      <div class="M_TitleCreatorName">
+        <div class="A_CreatorPost">
+          <%= link_to profile_path(@post.user.profile), class: "A_CreatorPost" do %>
+            <%= image_tag(@post.user.profile.avatar_url, class: "Q_ProfileImage") %>
+            <p><%= @post.user.profile.name %></p>
+          <% end %>
+        </div>
+        <h1><%= @post.title %></h1>
       </div>
-      <h1><%= @post.title %></h1>
+      <% if @post.user.posts.count > 1 %>
+        <div class="A_ArrowSwitcher right" 
+     data-post-switcher-target="arrow"
+     data-action="click->post-switcher#navigate"
+          data-url="<%= @next_post ? post_path(@next_post) : '#' %>">
+        </div>
+      <% end %>
     </div>
-    <div class="W_ArrowContainer right">
-      <div class="A_ArrowSwitcher right"></div>
-    </div>
-  </div>
-  <%# ------------------------------------------ %>
-  <div class="W_PostImageDescription">
-    <div class="M_TypeDate">
-      <div class="M_InfoRow">
-        <p><%= @post.category_list.map(&:capitalize).join(', ') %></p>
-        <p><%= @post.year %></p>
+    <%# ------------------------------------------ %>
+    <div class="W_PostImageDescription">
+      <div class="M_TypeDate">
+        <div class="M_InfoRow">
+          <p><%= @post.category_list.map(&:capitalize).join(', ') %></p>
+          <p><%= @post.year %></p>
+        </div>
+        <p class="A_Publication footnote">Опубликовано:<br>
+          <%= @post.created_at.strftime("%d.%m.%Y") %>
+        </p>
       </div>
-      <p class="A_Publication footnote">Опубликовано:<br>
-        <%= @post.created_at.strftime("%d.%m.%Y") %>
-      </p>
-    </div>
-    <div class="O_ImageSliderBody">
-      <div class="M_ImageSlider">
-        <div class="A_ImageContainer aspect-<%= @post.aspect_ratio.gsub(':', '-') %>">
-          <%= image_tag @post.post_image.url, class: "Q_ShowPostImage"  %>
+      <div class="O_ImageSliderBody">
+        <div class="M_ImageSlider">
+          <div class="A_ImageContainer aspect-<%= @post.aspect_ratio.gsub(':', '-') %>">
+            <%= image_tag @post.post_image.url, class: "Q_ShowPostImage"  %>
+          </div>
+        </div>
+        <h4><%= @post.body%></h4>
+      </div>
+      <div class="O_PostInformation">
+        <div class="M_InfoRow">
+          <p class="footnote">Теги</p>
+          <%= render 'tags/taglist' %>
+        </div>
+        <div class="M_InfoRow">
+          <p class="footnote">Категория</p>
+          <p class="caption"><%= @post.category_list.map(&:capitalize).join(', ') %></p>
+        </div>
+        <div class="M_InfoRow">
+          <p class="footnote">Место создания</p>
+          <p class="caption"><%= @post.city %></p>
+        </div>
+        <div class="M_InfoRow">
+          <p class="footnote">Год создания</p>
+          <p class="caption"><%= @post.year %></p>
+        </div>
+        <div class="M_InfoRow">
+          <p class="footnote">Уникальность</p>
+          <p class="caption"><%= @post.amount %></p>
+        </div>
+        <div class="M_InfoRow">
+          <p class="footnote">Стоимость</p>
+          <p class="caption"><%= @post.price %></p>
         </div>
       </div>
-      <h4><%= @post.body%></h4>
-    </div>
-    <div class="O_PostInformation">
-      <div class="M_InfoRow">
-        <p class="footnote">Теги</p>
-        <%= render 'tags/taglist' %>
-      </div>
-      <div class="M_InfoRow">
-        <p class="footnote">Категория</p>
-        <p class="caption"><%= @post.category_list.map(&:capitalize).join(', ') %></p>
-      </div>
-      <div class="M_InfoRow">
-        <p class="footnote">Место создания</p>
-        <p class="caption"><%= @post.city %></p>
-      </div>
-      <div class="M_InfoRow">
-        <p class="footnote">Год создания</p>
-        <p class="caption"><%= @post.year %></p>
-      </div>
-      <div class="M_InfoRow">
-        <p class="footnote">Уникальность</p>
-        <p class="caption"><%= @post.amount %></p>
-      </div>
-      <div class="M_InfoRow">
-        <p class="footnote">Стоимость</p>
-        <p class="caption"><%= @post.price %></p>
-      </div>
     </div>
   </div>
-</div>
-<div class="W_Post">
-  <div class="C_Displays">
-    <% @post.displays.each do |display| %>
-      <div class="M_Display">
-        <div>
-          <p><%= display.display_type %></p>
-          <p><%= display.name %></p>
-        </div>
-        <div>
-          <p><%= display.year %></p>
-          <p><%= display.city %></p>
+  <div class="C_DisplaysSorted">
+    <% @post.displays.group_by(&:year).sort_by { |year, _| -year }.each do |year, displays| %>
+      <div class="O_Displays">
+        <p class="year-display subtitle"><%= year %></p>
+        <div class="C_Displays">
+          <% displays.each do |display| %>
+            <div class="M_Display">
+              <h4 class="subtitle"><%= display.display_type %></h4>
+              <p><%= display.name %></p>
+              <p><%= display.city %></p>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

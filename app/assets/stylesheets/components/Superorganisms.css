@@ -18,6 +18,9 @@
   }
 
   .C_Collections {
+    .O_Collection {
+      padding: 6rem 0;
+    }
   }
 }
 
@@ -124,12 +127,10 @@
 
 /* PostShow */
 .S_PostShowHead {
-  max-width: var(--max-desktop);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 4vw, 4.5rem);
-  padding: var(--calc-padding);
 }
 
 .S_OtherPosts {
@@ -151,7 +152,7 @@
 }
 .S_Comments {
   width: 100%;
-  max-width: 824px;
+  max-width: 800px;
   margin: 0 auto;
   margin-bottom: 15rem;
   border-radius: 0.5rem;
