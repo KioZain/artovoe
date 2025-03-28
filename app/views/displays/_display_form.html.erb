@@ -1,0 +1,31 @@
+<div class="W_Forms" data-controller="display-form">
+  <!-- Поля ввода -->
+  <div class="M_FormLabel">
+    <%= f.label :name, "Название" %>
+    <%= f.text_field :name, 
+        class: "A_Form" 
+        data: { display-form-target: 'name', action: 'input->display-form#validate' } %>
+  </div>
+  <div class="M_FormLabel">
+    <%= f.label :city, "Город" %>
+    <%= f.text_field :city, 
+        class: "A_Form" 
+        data: { display-form-target: 'city', action: 'input->display-form#validate' } %>
+  </div>
+  <div class="W_TwoFormRow">
+    <div class="M_FormLabel">
+      <%= f.label :year, "Год" %>
+      <%= f.text_field :year, 
+          class: "A_Form" 
+          data: { display-form-target: 'year', action: 'input->display-form#validate' } %>
+    </div>
+    <div class="M_FormLabel">
+      <%= f.label :display_type, "Тип экспозиции" %>
+      <%= f.select :display_type, 
+          ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"], 
+          { include_blank: "Тип выставки" }, 
+          class: "A_Form"
+          data: { display-form-target: 'type', action: 'change->display-form#validate' } %>
+    </div>
+  </div>
+</div>

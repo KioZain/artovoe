@@ -1,7 +1,75 @@
 .test {
   aspect-ratio: 3/4;
   width: 200px;
-  background: red;
+}
+
+.M_MainAnnounce {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.W_AnnounceText {
+  display: flex;
+  width: 100%;
+  height: 240px;
+  max-width: var(--max-desktop);
+  margin: 0 auto;
+  gap: 3rem;
+  padding: 0 var(--calc-padding) 0;
+  align-items: center;
+  background-image: url("clip_images/Union.png");
+
+  p {
+    max-width: 240px;
+  }
+
+  p,
+  .Q_QrCode {
+    flex: 1;
+  }
+  h1 {
+    text-align: center;
+    flex: 2;
+  }
+}
+
+.M_Ticker {
+  overflow: hidden;
+  width: 100%;
+  background: var(--colors-light-200);
+  padding: 1rem 0;
+  display: flex;
+  height: 64px;
+
+  .A_TickerContent {
+    display: flex;
+    flex-shrink: 0;
+    animation: marquee 40s linear infinite;
+    color: var(--colors-neutral-600);
+  }
+
+  .A_TickerItem {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 0.5rem;
+    margin-right: 1rem;
+
+    p.Caption {
+      font-size: 14px;
+      font-family: "Geist";
+      text-transform: uppercase;
+    }
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* ---------------------- */
@@ -126,6 +194,18 @@
     }
   }
 }
+
+.Q_PostGridImage {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
 .O_MainWeekPost {
   display: flex;
   flex-direction: column;
@@ -137,27 +217,29 @@
   }
 
   h4 {
-    max-width: 320px;
+    max-width: 280px;
     height: 3rem;
+    width: 100%;
     overflow-y: hidden;
   }
 
-  .Q_PostGridImage {
-    width: 100%;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
   .M_ObjectAuthorLikes {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: flex-start;
+
+    .M_AuthorLikes {
+      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      gap: 0;
+
+      .like-container {
+        justify-content: flex-end;
+      }
+    }
   }
 }
 
@@ -213,4 +295,130 @@
   p {
     text-decoration: none;
   }
+}
+/* -------------------- */
+.S_MainNewPosts {
+  max-width: var(--max-desktop);
+  padding: var(--calc-padding) var(--calc-padding) 10rem;
+  width: 100%;
+  gap: 5rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.W_NewPostsInfoSlider {
+  display: flex;
+  justify-content: space-between;
+  height: 8rem;
+  border-bottom: 1px solid var(--colors-neutral-300);
+  align-items: center;
+  gap: 1.5rem;
+
+  p.Caption,
+  .M_NewPostsSlider {
+    flex: 1;
+  }
+
+  h1.hero {
+    text-align: center;
+    flex: 2;
+  }
+
+  .M_NewPostsSlider {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+.A_GalerySlider {
+  width: 4.5rem;
+  height: 3rem;
+  border-radius: 600rem;
+  background-color: var(--brand-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.C_MainNewPosts {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+
+  .O_MainNewPost {
+    flex: 1;
+    display: flex;
+    background-color: var(--colors-light-200);
+    border-radius: 2px;
+    overflow: hidden;
+    flex-direction: column;
+    width: calc(27.5% - 1.5rem);
+    max-width: calc(27.5% - 1.5rem);
+
+    .W_NewWorkInfo {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+      padding: 1.5rem;
+
+      h4 {
+        height: 56px;
+      }
+    }
+  }
+}
+.S_MainPageAuthors {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colors-shade-blue);
+  width: 100%;
+
+  .W_Authors {
+    width: 100%;
+    max-width: var(--max-desktop);
+    padding: var(--calc-padding) var(--calc-padding) 15rem;
+    margin: 0 auto;
+  }
+
+  .M_HeadingTransit {
+    display: flex;
+    gap: 10rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.O_AuthorsWorks {
+  display: flex;
+  justify-content: space-between;
+  padding: clamp(3rem, 5vw, 5rem) 0;
+  border-bottom: 1px solid var(--colors-neutral-600);
+  align-items: center;
+  color: var(--colors-neutral-900);
+  text-decoration: none;
+
+  .W_WorksCounter {
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .W_WorksCounter {
+    }
+
+    .Q_PostGridImage {
+      flex: 1;
+      max-width: 7rem;
+      aspect-ratio: 1/1;
+      border-radius: 600rem;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+  }
+}
+.A_Counter {
+  aspect-ratio: 1/1;
+  max-width: 6rem;
+  background-color: var();
 }

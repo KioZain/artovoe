@@ -6,6 +6,20 @@
   height: 57px;
 }
 /* Links */
+.A_CloseMenu {
+  border: none;
+  background-color: inherit;
+  stroke: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-image: url("icons/Q_Close.svg");
+  background-size: cover;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 75%;
+  }
+}
 
 a.caption {
   color: var(--colors-neutral-900);
@@ -44,10 +58,28 @@ a.caption {
   margin-top: -1px;
 }
 
+.M_UserHead {
+  display: flex;
+  background-color: var(--colors-light-300);
+  padding: 0px 8px 0px 8px;
+  gap: 12px;
+  height: 48px;
+  border-radius: 0.5rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--colors-neutral-900);
+
+  &:hover {
+    background-color: var(--colors-light-400);
+    cursor: pointer;
+    height: 48px;
+  }
+}
+
 .A_Avatar {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 40rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
 }
 .A_ProfileAvatar {
   width: 6rem;
@@ -286,6 +318,9 @@ a.caption {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  font-family: "Komunna-regular";
+  border: none;
+  outline: none;
   background-color: var(--colors-light-300);
   text-decoration: none;
   font-size: 1rem;
@@ -295,6 +330,10 @@ a.caption {
     background-color: var(--colors-light-400);
     cursor: pointer;
     color: var(--colors-neutral-600);
+  }
+
+  &.medium-s {
+    width: 174px;
   }
 }
 
@@ -394,10 +433,6 @@ input.A_Button {
   &:hover {
     background-color: #e9e9e9;
   }
-  &:target {
-    font-weight: bold;
-    background-color: red;
-  }
 }
 /* ProfileShow */
 
@@ -469,6 +504,7 @@ input.A_Button {
 .A_Form {
   background-color: var(--colors-light-50);
   display: flex;
+  font-family: "Kommuna-regular";
   justify-content: space-between;
   height: 52px;
   max-width: 500px;
@@ -508,17 +544,26 @@ textarea.A_Form {
   justify-content: center;
   border: none;
   background-color: inherit;
+  cursor: pointer;
 
   &:hover {
     color: var(--colors-neutral-600);
-    cursor: pointer;
   }
 
   &.active {
-    border-bottom: 1px solid var(--colors-neutral-900);
+    border-bottom: 2px solid var(--colors-neutral-900);
     color: var(--colors-neutral-900);
+    font-weight: 600;
   }
 }
+.tab-pane {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
 /* DropDown */
 .A_SortButton {
   height: 1.5rem;
@@ -604,3 +649,26 @@ button.A_DropdownItem {
   display: flex;
 }
 /* FORM SIGN IN REG */
+.A_NoContent {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--colors-neutral-300);
+  border: 1px solid var(--colors-neutral-100);
+  border-radius: 0.5rem;
+}
+.A_Toggle {
+  background-color: var(--colors-light-300);
+  color: var(--colors-neutral-600);
+  border-radius: 500rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--colors-neutral-400);
+  }
+}

@@ -1,46 +1,54 @@
 <!-- app/views/tags/_tags_filter.html.erb -->
 <% permitted_params = params.permit(materials: [], moods: [], genres: [], themes: [], sort: {}, direction: {}, page: {}) %>
 <!-- Материалы -->
-<div class="C_FilterTags" data-tag-context="materials">
-  <h4>Материалы</h4>
-  <% MATERIAL_TAGS.each do |tag| %>
-    <%= link_to tag,
+<div class="M_TagsFilter">
+  <p>Материалы</p>
+  <div class="C_FilterTags" data-tag-context="materials">
+    <% MATERIAL_TAGS.each do |tag| %>
+      <%= link_to tag,
         url_for(permitted_params.merge(materials: add_or_remove_tag(permitted_params[:materials], tag))),
           class: "A_Tag #{'selected' if permitted_params[:materials]&.include?(tag)}",
           data: { tag_context: 'materials' },
           turbo_frame: 'posts_with_filters' %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <!-- Настроение -->
-<div class="C_FilterTags" data-tag-context="moods">
-  <h4>Настроение</h4>
-  <% MOOD_TAGS.each do |tag| %>
-    <%= link_to tag,
+<div class="M_TagsFilter">
+  <p>Настроение</p>
+  <div class="C_FilterTags" data-tag-context="moods">
+    <% MOOD_TAGS.each do |tag| %>
+      <%= link_to tag,
         url_for(permitted_params.merge(moods: add_or_remove_tag(permitted_params[:moods], tag))),
           class: "A_Tag #{'selected' if permitted_params[:moods]&.include?(tag)}",
           data: { tag_context: 'moods' },
           turbo_frame: 'posts_with_filters' %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <!-- Жанры -->
-<div class="C_FilterTags" data-tag-context="genres">
-  <h4>Жанры</h4>
-  <% GENRE_TAGS.each do |tag| %>
-    <%= link_to tag,
+<div class="M_TagsFilter">
+  <p>Жанры</p>
+  <div class="C_FilterTags" data-tag-context="genres">
+    <% GENRE_TAGS.each do |tag| %>
+      <%= link_to tag,
         url_for(permitted_params.merge(genres: add_or_remove_tag(permitted_params[:genres], tag))),
           class: "A_Tag #{'selected' if permitted_params[:genres]&.include?(tag)}",
           data: { tag_context: 'genres' } %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <!-- Темы -->
-<div class="C_FilterTags" data-tag-context="themes" >
-  <h4>Темы</h4>
-  <% THEME_TAGS.each do |tag| %>
-    <%= link_to tag,
+<div class="M_TagsFilter">
+  <p>Темы</p>
+  <div class="C_FilterTags" data-tag-context="themes" >
+    <% THEME_TAGS.each do |tag| %>
+      <%= link_to tag,
         url_for(permitted_params.merge(themes: add_or_remove_tag(permitted_params[:themes], tag))),
           class: "A_Tag #{'selected' if permitted_params[:themes]&.include?(tag)}",
           data: { tag_context: 'themes' },
           turbo_frame: 'posts_with_filters' %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <%= link_to 'Сбросить', posts_path, class: 'Button ResetButton' %>

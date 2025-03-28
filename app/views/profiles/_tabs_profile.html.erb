@@ -11,33 +11,51 @@
   <div class="O_TabContent">
     <div data-tabs-target="tab" id="tab1">
       <div class="C_AllPosts">
-        <% @posts.each do |post| %>
-          <div class="O_Post"><%= render 'posts/post', post: post %></div>
+        <% if @posts.empty? %>
+          <div class="A_NoContent">
+            У этого профиля пока нет постов.
+          </div>
+        <% else %>
+          <% @posts.each do |post| %>
+            <div class="O_Post"><%= render 'posts/post', post: post %></div>
+          <% end %>
         <% end %>
       </div>
     </div>
     <div data-tabs-target="tab" id="tab2" class='hidden'>
       <div class="C_Collections">
-        <% @collections.each do |collection| %>
-          <%= render 'collections/collection', collection: collection %>
+        <% if @collections.empty? %>
+          <div class="A_NoContent">
+            У этого профиля пока нет коллекций.
+          </div>
+        <% else %>
+          <% @collections.each do |collection| %>
+            <%= render 'collections/collection', collection: collection %>
+          <% end %>
         <% end %>
       </div>
     </div>
     <div data-tabs-target="tab" id="tab3" class='hidden'>
       <div class="C_DisplaysSorted profile">
-        <% @displays.group_by(&:year).sort_by { |year, _| -year }.each do |year, displays| %>
-          <div class="O_Displays">
-            <p class="year-display subtitle"><%= year %></p>
-            <div class="C_Displays">
-              <% displays.each do |display| %>
-                <div class="M_Display profile">
-                  <h4 class="subtitle"><%= display.display_type %></h4>
-                  <p><%= display.name %></p>
-                  <p><%= display.city %></p>
-                </div>
-              <% end %>
-            </div>
+        <% if @displays.empty? %>
+          <div class="A_NoContent">
+            У этого профиля пока нет выставок.
           </div>
+        <% else %>
+          <% @displays.group_by(&:year).sort_by { |year, _| -year }.each do |year, displays| %>
+            <div class="O_Displays">
+              <p class="year-display subtitle"><%= year %></p>
+              <div class="C_Displays">
+                <% displays.each do |display| %>
+                  <div class="M_Display profile">
+                    <h4 class="subtitle"><%= display.display_type %></h4>
+                    <p><%= display.name %></p>
+                    <p><%= display.city %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

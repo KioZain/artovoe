@@ -10,7 +10,7 @@
     </div>
     <div class="M_CollectionIndexData">
       <%= collection.created_at.strftime("%Y") %>
-      <%= link_to profile_path(collection.user.profile) do %>
+      <%= link_to profile_path(collection.user.profile), data: { turbo_frame: "_top" } do %>
         <p class="A_CreatedBy"><%= collection.user.profile.name %></p>
       <% end %>
       <%= collection.posts.count %> работы.
@@ -54,7 +54,7 @@
         <% end %>
       </div>
     </div>
-    <%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none" do %>
+    <%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none", data: { turbo_frame: "_top" } do %>
       <p><u>Посмотреть</u></p>
     <% end %>
   </div>

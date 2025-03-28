@@ -197,8 +197,9 @@
 }
 /* CollectionForm */
 .O_SearchPostForm {
-  position: absolute;
+  /* position: absolute; */
   z-index: 1;
+  border-radius: 0.5rem;
   max-width: 500px;
   flex-direction: column;
   background-color: var(--colors-light-50);
@@ -247,6 +248,15 @@
     display: flex;
     flex-direction: column;
   }
+}
+.O_TabContent {
+  width: 100%;
+}
+.O_DescriptionTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
 }
 
 /* Comments */
@@ -310,6 +320,7 @@
   background: var(--colors-light-200);
   a {
     color: var(--colors-neutral-900);
+    text-align: center;
   }
 
   .M_SubText {
@@ -328,5 +339,81 @@
   }
   &.step {
     min-height: 230px;
+  }
+}
+.O_PageCover {
+  width: 100%;
+  padding: clamp(2rem, 5.417vw, 6rem) var(--calc-padding);
+  max-width: var(--max-desktop);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .W_SectionInfoBackground {
+    aspect-ratio: 1/1;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+
+    .W_SectionInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      gap: 1.5rem;
+    }
+
+    .A_RateCountCircle {
+      width: 7rem;
+      height: 7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--colors-shade-green);
+      border-radius: 200rem;
+
+      .M_InfoRow {
+        gap: 0;
+      }
+    }
+  }
+
+  .M_SectionSwitcher {
+    display: flex;
+    height: 3rem;
+    width: 10rem;
+    text-decoration: none;
+    color: var(--colors-neutral-600);
+    gap: 1.2rem;
+    align-items: center;
+
+    &:hover {
+      opacity: 75%;
+      cursor: pointer;
+    }
+
+    &.right {
+      align-items: flex-end;
+    }
+    &.left {
+      align-items: flex-start;
+    }
+  }
+}
+.O_ProfileForm {
+  width: 100%;
+  .M_LabelForm {
+    width: 100%;
+  }
+
+  .W_Forms {
+    width: 100%;
   }
 }

@@ -1,42 +1,44 @@
 <footer class="S_Footer">
-  <div class="W_FooterContainer">
-    <div class="W_MenuCategories">
-      <%= link_to "Работы", posts_path,class: "nav_link" %>
-      <%= link_to "Художники", profiles_path,class: "nav_link" %>
-      <%= link_to "О нас", about_path,class: "nav_link" %>
+  <div class="W_LogoCategories">
+    <div class="A_FooterLogo">
+      <%= image_tag 'etc/A_LogoFooter.svg' %>
     </div>
-    <div class="O_FooterSection">
-      <div class="M_FooterLeftSection">
-        <%= link_to root_path do %>
-          <div class="A_Logo A_LogoWhite"></div>
-        <% end%>
-        <div class="W_FooterSignatureMedia">
-          <h3 class="A_TextAbout">Медиакаталог работ <br>
-            современных художников</h3>
-          <div class="M_MediaOptions">
-            <div class="Q_ADCLogo"></div>
-            <p>Телеграм</p>
-            <p>Вконтакте</p>
-          </div>
+    <div class="C_FooterCategories">
+      <%= link_to "Работы", posts_path %>
+      <%= link_to "Коллекции", collections_path %>
+      <%= link_to "Художники", profiles_path %>
+      <%= link_to "О нас", about_path %>
+    </div>
+  </div>
+  <%# -----------------------------------  %>
+  <div class="W_FormTeams">
+    <div class="W_FooterFormSign">
+      <h4>Подпишись на артовую рассылку</h4>
+      <div class="M_FooterForm">
+        <input class="A_Form" type="email",name="Email" placeholder="Ваш email">
+        <div class="A_ButtonSecondary">
+          <p>Подписаться</p>
         </div>
       </div>
-      <div class="C_SignedLists">
-        <div class="M_SignedList">
-          <p class="A_TitleOfList">Авторы</p>
-          <div class="W_List">
-            <p>Ева Киприанова</p>
-            <p>Максим Кириллов</p>
-            <p>Злата Баева</p>
-          </div>
+    </div>
+    <%# ------------------------------------ %>
+    <div class="W_FooterInfo">
+      <div class="C_FooterTeams">
+        <div class="W_FooterRegalia">
+          <p>Руководили</p>
+          <p>Вадим Булгаков</p>
+          <p>Захар День</p>
         </div>
-        <div class="M_SignedList">
-          <p class="A_TitleOfList">Кураторы</p>
-          <div class="W_List">
-            <p>Захар День</p>
-            <p>Вадим Булгаков</p>
-          </div>
+        <div class="W_FooterRegalia">
+          <p>Задизайнили</p>
+          <p>Максим Кириллов</p>
+          <p>Ева Киприанова</p>
+          <p>Злата Баева</p>
         </div>
       </div>
+      <p class="hse" >HSE ADC
+        Community
+        2024/2025</p>
     </div>
   </div>
 </footer>

@@ -1,4 +1,4 @@
-<%= form_with(model: profile) do |form| %>
+<%= form_with(model: profile, class: "O_ProfileForm") do |form| %>
   <% if profile.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -9,23 +9,25 @@
       </ul>
     </div>
   <% end %>
-  <div class="A_Form">
-    <%= form.label :name, "Имя", style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="A_Form">
-    <%= form.label :bio, "Описание", style: "display: block" %>
-    <%= form.text_area :bio %>
-  </div>
-  <div class="A_Form">
-    <%= form.label :contact, "Контакты", style: "display: block" %>
-    <%= form.text_field :contact %>
-  </div>
-  <div class="A_Form">
-    <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
-    <%= form.file_field :avatar %>
-  </div>
-  <div>
-    <%= form.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
+  <div class="W_Forms">
+    <div class="M_LabelForm">
+      <%= form.label :name, "Имя", style: "display: block" %>
+      <%= form.text_field :name, class: "A_Form" %>
+    </div>
+    <div class="M_LabelForm">
+      <%= form.label :bio, "Описание", style: "display: block" %>
+      <%= form.text_area :bio, class: "A_Form" %>
+    </div>
+    <div class="M_LabelForm">
+      <%= form.label :contact, "Контакты", style: "display: block" %>
+      <%= form.text_field :contact, class: "A_Form" %>
+    </div>
+    <div class="M_LabelForm">
+      <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
+      <%= form.file_field :avatar, class:%>
+    </div>
+    <div>
+      <%= form.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
+    </div>
   </div>
 <% end %>

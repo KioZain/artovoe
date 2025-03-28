@@ -5,7 +5,8 @@
   max-width: var(--max-desktop);
   padding: 0 var(--calc-padding) 0;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 15rem;
 }
 .L_Profile {
   display: flex;
@@ -14,11 +15,16 @@
   padding: 0 var(--calc-padding) 0;
   max-width: var(--max-desktop);
   margin: 0 auto;
+  margin-bottom: 15rem;
 }
 .L_Artists {
   max-width: var(--max-desktop);
   padding: 0 var(--calc-padding) 0;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 15rem;
 }
 .L_Posts {
   max-width: var(--max-desktop);
@@ -27,24 +33,20 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  margin-bottom: 15rem;
 }
 .L_Home {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
 }
 .L_Form {
   display: flex;
   flex-direction: column;
   gap: 3rem;
   align-items: center;
-  max-width: 560px;
-  margin: 0 auto;
-
-  .M_FormLabel {
-    width: 100%;
-  }
+  max-width: 500px;
+  margin: 0 auto 15rem;
 }
 .L_Post {
   max-width: var(--max-desktop);
@@ -54,4 +56,13 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 4rem;
+  margin-top: 5rem;
+}
+.L_Collections {
+  max-width: var(--max-desktop);
+  padding: 0 var(--calc-padding) 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15rem;
 }

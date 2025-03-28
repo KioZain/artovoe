@@ -11,7 +11,7 @@ export default class extends Controller {
       const post = document.querySelector(`[data-post-id="${id}"]`)
       if (post) {
         this.addToAddedWorks(post)
-        this.updateButton(post.querySelector('.toggle-btn'), 'remove')
+        this.updateButton(post.querySelector('.A_Toggle'), 'remove')
       }
     })
     document.addEventListener('click', this.handleClickOutside.bind(this))
@@ -35,7 +35,7 @@ export default class extends Controller {
     event.stopPropagation()
     const post = event.currentTarget
     const id = post.dataset.postId
-    const btn = post.querySelector('.toggle-btn')
+    const btn = post.querySelector('.A_Toggle')
     
     this.selectedPosts.includes(id) 
       ? this.removePost(id, btn) 
@@ -68,7 +68,7 @@ export default class extends Controller {
 
   addToAddedWorks(post) {
     const clone = post.cloneNode(true)
-    clone.querySelector('.toggle-btn')?.remove()
+    clone.querySelector('.A_Toggle')?.remove()
     this.addedWorksTarget.appendChild(clone)
     this.updateEmptyState()
   }

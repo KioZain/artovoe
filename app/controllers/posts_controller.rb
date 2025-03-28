@@ -45,6 +45,9 @@ def index
   def create
     @post = current_user.posts.new(post_params)
      puts "--------------Material list-----------------: #{@post.material_list.inspect}"
+     puts "--------------Genre list-----------------: #{@post.genre_list.inspect}"
+     puts "--------------Theme list-----------------: #{@post.theme_list.inspect}"
+     puts "--------------Mood list-----------------: #{@post.mood_list.inspect}"
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Пост успешно создан" }

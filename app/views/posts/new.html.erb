@@ -1,9 +1,12 @@
 <% content_for :title, "New post" %>
 <div class="M_BackTitle">
   <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
-  <h1>Добавить вещицу</h1>
 </div>
-<%= render "form", post: @post %>
-<br>
-<div>
+<%# <div class="M_SettingsName">
+  <h3>Создание работы</h3>
+  <p>Расскажите о своей работе — чем уникальна, что вдохновило вас на создание? Подробное описание позволяет зрителям прочувствовать её атмосферу и замысел.</p>
+</div> %>
+<div class="L_Form">
+  <h3>Новая работа</h3>
+  <%= render "form", post: @post %>
 </div>

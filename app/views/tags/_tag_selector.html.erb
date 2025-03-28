@@ -1,88 +1,95 @@
-<%# materiallll %>
-<div class="M_FormLabel">
-  <p>Материал</p>
-  <div class="C_TagsForm" 
+<div class="W_Forms">
+  <%# debug @post.material_list %>
+  <%# materiallll %>
+  <div class="M_FormLabel">
+    <p>Материал</p>
+    <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="materials"
+     data-tag-selector-initial-tags-value="<%= @post.material_list.to_a.to_json %>"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-    <% Post.tag_counts_on(:materials).each do |tag| %>
-      <div class="A_Tag" 
+      <% Post.tag_counts_on(:materials).each do |tag| %>
+        <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
-        data-tag-context="materials"
-        data-tag-selector-target="tag">
-        <%= tag.name %>
-      </div>
-    <% end %>
-    <%= hidden_field_tag 'post[material_list][]', nil, 
+          data-tag-context="materials"
+          data-tag-selector-target="tag">
+          <%= tag.name %>
+        </div>
+      <% end %>
+      <%= hidden_field_tag 'post[material_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+    </div>
   </div>
-</div>
-<%# mood %>
-<div class="M_FormLabel">
-  <p>Настроение</p>
-  <div class="C_TagsForm" 
+  <%# mood %>
+  <div class="M_FormLabel">
+    <p>Настроение</p>
+    <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="moods"
+     data-tag-selector-initial-tags-value="<%= @post.mood_list.to_a.to_json %>"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-    <% Post.tag_counts_on(:moods).each do |tag| %>
-      <div class="A_Tag" 
+      <% Post.tag_counts_on(:moods).each do |tag| %>
+        <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
-        data-tag-context="moods"
-        data-tag-selector-target="tag">
-        <%= tag.name %>
-      </div>
-    <% end %>
-    <%= hidden_field_tag 'post[mood_list][]', nil, 
+          data-tag-context="moods"
+          data-tag-selector-target="tag">
+          <%= tag.name %>
+        </div>
+      <% end %>
+      <%= hidden_field_tag 'post[mood_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+    </div>
   </div>
-</div>
-<%# genre %>
-<div class="M_FormLabel">
-  <p>Жанр</p>
-  <div class="C_TagsForm" 
+  <%# genre %>
+  <div class="M_FormLabel">
+    <p>Жанр</p>
+    <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="genres"
+    data-tag-selector-initial-tags-value="<%= @post.genre_list.to_a.to_json %>"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-    <% Post.tag_counts_on(:genres).each do |tag| %>
-      <div class="A_Tag" 
+      <% Post.tag_counts_on(:genres).each do |tag| %>
+        <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-action="click->tag-selector#toggleTag"
-        data-tag-context="genres"
-        data-tag-selector-target="tag">
-        <%= tag.name %>
-      </div>
-    <% end %>
-    <%= hidden_field_tag 'post[genre_list][]', nil, 
+          data-tag-context="genres"
+          data-tag-selector-target="tag">
+          <%= tag.name %>
+        </div>
+      <% end %>
+      <%= hidden_field_tag 'post[genre_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+    </div>
   </div>
-</div>
-<%# themeees %>
-<div class="M_FormLabel">
-  <p>Тема</p>
-  <div class="C_TagsForm" 
+  <%# themeees %>
+  <div class="M_FormLabel">
+    <p>Тема</p>
+    <div class="C_TagsForm" 
      data-controller="tag-selector" 
      data-tag-selector-context="themes"
+     data-tag-selector-initial-tags-value="<%= @post.theme_list.to_a.to_json %>"
      data-tag-selector-hidden-input-target="hiddenInput"
      data-tag-selector-tag-target="tag">
-    <% Post.tag_counts_on(:themes).each do |tag| %>
-      <div class="A_Tag" 
+      <% Post.tag_counts_on(:themes).each do |tag| %>
+        <div class="A_Tag" 
          data-tag-name="<%= tag.name %>"
          data-tag-context="themes"
          data-action="click->tag-selector#toggleTag"
-        data-tag-selector-target="tag">
-        <%= tag.name %>
-      </div>
-    <% end %>
-    <%= hidden_field_tag 'post[theme_list][]', nil, 
+          data-tag-selector-target="tag">
+          <%= tag.name %>
+        </div>
+      <% end %>
+      <%= hidden_field_tag 'post[theme_list][]', nil, 
                     multiple: true, 
                     data: { tag_selector_target: 'hiddenInput' } %>
+    </div>
   </div>
 </div>

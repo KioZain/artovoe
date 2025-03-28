@@ -1,4 +1,4 @@
-<%= form_with(model: @collection, html: { class: "collection-form" }) do |f| %>
+<%= form_with(model: @collection, html: { class: "O_CollectionForm" }) do |f| %>
   <% if @collection.errors.any? %>
     <div class="form-errors" style="color: red">
       <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
@@ -9,16 +9,18 @@
       </ul>
     </div>
   <% end %>
-  <div class="M_FormLabel">
-    <%= f.label :title, "Название", class: "title-label", style: "display: block" %>
-    <%= f.text_field :title, class: "A_Form" %>
+  <div class="W_Forms">
+    <div class="M_FormLabel">
+      <%= f.label :title, "Название", class: "title-label", style: "display: block" %>
+      <%= f.text_field :title, class: "A_Form" %>
+    </div>
+    <div class="M_FormLabel">
+      <%= f.label :body, "Описание", class: "body-label", style: "display: block" %>
+      <%= f.text_area :body, class: "A_Form" %>
+    </div>
+    <%= render "work_selector" %>
+    <%#-------------submit--------------%>
+    <%= f.submit "Опубликовать", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
   </div>
-  <div class="M_FormLabel">
-    <%= f.label :body, "Описание", class: "body-label", style: "display: block" %>
-    <%= f.text_area :body, class: "A_Form" %>
-  </div>
-  <%= render "work_selector" %>
-  <%#-------------submit--------------%>
-  <%= f.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
 </div>
 <% end %>

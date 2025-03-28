@@ -2,11 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["tag", "hiddenInput"]
-  static values = { context: String }
+  static values = { context: String, initialTags: Array }
 
   connect() {
     console.log("Connected:", this.contextValue)
-    this.selectedTags = []
+    console.log("Initial tags:", this.initialTagsValue);
+    this.selectedTags = this.initialTagsValue || []
+    // this.selectedTags = []
+    this.updateHiddenInput()
     this.updateSelectedTagsUI()
   }
 
@@ -25,18 +28,15 @@ export default class extends Controller {
     this.updateSelectedTagsUI()
   }
 
-  updateHiddenInput() {
-  while (this.hiddenInputTarget.firstChild) {
-    this.hiddenInputTarget.removeChild(this.hiddenInputTarget.firstChild)
-  }
-
+updateHiddenInput() {
+  this.hiddenInputTarget.innerHTML = "";
   this.selectedTags.forEach(tag => {
-    const input = document.createElement('input')
-    input.type = 'hidden'
-    input.name = this.hiddenInputTarget.name
-    input.value = tag
-    this.hiddenInputTarget.appendChild(input)
-  })
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = this.hiddenInputTarget.name;
+    input.value = tag;
+    this.hiddenInputTarget.appendChild(input);
+  });
 }
 
   updateSelectedTagsUI() {

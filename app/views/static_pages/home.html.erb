@@ -2,10 +2,68 @@
 <div class="L_Home">
   <%# -------------------first------------------- %>
   <div class="M_MainAnnounce">
-    <div class="W_AnnounceText"></div>
+    <div class="W_AnnounceText">
+      <p>Загружайте работы, создавайте коллекции через приложение.</p>
+      <h1>Поделитесь своим искусством.<br>
+        вам есть, что показать!</h1>
+      <div class="Q_QrCode">
+        <%= image_tag 'etc/M_QRAppStore.png' %>
+      </div>
+    </div>
   </div>
   <%# ----------------second----------------- %>
-  <div class="A_Ticker"></div>
+  <div class="M_Ticker" data-controller="marquee">
+    <div class="A_TickerContent">
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Скульптура</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Картина</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Ювилирка</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Диджитал-арт</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Текстиль</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Текстиль</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Скульптура</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Картина</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Ювилирка</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Диджитал-арт</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Текстиль</p>
+      </div>
+      <div class="A_TickerItem">
+        <%= image_tag 'icons/ticker_item.svg' %>
+        <p class="Caption">Текстиль</p>
+      </div>
+    </div>
+  </div>
   <%# ----------------third----------------- %>
   <div class="S_MainWeekWorks">
     <div class="W_WeekAboutTop">
@@ -43,9 +101,46 @@
   </div>
   <%# ----------------fourth----------------- %>
   <div class="S_MainNewPosts">
+    <div class="W_NewPostsInfoSlider">
+      <p class="Caption">Обновлено <br>
+        15.03.25</p>
+      <h1 class="hero">Новые работы</h1>
+      <div class="M_NewPostsSlider">
+        <div class="A_GalerySlider">
+          <%= image_tag 'icons/Q_ArrowLeftSmall.svg' %>
+        </div>
+        <h2>01/10</h2>
+        <div class="A_GalerySlider">
+          <%= image_tag 'icons/Q_ArrowRightSmall.svg' %>
+        </div>
+      </div>
+    </div>
+    <%# LastPosts %>
+    <div class="C_MainNewPosts">
+      <% @top_posts[1..4].each do |post| %>
+        <%= render partial: 'last_post', locals: { post: post } %>
+      <% end %>
+    </div>
   </div>
   <%# ----------------fifth----------------- %>
-  <div class="O_MainPageAuthors"></div>
-</div>
-<div class="additional-posts">
+  <div class="S_MainPageAuthors">
+    <div class="W_Authors">
+      <div class="M_HeadingTransit">
+        <h1 class="hero">Наши авторы</h1>
+        <%= link_to profiles_path, class: "A_NextArrow" do %>
+          <p>Все авторы</p>
+          <%= image_tag 'icons/Q_Arrow.svg' %>
+        <% end %>
+      </div>
+      <div class="C_AuthorsList">
+        <% if @profiles_list.any? %>
+          <% @profiles_list.each do |profile| %>
+            <%= render 'artist_main', profile: profile %>
+          <% end %>
+        <% else %>
+          <p>Нет доступных авторов</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

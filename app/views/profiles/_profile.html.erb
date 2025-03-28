@@ -1,4 +1,4 @@
-  <%= link_to profile_path(profile), id: dom_id(profile), class: "O_Profile" do %>
+  <%= link_to profile_path(profile), id: dom_id(profile), class: "O_Profile", data: { turbo_frame: "_top" } do %>
   <div class="M_ProfileCardPreview">
     <div class="Q_ArtistCardPreview">
       <% if profile.user.popular_post&.post_image&.url.present? %>

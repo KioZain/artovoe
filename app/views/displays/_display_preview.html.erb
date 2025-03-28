@@ -1,0 +1,14 @@
+<div class="exhibition-item" data-controller="display-item">
+  <%= f.hidden_field :_destroy, value: f.object.persisted? ? false : true %>
+  <div class="content">
+    <strong><%= f.object.name %></strong>
+    <div>Город: <%= f.object.city %></div>
+    <div>Год: <%= f.object.year %></div>
+    <div>Тип: <%= f.object.display_type %></div>
+  </div>
+  <button type="button" 
+          class="remove-exhibition" 
+          data-action="click->display-form#remove">
+    Удалить
+  </button>
+</div>

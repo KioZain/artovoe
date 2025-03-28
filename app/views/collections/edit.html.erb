@@ -1,12 +1,8 @@
 <% content_for :title, "Editing collection" %>
-<div class="S_FormBody">
-  <div class="M_BackTitle">
-    <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
-    <h1>Изменение коллекции</h1>
-  </div>
-  <%= render "form", collection: collection_path(@collection) %>
-  <br>
-  <div>
-  </div>
+<div class="M_BackTitle">
+  <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
 </div>
+<div class="L_Form">
+  <h3>Редактирование коллекции</h3>
+  <%= render "form", collection: collection_path(@collection) %>
 </div>

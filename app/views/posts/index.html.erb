@@ -1,7 +1,31 @@
 <% title "Работы художников" %>
 <p style="color: green"><%= notice %></p>
-<div class="L_Posts">
-  <%= turbo_frame_tag "posts_with_filters" do %>
+<div class="O_PageCover">
+  <%= link_to profiles_path,class: "M_SectionSwitcher" do %>
+    <%= image_tag 'icons/A_ArrowSwitcherLeft.svg' %>
+    <h4>Художники</h4>
+  <% end %>
+  <div class="W_SectionInfoBackground">
+    <div class="W_SectionInfo">
+      <h1>Работы</h1>
+      <h4>Авторские арт-объекты
+        разных категорий и
+        жанров на любой вкус.</h4>
+      <div class="A_RateCountCircle">
+        <div class="M_InfoRow">
+          <p class="footnote">Работ</p>
+          <p class="footnote"><%= Post.all.count %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to collections_path,class: "M_SectionSwitcher" do %>
+    <h4>Коллекции</h4>
+    <%= image_tag 'icons/A_ArrowSwitcherRight.svg' %>
+  <% end %>
+</div>
+<%= turbo_frame_tag "posts_with_filters" do %>
+  <div class="L_Posts">
     <div class="S_Filter">
       <div class="O_FilterTopBar">
         <div class="M_FilterChosen">

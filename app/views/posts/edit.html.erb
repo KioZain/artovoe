@@ -1,9 +1,8 @@
 <% content_for :title, "Editing post" %>
-<div class="S_FormBody">
-  <div class="M_BackTitle">
-    <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
-    <h1>Изменение работы</h1>
-  </div>
+<div class="M_BackTitle">
+  <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
+</div>
+<div class="L_Form">
+  <h3>Редактирование работы</h3>
   <%= render "form", post: @post %>
-  <br>
 </div>

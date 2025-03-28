@@ -1,4 +1,4 @@
-<div data-controller="post-selector">
+<div class="W_Forms" data-controller="post-selector">
   <p>Ваши работы</p>
   <div class="M_SelectTrigger" data-action="click->post-selector#toggleModal">
     <div class="A_Form">
@@ -13,14 +13,16 @@
         <div class="M_PostItem" 
           data-post-id="<%= post.id %>"
           data-action="click->post-selector#togglePost">
-          <div class="Q_PostImage">
-            <%= image_tag post.post_image.url %>
+          <div class="W_PostDataCollection">
+            <div class="Q_PostImage">
+              <%= image_tag post.post_image.url %>
+            </div>
+            <div class="M_InfoRow">
+              <p class="caption"><%= post.title %></p>
+              <p class="footnote-2"><%= post.category_list.join(', ')%></p>
+            </div>
           </div>
-          <div class="post-info">
-            <p class="footnote-2"><%= post.category_list.join(', ')%></p>
-            <p class="caption"><%= post.title %></p>
-          </div>
-          <button class="toggle-btn" type="button">
+          <button class="A_Toggle" type="button">
             <span class="add">+</span>
             <span class="remove" style="display: none;">-</span>
           </button>

@@ -81,6 +81,10 @@
 .M_CollectionIndexData {
   display: flex;
   justify-content: space-between;
+
+  a {
+    color: var(--colors-neutral-900);
+  }
 }
 
 /* Post */
@@ -152,6 +156,7 @@
   width: 100%;
   height: 52px;
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
   background-color: var(--colors-light-50);
   border-radius: 0.5rem;
@@ -371,4 +376,17 @@
       }
     }
   }
+}
+
+.M_SettingsName {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  gap: 0.5rem;
+}
+.M_TagsFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--colors-neutral-600);
 }

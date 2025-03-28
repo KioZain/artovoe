@@ -1,11 +1,8 @@
   <% content_for :title, "Новая коллекция" %>
-<div class="S_FormBody">
-  <div class="M_BackTitle">
-    <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
-    <h1>Новая коллекция</h1>
-  </div>
+<div class="M_BackTitle">
+  <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
+</div>
+<div class="L_Form">
+  <h3>Создание коллекции</h3>
   <%= render "form", collection: @collection %>
-  <br>
-  <div>
-  </div>
 </div>
