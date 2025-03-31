@@ -57,12 +57,14 @@
 /* PostsShow */
 .O_NameSwitcher {
   width: 100%;
+  gap: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .W_ArrowContainer {
     display: flex;
+    padding: 0 1rem;
     flex: 1;
   }
   .W_ArrowContainer.right {

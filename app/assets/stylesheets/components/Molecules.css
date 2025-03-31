@@ -50,7 +50,23 @@
     }
   }
 }
+.M_UserHead {
+  display: flex;
+  background-color: var(--colors-light-300);
+  padding: 0px 8px 0px 4px;
+  gap: 12px;
+  height: 48px;
+  border-radius: 0.5rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--colors-neutral-900);
 
+  &:hover {
+    background-color: var(--colors-light-400);
+    cursor: pointer;
+    height: 48px;
+  }
+}
 /* Collections */
 .M_CollectionImages {
   display: grid;
@@ -90,6 +106,7 @@
 /* Post */
 .M_TitleCreatorName {
   display: flex;
+  max-width: 728px;
   flex: 2;
   flex-direction: column;
   align-items: center;
@@ -110,6 +127,7 @@
 
 .M_TypeDate {
   flex: 1;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

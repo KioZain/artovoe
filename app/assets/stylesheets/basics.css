@@ -68,7 +68,7 @@ body {
   width: 100%;
 
   h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 4vw, 4rem);
     font-family: "Kommuna";
     letter-spacing: 1px;
     line-height: 100%;
@@ -89,7 +89,7 @@ body {
   }
 
   h4 {
-    font-size: clamp(16px, 1vw, 18px);
+    font-size: clamp(15px, 1vw, 18px);
     line-height: 140%;
     font-family: "Kommuna-regular";
   }

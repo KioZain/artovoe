@@ -58,24 +58,6 @@ a.caption {
   margin-top: -1px;
 }
 
-.M_UserHead {
-  display: flex;
-  background-color: var(--colors-light-300);
-  padding: 0px 8px 0px 8px;
-  gap: 12px;
-  height: 48px;
-  border-radius: 0.5rem;
-  align-items: center;
-  text-decoration: none;
-  color: var(--colors-neutral-900);
-
-  &:hover {
-    background-color: var(--colors-light-400);
-    cursor: pointer;
-    height: 48px;
-  }
-}
-
 .A_Avatar {
   width: 40px;
   height: 40px;
@@ -116,47 +98,80 @@ a.caption {
 .A_Tag {
   display: flex;
   align-items: center;
+  gap: 4px;
   justify-content: center;
-  padding: 0px 10px;
-  height: 28px;
-  /* background-color: var(--colors-light-200); */
-  font-family: "Geist";
-  border-radius: 4px;
+  padding: 0px 12px;
+  height: 32px;
+  background-color: var(--colors-light-200);
+  font-family: "Kommuna-regular";
+  border-radius: 6px;
   font-size: 13px;
   text-decoration: none;
   color: var(--colors-neutral-900);
-  text-transform: uppercase;
+  text-transform: capitalize;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: var(--colors-light-400);
+    border-radius: 10px;
+  }
 
   &[data-tag-context="materials"] {
-    background: #ff94d3;
+    &::before {
+      content: "";
+      background: var(--brand-pink);
+    }
   }
   &[data-tag-context="moods"] {
-    background: #6bb5ff;
+    &::before {
+      content: "";
+      background: var(--brand-blue);
+    }
   }
   &[data-tag-context="genres"] {
-    background: #f7d803;
+    &::before {
+      content: "";
+      background: var(--brand-yellow);
+    }
   }
   &[data-tag-context="themes"] {
-    background: #2ddc63;
+    &::before {
+      content: "";
+      background: var(--brand-green);
+    }
   }
 
   &:hover {
     cursor: pointer;
-    opacity: 90%;
+    color: var(--colors-neutral-600);
   }
 
   &.selected {
     &[data-tag-context="materials"] {
-      background: #ff94d3;
+      &::before {
+        content: "";
+        background: var(--brand-pink);
+      }
     }
     &[data-tag-context="moods"] {
-      background: #6bb5ff;
+      &::before {
+        content: "";
+        background: var(--brand-blue);
+      }
     }
     &[data-tag-context="genres"] {
-      background: #f7d803;
+      &::before {
+        content: "";
+        background: var(--brand-yellow);
+      }
     }
     &[data-tag-context="themes"] {
-      background: #2ddc63;
+      &::before {
+        content: "";
+        background: var(--brand-green);
+      }
     }
   }
 }

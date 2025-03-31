@@ -95,11 +95,6 @@
     align-items: center;
     justify-content: flex-end;
   }
-  .M_PublicationOptions {
-    background-image: url("assets/sharp_points/PublicationDropdown.svg");
-    width: 250px;
-    height: 120px;
-  }
 }
 
 /* PostShow */
@@ -228,6 +223,7 @@
   }
   .W_FooterFormSign {
     max-width: 420px;
+    min-width: 313px;
     display: flex;
     flex-direction: column;
 

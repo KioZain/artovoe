@@ -23,6 +23,11 @@
   gap: 0.5rem;
   .A_Tag {
     background: var(--colors-light-300);
+
+    &:before {
+      content: "";
+      background-color: var(--colors-light-400);
+    }
   }
 }
 .C_TagsForm {
@@ -36,7 +41,12 @@
   border-radius: 0.5rem;
 
   .A_Tag {
-    background: var(--colors-light-300);
+    background: var(--colors-light-200);
+
+    &:before {
+      content: "";
+      background-color: var(--colors-light-400);
+    }
   }
 }
 

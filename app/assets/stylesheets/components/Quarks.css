@@ -106,3 +106,9 @@
     margin-bottom: 1.5rem;
   }
 }
+.Q_TagType {
+  width: 10px;
+  height: 10px;
+  border-radius: 600rem;
+  background-color: var(--colors-light-400);
+}
