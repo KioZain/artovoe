@@ -5,6 +5,15 @@
   width: 121px;
   height: 57px;
 }
+.A_FooterLogo {
+  width: 414px;
+  height: 106px;
+  min-width: 313px;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
 /* Links */
 .A_CloseMenu {
   border: none;
@@ -550,6 +559,7 @@ textarea.A_Form {
 /* Tabs */
 .A_Tab {
   width: 160px;
+  min-width: 116px;
   height: 48px;
   font-family: "Kommuna-regular";
   display: flex;

@@ -5,9 +5,25 @@
   .S_Header {
   }
 
-  .C_Tags {
-    .A_Tag {
-      font-size: 11px;
+  footer.S_Footer {
+    .W_LogoCategories {
+      .A_FooterLogo {
+        height: 64px;
+        width: 245px;
+      }
+
+      .C_FooterCategories {
+        max-width: 640px;
+        .footer-link {
+          font-family: "Kommuna-regular";
+          font-size: 20px;
+        }
+      }
+    }
+    .W_FormTeams {
+      .W_FooterInfo {
+        max-width: 640px;
+      }
     }
   }
 }
@@ -47,6 +63,66 @@
       max-width: calc(33.3% - 1rem);
     }
   }
+
+  footer.S_Footer {
+    .W_LogoCategories {
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+
+      .C_FooterCategories {
+        flex-direction: column;
+        max-width: none;
+        gap: 0;
+
+        .footer-link {
+          height: 52px;
+          border-bottom: 1px solid var(--colors-neutral-300);
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    .W_FormTeams {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+
+      .W_FooterFormSign {
+        max-width: none;
+        width: 100%;
+        align-items: center;
+
+        .M_FooterForm {
+          justify-content: center;
+        }
+      }
+
+      .W_FooterInfo {
+        .C_FooterTeams {
+          display: none;
+        }
+
+        p.hse {
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .W_SortingFilters {
+    gap: 1rem;
+    .M_DropDown {
+      .A_SortButton {
+        span.sort-text {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 /* ProfileIndex */
@@ -57,8 +133,16 @@
   .C_AllPosts {
     flex-direction: column;
     .O_Post {
-      flex: 1 1 calc(50% - 1.5rem);
-      max-width: calc(50% - 1rem);
+      flex: 1 1;
+      width: 100%;
+      max-width: none;
+
+      .Q_PostImageLink {
+        order: 2;
+      }
+      .W_PostInfo {
+        order: 1;
+      }
     }
   }
 
@@ -85,6 +169,48 @@
   .C_Collections {
     .O_Collection {
       grid-column: span 6;
+    }
+  }
+
+  header.S_Header {
+    .O_HeaderMenu {
+      flex-wrap: wrap;
+
+      .M_LogoDescription {
+        order: 1;
+        flex: none;
+        width: calc(50% - 1.5rem);
+      }
+
+      .W_SearchMenu {
+        width: 100%;
+        order: 3;
+        flex: 1;
+
+        .search-head {
+          width: 100%;
+        }
+
+        .M_MenuSearch {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+
+      .W_UserOptions {
+        order: 2;
+        flex: none;
+        width: calc(50% - 1.5rem);
+      }
+    }
+  }
+
+  .C_Tabs {
+    width: 100%;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 }

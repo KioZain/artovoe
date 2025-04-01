@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="W_SearchMenu">
-      <%= form_with url: search_path, method: :get do |form| %>
+      <%= form_with url: search_path, class: "search-head", method: :get do |form| %>
         <%= form.text_field :query, 
         placeholder: "Сюрная керамика", 
         class: "M_MenuSearch" %>

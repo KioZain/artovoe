@@ -74,6 +74,9 @@
           <div class="A_ImageContainer aspect-<%= @post.aspect_ratio.gsub(':', '-') %>">
             <%= image_tag @post.post_image.url, class: "Q_ShowPostImage"  %>
           </div>
+          <div class="C_Miniatures">
+            <div class="A_Miniature"></div>
+          </div>
         </div>
         <h4><%= @post.body%></h4>
       </div>
@@ -88,19 +91,35 @@
         </div>
         <div class="M_InfoRow">
           <p class="footnote">Место создания</p>
-          <p class="caption"><%= @post.city %></p>
+          <% if @post.city.present? %>
+            <p class="caption"><%= @post.city %></p>
+          <% else %>
+            <p class="caption">Не указано</p>
+          <% end %>
         </div>
         <div class="M_InfoRow">
           <p class="footnote">Год создания</p>
-          <p class="caption"><%= @post.year %></p>
+          <% if @post.year.present? %>
+            <p class="caption"><%= @post.year %></p>
+          <% else %>
+            <p class="caption">Не указан</p>
+          <% end %>
         </div>
         <div class="M_InfoRow">
           <p class="footnote">Уникальность</p>
-          <p class="caption"><%= @post.amount %></p>
+          <% if @post.amount.present? %>
+            <p class="caption"><%= @post.amount %></p>
+          <% else %>
+            <p class="caption">Не указана</p>
+          <% end %>
         </div>
         <div class="M_InfoRow">
           <p class="footnote">Стоимость</p>
-          <p class="caption"><%= @post.price %></p>
+          <% if @post.price.present? %>
+            <p class="caption"><%= @post.year %></p>
+          <% else %>
+            <p class="caption">Не указана</p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@
   margin-bottom: 15rem;
 
   .C_AllPosts {
-    margin-top: 6rem;
+    margin-top: clamp(2rem, 5vw, 6rem);
   }
 
   .C_Collections {

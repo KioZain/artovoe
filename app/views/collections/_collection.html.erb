@@ -21,7 +21,9 @@
     <div class="M_CollectionDescription">
       <div class="M_CollectionIndexDesc">
         <h4 class="subtitle"><%= collection.title %></h4>
-        <p><%= collection.body %></p>
+        <% if collection.body.present? %>
+          <p><%= collection.body %></p>
+        <% end %>
       </div>
       <div class="C_Tags">
         <%# Materials %>

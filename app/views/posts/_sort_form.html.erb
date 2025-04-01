@@ -1,8 +1,7 @@
 <div class="W_SortingFilters" data-controller="sort-dropdown">
-  <!-- Сортировка -->
   <div class="M_DropDown">
     <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
-      <span>Сортировать по:</span>
+      <span class="sort-text">Сортировать по:</span>
       <span class="selected-value">
         <%= @sort == 'likes_count' ? 'популярности' : 
              @sort == 'created_at' ? 'дате публикации' : 
@@ -22,10 +21,9 @@
                   class: "A_DropdownItem #{'active' if @sort == 'year'}" %>
     </div>
   </div>
-  <!-- Порядок -->
   <div class="M_DropDown">
     <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
-      <span>Порядок:</span>
+      <span class="sort-text" >Порядок:</span>
       <span class="selected-value">
         <%= @direction == 'asc' ? 'по возрастанию' : 'по убыванию' %>
       </span>
