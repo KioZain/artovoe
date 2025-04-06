@@ -131,11 +131,9 @@
 
 @media all and (max-width: 768px) {
   .C_AllPosts {
-    flex-direction: column;
     .O_Post {
-      flex: 1 1;
-      width: 100%;
-      max-width: none;
+      flex: 1 1 calc(51% - 1.5rem);
+      max-width: calc(51% - 1.5rem);
 
       .Q_PostImageLink {
         order: 2;

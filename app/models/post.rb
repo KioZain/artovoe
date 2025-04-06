@@ -66,6 +66,7 @@ class Post < ApplicationRecord
   def update_profile_tags
     profile = user.profile
     profile&.update_tags_from_user_posts
+    puts "Profile tags updated"
   end
 
   def update_collections_tags_if_needed
@@ -82,5 +83,6 @@ class Post < ApplicationRecord
 
    def update_profile_total_likes
     user&.profile&.update_total_likes!
+    puts "Profile tags updated"
   end
 end

@@ -219,7 +219,7 @@ end
 def seed
   reset_db
   create_users(16)
-  create_posts(40)
+  create_posts(80)
   create_comments(2..6)
   create_collections(12)
 end

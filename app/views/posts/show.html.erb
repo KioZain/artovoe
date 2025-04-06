@@ -12,8 +12,9 @@
   <div class="S_PostShowHead">
     <div class="O_PostActionMenu">
       <div class="A_NavigationPost">
-        <%= link_to "Все работы | ", posts_url %>
-        <p class="artname"><%= @post.title %></p>
+        <%= link_to "Все работы", posts_url,class:"footnote" %>
+        <p class="footnote">|</p>
+        <p class="artname footnote"><%= @post.title %></p>
       </div>
       <div class="M_LikeFavourite">
         <%= render partial: "likes/button", locals: {likable: @post} %>
@@ -78,7 +79,7 @@
             <div class="A_Miniature"></div>
           </div>
         </div>
-        <h4><%= @post.body%></h4>
+        <p><%= @post.body%></p>
       </div>
       <div class="O_PostInformation">
         <div class="M_InfoRow">
