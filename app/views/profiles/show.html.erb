@@ -41,6 +41,10 @@
             <% if can?(:destroy, @profile) %>
               <%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_DropdownItem Danger' %>
             <% end %>
+            <% if user_signed_in? %>
+              <%= link_to "Выйти", destroy_user_session_path,class: 'A_DropdownItem', data: { "turbo-method": :delete }%>
+            <% else %>
+            <% end %>
           </div>
         </div>
       <% end %>

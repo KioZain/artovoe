@@ -22,11 +22,11 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   .A_Tag {
-    background: var(--colors-light-300);
+    background: var(--colors-light-100);
 
     &:before {
       content: "";
-      background-color: var(--colors-light-400);
+      background-color: var(--colors-light-300);
     }
   }
 }
@@ -34,18 +34,17 @@
   display: flex;
   max-width: 500px;
   flex-wrap: wrap;
+  border: 1px solid #f6f5f4;
   gap: 0.5rem;
   row-gap: 12px;
-  background-color: var(--colors-light-50);
+  /* background-color: var(--colors-light-50); */
   padding: 1rem;
   border-radius: 0.5rem;
 
   .A_Tag {
-    background: var(--colors-light-200);
-
     &:before {
       content: "";
-      background-color: var(--colors-light-400);
+      background-color: var(--colors-light-200);
     }
   }
 }

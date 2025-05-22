@@ -7,13 +7,22 @@
 <!-- Category -->
 <div class="W_PostInfo">
   <div class="M_PostNameCategory">
-    <% post.categories.each do |category| %>
-      <%= link_to category, tagged_posts_path(category), class: "caption" %>
+    <%# post.categories.each do |category| %>
+      <%# link_to category, tagged_posts_path(category), class: "caption" %>
+      <%# end %>
+      <!-- PostBio -->
+      <%= link_to post_path(post) do %>
+        <h4><%= post.title %></h4>
+      <% end %>
+    </div>
+    <% tags = [] %>
+    <% tags += post.categories.map { |c| c.name.to_s.capitalize } %>
+    <% tags += post.material_list.take(1).map(&:to_s).map(&:capitalize) %>
+    <% tags += post.mood_list.take(1).map(&:to_s).map(&:capitalize) %>
+    <% tags += post.theme_list.take(1).map(&:to_s).map(&:capitalize) %>
+    <% tags += post.genre_list.take(1).map(&:to_s).map(&:capitalize) %>
+    <% if tags.any? %>
+      <p class="caption"><%= tags.join(', ') %></p>
     <% end %>
-    <!-- PostBio -->
-    <%= link_to post_path(post) do %>
-      <h4 class="subtitle"><%= post.title %></h4>
-    <% end %>
+    <p class="caption"><%= post.user.profile.name %></p>
   </div>
-  <p class="caption"><%= post.user.profile.name %></p>
-</div>

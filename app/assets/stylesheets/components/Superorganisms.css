@@ -44,7 +44,7 @@
   height: 100px;
   max-width: var(--max-desktop);
   margin: 0 auto 2rem;
-  background: var(--colors-light-100);
+  /* background: var(--colors-light-100); */
   display: flex;
 
   a.nav_link {

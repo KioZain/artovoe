@@ -39,12 +39,14 @@
   text-decoration: none;
   a {
     text-decoration: none;
-    text-transform: capitalize;
 
     h4 {
+      font-family: "Kommuna";
+      font-size: clamp(22px, 3vw, 28px);
+      line-height: 110%;
       color: var(--colors-neutral-900);
-      height: clamp(40px, 3vw, 56px);
       overflow: hidden;
+      max-height: 30px;
       text-overflow: ellipsis;
       max-width: 339px;
     }
@@ -52,7 +54,7 @@
 }
 .M_UserHead {
   display: flex;
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   padding: 0px 8px 0px 4px;
   gap: 12px;
   height: 48px;
@@ -62,7 +64,7 @@
   color: var(--colors-neutral-900);
 
   &:hover {
-    background-color: var(--colors-light-400);
+    background-color: var(--colors-light-300);
     cursor: pointer;
     height: 48px;
   }
@@ -324,7 +326,7 @@
   height: 40px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   background-image: url("icons/Q_Dots.svg");
   border-radius: 600rem;
   position: relative;
@@ -332,7 +334,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: var(--colors-light-400);
+    background-color: var(--colors-light-300);
   }
 }
 .M_MenuSearch {
@@ -341,7 +343,7 @@
   border: none;
   padding: 0.5rem 12px;
   border-radius: 0.5rem;
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   background-image: url("assets/icons/Q_Search.svg");
   background-repeat: no-repeat;
   background-position: bottom 13px right 12px;
@@ -406,5 +408,5 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--colors-neutral-600);
+  /* color: var(--colors-neutral-600); */
 }

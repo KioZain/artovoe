@@ -111,7 +111,8 @@ a.caption {
   justify-content: center;
   padding: 0px 12px;
   height: 32px;
-  background-color: var(--colors-light-200);
+  background-color: #ffffff;
+  border: 1px solid #f6f5f4;
   font-family: "Kommuna-regular";
   border-radius: 6px;
   font-size: 13px;
@@ -123,7 +124,7 @@ a.caption {
     content: "";
     width: 10px;
     height: 10px;
-    background: var(--colors-light-400);
+    background: var(--colors-light-200);
     border-radius: 10px;
   }
 
@@ -414,7 +415,7 @@ input.A_Button {
   padding: 0.5rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   border-radius: 8px;
   border: none;
   font-family: "Kommuna-regular";
@@ -433,13 +434,13 @@ input.A_Button {
   width: 3rem;
   height: 3rem;
   border-radius: 0.5rem;
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   display: flex;
   justify-content: center;
   align-items: center;
 
   &:hover {
-    background-color: var(--colors-light-400);
+    background-color: var(--colors-light-300);
     cursor: pointer;
   }
 }
@@ -526,14 +527,14 @@ input.A_Button {
 }
 
 .A_Form {
-  background-color: var(--colors-light-50);
+  background-color: var(--input-form-background);
+  border: 1px solid var(--input-form-border);
   display: flex;
   font-family: "Kommuna-regular";
   justify-content: space-between;
   height: 52px;
   max-width: 500px;
   width: 100%;
-  border: none;
   border-radius: 0.5rem;
   padding: 1rem;
   font-size: 1rem;
@@ -619,7 +620,7 @@ textarea.A_Form {
 }
 
 .A_DropdownItem:hover {
-  background: var(--colors-light-400);
+  background: var(--colors-light-200);
 }
 
 .A_DropdownItem.active {
@@ -660,11 +661,11 @@ textarea.A_Form {
   width: 15rem;
   padding: 12px 16px;
   text-decoration: none;
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   color: var(--colors-neutral-900);
 
   &:hover {
-    background-color: var(--colors-light-400);
+    background-color: var(--colors-light-300);
   }
 }
 button.A_DropdownItem {

@@ -24,12 +24,6 @@
             <%= link_to "Художники", profiles_path,class: "A_MenuLinkGIant" %>
           </div>
         </div>
-        <nav class="C_Links">
-          <% if user_signed_in? %>
-            <%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete }%>
-          <% else %>
-          <% end %>
-        </nav>
       </div>
     </div>
     <div class="W_SearchMenu">
