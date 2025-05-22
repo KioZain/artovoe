@@ -25,7 +25,7 @@
   display: flex;
   justify-content: space-between;
   padding: 4rem 0;
-  border-bottom: 1px solid var(--colors-neutral-300);
+  border-bottom: 1px solid var(--colors-light-200);
 }
 
 .W_ProfileBioStats {
@@ -99,7 +99,7 @@
 .W_WorksAmount {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .W_СollectionInfoNavigation {
   display: flex;
@@ -107,7 +107,7 @@
 }
 
 .W_CollectionIndexAbout {
-  width: 450px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -120,9 +120,9 @@
 .W_CollectionGridAbout {
   display: flex;
   flex-direction: column;
-  padding-right: 2rem;
   gap: 1rem;
   width: 100%;
+  max-width: 854px;
   justify-content: flex-end;
 }
 .W_PostInfo {
@@ -130,6 +130,7 @@
   flex-direction: column;
   gap: 0.3rem;
   margin-top: 0.5rem;
+  min-height: 6.875rem;
 
   p.caption {
     color: var(--colors-neutral-600);
@@ -150,7 +151,7 @@
 
 .W_PostImageDescription {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /* Comments */
@@ -271,10 +272,23 @@
 .W_PostDataCollection {
   display: flex;
   gap: 0.5rem;
+  align-items: flex-start;
+
+  width: 86%;
 
   .M_InfoRow {
+    gap: 2px;
+    p.caption {
+      max-width: 100%;
+    }
+
     p.footnote-2 {
       color: var(--colors-neutral-600);
+      width: fit-content;
     }
   }
+}
+.W_CollectionPart {
+  display: flex;
+  flex: 4;
 }

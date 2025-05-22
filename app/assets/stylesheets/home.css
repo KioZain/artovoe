@@ -1,6 +1,18 @@
 .test {
   aspect-ratio: 3/4;
-  width: 200px;
+  width: 100%;
+  height: 1920px;
+
+  p.medium {
+    font-size: 6rem;
+    font-weight: 500;
+    font-family: "Inter-Tight";
+  }
+  p.regular {
+    font-size: 6rem;
+    font-weight: 400;
+    font-family: "Inter-Tight";
+  }
 }
 
 .M_MainAnnounce {
@@ -209,7 +221,7 @@
 .O_MainWeekPost {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.7rem;
   height: fit-content;
 
   .like-container:hover {
@@ -238,6 +250,7 @@
 
       .like-container {
         justify-content: flex-end;
+        padding: 0;
       }
     }
   }

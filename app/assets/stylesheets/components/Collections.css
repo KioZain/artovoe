@@ -57,7 +57,7 @@
   display: flex;
   flex-wrap: wrap;
   column-gap: 1.5rem;
-  row-gap: clamp(2rem, 8vw, 10rem);
+  row-gap: clamp(2rem, 8vw, 8rem);
   align-items: flex-end;
   margin: 0 auto;
 }
@@ -81,7 +81,8 @@
 }
 
 .C_Collections {
-  gap: 1rem;
+  gap: 2rem;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

@@ -219,8 +219,7 @@ a.caption {
   a {
     color: var(--colors-neutral-300);
     text-decoration: none;
-    font-family: "Geist";
-    text-transform: uppercase;
+    font-family: "Inter-Tight";
 
     &:hover {
       color: var(--colors-neutral-600);
@@ -233,9 +232,39 @@ a.caption {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    font-family: "Geist";
-    text-transform: uppercase;
+    font-family: "Inter-Tight";
     margin-top: auto;
+  }
+
+  .С_Breadcrumbs {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+
+    li {
+      font-family: "Inter-Tight";
+    }
+
+    li::after {
+      content: "/";
+      margin-left: 0.5rem;
+      color: #999;
+    }
+    li:last-child::after {
+      content: "";
+    }
+
+    li:last-child {
+      display: inline-block;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: "Inter-Tight";
+    }
   }
 }
 
@@ -418,7 +447,7 @@ input.A_Button {
   background-color: var(--colors-light-200);
   border-radius: 8px;
   border: none;
-  font-family: "Kommuna-regular";
+  font-family: "Inter-Tight";
   height: 2.5rem;
 
   .saved {
@@ -479,7 +508,7 @@ input.A_Button {
   resize: none;
   padding: 0.5rem;
   border: none;
-  font-family: "Kommuna-regular";
+  font-family: "Inter-Tight";
   font-size: 1rem;
 
   &:focus {
@@ -487,42 +516,10 @@ input.A_Button {
   }
 }
 
-/* .A_Form {
-  margin-bottom: 1rem;
-  label {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  textarea {
-    width: 600px;
-    max-width: 600px;
-    min-height: 100px;
-    border-radius: 0.5rem;
-    border: none;
-    padding: 1rem;
-  }
-
-  select {
-    height: 48px;
-    border: none;
-    width: 300px;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-  }
-
-  input {
-    border-radius: 0.5rem;
-    border: none;
-    height: 48px;
-    width: 600px;
-    padding: 1rem;
-  }
-} */
-
 .A_Label {
-  font-size: 12px;
+  font-size: 13px;
+  font-family: "Inter-Tight";
+  font-weight: 400;
   color: var(--colors-neutral-600);
 }
 
@@ -530,17 +527,18 @@ input.A_Button {
   background-color: var(--input-form-background);
   border: 1px solid var(--input-form-border);
   display: flex;
-  font-family: "Kommuna-regular";
+  font-family: "Inter-Tight";
+  font-size: 15px;
+  font-weight: 400;
   justify-content: space-between;
   height: 52px;
   max-width: 500px;
   width: 100%;
   border-radius: 0.5rem;
   padding: 1rem;
-  font-size: 1rem;
 
   &:focus {
-    outline: 1px solid var(--brand-blue);
+    outline: 1px solid var(--colors-light-400);
   }
 }
 input:-webkit-autofill,
@@ -553,8 +551,23 @@ input:-webkit-autofill:active {
 textarea.A_Form {
   min-height: 112px;
   resize: none;
-  font-size: 14px;
-  font-family: "Kommuna-regular";
+  font-size: 15px;
+  font-family: "Inter-Tight";
+}
+select.A_Form {
+  padding-right: 2rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("icons/Q_IconArrowDown.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+
+  &:focus {
+    outline: 1px solid var(--colors-light-400);
+  }
 }
 
 /* Tabs */
@@ -577,7 +590,7 @@ textarea.A_Form {
   }
 
   &.active {
-    border-bottom: 2px solid var(--colors-neutral-900);
+    border-bottom: 1px solid var(--colors-neutral-900);
     color: var(--colors-neutral-900);
     font-weight: 600;
   }
@@ -607,6 +620,19 @@ textarea.A_Form {
 }
 .selected-value {
   color: var(--colors-neutral-900);
+
+  .Q_IconVisability {
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+    background-image: url("icons/filter.svg");
+    display: none;
+
+    &.ascending {
+      background-image: url("icons/sorting.svg");
+      display: none;
+    }
+  }
 }
 
 .A_DropdownItem {
@@ -686,7 +712,7 @@ button.A_DropdownItem {
   border-radius: 0.5rem;
 }
 .A_Toggle {
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-200);
   color: var(--colors-neutral-600);
   border-radius: 500rem;
   border: none;
@@ -695,6 +721,6 @@ button.A_DropdownItem {
 
   &:hover {
     cursor: pointer;
-    color: var(--colors-neutral-400);
+    color: var(--colors-neutral-300);
   }
 }

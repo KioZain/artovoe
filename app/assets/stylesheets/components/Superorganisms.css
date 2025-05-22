@@ -34,6 +34,7 @@
   flex-direction: column;
   border-top: 1px solid var(--colors-neutral-300);
   border-bottom: 1px solid var(--colors-neutral-300);
+  margin-bottom: 5rem;
 
   .W_TagsFilter {
     width: 45%;
@@ -54,7 +55,8 @@
 
   .O_HeaderMenu {
     width: 100%;
-    padding: clamp(2rem, 6vw, 6rem);
+    /* padding: clamp(2rem, 6vw, 6rem); */
+    padding: 2rem var(--calc-padding);
     padding-top: 0;
     padding-bottom: 0;
     position: relative;

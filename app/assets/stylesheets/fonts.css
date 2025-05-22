@@ -31,3 +31,36 @@
   font-weight: 700;
   font-style: normal;
 }
+@font-face {
+  font-family: "Inter";
+  src: local("Inter_18pt"), url("Inter_18pt-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: local("Inter_18pt"), url("Inter_18-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: local("Inter_18pt"), url("Inter_18pt-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter-Tight";
+  src: local("InterTight-Regular"),
+    url("InterTight-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter-Tight";
+  src: local("InterTight-Medium"),
+    url("InterTight-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}

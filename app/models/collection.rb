@@ -8,7 +8,7 @@ class Collection < ApplicationRecord
 
   # after_save :update_profile_total_likes
   # after_destroy :update_profile_total_likes
-
+  validates :title, presence: true
   validate :must_have_at_least_two_posts
 
   def update_likes_count

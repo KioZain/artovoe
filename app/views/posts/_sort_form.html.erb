@@ -3,6 +3,7 @@
     <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
       <span class="sort-text">Сортировать по:</span>
       <span class="selected-value">
+        <div class="Q_IconVisability"></div>
         <%= @sort == 'likes_count' ? 'популярности' : 
              @sort == 'created_at' ? 'дате публикации' : 
              @sort == 'year' ? 'году создания' : 'по умолчанию' %>
@@ -25,6 +26,7 @@
     <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
       <span class="sort-text" >Порядок:</span>
       <span class="selected-value">
+        <div class="Q_IconVisability ascending"></div>
         <%= @direction == 'asc' ? 'по возрастанию' : 'по убыванию' %>
       </span>
       <span class="Q_Arrow"></span>

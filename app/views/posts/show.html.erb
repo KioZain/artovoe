@@ -11,11 +11,13 @@
 <div class="L_Post">
   <div class="S_PostShowHead">
     <div class="O_PostActionMenu">
-      <div class="A_NavigationPost">
-        <%= link_to "Все работы", posts_url,class:"footnote" %>
-        <p class="footnote">|</p>
-        <p class="artname footnote"><%= @post.title %></p>
-      </div>
+      <nav class="A_NavigationPost" aria-label="breadcrumb">
+        <ol class="С_Breadcrumbs">
+          <li><%= link_to "Главная", root_path %></li>
+          <li><%= link_to "Работы", posts_path %></li>
+          <li class="active" aria-current="page"><%= @post.title %></li>
+        </ol>
+      </nav>
       <div class="M_LikeFavourite">
         <%= render partial: "likes/button", locals: {likable: @post} %>
         <button class="A_SaveButton">Сохранить</button>
@@ -79,13 +81,13 @@
             <div class="A_Miniature"></div>
           </div>
         </div>
-        <p><%= @post.body%></p>
-      </div>
-      <div class="O_PostInformation">
         <div class="M_InfoRow">
           <p class="footnote">Теги</p>
           <%= render 'tags/taglist' %>
         </div>
+        <p><%= @post.body%></p>
+      </div>
+      <div class="O_PostInformation">
         <div class="M_InfoRow">
           <p class="footnote">Категория</p>
           <p class="caption"><%= @post.category_list.map(&:capitalize).join(', ') %></p>

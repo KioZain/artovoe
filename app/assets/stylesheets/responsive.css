@@ -1,8 +1,25 @@
 @media all and (max-width: 1440px) {
+  .W_CollectionGridAbout {
+    width: 638px;
+  }
+
+  .W_CollectionPart {
+    flex-direction: column;
+    flex: 2;
+  }
+
+  .O_CollectionObject {
+    max-width: 958px;
+
+    .W_ObjectLook {
+      padding: 0;
+    }
+  }
 }
 
 @media all and (max-width: 1240px) {
-  .S_Header {
+  .W_CollectionGridAbout {
+    width: 580px;
   }
 
   footer.S_Footer {
@@ -53,11 +70,89 @@
           display: none;
         }
       }
+      [data-dropdown-target="content"] {
+        transform: translateX(-30%);
+        right: 0;
+      }
     }
   }
 
+  .C_CollectionObjects {
+    gap: 5rem;
+  }
+
+  .O_CollectionObject {
+    max-width: 612px;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 0.5rem;
+
+    .M_InfoRow {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .W_ObjectLook {
+      padding: 0;
+      margin-top: 1rem;
+      gap: 1.5rem;
+
+      .M_ObjectInfo {
+        gap: 0.5rem;
+      }
+    }
+  }
+
+  /* PostShow */
+  .M_TitleCreatorName {
+    flex: 3;
+  }
+
+  .W_PostImageDescription {
+    flex-direction: column;
+    margin: 0 auto;
+
+    .M_TypeDate {
+      padding: 0;
+      order: 3;
+
+      .M_InfoRow {
+        display: none;
+      }
+    }
+    .O_ImageSliderBody {
+      gap: 1rem;
+    }
+
+    .O_PostInformation {
+      flex-wrap: wrap;
+      flex-direction: row;
+      padding: 0;
+      margin-top: 1rem;
+      .M_InfoRow {
+        width: calc(34% - 1rem);
+      }
+    }
+  }
+
+  .C_DisplaysSorted {
+    margin: 0 auto;
+    width: 100%;
+
+    .O_Displays {
+      flex-direction: column;
+    }
+  }
+
+  .S_Comments,
+  .C_DisplaysSorted,
+  .W_PostImageDescription {
+    max-width: 612px;
+  }
   /* Posts */
   .C_AllPosts {
+    width: 100%;
     .O_Post {
       flex: 1 1 calc(33.3% - 1.5rem);
       max-width: calc(33.3% - 1rem);
@@ -115,6 +210,7 @@
 
   .W_SortingFilters {
     gap: 1rem;
+    justify-content: flex-start;
     .M_DropDown {
       .A_SortButton {
         span.sort-text {
@@ -123,7 +219,60 @@
       }
     }
   }
+
+  .O_PageCover {
+    .W_SectionInfoBackground {
+      width: 100%;
+      height: 300px;
+    }
+    .M_SectionSwitcher:first-child {
+      order: 2;
+      flex: 1;
+      h4 {
+        display: none;
+      }
+    }
+    .M_SectionSwitcher:last-child {
+      order: 3;
+      flex: 1;
+      justify-content: flex-end;
+      h4 {
+        display: none;
+      }
+    }
+  }
+
+  .O_Collection {
+    flex-direction: column;
+    gap: 1rem;
+
+    .W_CollectionIndexAbout {
+      width: 100%;
+      .M_CollectionDescription {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: space-between;
+
+        .M_CollectionIndexDesc {
+          width: 350px;
+        }
+
+        .C_Tags {
+          margin-bottom: 0;
+          align-items: flex-end;
+        }
+      }
+    }
+
+    .W_CollectionGridAbout {
+      width: 100%;
+      order: 2;
+      max-width: none;
+    }
+  }
 }
+
+/* Dropdown */
 
 /* ProfileIndex */
 
@@ -132,14 +281,63 @@
 @media all and (max-width: 768px) {
   .C_AllPosts {
     .O_Post {
-      flex: 1 1 calc(51% - 1.5rem);
-      max-width: calc(51% - 1.5rem);
+      min-width: 100%;
+      flex: 1;
 
       .Q_PostImageLink {
         order: 2;
       }
       .W_PostInfo {
         order: 1;
+      }
+    }
+  }
+
+  .L_CollectionShow {
+    gap: 3rem;
+  }
+
+  .W_CollectionShowHead {
+    gap: 2rem;
+  }
+
+  .W_СollectionInfoNavigation {
+    flex-direction: column;
+    max-width: 612px;
+    margin: 0 auto;
+    text-align: left;
+    .empty {
+      display: none;
+    }
+
+    .C_Tags {
+      justify-content: flex-start;
+    }
+
+    .W_WorksAmount {
+      display: none;
+    }
+
+    .O_CollectionInfo {
+      text-align: left;
+      gap: 0.5rem;
+
+      .M_TitleCreatorName {
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .S_Filter {
+    .O_FilterTopBar {
+      flex-direction: column;
+      gap: 1rem;
+
+      .W_SortingFilters {
+        .M_DropDown {
+          width: fit-content;
+        }
       }
     }
   }
@@ -166,7 +364,42 @@
   }
   .C_Collections {
     .O_Collection {
-      grid-column: span 6;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      .W_CollectionIndexAbout {
+        /* order: 2; */
+        .M_CollectionDescription {
+          flex-direction: column;
+
+          .C_Tags {
+            max-width: 100%;
+            gap: 4px;
+            order: 2;
+
+            .A_Tag {
+              font-size: 12px;
+            }
+          }
+
+          .M_CollectionIndexDesc {
+            width: 100%;
+            order: 2;
+            padding-left: 0;
+            width: 96%;
+          }
+        }
+      }
+
+      .W_CollectionGridAbout {
+        order: 1;
+
+        .M_CollectionImages {
+          gap: 4px;
+          div:nth-child(n + 4) {
+            display: none;
+          }
+        }
+      }
     }
   }
 
@@ -203,12 +436,75 @@
     }
   }
 
+  /* Dropdown */
+
   .C_Tabs {
     width: 100%;
     overflow-y: hidden;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  .S_Profile {
+    .W_HeadOptions {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 0 0 2rem;
+
+      .O_ArtistHead {
+        order: 2;
+
+        .Q_ProfileImage {
+          width: 5rem;
+          min-width: 4.5rem;
+          height: 5rem;
+          min-height: 4.5rem;
+          aspect-ratio: 1/1;
+        }
+        .M_ArtistRatings {
+          gap: 0.5rem;
+        }
+      }
+
+      .M_DotsDropdown {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .O_PostActionMenu {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+
+    .A_NavigationPost {
+      min-width: 100%;
+    }
+
+    .M_LikeFavourite {
+      justify-content: flex-start;
+    }
+  }
+  /* SHOW */
+  .O_NameSwitcher {
+    flex-wrap: wrap;
+    .M_TitleCreatorName {
+      width: 100%;
+      order: 1;
+      flex: none;
+      text-align: left;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .W_ArrowContainer {
+      .A_ArrowSwitcher:first-child {
+        order: 2;
+      }
+      .A_ArrowSwitcher {
+        padding: 0;
+      }
     }
   }
 }

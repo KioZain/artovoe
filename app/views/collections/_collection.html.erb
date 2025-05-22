@@ -1,7 +1,30 @@
-<div class="O_Collection">
+<% amount = collection.posts.count %>
+<%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none", class: "O_Collection", data: { turbo_frame: "_top" } do %>
+  <div class="W_CollectionIndexAbout">
+    <div class="M_CollectionDescription">
+      <div class="M_CollectionIndexDesc">
+        <p class="A_CreatedBy"><%= collection.user.profile.name %></p>
+        <h3 class="collection-title"><%= collection.title + " [#{amount}]" %></h3>
+      </div>
+      <div class="C_Tags">
+        <%# Materials %>
+        <% collection.material_list.take(1).each do |tag| %>
+          <span class="A_Tag" data-tag-context="materials"><%= tag %></span>
+        <% end %>
+        <%# Themes %>
+        <% collection.theme_list.take(1).each do |tag| %>
+          <span class="A_Tag" data-tag-context="themes"><%= tag %></span>
+        <% end %>
+        <%# Genres %>
+        <% collection.genre_list.take(1).each do |tag| %>
+          <span class="A_Tag" data-tag-context="genres"><%= tag %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="W_CollectionGridAbout">
     <div class="M_CollectionImages">
-      <% collection_posts = collection.posts.limit(4) %>
+      <% collection_posts = collection.posts.limit(5) %>
       <% if collection_posts.size >= 3 %>
         <% collection_posts.each do |post| %>
           <div class="aspect-<%= post.aspect_ratio.gsub(':', '-') %>"><%= image_tag post.post_image.url %></div>
@@ -9,55 +32,7 @@
       <% end %>
     </div>
     <div class="M_CollectionIndexData">
-      <%= collection.created_at.strftime("%Y") %>
-      <%= link_to profile_path(collection.user.profile), data: { turbo_frame: "_top" } do %>
-        <p class="A_CreatedBy"><%= collection.user.profile.name %></p>
-      <% end %>
-      <%= collection.posts.count %> работы.
     </div>
   </div>
   <!-- Tags -->
-  <div class="W_CollectionIndexAbout">
-    <div class="M_CollectionDescription">
-      <div class="M_CollectionIndexDesc">
-        <h4 class="subtitle"><%= collection.title %></h4>
-        <% if collection.body.present? %>
-          <p><%= collection.body %></p>
-        <% end %>
-      </div>
-      <div class="C_Tags">
-        <%# Materials %>
-        <% collection.material_list.take(2).each do |tag| %>
-          <%= link_to tag, 
-                tagged_collections_path(tag, context: 'materials'), 
-                class: "A_Tag", 
-                data: { tag_context: 'materials' } %>
-        <% end %>
-        <%# Moods %>
-        <% collection.mood_list.take(2).each do |tag| %>
-          <%= link_to tag, 
-                tagged_collections_path(tag, context: 'moods'), 
-                class: "A_Tag", 
-                data: { tag_context: 'moods' } %>
-        <% end %>
-        <%# Themes %>
-        <% collection.theme_list.take(2).each do |tag| %>
-          <%= link_to tag, 
-                tagged_collections_path(tag, context: 'themes'), 
-                class: "A_Tag", 
-                data: { tag_context: 'themes' } %>
-        <% end %>
-        <%# Genres %>
-        <% collection.genre_list.take(2).each do |tag| %>
-          <%= link_to tag, 
-                tagged_collections_path(tag, context: 'genres'), 
-                class: "A_Tag", 
-                data: { tag_context: 'genres' } %>
-        <% end %>
-      </div>
-    </div>
-    <%= link_to collection_path(collection), id: dom_id(collection),style:"text-decoration:none", data: { turbo_frame: "_top" } do %>
-      <p><u>Посмотреть</u></p>
-    <% end %>
-  </div>
-</div>
+<% end %>

@@ -5,7 +5,6 @@
   <div class="M_ObjectAuthorLikes">
     <h4 class="subtitle"><%= post.title %></h4>
     <div class="M_AuthorLikes">
-      <p><%= post.user.profile.name %></p>
       <%= render partial: "likes/button", locals: {likable: post} %>
     </div>
   </div>
