@@ -1,0 +1,21 @@
+<!-- app/views/favourites/_favourite_button.html.erb -->
+<div id="<%= dom_id(favouriteable, :favourite) %>">
+  <% if user_signed_in? %>
+    <%= link_to(
+      toggle_favourites_path(type: favouriteable.class.name, id: favouriteable.id),
+      class: "A_SaveButton#{' saved' if favouriteable.favourites.exists?(user: current_user)}",
+      data: { turbo_method: :post, turbo_stream: true }
+    ) do %>
+      <% if favouriteable.favourites.exists?(user: current_user) %>
+        <%= image_tag("icons/Q_Check.svg", alt: "", class: "A_SaveButton__icon") %>
+        <span>Сохранено</span>
+      <% else %>
+        <span>Сохранить</span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: "A_SaveButton" do %>
+      <span>Сохранить</span>
+    <% end %>
+  <% end %>
+</div>

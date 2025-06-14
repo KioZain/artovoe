@@ -366,7 +366,8 @@
   border: none;
   padding: 0.5rem 12px;
   border-radius: 0.5rem;
-  background-color: var(--colors-light-200);
+  background-color: var(--input-form-background);
+  border: 1px solid var(--input-form-border);
   background-image: url("assets/icons/Q_Search.svg");
   background-repeat: no-repeat;
   background-position: bottom 13px right 12px;
@@ -432,4 +433,37 @@
   flex-direction: column;
   gap: 0.5rem;
   /* color: var(--colors-neutral-600); */
+}
+.M_SubTabs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  gap: 0.5rem;
+
+  span {
+    font-size: 22px;
+  }
+
+  .A_SubTab {
+    border: none;
+    outline: none;
+    background-color: none;
+    background: none;
+    font-family: "Kommuna-regular";
+    font-size: 22px;
+    color: var(--colors-neutral-400);
+    cursor: pointer;
+
+    &.active {
+      color: var(--colors-neutral-900);
+      &::before {
+        content: "•";
+        color: var(--colors-neutral-900);
+      }
+    }
+
+    &:hover {
+      color: var(--colors-neutral-600);
+    }
+  }
 }

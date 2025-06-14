@@ -7,15 +7,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= yield :head %>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <!-- favicon -->
+    <%= favicon_link_tag 'favicon.png' %>
+    <!-- styles and scripts -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <p style="color: red;"> <%= alert %> </p>
+    <p style="color: red;"><%= alert %></p>
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>

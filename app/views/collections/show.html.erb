@@ -18,7 +18,7 @@
       </nav>
       <div class="M_LikeFavourite">
         <%= render partial: "likes/button", locals: {likable: @collection} %>
-        <button class="A_SaveButton">Сохранить</button>
+        <%= render "favourites/favourite_button", favouriteable: @collection %>
       </div>
       <div class="M_Options">
         <% if can?(:update, @collection) || can?(:destroy, @collection) || current_user&.admin? %>

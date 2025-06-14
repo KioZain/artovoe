@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_23_191534) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_14_071522) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -22,24 +25,24 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_23_191534) do
   end
 
   create_table "collections_posts", id: false, force: :cascade do |t|
-    t.integer "collection_id", null: false
-    t.integer "post_id", null: false
+    t.bigint "collection_id", null: false
+    t.bigint "post_id", null: false
     t.index ["collection_id", "post_id"], name: "index_collections_posts_on_collection_id_and_post_id"
     t.index ["post_id", "collection_id"], name: "index_collections_posts_on_post_id_and_collection_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "post_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "displays", force: :cascade do |t|
-    t.integer "post_id", null: false
+    t.bigint "post_id", null: false
     t.string "name"
     t.string "year"
     t.string "display_type"
@@ -47,6 +50,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_23_191534) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.index ["post_id"], name: "index_displays_on_post_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "favouriteable_type", null: false
+    t.bigint "favouriteable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favouriteable_type", "favouriteable_id"], name: "index_favourites_on_favouriteable"
+    t.index ["user_id", "favouriteable_type", "favouriteable_id"], name: "index_favourites_on_user_and_favouriteable", unique: true
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -94,11 +108,11 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_23_191534) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer "tag_id"
+    t.bigint "tag_id"
     t.string "taggable_type"
-    t.integer "taggable_id"
+    t.bigint "taggable_id"
     t.string "tagger_type"
-    t.integer "tagger_id"
+    t.bigint "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at", precision: nil
     t.string "tenant", limit: 128
@@ -142,5 +156,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_23_191534) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "displays", "posts"
+  add_foreign_key "favourites", "users"
   add_foreign_key "taggings", "tags"
 end

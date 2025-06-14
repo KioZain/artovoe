@@ -1,39 +1,47 @@
-<%= link_to profile_path(profile), class: "O_AuthorsWorks" do %>
-  <div class="O_ArtistHead">
-    <div class="Q_ProfileImage profile">
-      <%= image_tag profile.avatar_url %>
-    </div>
-    <div class="M_ArtistRatings">
-      <h1><%= profile.name %></h1>
-      <div class="W_Ratings">
-        <div class="M_InfoRow">
-          <p class="footnote">Оценки <br>
-            <%= profile.total_likes %>
-          </p>
-        </div>
-        <div class="M_InfoRow">
-          <p class="footnote">Работ <br>
-            <%= profile.user.posts.size %></p>
-        </div>
-        <div class="M_InfoRow">
-          <p class="footnote">Коллекций <br>
-            <%= profile.user.collections.count %></p>
+<% if profile.present? && profile.user.present? %>
+  <%= link_to profile_path(profile), class: "O_AuthorsWorks" do %>
+    <div class="O_ArtistHead">
+      <div class="Q_ProfileImage profile">
+        <%= image_tag profile.avatar_url if profile.avatar_url.present? %>
+      </div>
+      <div class="M_ArtistRatings">
+        <h1><%= profile.name %></h1>
+        <div class="W_Ratings">
+          <div class="M_InfoRow">
+            <p class="footnote">Оценки <br>
+              <%= profile.total_likes %>
+            </p>
+          </div>
+          <div class="M_InfoRow">
+            <% posts_count = profile.user.posts.size rescue 0 %>
+            <p class="footnote">Работ <br>
+              <%= posts_count %>
+            </p>
+          </div>
+          <div class="M_InfoRow">
+            <% collections_count = profile.user.collections.count rescue 0 %>
+            <p class="footnote">Коллекций <br>
+              <%= collections_count %>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="W_WorksCounter">
-    <% posts = profile.user.posts.limit(4) %>
-    <% posts.each do |post| %>
-      <div class="Q_PostGridImage">
-        <%= image_tag post.post_image.url %>
-      </div>
-    <% end %>
-    <% remaining_posts = profile.user.posts.size - 4 %>
-    <% if remaining_posts > 0 %>
-      <div class="A_Counter">
-        <h4>+<%= remaining_posts %></h4>
-      </div>
-    <% end %>
-  </div>
+    <div class="W_WorksCounter">
+      <% posts = profile.user.posts.limit(4).to_a rescue [] %>
+      <% posts.each do |post| %>
+        <div class="Q_PostGridImage">
+          <%= image_tag post.post_image.url if post.post_image.present? %>
+        </div>
+      <% end %>
+      <% remaining_posts = [profile.user.posts.size - 4, 0].max rescue 0 %>
+      <% if remaining_posts > 0 %>
+        <div class="A_Counter">
+          <h4>+<%= remaining_posts %></h4>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Художники потерялись :(</p>
 <% end %>

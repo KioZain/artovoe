@@ -5,6 +5,7 @@ class Collection < ApplicationRecord
   has_and_belongs_to_many :posts,  after_add: :update_tags_from_posts, after_remove: :update_tags_from_posts
   belongs_to :user
   has_many :likes, as: :likable
+  has_many :favourites, as: :favouriteable, dependent: :destroy
 
   # after_save :update_profile_total_likes
   # after_destroy :update_profile_total_likes

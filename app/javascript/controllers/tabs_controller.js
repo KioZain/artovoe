@@ -1,28 +1,34 @@
-import {Controller} from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static classes = ['active']
-    static targets = ["btn", "tab"]
-    static values = {defaultTab: String}
+  static classes = ['active']
+  static targets = ["btn", "tab"]
+  static values = { defaultTab: String }
 
-    connect() {
-        this.tabTargets.map(x => x.hidden = true)
+  connect() {
+    this.tabTargets.forEach(tab => tab.hidden = true)
 
-        let selectedTab = this.tabTargets.find(element => element.id === this.defaultTabValue)
-        selectedTab.hidden = false
-
-        let selectedBtn = this.btnTargets.find(element => element.id === this.defaultTabValue)
-        selectedBtn.classList.add(...this.activeClasses)
+    const selectedTab = this.tabTargets.find(tab => tab.id === this.defaultTabValue)
+    if (selectedTab) {
+      selectedTab.hidden = false
     }
 
-    select(event) {
-        let selectedTab = this.tabTargets.find(element => element.id === event.currentTarget.id)
-        if (selectedTab.hidden) {
-            this.tabTargets.map(x => x.hidden = true) 
-            this.btnTargets.map(x => x.classList.remove(...this.activeClasses))
-
-            selectedTab.hidden = false 
-            event.currentTarget.classList.add(...this.activeClasses)
-        }
+    const selectedBtn = this.btnTargets.find(btn => btn.id === this.defaultTabValue)
+    if (selectedBtn) {
+      selectedBtn.classList.add(...this.activeClasses)
     }
+  }
+
+  select(event) {
+    const selectedId = event.currentTarget.id
+    const selectedTab = this.tabTargets.find(tab => tab.id === selectedId)
+
+    if (!selectedTab || !selectedTab.hidden) return
+
+    this.tabTargets.forEach(tab => tab.hidden = true)
+    this.btnTargets.forEach(btn => btn.classList.remove(...this.activeClasses))
+
+    selectedTab.hidden = false
+    event.currentTarget.classList.add(...this.activeClasses)
+  }
 }

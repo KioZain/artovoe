@@ -54,6 +54,10 @@ class ProfilesController < ApplicationController
     authorize! :read, @profile
     @posts = @profile.user.posts
     @displays = Display.where(post_id: @posts.pluck(:id))
+    @saved_count = current_user.favourites.count
+    @saved_items = current_user.favourites.includes(:favouriteable).map(&:favouriteable)
+    @saved_posts = @saved_items.select { |item| item.is_a?(Post) }
+    @saved_collections = @saved_items.select { |item| item.is_a?(Collection) }
   end
 
 
@@ -127,10 +131,15 @@ end
 
   private
 
-    def initialize_counts
-      @profile_post_counts = Post.group(:user_id).count
-      @profile_collection_counts = Collection.group(:user_id).count
+  def initialize_counts
+    @profile_post_counts = Post.unscoped do
+      Post.group(:user_id).count
     end
+
+    @profile_collection_counts = Collection.unscoped do
+      Collection.group(:user_id).count
+    end
+  end
 
 
     def profile_params_step1

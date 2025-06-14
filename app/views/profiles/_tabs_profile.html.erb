@@ -7,6 +7,7 @@
     <button class="A_Tab" id="tab2" data-tabs-target="btn" data-action="click->tabs#select">Коллекции</button>
     <button class="A_Tab" id="tab3" data-tabs-target="btn" data-action="click->tabs#select">Выставки</button>
     <button class="A_Tab" id="tab4" data-tabs-target="btn" data-action="click->tabs#select">Об авторе</button>
+    <button class="A_Tab" id="tab5" data-tabs-target="btn" data-action="click->tabs#select">Сохранённые</button>
   </div>
   <div class="O_TabContent">
     <div data-tabs-target="tab" id="tab1">
@@ -123,6 +124,35 @@
         </div>
       </div>
       <%# ----------------------------------------------------  %>
+    </div>
+    <div data-tabs-target="tab" id="tab5" class='hidden'>
+      <div data-controller="tabs" data-tabs-default-tab-value="subtab1" data-tabs-active-class="active">
+        <div class="M_SubTabs">
+          <button class="A_SubTab" id="subtab1" data-tabs-target="btn" data-action="click->tabs#select">Работы</button>
+          <span>/</span>
+          <button class="A_SubTab" id="subtab2" data-tabs-target="btn" data-action="click->tabs#select">Коллекции</button>
+        </div>
+        <!-- Работы -->
+        <div data-tabs-target="tab" id="subtab1" class="hidden">
+          <% if @saved_posts.empty? %>
+            <div class="A_NoContent">Нет сохранённых работ</div>
+          <% else %>
+            <% @saved_posts.each do |post| %>
+              <div class="O_Post"><%= render 'posts/post', post: post %></div>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- Коллекции -->
+        <div data-tabs-target="tab" id="subtab2" class="hidden">
+          <% if @saved_collections.empty? %>
+            <div class="A_NoContent">Нет сохранённых коллекций</div>
+          <% else %>
+            <% @saved_collections.each do |collection| %>
+              <%= render 'collections/collection', collection: collection %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

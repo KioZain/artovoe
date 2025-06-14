@@ -3,7 +3,7 @@
   justify-content: space-between;
   width: 100%;
   gap: 2.5rem;
-  margin-top: 6rem;
+  margin-top: 2rem;
 
   .M_ArtistActivity {
     display: flex;
@@ -24,7 +24,7 @@
 .W_HeadOptions {
   display: flex;
   justify-content: space-between;
-  padding: 4rem 0;
+  padding: 0rem 0 4rem;
   border-bottom: 1px solid var(--colors-light-200);
 }
 

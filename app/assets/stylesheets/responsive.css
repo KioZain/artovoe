@@ -279,6 +279,10 @@
 /* ProfileShow */
 
 @media all and (max-width: 768px) {
+  .W_Forms {
+    padding: 1rem;
+  }
+
   .C_AllPosts {
     .O_Post {
       min-width: 100%;

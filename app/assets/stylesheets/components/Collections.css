@@ -185,7 +185,8 @@
 .C_Tabs {
   display: flex;
   gap: 0;
-  margin-bottom: 20px;
+  gap: 1rem;
+  padding: 1.5rem 0;
 }
 
 .C_Exhibitions {

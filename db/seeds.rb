@@ -214,10 +214,26 @@ def reset_db
   Rake::Task['db:migrate'].invoke
 end
 
+def destroy_all
+  root_models = [ User, Profile ] # Корневые модели — удаляем их в конце
+
+  models = ActiveRecord::Base.descendants.reject do |model|
+    model.to_s =~ /^(ActiveStorage|ActionDispatch|ActionMailer)/
+  end
+
+  models.sort_by { |model| root_models.include?(model) ? 1 : 0 }
+        .reverse_each do |model|
+    next unless model.table_exists?
+    puts "Destroying all records from #{model.name.pluralize}..."
+    model.destroy_all
+  end
+end
+
 
 # Setting the quantity of posts and comments --------------------
 def seed
-  reset_db
+  # reset_db
+  destroy_all
   create_users(16)
   create_posts(80)
   create_comments(2..6)

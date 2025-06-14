@@ -113,7 +113,7 @@ a.caption {
   height: 32px;
   background-color: #ffffff;
   border: 1px solid #f6f5f4;
-  font-family: "Kommuna-regular";
+  font-family: "Inter-Tight";
   border-radius: 6px;
   font-size: 13px;
   text-decoration: none;
@@ -313,8 +313,8 @@ a.caption {
 
 /* Buttons */
 .A_Button {
-  background-image: url("/assets/buttons/A_ButtonSmall.svg");
-  background-color: inherit;
+  /* background-image: url("/assets/buttons/A_ButtonSmall.svg"); */
+  background-color: var(--brand-yellow);
   background-size: cover;
   background-repeat: no-repeat;
   width: 144px;
@@ -342,26 +342,26 @@ a.caption {
     color: var(--almost-black);
   }
 
-  &.green {
+  /* &.green {
     background-image: url("/assets/buttons/Q_Green.svg");
-  }
+  } */
 }
-.medium {
+/* .medium {
   background-image: url("/assets/buttons/A_ButtonMedium.svg");
   width: 174px;
 
   &.green {
     background-image: url("/assets/buttons/Q_GreenMedium.svg");
   }
-}
-.large {
+} */
+/* .large {
   background-image: url("/assets/buttons/A_ButtonLarge.svg");
   width: 204px;
 
   &.green {
     background-image: url("/assets/buttons/Q_GreenLarge.svg");
   }
-}
+} */
 
 .A_ButtonSecondary {
   border-radius: 8px;
@@ -444,15 +444,16 @@ input.A_Button {
   padding: 0.5rem;
   align-items: center;
   justify-content: center;
-  background-color: var(--colors-light-200);
+  background-color: var(--input-form-background);
+  border: 1px solid var(--input-form-border);
+  font-size: 15px;
   border-radius: 8px;
-  border: none;
+  color: var(--colors-neutral-800);
+  text-decoration: none;
   font-family: "Inter-Tight";
   height: 2.5rem;
 
-  .saved {
-    background-color: var(--colors-neutral-900);
-    color: var(--colors-neutral-50);
+  &.saved {
   }
   &:hover {
     background-color: var(--colors-light-400);
@@ -463,7 +464,8 @@ input.A_Button {
   width: 3rem;
   height: 3rem;
   border-radius: 0.5rem;
-  background-color: var(--colors-light-200);
+  background-color: var(--input-form-background);
+  border: 1px solid var(--input-form-border);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -572,14 +574,14 @@ select.A_Form {
 
 /* Tabs */
 .A_Tab {
-  width: 160px;
-  min-width: 116px;
-  height: 48px;
+  height: 40px;
+  min-width: 100px;
   font-family: "Kommuna-regular";
   display: flex;
   color: var(--colors-neutral-400);
   outline: none;
-  align-items: center;
+  align-items: flex-start;
+  font-size: 1rem;
   justify-content: center;
   border: none;
   background-color: inherit;
@@ -595,6 +597,7 @@ select.A_Form {
     font-weight: 600;
   }
 }
+
 .tab-pane {
   display: none;
 

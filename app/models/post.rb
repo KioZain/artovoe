@@ -14,6 +14,7 @@ class Post < ApplicationRecord
   # Associations-------------------------------
 
   has_many :likes, as: :likable
+  has_many :favourites, as: :favouriteable, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :displays, dependent: :destroy
 
@@ -83,6 +84,6 @@ class Post < ApplicationRecord
 
    def update_profile_total_likes
     user&.profile&.update_total_likes!
-    puts "Profile tags updated"
+    # puts "Profile tags updated"
   end
 end

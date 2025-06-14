@@ -10,6 +10,7 @@ class Like < ApplicationRecord
   private
 
   def update_likes_count
+    return unless likable.present?
     likable.update_likes_count
 
     likable.user.profile.update_total_likes

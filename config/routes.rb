@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   get "artists/index"
 
-
+  # Like
   resources :likes, only: [] do
+    collection do
+      post :toggle
+    end
+  end
+  # Saved
+  resources :favourites, only: [] do
     collection do
       post :toggle
     end
