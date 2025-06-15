@@ -4,8 +4,6 @@
 <%= turbo_stream.replace "new_display" do %>
   <div class="L_DisplayForm" id="new_display">
     <h1>Добавить выставку</h1>
-    <div class="W_Forms">
-      <%= render "form", post: @post, display: Display.new %>
-    </div>
+    <%= render "form", post: @post, display: Display.new %>
   </div>
 <% end %>

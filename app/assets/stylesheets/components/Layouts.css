@@ -76,6 +76,7 @@
 
   .W_Forms {
     width: 100%;
+    margin: 0 auto;
 
     .A_Form {
       max-width: none;

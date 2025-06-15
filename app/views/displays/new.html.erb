@@ -4,17 +4,17 @@
     Пост сохранён! Теперь вы можете добавить выставки.
   </div>
 <% end %>
+<h1>Экспозиции работы</h1>
 <div class="L_DisplayForm" id="new_display">
-  <h1>Экспозиции работы</h1>
   <%= render "form", post: @post, display: @display %>
   <!-- Блок с добавленными выставками -->
-  <div class="O_DisplaysAdded">
-    <div class="M_TitleFilter">
-      <h4>Добавленные</h4>
-      <div class="A_Filter"></div>
-    </div>
-    <div class="C_AddedDisplays" id="C_AddedDisplays">
-      <%= render partial: "display", collection: @displays, as: :display, locals: { post: @post, show_delete: true } %>
-    </div>
+</div>
+<div class="O_DisplaysAdded">
+  <div class="M_TitleFilter">
+    <h4>Добавленные</h4>
+    <div class="A_Filter"></div>
+  </div>
+  <div class="C_AddedDisplays" id="C_AddedDisplays">
+    <%= render partial: "display", collection: @displays, as: :display, locals: { post: @post, show_delete: true } %>
   </div>
 </div>

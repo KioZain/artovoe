@@ -28,7 +28,7 @@
             <div class="right"data-dropdown-target="content">
               <% if can?(:update, @post) %>
                 <%= link_to 'Редактировать', edit_post_path(@post), class: 'A_DropdownItem' %>
-                <%= link_to 'Редактировать выставки', new_post_display_path(@post), class: 'A_DropdownItem' %>
+                <%= link_to 'Изменить выставки', new_post_display_path(@post), class: 'A_DropdownItem' %>
               <% end %>
               <% if can?(:destroy, @post) %>
                 <%= button_to 'Удалить работу', @post, method: :delete, class: 'A_DropdownItem Danger' %>
