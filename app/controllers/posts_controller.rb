@@ -44,14 +44,22 @@ def index
   # POST /posts
   def create
     @post = current_user.posts.new(post_params)
-     puts "--------------Material list-----------------: #{@post.material_list.inspect}"
-     puts "--------------Genre list-----------------: #{@post.genre_list.inspect}"
-     puts "--------------Theme list-----------------: #{@post.theme_list.inspect}"
-     puts "--------------Mood list-----------------: #{@post.mood_list.inspect}"
+
+    puts "--------------Material list-----------------: #{@post.material_list.inspect}"
+    puts "--------------Genre list-----------------: #{@post.genre_list.inspect}"
+    puts "--------------Theme list-----------------: #{@post.theme_list.inspect}"
+    puts "--------------Mood list-----------------: #{@post.mood_list.inspect}"
+
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "Пост успешно создан" }
-        format.json { render :show, status: :created, location: @post }
+        redirect_url = if request.xhr? || params[:format] == "json"
+          post_displays_new_path(@post, saved: 1)
+        else
+          post_path(@post)
+        end
+
+        format.html { redirect_to redirect_url, notice: "Пост успешно создан" }
+        format.json { render json: { id: @post.id, redirect_url: redirect_url }, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }

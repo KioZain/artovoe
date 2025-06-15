@@ -24,7 +24,7 @@
 .W_HeadOptions {
   display: flex;
   justify-content: space-between;
-  padding: 0rem 0 4rem;
+  padding: 0rem 0 2rem;
   border-bottom: 1px solid var(--colors-light-200);
 }
 

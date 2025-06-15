@@ -1,0 +1,10 @@
+<%= turbo_stream.append "C_AddedDisplays" do %>
+  <%= render partial: "display", locals: { display: @display } %>
+<% end %>
+<%= turbo_stream.replace "new_display" do %>
+  <div class="L_DisplayForm" id="new_display">
+    <h1>Добавить выставку</h1>
+    <!-- ВАЖНО: передать @post -->
+    <%= render "form", post: @post, display: Display.new %>
+  </div>
+<% end %>

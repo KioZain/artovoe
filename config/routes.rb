@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     # displays
-    resources :displays, only: [ :create, :update, :destroy ]
+    resources :displays
     # tags
     get "/by_tag/:tag", to: "posts#by_tag", on: :collection, as: "tagged"
   end

@@ -1,0 +1,20 @@
+<%# app/views/displays/new.html.erb %>
+<% if @show_notice %>
+  <div class="alert alert-info">
+    Пост сохранён! Теперь вы можете добавить выставки.
+  </div>
+<% end %>
+<div class="L_DisplayForm" id="new_display">
+  <h1>Добавить выставку</h1>
+  <%= render "form", post: @post, display: @display %>
+</div>
+<!-- Блок с добавленными выставками -->
+<div class="O_DisplaysAdded">
+  <div class="M_TitleFilter">
+    <h4>Добавленные</h4>
+    <div class="A_Filter"></div>
+  </div>
+  <div class="C_AddedDisplays" id="C_AddedDisplays">
+    <%= render partial: "display", collection: @displays, as: :display %>
+  </div>
+</div>

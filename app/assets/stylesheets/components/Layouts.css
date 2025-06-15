@@ -65,3 +65,20 @@
   flex-direction: column;
   margin-bottom: 15rem;
 }
+.L_DisplayForm {
+  width: 100%;
+  max-width: 638px;
+  margin: 0 auto 40vh;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .W_Forms {
+    width: 100%;
+
+    .A_Form {
+      max-width: none;
+    }
+  }
+}

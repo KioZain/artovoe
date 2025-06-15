@@ -127,6 +127,7 @@
       </div>
     </div>
   </div>
+  <!-- Список выставок, сгруппированных по годам -->
   <div class="C_DisplaysSorted">
     <% @post.displays.group_by(&:year).sort_by { |year, _| -year }.each do |year, displays| %>
       <div class="O_Displays">

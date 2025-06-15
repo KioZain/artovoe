@@ -1,0 +1,35 @@
+<%= form_with(
+    model: [@post, @display], 
+    data: { controller: "display-form" }, 
+    local: false, 
+    html: { style: "width: 100%", 
+    class: "W_Forms" }) do |f| %>
+  <div class="M_FormLabel">
+    <%= f.label :name, "Название" %>
+    <%= f.text_field :name, class: "A_Form", id: "display_name" %>
+  </div>
+  <div class="M_FormLabel">
+    <%= f.label :city, "Город" %>
+    <%= f.text_field :city, class: "A_Form", id: "display_city" %>
+  </div>
+  <div class="W_TwoFormRow">
+    <div class="M_FormLabel">
+      <%= f.label :year, "Год" %>
+      <%= f.text_field :year, class: "A_Form", id: "display_year" %>
+    </div>
+    <div class="M_FormLabel">
+      <%= f.label :display_type, "Тип экспозиции" %>
+      <%= f.select :display_type,
+          ["Выставка", "Арт-маркет", "Галерея", "Цифровая экспозиция"],
+          { include_blank: "Тип выставки" },
+          class: "A_Form",
+          id: "display_display_type" %>
+    </div>
+  </div>
+  <div class="W_TwoButtons">
+    <!-- Кнопка "+ Добавить" -->
+    <button type="submit" class="A_ButtonSecondary secondary" formnovalidate>+</button>
+    <%= link_to "Опубликовать", post_path(@post), class: "A_Button medium" %>
+  </div>
+<% end %>
+<div id="turbo_events"></div>
