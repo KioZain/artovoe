@@ -1,5 +1,13 @@
-<div class="M_Display" id="<%= dom_id(display) %>">
-  <h4><%= @display.display_type %></h4>
-  <h3><%= @display.name %> </h3>
-  <p><%= @display.city %></p>
+<div class="M_Display" id="display_<%= display.id %>">
+  <% if local_assigns[:show_delete] %>
+    <%= button_to post_display_path(post, display), 
+                  method: :delete, 
+                  class: "A_DeleteButton",
+                  form: { data: { turbo_confirm: "Удалить выставку?" } } do %>
+      <span class="delete-icon">×</span>
+    <% end %>
+  <% end %>
+  <h4><%= display.display_type %></h4>
+  <h3><%= display.name %></h3>
+  <p><%= display.city %></p>
 </div>

@@ -25,7 +25,12 @@ class DisplaysController < ApplicationController
       Rails.logger.info "========== CREATE SUCCESS: Post ID = #{@post.id}, Display ID = #{@display.id} =============="
       Rails.logger.info "============ Post for form: #{@post.id} ================"
       respond_to do |format|
-        format.turbo_stream
+        format.turbo_stream { 
+          render turbo_stream: [
+            turbo_stream.append("C_AddedDisplays", partial: "display", locals: { display: @display }),
+            turbo_stream.replace("new_display", partial: "form", locals: { post: @post, display: Display.new })
+          ]
+        }
       end
     else
       @displays = @post.displays.order(created_at: :desc)
@@ -45,7 +50,13 @@ class DisplaysController < ApplicationController
   def destroy
     @display = @post.displays.find(params[:id])
     @display.destroy
-    redirect_to @post, notice: "Выставка удалена"
+    
+    respond_to do |format|
+      format.turbo_stream { 
+        render turbo_stream: turbo_stream.remove("display_#{@display.id}")
+      }
+      format.html { redirect_to @post, notice: "Выставка удалена" }
+    end
   end
 
 

@@ -68,7 +68,7 @@
 .L_DisplayForm {
   width: 100%;
   max-width: 638px;
-  margin: 0 auto 40vh;
+  margin: 0 auto;
   margin-top: 6rem;
   display: flex;
   flex-direction: column;
