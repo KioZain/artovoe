@@ -99,8 +99,8 @@
   }
 
   &.index {
-    width: clamp(2rem, 5vw, 4.5rem);
-    height: clamp(2rem, 5vw, 4.5rem);
+    width: clamp(3rem, 5vw, 4.5rem);
+    height: clamp(3rem, 5vw, 4.5rem);
     border: 3px solid var(--colors-light-50);
     margin-top: -2rem;
     margin-bottom: 1.5rem;

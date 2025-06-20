@@ -7,7 +7,14 @@
       <span class="delete-icon">×</span>
     <% end %>
   <% end %>
-  <h4><%= display.display_type %></h4>
-  <h3><%= display.name %></h3>
-  <p><%= display.city %></p>
+  <div class="row">
+    <p class="display-city"><%= display.city %></p>
+    <p class="display-type"><%= display.display_type %></p>
+  </div>
+  <div class="row">
+    <% if local_assigns[:show_delete] %>
+      <p class="subtitle"><%= display.year %></p>
+    <% end %>
+    <h3 class="subtitle"><%= display.name %></h3>
+  </div>
 </div>

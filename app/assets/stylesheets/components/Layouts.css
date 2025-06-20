@@ -67,16 +67,19 @@
 }
 .L_DisplayForm {
   width: 100%;
-  max-width: 638px;
+  max-width: 540px;
   margin: 0 auto;
-  margin-top: 6rem;
+  margin: 6rem auto 40vh;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem;
 
   .W_Forms {
     width: 100%;
     margin: 0 auto;
+    padding: 1.5rem;
+    border: 1px solid var(--colors-neutral-100);
+    border-radius: 0.8rem;
 
     .A_Form {
       max-width: none;
