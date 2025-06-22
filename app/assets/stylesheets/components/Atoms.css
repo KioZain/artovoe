@@ -35,15 +35,15 @@ a.caption {
 }
 
 .A_MenuUpperLink {
-  height: clamp(3rem, 8vw, 8.3rem);
+  height: clamp(3rem, 8vw, 13rem);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   aspect-ratio: 2 / 1;
   background-position: bottom;
-  /* margin-bottom: -0.3vw; */
-  background-size: 101% 100%;
+  margin-bottom: -0.1vw;
+  background-size: 102%;
   background-image: url("clip_images/triangle.svg");
   background-repeat: no-repeat;
 
@@ -116,8 +116,8 @@ a.caption {
   justify-content: center;
   padding: 0px 12px;
   height: 32px;
-  background-color: #ffffff;
-  border: 1px solid #f6f5f4;
+  background-color: #fcfbfb;
+  border: 1px solid var(--colors-light-200);
   font-family: "Inter-Tight";
   border-radius: 6px;
   font-size: 13px;
@@ -324,15 +324,18 @@ a.caption {
   font-family: "Kommuna-regular";
   font-size: 1rem;
   background-repeat: no-repeat;
-  width: 144px;
+  min-width: 144px;
+  padding: 0.5rem 1rem;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  transition: all 0.3s ease;
 
   &:hover {
     opacity: 90%;
+    background-color: #fff36e;
     cursor: pointer;
   }
 
@@ -371,13 +374,14 @@ a.caption {
 
 .A_ButtonSecondary {
   border-radius: 8px;
-  width: 144px;
+  min-width: 144px;
+  padding: 0.5rem 1rem;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font-family: "Komunna-regular";
+  font-family: "Kommuna-regular";
   font-size: 1rem;
   border: none;
   outline: none;
@@ -385,10 +389,10 @@ a.caption {
   border: 1px solid var(--colors-light-300);
   color: var(--colors-neutral-900);
   text-decoration: none;
-  font-size: 1rem;
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: var(--colors-light-400);
+    background-color: #ecebeb;
     cursor: pointer;
     color: var(--colors-neutral-600);
   }
@@ -529,7 +533,7 @@ input.A_Button {
   font-size: 13px;
   font-family: "Inter-Tight";
   font-weight: 400;
-  color: var(--colors-neutral-600);
+  color: var(--colors-neutral-900);
 }
 
 .A_Form {
@@ -541,13 +545,16 @@ input.A_Button {
   font-weight: 400;
   justify-content: space-between;
   height: 52px;
-  max-width: 500px;
   width: 100%;
   border-radius: 0.5rem;
   padding: 1rem;
 
   &:focus {
     outline: 1px solid var(--colors-light-400);
+  }
+
+  placeholder {
+    color: var(--colors-neutral-400);
   }
 }
 input:-webkit-autofill,
@@ -722,10 +729,10 @@ button.A_DropdownItem {
   border-radius: 0.5rem;
 }
 .A_Toggle {
-  background-color: var(--colors-light-200);
+  background-color: var(--input-form-background);
   color: var(--colors-neutral-600);
+  border: 1px solid var(--input-form-border);
   border-radius: 500rem;
-  border: none;
   outline: none;
   font-size: 1.5rem;
 
@@ -733,4 +740,16 @@ button.A_DropdownItem {
     cursor: pointer;
     color: var(--colors-neutral-300);
   }
+}
+.A_FromHeading {
+  width: 100%;
+  max-width: 600px;
+  margin: 4rem auto 3rem;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+}
+.A_Notice {
 }

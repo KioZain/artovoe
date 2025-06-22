@@ -119,7 +119,7 @@
   .W_UserOptions {
     display: flex;
     flex: 1;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
     justify-content: flex-end;
   }
@@ -219,20 +219,18 @@
     justify-content: space-between;
 
     .C_FooterCategories {
-      gap: 1.5rem;
+      gap: 4rem;
       max-width: 850px;
       width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
 
       a {
         display: inline-block;
-        font-size: 2.5rem;
-        font-family: "Kommuna";
+        font-size: 1.5rem;
+        font-family: "Kommuna-regular";
         color: var(--colors-light-50);
         text-decoration: none;
-        text-transform: uppercase;
 
         &:hover {
           cursor: pointer;
@@ -264,7 +262,7 @@
       .A_Form {
         width: 70%;
       }
-      .A_ButtonSecondary {
+      .A_Button {
         height: 52px;
       }
     }

@@ -250,11 +250,28 @@
     width: 100%;
   }
 
+  .C_AddedWorks {
+    gap: 1.3rem;
+  }
+
   .M_SelectTrigger,
   .C_AddedWorks {
     width: 100%;
+
+    .M_PostItem {
+      .W_PostDataCollection {
+        p.caption {
+          color: var(--colors-neutral-900);
+        }
+      }
+    }
   }
 }
+
+.M_SelectTrigger:hover {
+  cursor: pointer;
+}
+
 .W_TwoFormRow {
   display: flex;
   width: 100%;
@@ -273,30 +290,44 @@
 .W_TwoButtons {
   display: flex;
   gap: 1rem;
+  width: 100%;
+
+  * {
+    flex: 1;
+  }
 }
 .O_CollectionForm {
   width: 100%;
 }
 .W_PostDataCollection {
   display: flex;
+  flex-direction: row;
   gap: 0.5rem;
+  width: 100%;
   align-items: flex-start;
 
-  width: 86%;
-
   .M_InfoRow {
-    gap: 2px;
+    gap: 3px;
+    width: 100%;
     p.caption {
       max-width: 100%;
+      line-height: 20px;
     }
 
     p.footnote-2 {
       color: var(--colors-neutral-600);
       width: fit-content;
+      font-size: 14px;
     }
   }
 }
 .W_CollectionPart {
   display: flex;
-  flex: 4;
+  flex: 3.1;
+}
+.W_CollectionColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }

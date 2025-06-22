@@ -12,15 +12,14 @@
   <div class="W_Forms">
     <div class="M_FormLabel">
       <%= f.label :title, "Название", class: "title-label", style: "display: block" %>
-      <%= f.text_field :title, class: "A_Form" %>
+      <%= f.text_field :title, class: "A_Form", placeholder: "Введите название коллекции" %>
     </div>
     <div class="M_FormLabel">
       <%= f.label :body, "Описание", class: "body-label", style: "display: block" %>
-      <%= f.text_area :body, class: "A_Form" %>
+      <%= f.text_area :body, class: "A_Form", placeholder: "Введите описание" %>
     </div>
     <%= render "work_selector" %>
     <%#-------------submit--------------%>
-    <%= f.submit "Опубликовать", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
   </div>
-</div>
+  <%= f.submit "Опубликовать", class: "A_Button" %>
 <% end %>

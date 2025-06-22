@@ -93,8 +93,9 @@
   }
 
   &.profile {
-    width: 7rem;
-    height: 7rem;
+    width: clamp(5rem, 10vw, 7rem);
+    height: clamp(5rem, 10vw, 7rem);
+    aspect-ratio: 1/1;
     border-radius: 4px;
   }
 
@@ -111,4 +112,21 @@
   height: 10px;
   border-radius: 600rem;
   background-color: var(--colors-light-400);
+}
+.Q_PostImageLink {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding-bottom: 0.2rem;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: 1px solid var(--colors-light-400);
+  width: fit-content;
+  transition: all 0.3s ease;
+
+  &:hover {
+    img {
+      transform: translateX(3px);
+    }
+  }
 }

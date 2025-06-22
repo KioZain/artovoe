@@ -58,7 +58,7 @@
         <%# -----------------tags here -----------%>
         <%= render 'tags/tag_collection' %>
         <h4><%= @collection.body %></h4>
-        <p class="footnote">Опубликовано: <%= @collection.created_at.strftime("%d.%m.%Y") %></p>
+        <p class="footnote-2 grey">Опубликовано: <%= @collection.created_at.strftime("%d.%m.%Y") %></p>
       </div>
       <div class="empty" style="flex: 1;"></div>
     </div>
@@ -75,18 +75,21 @@
             <div class="A_ImageContainer aspect-<%= post.aspect_ratio.gsub(':', '-') %>">
               <%= image_tag post.post_image.url, class: "Q_ShowPostImage"  %>
             </div>
-            <p class="footnote">Дата добавления: <%=post.created_at.strftime("%d.%m.%Y") %></p>
+            <p class="footnote-2 grey">Дата добавления: <%=post.created_at.strftime("%d.%m.%Y") %></p>
           </div>
           <div class="W_ObjectLook">
             <div class="M_ObjectInfo">
+              <p class="footnote hidden"><%= "#{post.year} | #{post.category_list.map(&:capitalize).join(', ')}" %></p>
               <h4 class="subtitle"><%= post.title %></h4>
               <p><%= post.body %></p>
             </div>
             <%= link_to post_path(post), class: "Q_PostImageLink" do %>
-              <p>Посмотреть работу</p>
+              <p>Посмотреть</p>
+              <img src="/assets/icons/Q_IconArrowRight.svg" alt="">
             <% end %>
           </div>
         </div>
+        <div class="ivisable-obj"></div>
       </div>
     <% end %>
   </div>

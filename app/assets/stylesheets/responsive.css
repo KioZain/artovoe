@@ -1,4 +1,36 @@
 @media all and (max-width: 1440px) {
+  .S_MainWeekWorks {
+    .W_WeekAboutTop {
+      .W_WeekAboutLeft {
+        .O_WeekWorksInfo {
+          gap: 1rem;
+
+          .M_HeadingDates {
+            gap: 1rem;
+
+            h2 {
+              font-family: "Kommuna-regular";
+              font-size: 1.5rem;
+            }
+          }
+        }
+
+        .W_TwoWeekPosts {
+          flex: auto;
+          margin-bottom: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    .W_MainWeekPostsBottom {
+      .O_MainWeekPost {
+        flex: 1 1 calc(33.3% - 1rem);
+        max-width: calc(33.3% - 1rem);
+      }
+    }
+  }
+
   .W_CollectionGridAbout {
     width: 638px;
   }
@@ -6,11 +38,21 @@
   .W_CollectionPart {
     flex-direction: column;
     flex: 2;
+
+    .M_ImagePostDate {
+      margin-bottom: clamp(1rem, 1.5vw, 2rem);
+      p.footnote-2 {
+        margin-right: auto;
+      }
+    }
+  }
+
+  .ivisable-obj {
+    flex: 1;
+    display: block;
   }
 
   .O_CollectionObject {
-    max-width: 958px;
-
     .W_ObjectLook {
       padding: 0;
     }
@@ -18,6 +60,21 @@
 }
 
 @media all and (max-width: 1240px) {
+  .S_MainWeekWorks {
+    .W_WeekAboutTop {
+      flex-direction: column;
+      padding: 0;
+    }
+  }
+
+  .S_MainPageAuthors {
+    .W_WorksCounter {
+      .Q_PostGridImage:nth-child(1) {
+        display: none;
+      }
+    }
+  }
+
   /* ModalMenu */
   .W_NavigationBottom {
     flex-direction: column;
@@ -68,12 +125,58 @@
   }
 }
 @media all and (max-width: 1024px) {
+  .S_MainWeekWorks {
+    .W_WeekAboutTop {
+      flex-direction: column;
+    }
+
+    .W_MainWeekPostsBottom {
+      flex-wrap: wrap;
+      padding: 0;
+
+      .O_MainWeekPost {
+        &:nth-child(1),
+        &:nth-child(2) {
+          flex: 1 1 calc(50% - 1rem);
+          max-width: calc(50% - 1rem);
+        }
+
+        &:nth-child(3) {
+          flex: 1 100%;
+          min-width: 100%;
+        }
+      }
+    }
+  }
+
+  .W_NewPostsInfoSlider {
+    p.Caption {
+      display: none;
+    }
+    h1.hero {
+      text-align: left;
+    }
+  }
+
+  .S_MainNewPosts {
+    .C_MainNewPosts {
+      .O_MainNewPost {
+        flex: 1 1 calc(33.3% - 1rem);
+        max-width: calc(33.3% - 1rem);
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+  }
+
   .S_Header {
     .W_UserOptions {
       .A_Button.medium {
         background-color: var(--brand-yellow);
         width: 48px;
         height: 48px;
+        min-width: auto;
         border-radius: 600px;
         p.caption {
           display: none;
@@ -96,6 +199,24 @@
       [data-dropdown-target="content"] {
         transform: translateX(-30%);
         right: 0;
+      }
+    }
+  }
+
+  .O_CollectionInfo {
+    flex: 6;
+  }
+
+  .O_CollectionObject {
+    .M_InfoRow {
+      display: none;
+    }
+
+    .W_ObjectLook {
+      .M_ObjectInfo {
+        p.footnote.hidden {
+          display: block;
+        }
       }
     }
   }
@@ -311,6 +432,27 @@
 /* ProfileShow */
 
 @media all and (max-width: 768px) {
+  .M_ArtistRatings {
+    gap: 0.5rem;
+  }
+
+  .W_NewPostsInfoSlider {
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    height: auto;
+    .M_NewPostsSlider {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .O_AuthorsWorks {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
   .W_NavigationFull {
     margin: 2vh auto 0;
 
@@ -365,8 +507,27 @@
     top: 146px;
   }
 
+  .A_BackLink {
+    display: none;
+  }
+
+  .L_Form {
+    padding: 0.7rem;
+  }
+
+  .O_FormBlock {
+    .W_Forms {
+      padding: 0;
+      border: 0;
+    }
+  }
+
   .W_Forms {
     padding: 1rem;
+
+    .W_TwoFormRow {
+      flex-direction: column;
+    }
   }
 
   .C_AllPosts {
@@ -411,10 +572,26 @@
     .O_CollectionInfo {
       text-align: left;
       gap: 0.5rem;
+      display: block;
 
       .M_TitleCreatorName {
         text-align: left;
         align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .A_CreatorPost {
+        padding: 0;
+        margin-bottom: 0.4rem;
+      }
+
+      .C_Tags {
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        margin-bottom: 1rem;
+        font-size: 15px;
       }
     }
   }
@@ -514,6 +691,11 @@
 
         .search-head {
           width: 100%;
+          order: 2;
+        }
+
+        .A_MenuButton {
+          order: 1;
         }
 
         .M_MenuSearch {
@@ -606,9 +788,10 @@
 @media all and (max-width: 600px) {
   .A_MenuUpperLink {
     background-image: url("clip_images/triangle 2.svg");
-    height: clamp(9vh, -0.044vh + 16vh, 13vh);
-    background-size: 100%;
+    height: clamp(9vh, -0.044vh + 16vh, 13.5vh);
+    background-size: 101%;
     max-height: 110px;
+    margin-bottom: -0.1vw;
 
     h4 {
       transform: translateY(1vh);

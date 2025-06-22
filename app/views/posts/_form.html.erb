@@ -1,53 +1,90 @@
-<%= form_with(model: @post, data: { controller: "autosave", action: "submit->autosave#submit" }) do |f| %>
-  <div class="W_Forms">
-    <% if post.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-        <ul>
-          <% post.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
+<%= form_with(model: @post, data: { controller: "autosave", action: "submit->autosave#submit" },html: { class: "L_Form" }) do |f| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Основные поля -->
+  <div class="O_FormBlock">
+    <h4 class="headline-4">Описание</h4>
+    <div class="W_Forms">
+      <div class="M_FormLabel">
+        <%= f.label :title, "Название работы", style: "display: block", class: "red" %>
+        <%= f.text_field :title, class: "A_Form", placeholder: "Введите название " %>
       </div>
-    <% end %>
-    <!-- Основные поля -->
-    <div class="M_FormLabel">
-      <%= f.label :title, "Название работы", style: "display: block", class: "red" %>
-      <%= f.text_field :title, class: "A_Form" %>
+      <div class="M_FormLabel">
+        <%= f.label :body, "Описание", style: "display: block" %>
+        <%= f.text_area :body, class: "A_Form", placeholder: "Введите описание " %>
+      </div>
+      <div class="W_TwoFormRow">
+        <div class="M_FormLabel">
+          <%= f.label :year, "Год создания работы", style: "display: block" %>
+          <%= f.text_field :year, class: "A_Form", placeholder: "Введите год создания" %>
+        </div>
+        <div class="M_FormLabel">
+          <%= f.label :category_list, "Категория", style: "display: block" %>
+          <%= f.select :category_list, valid_categories, { include_blank: "Выберите категорию" }, class: "A_Form" %>
+        </div>
+      </div>
     </div>
-    <div class="M_FormLabel">
-      <%= f.label :body, "Описание", style: "display: block" %>
-      <%= f.text_area :body, class: "A_Form" %>
+  </div>
+  <%# ImageUploader %>
+  <div class="O_FormBlock">
+    <h4 class="headline-4">Фотография</h4>
+    <div class="M_FileUpload" 
+         data-controller="image-uploader"
+         data-image-uploader-target="dropzone">
+      <div class="file-preview" data-image-uploader-target="preview"></div>
+      <img src="/assets/icons/Q_Upload.svg" alt="Logo">
+      <p class="uploader-text" data-image-uploader-target="uploadText">
+        Нажмите, чтобы загрузить файл,<br>
+        либо перетащите сюда
+      </p>
+      <p class="footnote">JPG,JPEG,PNG и WEBP до 5МБ</p>
+      <button type="button" 
+              class="remove-file-btn" 
+              data-image-uploader-target="removeButton"
+              title="Удалить файл">
+        ✕
+      </button>
     </div>
-    <div class="M_FormLabel">
-      <%= f.label :category_list, "Категория", style: "display: block" %>
-      <%= f.select :category_list, valid_categories, { include_blank: "Выберите категорию" }, class: "A_Form" %>
-    </div>
-    <%= f.label :post_image, "Изображение", style: "display: block" %>
-    <%= f.file_field :post_image %>
+    <%= f.file_field :post_image, 
+                     data: { image_uploader_target: "fileInput" },
+                     accept: "image/jpeg,image/jpg,image/png,image/webp",
+                     style: "display: none;" %>
+  </div>
+  <%# Tags %>
+  <div class="O_FormBlock">
+    <h4 class="headline-4">Теги работы</h4>
     <%= render 'tags/tag_selector' %>
-    <!-- Детали -->
-    <div class="M_FormLabel">
-      <%= f.label :city, "Город создания", style: "display: block" %>
-      <%= f.text_field :city, class: "A_Form" %>
+  </div>
+  <!-- Детали -->
+  <div class="O_FormBlock">
+    <h4 class="headline-4">Дополнительно</h4>
+    <div class="W_Forms">
+      <div class="M_FormLabel">
+        <%= f.label :city, "Город создания", style: "display: block" %>
+        <%= f.text_field :city, class: "A_Form", placeholder: "Введите место создания" %>
+      </div>
+      <div class="M_FormLabel">
+        <%= f.label :amount, "Тиражность", style: "display: block" %>
+        <%= f.text_field :amount, class: "A_Form", placeholder: "Введите число копий" %>
+      </div>
+      <div class="M_FormLabel">
+        <%= f.label :price, "Стоимость работы (опционально)", style: "display: block" %>
+        <%= f.text_field :price, class: "A_Form", placeholder: "Введите стоимость" %>
+      </div>
     </div>
-    <div class="M_FormLabel">
-      <%= f.label :amount, "Тиражность", style: "display: block" %>
-      <%= f.text_field :amount, class: "A_Form" %>
-    </div>
-    <div class="M_FormLabel">
-      <%= f.label :price, "Стоимость работы", style: "display: block" %>
-      <%= f.text_field :price, class: "A_Form" %>
-    </div>
-    <div class="M_FormLabel">
-      <%= f.label :year, "Год создания работы", style: "display: block" %>
-      <%= f.text_field :year, class: "A_Form" %>
-    </div>
-    <!-- Кнопка отправки -->
-    <div class="W_TwoButtons">
-      <%= link_to "➕ Добавить выставки", "#", class: "A_Button secondary",
+  </div>
+  <!-- Кнопка отправки -->
+  <div class="W_TwoButtons">
+    <%= link_to "+ Добавить выставки", "#", class: "A_ButtonSecondary",
                  data: { action: "click->autosave#saveAndRedirect" } %>
-      <%= f.submit "Опубликовать", class: "A_Button medium" %>
-    </div>
+    <%= f.submit "Опубликовать", class: "A_Button medium" %>
   </div>
 <% end %>

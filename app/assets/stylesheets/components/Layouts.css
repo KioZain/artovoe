@@ -42,10 +42,12 @@
 .L_Form {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: clamp(3rem, 6vw, 3rem);
+  width: 100%;
+  max-width: 600px;
   align-items: center;
-  max-width: 500px;
   margin: 0 auto 15rem;
+  min-height: 100vh;
 }
 .L_Post {
   max-width: var(--max-desktop);
@@ -67,7 +69,7 @@
 }
 .L_DisplayForm {
   width: 100%;
-  max-width: 540px;
+  max-width: 600px;
   margin: 0 auto;
   margin: 6rem auto 40vh;
   display: flex;

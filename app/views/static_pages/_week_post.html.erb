@@ -3,7 +3,7 @@
     <%= image_tag post.post_image.url, class: "Q_PostImage" %>
   </div>
   <div class="M_ObjectAuthorLikes">
-    <h4 class="subtitle"><%= post.title %></h4>
+    <h4 class="subtitle-4"><%= post.title %></h4>
     <div class="M_AuthorLikes">
       <%= render partial: "likes/button", locals: {likable: post} %>
     </div>

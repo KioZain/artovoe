@@ -2,7 +2,7 @@
 <div class="M_BackTitle">
   <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
 </div>
-<div class="L_Form">
-  <h3>Редактирование работы</h3>
-  <%= render "form", post: @post %>
+<div class="A_FromHeading">
+  <h1>Редактирование работы</h1>
 </div>
+<%= render "form", post: @post %>

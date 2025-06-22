@@ -4,6 +4,7 @@ body {
 
 * {
   box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
 .aspect-3-4 {
@@ -106,7 +107,7 @@ body {
     font-weight: 500;
   }
   .hero {
-    font-size: 6.5rem;
+    font-size: clamp(4rem, 5.5vw, 6.5rem);
     text-transform: uppercase;
   }
   .headline-4 {
@@ -148,10 +149,15 @@ body {
   }
 
   .footnote-2 {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 140%;
     font-family: "Kommuna-regular";
     font-weight: 600 regular;
+    text-transform: uppercase;
+
+    &.grey {
+      color: var(--colors-neutral-400);
+    }
   }
 }
 

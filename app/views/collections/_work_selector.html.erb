@@ -1,5 +1,4 @@
-<div class="W_Forms" data-controller="post-selector">
-  <p>Ваши работы</p>
+<div class="W_CollectionColumn" data-controller="post-selector">
   <div class="M_SelectTrigger" data-action="click->post-selector#toggleModal">
     <div class="A_Form">
       <p>Выберите работы</p>
@@ -31,14 +30,17 @@
     </div>
   </div>
   <%# addedworks %>
-  <div class="C_AddedWorks" 
+  <div class="M_FormLabel">
+    <p>Работы в коллекции</p>
+    <div class="C_AddedWorks" 
     data-post-selector-target="addedWorks">
-    <div class="empty-state">Нет добавленных работ</div>
-  </div>
-  <%#hidden field%>
-  <div data-post-selector-target="hiddenFields">
-    <% @collection.post_ids.each do |post_id| %>
-      <%= hidden_field_tag 'collection[post_ids][]', post_id, id: nil %>
-    <% end %>
+      <div class="empty-state">Нет добавленных работ</div>
+    </div>
+    <%#hidden field%>
+    <div data-post-selector-target="hiddenFields">
+      <% @collection.post_ids.each do |post_id| %>
+        <%= hidden_field_tag 'collection[post_ids][]', post_id, id: nil %>
+      <% end %>
+    </div>
   </div>
 </div>

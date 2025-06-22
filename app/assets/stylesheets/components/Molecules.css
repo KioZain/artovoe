@@ -194,6 +194,12 @@
   font-size: 15px;
   font-family: "Inter-Tight";
   color: var(--colors-neutral-600);
+
+  label {
+    font-size: 14px;
+    font-size: 500;
+    color: var(--colors-neutral-900);
+  }
 }
 
 .M_PostItem {
@@ -205,7 +211,6 @@
   background-color: var(--colors-light-50);
   border-radius: 0.5rem;
   display: flex;
-  margin-bottom: 1rem;
 
   .Q_PostImage {
     width: 44px;
@@ -222,7 +227,7 @@
   }
 
   button {
-    width: 40px;
+    min-width: 40px;
     height: 40px;
   }
 }
@@ -353,6 +358,9 @@
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 1rem;
+  position: absolute;
+  left: 3vw;
+  top: 9vw;
 
   a {
     text-decoration: none;
@@ -400,7 +408,6 @@
   height: 40px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: var(--colors-light-200);
   background-image: url("icons/Q_Dots.svg");
   border-radius: 600rem;
   position: relative;
@@ -408,7 +415,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: var(--colors-light-300);
+    background-color: var(--colors-light-200);
   }
 }
 .M_MenuSearch {
@@ -535,4 +542,109 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.M_FileUpload {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px dashed var(--colors-neutral-300);
+  display: flex;
+  padding: 2rem 0rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--colors-light-50);
+
+  &:hover {
+    border-color: var(--colors-neutral-400);
+    background-color: var(--colors-light-100);
+  }
+
+  /* Drag over state */
+  &.drag-over {
+    border-color: var(--brand-yellow);
+    background-color: var(--colors-light-200);
+    transform: scale(1.02);
+  }
+
+  /* Has file state */
+  &.has-file {
+    border-color: var(--brand-green);
+    background-color: var(--colors-light-100);
+  }
+
+  /* File preview */
+  .file-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+  /* Content overlay when preview is visible */
+  &.has-file .file-preview.visible + *,
+  &.has-file .file-preview.visible ~ * {
+    position: relative;
+    z-index: 2;
+    color: var(--colors-neutral-900);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+
+  /* Remove button */
+  .remove-file-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--colors-neutral-600);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    z-index: 3;
+
+    &:hover {
+      background-color: var(--system-danger);
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Upload text styling */
+  .uploader-text {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--colors-neutral-600);
+    line-height: 1.4;
+  }
+
+  /* Footnote styling */
+  .footnote {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--colors-neutral-400);
+  }
 }

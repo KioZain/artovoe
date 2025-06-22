@@ -33,7 +33,7 @@ class CollectionsController < ApplicationController
     Rails.logger.info "Creating collection with params: #{collection_params.inspect}"
     respond_to do |format|
       if @collection.save
-        format.html { redirect_to collection_path(@collection), notice: "Collection was successfully created." }
+        format.html { redirect_to collection_path(@collection), notice: "Коллекция успешно создана" }
         format.json { render :show, status: :created, location: @collection }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class CollectionsController < ApplicationController
     @posts = current_user.posts
     respond_to do |format|
       if @collection.update(collection_params)
-        format.html { redirect_to collection_path(@collection), notice: "Collection was successfully updated." }
+        format.html { redirect_to collection_path(@collection), notice: "Коллекция успешно обновлена" }
         format.json { render :show, status: :ok, location: @collection }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class CollectionsController < ApplicationController
     @collection.destroy!
 
     respond_to do |format|
-      format.html { redirect_to collections_path, status: :see_other, notice: "Collection was successfully destroyed." }
+      format.html { redirect_to collections_path, status: :see_other, notice: "Коллекция успешно удалена" }
       format.json { head :no_content }
     end
   end
