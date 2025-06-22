@@ -13,12 +13,12 @@
   top: 100px;
   left: 0;
   width: 100%;
-  height: calc(100% - 100px);
+  height: 100vh;
   background: var(--colors-light-50);
-  z-index: 999;
+  z-index: 1001;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-2%);
+  /* transform: translateY(-2%); */
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
 }

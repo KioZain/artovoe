@@ -43,10 +43,35 @@
 .S_Header {
   width: 100%;
   height: 100px;
-  max-width: var(--max-desktop);
+  position: sticky;
+  top: 0;
   margin: 0 auto 2rem;
-  /* background: var(--colors-light-100); */
+  background-color: var(--colors-light-50);
+  border-bottom: 1px solid var(--colors-light-200);
   display: flex;
+  z-index: 10000;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+
+  /* Для оптимизации производительности */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  /* Header visibility states */
+  &.header-visible {
+    transform: translateY(0);
+  }
+
+  &.header-hidden {
+    transform: translateY(-100%);
+  }
+
+  /* Ensure header stays visible when search modal is active */
+  &:has(+ .search-modal.active),
+  &:has(~ .search-modal.active) {
+    transform: translateY(0) !important;
+  }
 
   a.nav_link {
     text-decoration: none;
@@ -55,6 +80,7 @@
 
   .O_HeaderMenu {
     width: 100%;
+    max-width: var(--max-desktop);
     /* padding: clamp(2rem, 6vw, 6rem); */
     padding: 2rem var(--calc-padding);
     padding-top: 0;
@@ -104,7 +130,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 4vw, 4.5rem);
+  gap: clamp(1rem, 2vw, 4.5rem);
   width: 100%;
 }
 

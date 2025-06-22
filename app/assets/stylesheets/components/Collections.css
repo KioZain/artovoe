@@ -181,6 +181,12 @@
 
   border: 1px solid var(--colors-neutral-400);
 }
+
+.C_GiantLinks {
+  flex: 3;
+  flex-direction: row;
+  display: flex;
+}
 /* Profile */
 .C_Tabs {
   display: flex;

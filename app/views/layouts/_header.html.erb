@@ -1,4 +1,4 @@
-<header class="S_Header" data-controller="search">
+<header class="S_Header header-visible" data-controller="search">
   <div class="O_HeaderMenu">
     <div class="M_LogoDescription">
       <%= link_to root_path do %>
@@ -9,7 +9,7 @@
       <div class="O_NavigationContent">
         <div class="W_NavigationFull">
           <div class="A_MenuUpperLink">
-            <h4>О НАС</h4>
+            <h4>Главная</h4>
           </div>
           <div class="W_NavigationBottom">
             <%= button_tag "", type: :button, class: "A_CloseMenu", 
@@ -19,9 +19,11 @@
                 <%= link_to category.name.capitalize, tagged_posts_path(category.name), class: 'A_MenuLinkSmall' %>
               <% end %>
             </div>
-            <%= link_to "Работы", posts_url,class: "A_MenuLinkGIant" %>
-            <%= link_to "Коллекции", collections_path,class: "A_MenuLinkGIant" %>
-            <%= link_to "Художники", profiles_path,class: "A_MenuLinkGIant" %>
+            <div class="C_GiantLinks">
+              <%= link_to "Работы", posts_url,class: "A_MenuLinkGIant" %>
+              <%= link_to "Коллекции", collections_path,class: "A_MenuLinkGIant" %>
+              <%= link_to "Художники", profiles_path,class: "A_MenuLinkGIant" %>
+            </div>
           </div>
         </div>
       </div>
@@ -56,7 +58,6 @@
         </div>
         <%= link_to profile_path(current_user.profile),class:"M_UserHead" do %>
           <%= image_tag(current_user.profile.avatar_url, class: "A_Avatar") if current_user.profile&.avatar_url.present? %>
-          <p class="caption">Профиль</p>
         <% end %>
       </div>
     <% else %>

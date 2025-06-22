@@ -18,6 +18,29 @@
 }
 
 @media all and (max-width: 1240px) {
+  /* ModalMenu */
+  .W_NavigationBottom {
+    flex-direction: column;
+
+    .C_CategoresLinks {
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1128px;
+      border-right: 0;
+
+      .A_MenuLinkSmall {
+        min-height: 48px;
+        min-width: 33%;
+        border-right: 1px solid var(--colors-neutral-300);
+      }
+    }
+
+    .A_MenuLinkGIant {
+      /* max-width: 31%; */
+      margin-top: -1px;
+    }
+  }
+
   .W_CollectionGridAbout {
     width: 580px;
   }
@@ -288,6 +311,60 @@
 /* ProfileShow */
 
 @media all and (max-width: 768px) {
+  .W_NavigationFull {
+    margin: 2vh auto 0;
+
+    .W_NavigationBottom {
+      font-size: 14px;
+
+      .A_CloseMenu {
+        display: none;
+      }
+
+      .C_CategoresLinks {
+        .A_MenuLinkSmall {
+          min-width: 50%;
+          height: 7vh;
+          max-height: 80px;
+        }
+      }
+
+      .C_GiantLinks {
+        flex-direction: column;
+
+        .A_MenuLinkGIant {
+          max-height: 5.25rem;
+        }
+      }
+    }
+  }
+
+  .A_MenuUpperLink {
+    /* background-image: url("clip_images/triangle_2.svg"); */
+    /* height: clamp(6rem, 8vw, 9rem); */
+  }
+
+  .W_NavigationBottom {
+    font-size: 14px;
+
+    .A_CloseMenu {
+      display: none;
+    }
+
+    .C_CategoresLinks {
+      .A_MenuLinkSmall {
+        min-width: 50%;
+      }
+    }
+
+    .C_GiantLinks {
+      flex-direction: column;
+    }
+  }
+  .search-modal {
+    top: 146px;
+  }
+
   .W_Forms {
     padding: 1rem;
   }
@@ -416,9 +493,13 @@
     }
   }
 
-  header.S_Header {
+  .S_Header {
+    height: auto;
+    padding: 1rem 0;
+
     .O_HeaderMenu {
       flex-wrap: wrap;
+      gap: 0.5rem;
 
       .M_LogoDescription {
         order: 1;
@@ -521,6 +602,27 @@
     }
   }
 }
+
+@media all and (max-width: 600px) {
+  .A_MenuUpperLink {
+    background-image: url("clip_images/triangle 2.svg");
+    height: clamp(9vh, -0.044vh + 16vh, 13vh);
+    background-size: 100%;
+    max-height: 110px;
+
+    h4 {
+      transform: translateY(1vh);
+    }
+  }
+}
+
+@media all and (max-width: 420px) {
+  .A_MenuUpperLink {
+    background-image: url("clip_images/triangle 2.svg");
+    height: 10vh;
+  }
+}
+
 @media all and (max-width: 520px) {
   .C_ProfilesArtists {
     row-gap: 1rem;

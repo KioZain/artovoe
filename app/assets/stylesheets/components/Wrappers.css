@@ -84,9 +84,14 @@
     text-decoration: none;
     color: var(--colors-neutral-900);
     background-color: var(--light-colors-100);
-    text-transform: uppercase;
     transition: 0.3s ease-in-out;
+    letter-spacing: 1px;
     margin-left: -1px;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      letter-spacing: 5px;
+    }
   }
 }
 
@@ -134,6 +139,9 @@
 
   p.caption {
     color: var(--colors-neutral-600);
+  }
+  p {
+    font-family: "Inter-Tight";
   }
   p.caption:nth-child(2) {
     margin-top: 0.3rem;

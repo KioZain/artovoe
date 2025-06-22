@@ -63,7 +63,7 @@
 .M_UserHead {
   display: flex;
   background-color: var(--colors-light-200);
-  padding: 0px 8px 0px 4px;
+  padding: 4px;
   gap: 12px;
   height: 48px;
   border-radius: 0.5rem;
@@ -371,7 +371,7 @@
   background-color: var(--colors-light-300);
   border-radius: 4px;
   z-index: 1000;
-  width: 200px;
+  width: fit-content;
   margin-top: 0.5rem;
   right: 0;
 }
@@ -389,6 +389,10 @@
   [data-dropdown-target="content"] {
     border: 1px solid var(--colors-light-300);
   }
+}
+.M_DropDown-content {
+  border: 1px solid var(--colors-light-300);
+  border-radius: 4px;
 }
 /* DotDropdown */
 .M_DotsDropdown {
