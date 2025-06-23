@@ -7,7 +7,9 @@
     keywords: all_tags
   )
 %>
-<p class="notification" style="color: green"><%= notice %></p>
+<% if notice %>
+  <p  id="notice" class="A_Notice" style="color: green"><%= notice %></p>
+<% end%>
 <div class="L_Post">
   <div class="S_PostShowHead">
     <div class="O_PostActionMenu">
@@ -78,15 +80,15 @@
           <div class="A_ImageContainer aspect-<%= @post.aspect_ratio.gsub(':', '-') %>">
             <%= image_tag @post.post_image.url, class: "Q_ShowPostImage"  %>
           </div>
-          <div class="C_Miniatures">
+          <%# <div class="C_Miniatures">
             <div class="A_Miniature"></div>
-          </div>
+          </div> %>
         </div>
         <div class="M_InfoRow">
           <p class="footnote">Теги</p>
           <%= render 'tags/taglist' %>
         </div>
-        <p><%= @post.body%></p>
+        <p class="text-body"><%= @post.body%></p>
       </div>
       <div class="O_PostInformation">
         <div class="M_InfoRow">
@@ -120,7 +122,7 @@
         <div class="M_InfoRow">
           <p class="footnote">Стоимость</p>
           <% if @post.price.present? %>
-            <p class="caption"><%= @post.year %></p>
+            <p class="caption"><%= "#{@post.price} ₽" %></p>
           <% else %>
             <p class="caption">Не указана</p>
           <% end %>
@@ -128,26 +130,39 @@
       </div>
     </div>
   </div>
-  <!-- Список выставок, сгруппированных по годам -->
-  <div class="C_DisplaysSorted">
-    <% @post.displays.group_by(&:year).sort_by { |year, _| -year }.each do |year, displays| %>
-      <div class="O_Displays">
-        <p class="year-display subtitle"><%= year %></p>
-        <div class="C_Displays">
-          <% displays.each do |display| %>
-            <div class="M_Display">
-              <h4 class="subtitle"><%= display.display_type %></h4>
-              <p><%= display.name %></p>
-              <p><%= display.city %></p>
-            </div>
-          <% end %>
+  <div class="S_Displays">
+    <div class="heading-flex">
+      <div class="empty"></div>
+      <h3>Экспозиции работы</h3>
+      <div class="empty"></div>
+    </div>
+    <div class="heading-container">
+    </div>
+    <%# DISPLAYS %>
+    <div class="C_DisplaysSorted">
+      <% @post.displays.group_by(&:year).sort_by { |year, _| -year }.each do |year, displays| %>
+        <div class="O_Displays" data-controller="collapsible" data-collapsible-rotated-class="rotated" data-action="click->collapsible#toggle">
+          <div class="M_Folder">
+            <h4 class="year-display headline-4"><%= year %></h4>
+            <%= image_tag "icons/Q_IconArrowDown.svg", data: { collapsible_target: "arrow" } %>
+          </div>
+          <div class="C_Displays" data-collapsible-target="content">
+            <% displays.each do |display| %>
+              <div class="M_Display">
+                <h4 class="subtitle"><%= display.display_type %></h4>
+                <p><%= display.name %></p>
+                <p><%= display.city %></p>
+              </div>
+            <% end %>
+          </div>
+          <div class="empty"></div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   <%#  %>
   <div class="S_Comments">
-    <h2>Комментарии</h2>
+    <h3>Комментарии</h3>
     <div class="C_Comments">
       <%= turbo_frame_tag "comment_form" do %>
         <div class="SendComment">

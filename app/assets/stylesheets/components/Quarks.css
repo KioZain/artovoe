@@ -114,19 +114,4 @@
   background-color: var(--colors-light-400);
 }
 .Q_PostImageLink {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding-bottom: 0.2rem;
-  align-items: center;
-  text-decoration: none;
-  border-bottom: 1px solid var(--colors-light-400);
-  width: fit-content;
-  transition: all 0.3s ease;
-
-  &:hover {
-    img {
-      transform: translateX(3px);
-    }
-  }
 }

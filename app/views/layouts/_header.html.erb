@@ -1,11 +1,11 @@
-<header class="S_Header header-visible" data-controller="search">
+<header class="S_Header header-visible" data-controller="modal">
   <div class="O_HeaderMenu">
     <div class="M_LogoDescription">
       <%= link_to root_path do %>
         <div class="A_Logo"></div>
       <% end%>
     </div>
-    <div class="search-modal" data-search-target="modal">
+    <div class="search-modal" data-modal-target="modal">
       <div class="O_NavigationContent">
         <div class="W_NavigationFull">
           <div class="A_MenuUpperLink">
@@ -13,7 +13,7 @@
           </div>
           <div class="W_NavigationBottom">
             <%= button_tag "", type: :button, class: "A_CloseMenu", 
-          data: { action: "click->search#hideModal" } %>
+          data: { action: "click->modal#hideModal" } %>
             <div class="C_CategoresLinks">
               <% all_categories.each do |category| %>
                 <%= link_to category.name.capitalize, tagged_posts_path(category.name), class: 'A_MenuLinkSmall' %>
@@ -37,7 +37,7 @@
         <%= render "static_pages/search_form" %>
         <%# Window Trigger %>
         <div class="A_MenuButton"
-        data-action="click->search#showModal">
+        data-action="click->modal#showModal">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="2.66797" y1="23" x2="29.3346" y2="23" stroke="#171A1C" stroke-width="2"/>
             <line x1="2.66797" y1="15" x2="29.3346" y2="15" stroke="#171A1C" stroke-width="2"/>

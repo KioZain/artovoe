@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :search
   def home
     @profiles_list = Profile.joins(user: :posts)
     .select("profiles.id, profiles.name, profiles.bio, profiles.user_id, profiles.total_likes, profiles.avatar, COUNT(posts.id) AS posts_count")
@@ -22,7 +21,7 @@ class StaticPagesController < ApplicationController
   end
 
     def search
-      @items = PgSearch.multisearch(params["search"])
+      @items = PgSearch.multisearch(params["query"])
       puts @items.count
     end
 end

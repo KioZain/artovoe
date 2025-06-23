@@ -276,6 +276,7 @@ a.caption {
 .A_ImageContainer {
   width: 100%;
   height: 100%;
+  border: 1px solid var(--colors-light-200);
 
   img {
     width: 100%;
@@ -355,22 +356,6 @@ a.caption {
     background-image: url("/assets/buttons/Q_Green.svg");
   } */
 }
-/* .medium {
-  background-image: url("/assets/buttons/A_ButtonMedium.svg");
-  width: 174px;
-
-  &.green {
-    background-image: url("/assets/buttons/Q_GreenMedium.svg");
-  }
-} */
-/* .large {
-  background-image: url("/assets/buttons/A_ButtonLarge.svg");
-  width: 204px;
-
-  &.green {
-    background-image: url("/assets/buttons/Q_GreenLarge.svg");
-  }
-} */
 
 .A_ButtonSecondary {
   border-radius: 8px;
@@ -403,28 +388,44 @@ a.caption {
 }
 
 .A_SmallButton {
-  background-color: var(--colors-light-300);
+  background-color: var(--colors-light-100);
+
   padding: 0.5rem;
-  width: 132px;
+  width: 130px;
   height: 30px;
   text-decoration: none;
   color: var(--colors-neutral-900);
-  font-family: "Kommuna-regular";
-  font-size: 13px;
-  border: none;
-  border-radius: 4px;
+  font-family: "Inter-Tight";
+  font-size: 14px;
   display: flex;
+  border-radius: 6px;
   align-items: center;
   justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  line-height: 10px;
+  background-color: var(--colors-light-100);
+  border: 1px solid var(--colors-light-300);
 
   &:hover {
     color: var(--colors-neutral-600);
     cursor: pointer;
+    background-color: var(--colors-light-200);
+  }
+
+  &.edit {
+    background-image: url("icons/edit-02.svg");
+    width: 30px;
+    height: 30px;
+    border: none;
   }
 
   &.danger {
-    background: var(--colors-light-400);
     color: var(--system-danger);
+    background-image: url("icons/x-02.svg");
+    width: 30px;
+    height: 30px;
+    border: none;
   }
 }
 
@@ -447,6 +448,20 @@ input.A_Button {
   &:hover {
     transform: scale(1.2);
   }
+}
+
+.A_SendButton {
+  width: 40px;
+  height: 40px;
+  background-color: var(--brand-yellow);
+  background-image: url("icons/Q_ArrowForward.svg");
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  background-size: 28px;
+  background-position: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .A_SaveButton {
@@ -752,4 +767,34 @@ button.A_DropdownItem {
   }
 }
 .A_Notice {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background-color: #e6ffe6; /* можно добавить фон */
+  color: green;
+  top: 5.5vw;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.5s ease-out;
+}
+
+.A_Notice.hide {
+  opacity: 0;
+  transform: translate(-50%, -50px);
+}
+
+.heading-container {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+
+  .empty:nth-child(1) {
+    flex: 1;
+  }
+
+  h4 {
+    flex: 3;
+  }
 }

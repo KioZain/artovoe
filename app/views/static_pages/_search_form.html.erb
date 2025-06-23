@@ -1,4 +1,12 @@
-<form class="M_MenuSearch" action="<%= home_search_path %>", method="POST" data-turbo="false">
-  <input type="text" placeholder="Что ищем?" name = "search">
-  <input style="display: none;" type="submit" value="Найти">
+<form class="M_MenuSearch" action="<%= home_search_path %>", 
+    method="POST" 
+    <%# data-turbo="false"  %>
+    data-controller="search" 
+    data-action="input->search#getAutocomplete">
+  <input type="text" placeholder="Что ищем?" name = "search" data-search-target="query">
+  <input type="submit"
+    hidden = "true" 
+    data-search-target="submit"
+    value="Найти" data-action="click->search#getSearch">
 </form>
+<div id="searchFormAutocompleteResult"></div>

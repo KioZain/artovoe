@@ -31,33 +31,33 @@
           <%= f.select :category_list, valid_categories, { include_blank: "Выберите категорию" }, class: "A_Form" %>
         </div>
       </div>
+      <div class="O_FormBlock" data-controller="image-upload">
+        <%= f.label :post_image, "Изображение", style: "display: block" %>
+        <!-- Скрытый оригинальный file input -->
+        <%= f.file_field :post_image, 
+      data: { 
+        image_upload_target: "fileInput",
+        action: "change->image-upload#handleFileSelect" 
+      }, 
+      style: "display: none;" %>
+        <!-- Кастомный dropzone -->
+        <div class="M_FileUpload" 
+       data-image-upload-target="dropzone"
+       data-action="click->image-upload#triggerFileInput 
+          dragover->image-upload#handleDragOver 
+          dragleave->image-upload#handleDragLeave 
+          drop->image-upload#handleDrop">
+          <img src="/assets/icons/Q_Upload.svg" alt="Logo">
+          <p class="uploader-text" data-image-upload-target="uploaderText">
+            Нажмите, чтобы загрузить файл,<br>
+            либо перетащите сюда
+          </p>
+          <p class="footnote">JPG,JPEG,PNG и WEBP до 5МБ</p>
+        </div>
+      </div>
     </div>
   </div>
   <%# ImageUploader %>
-  <div class="O_FormBlock">
-    <h4 class="headline-4">Фотография</h4>
-    <div class="M_FileUpload" 
-         data-controller="image-uploader"
-         data-image-uploader-target="dropzone">
-      <div class="file-preview" data-image-uploader-target="preview"></div>
-      <img src="/assets/icons/Q_Upload.svg" alt="Logo">
-      <p class="uploader-text" data-image-uploader-target="uploadText">
-        Нажмите, чтобы загрузить файл,<br>
-        либо перетащите сюда
-      </p>
-      <p class="footnote">JPG,JPEG,PNG и WEBP до 5МБ</p>
-      <button type="button" 
-              class="remove-file-btn" 
-              data-image-uploader-target="removeButton"
-              title="Удалить файл">
-        ✕
-      </button>
-    </div>
-    <%= f.file_field :post_image, 
-                     data: { image_uploader_target: "fileInput" },
-                     accept: "image/jpeg,image/jpg,image/png,image/webp",
-                     style: "display: none;" %>
-  </div>
   <%# Tags %>
   <div class="O_FormBlock">
     <h4 class="headline-4">Теги работы</h4>
@@ -77,7 +77,7 @@
       </div>
       <div class="M_FormLabel">
         <%= f.label :price, "Стоимость работы (опционально)", style: "display: block" %>
-        <%= f.text_field :price, class: "A_Form", placeholder: "Введите стоимость" %>
+        <%= f.text_field :price, class: "A_Form", placeholder: "Введите стоимость в рублях" %>
       </div>
     </div>
   </div>

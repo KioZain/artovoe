@@ -1,5 +1,9 @@
 class Collection < ApplicationRecord
   # TAGS = [ "cюрреализм", "нежность", "онтология", "природа", "повседневность", "философия", "жизнь", "шляпа", "семантика" ]
+  include PgSearch::Model
+  multisearchable against: [ :title ]
+
+
   CATEGORIES = [ "керамика", "картина", "скульптура", "текстиль", "полиграфия" ]
 
   has_and_belongs_to_many :posts,  after_add: :update_tags_from_posts, after_remove: :update_tags_from_posts

@@ -3,30 +3,32 @@
     <div class="W_CommentProfileBody">
       <%= image_tag comment.user.profile.avatar_url, class: "Q_ProfileImage" %>
       <div class="M_SubText">
-        <div class="M_AuthorPublishedDate">
-          <p><%= comment.user.profile.name %></p>
-          <p class="footnote-2">
-            <%= comment.created_at.strftime("%d.%m.%Y") %>
-          </p>
-        </div>
-        <p class="A_CommentBody"><%= comment.body %></p>
-      </div>
-    </div>
-    <% if can?(:update, comment) || can?(:destroy, comment) %>
-      <div class="W_CommentActions">
-        <% if can?(:update, comment) %>
-          <%= link_to "Редактировать", 
+        <div class="W_CommentHead">
+          <div class="M_AuthorPublishedDate">
+            <p><%= comment.user.profile.name %></p>
+            <p class="footnote-2">
+              <%= comment.created_at.strftime("%d.%m.%Y") %>
+            </p>
+          </div>
+          <% if can?(:update, comment) || can?(:destroy, comment) %>
+            <div class="W_CommentActions">
+              <% if can?(:update, comment) %>
+                <%= link_to "", 
               edit_post_comment_path(comment.post, comment), 
-              class: "A_SmallButton" %>
-        <% end %>
-        <% if can?(:destroy, comment) %>
-          <%= button_to "Удалить", 
+              class: "A_SmallButton edit" %>
+              <% end %>
+              <% if can?(:destroy, comment) %>
+                <%= button_to "", 
               [comment.post, comment], 
               method: :delete,
               class: "A_SmallButton danger",
               data: { turbo_confirm: "Вы уверены?" } %>
-        <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <p class="A_CommentBody"><%= comment.body %></p>
       </div>
-    <% end %>
+    </div>
   </div>
 <% end %>

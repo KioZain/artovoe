@@ -163,14 +163,15 @@
 /* Comement */
 .M_AuthorPublishedDate {
   display: flex;
-  justify-content: space-between;
-  min-width: 100%;
+  flex-direction: column;
+  width: fit-content;
+  gap: 2px;
 
   p.footnote-2 {
     color: var(--colors-neutral-400);
   }
-  .caption {
-    color: var(--colors-neutral-400);
+  small {
+    font-family: "Inter-Tight";
   }
 }
 .M_FormGroup {
@@ -429,6 +430,15 @@
   background-image: url("assets/icons/Q_Search.svg");
   background-repeat: no-repeat;
   background-position: bottom 13px right 12px;
+
+  input {
+    width: 87%;
+    font-size: 15px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
 }
 /* FORM SIGN UP */
 .M_RegistrationCounter {
@@ -647,4 +657,37 @@
     font-size: 0.875rem;
     color: var(--colors-neutral-400);
   }
+}
+.M_PostLink {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding-bottom: 0.2rem;
+  align-items: center;
+  text-decoration: none;
+  width: fit-content;
+  border-bottom: 1px solid var(--colors-light-400);
+  transition: all 0.3s ease;
+
+  &:hover {
+    img {
+      transform: translateX(3px);
+    }
+  }
+}
+.M_Folder {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  cursor: pointer;
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-left: 0.3rem;
+    transition: transform 0.3s ease-in-out;
+  }
+}
+.rotated {
+  transform: rotate(180deg);
 }

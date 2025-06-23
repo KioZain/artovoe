@@ -1,6 +1,9 @@
 <h1>Что нарыли</h1>
-<% if @items.any? %>
-  <%= render "search_results", item: @items %>
-<% else %>
-  <p>Ничего не найдено.Поищи ещё</p>
-<% end %>
+<div class="S_SearchPage">
+  <% if @items.any? %>
+    <%= render "search_results", item: @items %>
+  <% else %>
+    <p>Ничего не найдено <br>
+      <small>Поищи ещё</small></p>
+  <% end %>
+</div>

@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   get "static_pages/output"
   get "search", to: "search#index", as: "search"
   get "/about", to: "static_pages#about"
-  post "home/search", to: "static_pages#search", as: "home_search"
+  get "home/search", to: "static_pages#search", as: "home_search"
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/*

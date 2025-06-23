@@ -284,11 +284,11 @@
 /* Comments */
 .O_CommentForm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   width: 100%;
   background-color: var(--colors-light-100);
-  padding: 1rem;
-  align-items: flex-end;
+  padding: 1rem 1.5rem;
   gap: 1rem;
   border-radius: 0.5rem;
 
@@ -306,16 +306,22 @@
       color: var(--colors-neutral-600);
     }
   }
+
+  &.down {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
 .O_Comment {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 0rem;
 
   .W_CommentProfileBody {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
 
     .M_SubText {
       gap: 0.5rem;

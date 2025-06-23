@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [ :title, :body, :author ]
+  multisearchable against: [ :title, :body, :author, :mood_list ]
 
 
   CATEGORIES = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия", "диджитал-арт" ]
