@@ -1,4 +1,8 @@
 class Post < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [ :title, :body, :author ]
+
+
   CATEGORIES = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия", "диджитал-арт" ]
   before_validation :clean_tag_lists
   validates :title, presence: true

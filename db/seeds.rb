@@ -217,7 +217,7 @@ def reset_db
 end
 
 def destroy_all
-  root_models = [ User, Profile ] # Корневые модели — удаляем их в конце
+  root_models = [ User, Profile ]
 
   models = ActiveRecord::Base.descendants.reject do |model|
     model.to_s =~ /^(ActiveStorage|ActionDispatch|ActionMailer)/
@@ -236,10 +236,10 @@ end
 def seed
   # reset_db
   destroy_all
-  create_users(16)
-  create_posts(80)
+  create_users(10)
+  create_posts(40)
   create_comments(2..6)
-  create_collections(12)
+  create_collections(6)
 end
 
 

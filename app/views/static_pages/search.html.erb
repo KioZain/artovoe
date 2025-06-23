@@ -1,0 +1,6 @@
+<h1>Что нарыли</h1>
+<% if @items.any? %>
+  <%= render "search_results", item: @items %>
+<% else %>
+  <p>Ничего не найдено.Поищи ещё</p>
+<% end %>

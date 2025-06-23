@@ -32,6 +32,10 @@ gem "devise-jwt"
 gem "jwt"
 # Meta-tags
 gem "meta-tags"
+
+
+# Search
+gem "pg_search"
 # CanCanCan
 gem "cancancan"
 

@@ -4,6 +4,25 @@ development:
   encoding: utf8
   pool: 8
   database: "art_media"
+# default: &default
+#   adapter: postgresql
+#   encoding: utf8
+#   host: localhost
+#   pool: 8
+#   timeout: 5000
+
+# development:
+#   <<: *default
+#   database: "art_media"
+
+# test:
+#   <<: *default
+#   database: "art_media"
+
+# production:
+#   <<: *default
+#   database: "art_media"
+
 # # SQLite. Versions 3.8.0 and up are supported.
 # #   gem install sqlite3
 # #
