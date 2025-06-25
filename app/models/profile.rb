@@ -1,4 +1,7 @@
 class Profile < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [ :name ]
+
   belongs_to :user
 
   validates :name, :avatar, presence: true, on: :step1

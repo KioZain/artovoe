@@ -20,8 +20,10 @@ class StaticPagesController < ApplicationController
   def output
   end
 
-    def search
-      @items = PgSearch.multisearch(params["query"])
-      puts @items.count
-    end
+  def search
+    query = params["query"] || params["search"] # поддержка обоих параметров
+    @items = PgSearch.multisearch(query) if query.present?
+    @items ||= []
+    puts @items.count
+  end
 end

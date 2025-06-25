@@ -19,11 +19,11 @@
       </div>
       <div class="M_InfoRow">
         <p class="footnote">Работ <br>
-          <%= @profile_post_counts[profile.user_id] || 0 %>
+          <%= defined?(@profile_post_counts) ? (@profile_post_counts[profile.user_id] || 0) : profile.user.posts.count %>
         </div>
         <div class="M_InfoRow">
           <p class="footnote">Коллекций <br>
-            <%= @profile_collection_counts[profile.user_id] || 0 %>
+            <%= defined?(@profile_collection_counts) ? (@profile_collection_counts[profile.user_id] || 0) : profile.user.collections.count %>
           </div>
         </div>
       </div>

@@ -2,6 +2,16 @@ class Post < ApplicationRecord
   include PgSearch::Model
   multisearchable against: [ :title, :body, :author, :mood_list ]
 
+  pg_search_scope :search_by_author,
+  against: [],
+  associated_against: {
+    user: {
+      profile: [ :name ]
+    }
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 
   CATEGORIES = [ "ювелирка", "картина", "скульптура", "текстиль", "полиграфия", "диджитал-арт" ]
   before_validation :clean_tag_lists
@@ -15,6 +25,12 @@ class Post < ApplicationRecord
   def update_likes_count
      update!(likes_count: likes.count)
    end
+
+  #  PG
+  def to_pg_search_document
+    "#{user.profile.name} #{title} #{body}"
+  end
+
   # Associations-------------------------------
 
   has_many :likes, as: :likable
