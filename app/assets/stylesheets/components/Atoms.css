@@ -46,6 +46,11 @@ a.caption {
   background-size: 102%;
   background-image: url("clip_images/triangle.svg");
   background-repeat: no-repeat;
+  text-decoration: none;
+
+  &:hover {
+    letter-spacing: 5px;
+  }
 
   svg {
     position: absolute;
@@ -58,6 +63,10 @@ a.caption {
 
   h4 {
     text-transform: capitalize;
+    transform: translateY(50%);
+    text-decoration: none;
+    color: var(--colors-neutral-900);
+    font-family: "Kommuna-regular";
   }
 }
 .A_MenuLinkSmall {
@@ -70,6 +79,9 @@ a.caption {
   color: var(--colors-neutral-900);
   margin-top: -1px;
   letter-spacing: 1px;
+  &:hover {
+    letter-spacing: 5px;
+  }
 }
 
 .A_Avatar {
@@ -334,6 +346,8 @@ a.caption {
   justify-content: center;
   border-radius: 8px;
   transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--colors-neutral-800);
 
   &:hover {
     opacity: 90%;

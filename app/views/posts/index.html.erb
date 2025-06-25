@@ -1,5 +1,7 @@
 <% title "Работы художников" %>
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <p  id="notice" class="A_Notice" style="color: green"><%= notice %></p>
+<% end%>
 <div class="O_PageCover">
   <%= link_to profiles_path,class: "M_SectionSwitcher" do %>
     <%= image_tag 'icons/A_ArrowSwitcherLeft.svg' %>

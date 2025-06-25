@@ -54,8 +54,8 @@ class ProfilesController < ApplicationController
     authorize! :read, @profile
     @posts = @profile.user.posts
     @displays = Display.where(post_id: @posts.pluck(:id))
-    @saved_count = current_user.favourites.count
-    @saved_items = current_user.favourites.includes(:favouriteable).map(&:favouriteable)
+    @saved_count = @user.favourites.count
+    @saved_items = @user.favourites.includes(:favouriteable).map(&:favouriteable)
     @saved_posts = @saved_items.select { |item| item.is_a?(Post) }
     @saved_collections = @saved_items.select { |item| item.is_a?(Collection) }
   end

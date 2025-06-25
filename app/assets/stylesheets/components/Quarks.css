@@ -114,3 +114,7 @@
 }
 .Q_PostImageLink {
 }
+.danger-text {
+  color: red;
+  background-color: #ffeeee;
+}

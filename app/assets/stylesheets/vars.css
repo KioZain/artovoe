@@ -33,7 +33,7 @@
   --max-desktop: 1728px;
 
   /* CalcPaddingGrid */
-  --calc-padding: clamp(1rem, 4.5vw, 6rem);
+  --calc-padding: clamp(12px, 4.5vw, 6rem);
 
   /* SharpPoins */
   --sharp: 77.5%;

@@ -39,6 +39,15 @@
   .W_TagsFilter {
     width: 45%;
   }
+  .O_FilterCategoryTags {
+    position: relative;
+    .ResetButton {
+      color: var(--colors-neutral-800);
+      bottom: 0;
+      right: 0;
+      margin-left: auto;
+    }
+  }
 }
 .S_Header {
   width: 100%;

@@ -11,6 +11,7 @@
             h2 {
               font-family: "Kommuna-regular";
               font-size: 1.5rem;
+              max-width: none;
             }
           }
         }
@@ -640,13 +641,36 @@
 
   .S_Filter {
     .O_FilterTopBar {
-      flex-direction: column;
-      gap: 1rem;
-
       .W_SortingFilters {
         .M_DropDown {
-          width: fit-content;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
+      }
+    }
+    .filter,
+    .sorting {
+      display: block;
+      width: 30px;
+      height: 30px;
+    }
+
+    .M_DropDown-content {
+      bottom: -100px;
+    }
+
+    .A_SortButton {
+      .Q_Arrow {
+        display: none;
+      }
+
+      .selected-value {
+        background-color: red;
+        position: relative;
+        display: none;
       }
     }
   }
@@ -838,10 +862,24 @@
 }
 
 @media all and (max-width: 600px) {
+  .text-body {
+    text-align: left;
+  }
+
+  .S_MainScreen {
+    margin-top: -1.5rem;
+    .M_LogoStats {
+      .C_StatsRow {
+        display: none;
+      }
+    }
+  }
+
   .S_MainWeekWorks {
     .W_WeekAboutTop {
       .W_WeekAboutLeft {
         .O_WeekWorksInfo {
+          padding: 0;
           align-items: flex-start;
           justify-content: normal;
 
@@ -882,13 +920,13 @@
   .A_MenuUpperLink {
     background-image: url("clip_images/triangle 2.svg");
     /* height: clamp(9vh, -0.044vh + 16vh, 13.5vh); */
-    height: 15.5vh;
+    height: 12.5vh;
     background-size: 101%;
-    max-height: 117px;
+    /* max-height: 117px; */
     margin-bottom: -0.3vw;
 
     h4 {
-      transform: translateY(1vh);
+      transform: translateY(2vh);
     }
   }
   .S_MainNewPosts {
@@ -896,6 +934,14 @@
       .O_MainNewPost {
         flex: 1 1 50%;
         max-width: 50%;
+
+        .W_NewWorkInfo {
+          padding: 1rem 0.5rem;
+
+          p.footnote {
+            font-family: "Inter-Tight";
+          }
+        }
       }
       .O_MainNewPost:nth-child(3) {
         display: none;
@@ -923,7 +969,11 @@
   }
 }
 
-@media all and (max-width: 420px) {
+@media all and (max-width: 428px) {
+  .A_MenuUpperLink {
+    max-height: 117px;
+  }
+
   .W_PostImageDescription {
     .O_PostInformation {
       .M_InfoRow {

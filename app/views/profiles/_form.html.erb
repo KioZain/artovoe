@@ -9,26 +9,26 @@
       </ul>
     </div>
   <% end %>
-  <div class="W_Forms">
-    <div class="M_LabelForm">
-      <%= form.label :name, "Имя", style: "display: block" %>
-      <%= form.text_field :name, class: "A_Form" %>
-    </div>
-    <div class="M_LabelForm">
-      <%= form.label :bio, "Описание", style: "display: block" %>
-      <%= form.text_area :bio, class: "A_Form" %>
-    </div>
-    <div class="M_LabelForm">
-      <%= form.label :contact, "Контакты", style: "display: block" %>
-      <%= form.text_field :contact, class: "A_Form" %>
-    </div>
-    <div class="M_LabelForm">
-      <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
-      <%= form.file_field :avatar, class:%>
-    </div>
-    <div>
-      <%= form.submit "Сохранить", class: "A_Button", style: "background-color: #faf3eb; margin-top: 2rem " %>
+  <div class="M_FormLabel">
+    <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
+    <%= form.file_field :avatar, class:%>
+  </div>
+  <div>
+    <div class="W_Forms">
+      <div class="M_FormLabel">
+        <%= form.label :name, "Имя", style: "display: block" %>
+        <%= form.text_field :name, class: "A_Form" %>
+      </div>
+      <div class="M_FormLabel">
+        <%= form.label :bio, "Описание", style: "display: block" %>
+        <%= form.text_area :bio, class: "A_Form" %>
+      </div>
+      <div class="M_FormLabel">
+        <%= form.label :contact, "Контакты", style: "display: block" %>
+        <%= form.text_field :contact, class: "A_Form" %>
+      </div>
+      <%= form.submit "Сохранить", class: "A_Button" %>
     </div>
   </div>
 <% end %>
-<%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_DropdownItem Danger' %>
+<%= button_to 'Удалить профиль', @profile, method: :delete, class: 'Danger' %>

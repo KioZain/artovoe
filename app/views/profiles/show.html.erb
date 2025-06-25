@@ -37,17 +37,18 @@
         <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
           <div class="right"data-dropdown-target="content">
             <% if can?(:update, @profile) %>
-              <%= link_to 'Редактировать', edit_profile_path(@profile), class: 'A_DropdownItem' %>
+              <%= link_to 'Настройки', edit_profile_path(@profile), class: 'A_DropdownItem' %>
             <% end %>
-            <% if can?(:destroy, @profile) %>
-              <%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_DropdownItem Danger' %>
+            <% if user_signed_in? %>
+              <%= button_to "Выйти", destroy_user_session_path, 
+                method: :delete, 
+                class: "A_DropdownItem danger-text",
+                data: { turbo_method: :delete } %>
+            <% else %>
+              <!-- Логика для незалогиненных пользователей -->
             <% end %>
           </div>
         </div>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= link_to "Выйти", destroy_user_session_path, class: 'A_DropdownItem', data: { turbo_method: :delete } %>
-      <% else %>
       <% end %>
     </div>
     <div class="O_ProfileInfo">

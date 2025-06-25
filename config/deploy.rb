@@ -1,5 +1,24 @@
+lock "~> 3.18.1"
+
+set :rbenv_type, :user
+set :rbenv_ruby, "3.3.5"
+
+set :application, "ArtMedia"
+set :repo_url, "git@github.com:KioZain/artovoe.git"
+
+set :branch, "main"
+set :rails_env, "production"
+set :deploy_to, "/home/deployer/apps/#{fetch :application}"
+append :linked_files, "config/database.yml", "config/master.key", "config/puma.rb", "config/credentials.yml.enc"
 
 
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads", "vendor/javascript", "storage"
+
+set :puma_init_active_record, true
+set :puma_enable_socket_service, true
+set :puma_conf, -> { File.join(shared_path, "config", "puma.rb") }
+
+set :ssh_options, verify_host_key: :never
 
 
 

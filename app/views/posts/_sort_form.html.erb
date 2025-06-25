@@ -1,6 +1,7 @@
 <div class="W_SortingFilters" data-controller="sort-dropdown">
   <div class="M_DropDown">
     <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
+      <%= image_tag "icons/filter.svg",class:"filter" %>
       <span class="sort-text">Сортировать по:</span>
       <span class="selected-value">
         <div class="Q_IconVisability"></div>
@@ -24,6 +25,7 @@
   </div>
   <div class="M_DropDown">
     <button class="A_SortButton" type="button" data-action="click->sort-dropdown#toggle">
+      <%= image_tag "icons/sorting.svg",class:"sorting" %>
       <span class="sort-text" >Порядок:</span>
       <span class="selected-value">
         <div class="Q_IconVisability ascending"></div>

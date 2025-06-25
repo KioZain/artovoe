@@ -1,7 +1,32 @@
 <%# FirstScreenCover %>
 <div class="L_Home">
   <%# -------------------first------------------- %>
-  <div class="S_MainScreen">
+  <div class="S_MainScreen"
+    data-controller="animated-numbers"
+    data-animated-numbers-speed-value="500"
+    data-animated-numbers-fade-speed-value="150"
+    data-animated-numbers-animation-duration-value="500">
+    <div class="M_LogoStats">
+      <%=  image_tag 'home/artovoe_small.svg'%>
+      <div class="C_StatsRow">
+        <p class="stats">Работы:<%= Post.all.count %></p>
+        <p class="stats">Коллекции:<%= Collection.all.count %></p>
+        <p class="stats">Художники:<%= Profile.all.count %></p>
+      </div>
+    </div>
+    <div class="Q_PillBorder"></div>
+    <div class="Q_CuberCrop left"></div>
+    <div class="Q_CuberCrop right"></div>
+    <div class="Q_CuberCrop top"></div>
+    <div class="Q_CuberCrop bottom"></div>
+    <div class="M_GreetButton">
+      <h1 class="greet-text"><span>Медиакаталог</span><br>
+        <span>где арт становится</span><br>
+        <span>
+          видимым</span>
+      </h1>
+      <%= link_to "Смотреть работы", posts_path, class: "A_Button" %>
+    </div>
   </div>
   <%# ----------------second----------------- %>
   <div class="M_Ticker" data-controller="marquee">

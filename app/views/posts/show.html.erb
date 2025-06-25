@@ -33,7 +33,7 @@
                 <%= link_to 'Изменить выставки', new_post_display_path(@post), class: 'A_DropdownItem' %>
               <% end %>
               <% if can?(:destroy, @post) %>
-                <%= button_to 'Удалить работу', @post, method: :delete, class: 'A_DropdownItem Danger' %>
+                <%= button_to 'Удалить работу', @post, method: :delete, class: 'A_DropdownItem danger-text' %>
               <% end %>
             </div>
           </div>
@@ -152,9 +152,13 @@
           <div class="C_Displays" data-collapsible-target="content">
             <% displays.each do |display| %>
               <div class="M_Display">
-                <h4 class="subtitle"><%= display.display_type %></h4>
-                <p><%= display.name %></p>
-                <p><%= display.city %></p>
+                <div class="row">
+                  <p class="display-city"><%= display.city %></p>
+                  <p class="display-type"><%= display.display_type %></p>
+                </div>
+                <div class="row">
+                  <h3 class="subtitle"><%= display.name %></h3>
+                </div>
               </div>
             <% end %>
           </div>

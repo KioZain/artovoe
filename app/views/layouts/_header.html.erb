@@ -8,9 +8,9 @@
     <div class="search-modal" data-modal-target="modal">
       <div class="O_NavigationContent">
         <div class="W_NavigationFull">
-          <div class="A_MenuUpperLink">
+          <%= link_to root_path, class: "A_MenuUpperLink" do %>
             <h4>Главная</h4>
-          </div>
+          <% end %>
           <div class="W_NavigationBottom">
             <%= button_tag "", type: :button, class: "A_CloseMenu", 
           data: { action: "click->modal#hideModal" } %>
