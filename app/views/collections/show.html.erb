@@ -5,7 +5,9 @@
     # keywords: @collection.tag_list
   )
 %>
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <p  id="notice" class="A_Notice" style="color: green"><%= notice %></p>
+<% end%>
 <div class="L_CollectionShow">
   <div class="W_CollectionShowHead">
     <div class="O_PostActionMenu">

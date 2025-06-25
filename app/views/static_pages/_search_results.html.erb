@@ -1,5 +1,38 @@
-<% item.each do |item| %>
-  <%= render item.searchable %>
+<%
+  grouped_items = item.group_by { |i| i.searchable.class.name }
+%>
+<% grouped_items.each do |type, items| %>
+  <% case type %>
+  <% when "Post" %>
+    <div class="C_AllPosts searchResults">
+      <% items.each do |i| %>
+        <div class="O_Post">
+          <%= render i.searchable %>
+        </div>
+      <% end %>
+    </div>
+  <% when "Collection" %>
+    <div class="C_Collections searchResults">">
+      <% items.each do |i| %>
+        <div class="O_Collection">
+          <%= render i.searchable %>
+        </div>
+      <% end %>
+    </div>
+  <% when "Profile" %>
+    <div class="C_AllProfiles searchResults">">
+      <% items.each do |i| %>
+        <div class="O_Profile">
+          <%= render i.searchable %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <!-- Обработка неизвестных типов -->
+    <% items.each do |i| %>
+      <%= render i.searchable %>
+    <% end %>
+  <% end %>
   <br>
   <br>
 <% end %>

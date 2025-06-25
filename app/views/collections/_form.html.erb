@@ -1,7 +1,7 @@
 <%= form_with(model: @collection, html: { class: "O_CollectionForm" }) do |f| %>
   <% if @collection.errors.any? %>
     <div class="form-errors" style="color: red">
-      <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
+      <h4><%= pluralize(@collection.errors.count, "error") %> ошибка создания:</h4>
       <ul>
         <% @collection.errors.each do |error| %>
           <li><%= error.full_message %></li>
