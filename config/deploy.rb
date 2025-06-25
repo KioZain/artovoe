@@ -1,4 +1,5 @@
-lock "~> 3.18.1"
+# config valid for current version and patch releases of Capistrano
+lock "~> 3.19.2"
 
 set :rbenv_type, :user
 set :rbenv_ruby, "3.3.5"
@@ -6,34 +7,14 @@ set :rbenv_ruby, "3.3.5"
 set :application, "ArtMedia"
 set :repo_url, "git@github.com:KioZain/artovoe.git"
 
-set :branch, "main"
-set :rails_env, "production"
-set :deploy_to, "/home/deployer/apps/#{fetch :application}"
-append :linked_files, "config/database.yml", "config/master.key", "config/puma.rb", "config/credentials.yml.enc"
-
-
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads", "vendor/javascript", "storage"
-
-set :puma_init_active_record, true
-set :puma_enable_socket_service, true
-set :puma_conf, -> { File.join(shared_path, "config", "puma.rb") }
-
-set :ssh_options, verify_host_key: :never
-
-
-
-
-# config valid for current version and patch releases of Capistrano
-# lock "~> 3.19.2"
-
-# set :application, "my_app_name"
-# set :repo_url, "git@example.com:me/my_repo.git"
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
+set :branch, "main"
+set :rails_env, "production"
+
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+set :deploy_to, "/home/deployer/apps/#{fetch :application}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -43,13 +24,13 @@ set :ssh_options, verify_host_key: :never
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, "config/database.yml", "config/master.key", "config/puma.rb", "config/credentials.yml.enc"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor", "storage"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads", "vendor/javascript", "storage"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -62,3 +43,9 @@ set :ssh_options, verify_host_key: :never
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :puma_init_active_record, true
+set :puma_enable_socket_service, true
+set :puma_conf, -> { File.join(shared_path, "config", "puma.rb") }
+
+set :ssh_options, verify_host_key: :never

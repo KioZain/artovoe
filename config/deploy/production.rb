@@ -1,8 +1,8 @@
-server "your_server_ip",
+server "81.177.160.46",
   user: "deployer",
   roles: %w[web app db],
   ssh_options: {
-    keys: %w[~/.ssh/id_rsa],
+    keys: %w[~/.ssh/id_ed25519],
     forward_agent: true,
     auth_methods: %w[publickey]
   }

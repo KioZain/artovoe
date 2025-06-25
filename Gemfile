@@ -28,6 +28,8 @@ gem "capistrano-bundler"
 gem "capistrano3-puma"
 gem "sshkit-sudo"
 
+gem "ed25519"
+gem "bcrypt_pbkdf"
 
 
 # Pagination
