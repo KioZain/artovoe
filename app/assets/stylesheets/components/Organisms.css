@@ -345,7 +345,7 @@
   gap: 1.5rem;
   padding: 2.5rem;
   border-radius: 2rem;
-  background: var(--colors-light-200);
+  background: var(--colors-light-100);
   a {
     color: var(--colors-neutral-900);
     text-align: center;

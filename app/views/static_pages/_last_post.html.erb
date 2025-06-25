@@ -1,8 +1,10 @@
 <div class="O_MainNewPost">
   <div class="W_NewWorkInfo">
-    <p><%= post.category_list %></p>
+    <small>
+      <p class="caption-2"><%= post.category_list %></p>
+    </small>
     <h4 class="subtitle"><%= post.title %></h4>
-    <p><%= post.user.profile.name %></p>
+    <p class="footnote"><%= post.user.profile.name %></p>
   </div>
   <div class="Q_PostGridImage">
     <%= image_tag post.post_image.url, class: "Q_PostImage" %>

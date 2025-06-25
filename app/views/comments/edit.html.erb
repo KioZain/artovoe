@@ -3,11 +3,11 @@
       class: "O_CommentForm down",
       data: { turbo: true }) do |f| %>
     <div class="M_CommentEdit">
-      <%= f.label :body, "Редактирование комментария", class: "caption" %>
+      <small><%= f.label :body, "Редактирование комментария", class: "caption-2" %></small>
       <%= f.text_area :body, class: "A_TextArea" %>
     </div>
     <div class="W_CommentActions">
-      <%= f.submit "Сохранить", class: "A_SmallButton" %>
+      <%= f.submit "Сохранить", class: "A_SmallButton save" %>
       <%= link_to "Отмена", 
           post_path(@post), 
           class: "A_SmallButton" %>

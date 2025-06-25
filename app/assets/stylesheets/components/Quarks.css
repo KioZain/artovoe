@@ -12,7 +12,6 @@
   height: clamp();
   overflow: hidden;
   border-radius: 0.5rem;
-  border: 1px solid var(--colors-light-400);
 
   img {
     width: 100%;
@@ -93,8 +92,8 @@
   }
 
   &.profile {
-    width: clamp(5rem, 10vw, 7rem);
-    height: clamp(5rem, 10vw, 7rem);
+    width: clamp(4.5rem, 10vw, 6.5rem);
+    height: clamp(4.5rem, 10vw, 6.5rem);
     aspect-ratio: 1/1;
     border-radius: 4px;
   }

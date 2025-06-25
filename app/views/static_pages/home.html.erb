@@ -1,16 +1,8 @@
 <%# FirstScreenCover %>
 <div class="L_Home">
   <%# -------------------first------------------- %>
-  <%# <div class="M_MainAnnounce">
-    <div class="W_AnnounceText">
-      <p>Загружайте работы, создавайте коллекции через приложение.</p>
-      <h1>Поделитесь своим искусством.<br>
-        вам есть, что показать!</h1>
-      <div class="Q_QrCode">
-        <%= image_tag 'etc/M_QRAppStore.png' %>
-  <%# </div> %>
-  <%# </div> %>
-  <%# </div> %>
+  <div class="S_MainScreen">
+  </div>
   <%# ----------------second----------------- %>
   <div class="M_Ticker" data-controller="marquee">
     <div class="A_TickerContent">
@@ -71,14 +63,14 @@
         <div class="O_WeekWorksInfo">
           <div class="M_HeadingDates">
             <h1 class="hero">Работы недели</h1>
-            <h2>21.03 —<br>
-              28.03</h2>
+            <h2>19.06 —
+              26.06</h2>
           </div>
           <div class="M_DescriptionTransit">
             <p>Что больше всего привлекло внимание? Работы, которые отмечают, обсуждают, пересматривают. Посмотрите, что стало главным за эти дни.</p>
-            <%= link_to posts_path, class: "A_NextArrow" do %>
+            <%= link_to posts_path, class: "M_PostLink" do %>
               <p>Все работы</p>
-              <%= image_tag 'icons/Q_Arrow.svg' %>
+              <img src="/assets/icons/Q_IconArrowRight.svg" alt="">
             <% end %>
           </div>
         </div>
@@ -103,7 +95,7 @@
   <div class="S_MainNewPosts">
     <div class="W_NewPostsInfoSlider">
       <p class="Caption">Обновлено <br>
-        15.03.25</p>
+        25.06.25</p>
       <h1 class="hero">Новые работы</h1>
       <div class="M_NewPostsSlider">
         <div class="A_GalerySlider">
@@ -127,9 +119,9 @@
     <div class="W_Authors">
       <div class="M_HeadingTransit">
         <h1 class="hero">Наши авторы</h1>
-        <%= link_to profiles_path, class: "A_NextArrow" do %>
+        <%= link_to profiles_path, class: "M_PostLink" do %>
           <p>Все авторы</p>
-          <%= image_tag 'icons/Q_Arrow.svg' %>
+          <img src="/assets/icons/Q_IconArrowRight.svg" alt="">
         <% end %>
       </div>
       <div class="C_AuthorsList">

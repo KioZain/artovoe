@@ -237,7 +237,7 @@
 
 .M_ArtistRatings {
   display: flex;
-  gap: 2rem;
+  gap: clamp(0.5rem, 2.5vw, 2rem);
 }
 
 .M_ProfileCardPreview {
@@ -668,6 +668,7 @@
   width: fit-content;
   border-bottom: 1px solid var(--colors-light-400);
   transition: all 0.3s ease;
+  color: var(--colors-neutral-900);
 
   &:hover {
     img {

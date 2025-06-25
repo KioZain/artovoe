@@ -1,3 +1,12 @@
+.S_MainScreen {
+  height: calc(85vh - 64px);
+  width: 100%;
+  max-width: var(--max-desktop);
+  margin: 0 auto;
+  border: 2px solid var(--colors-light-300);
+  padding: clamp(3rem, 5vw, 8rem) var(--calc-padding);
+}
+
 .test {
   aspect-ratio: 3/4;
   width: 100%;
@@ -70,7 +79,7 @@
 
     p.Caption {
       font-size: 14px;
-      font-family: "Geist";
+      font-family: "Inter-Tight";
       text-transform: uppercase;
     }
   }
@@ -157,7 +166,7 @@
   background-color: var(--colors-shade-pink);
   display: flex;
   gap: 2rem;
-  padding: clamp(3rem, 5vw, 8rem) var(--calc-padding) 8rem;
+  padding: clamp(3rem, 5vw, 8rem) var(--calc-padding);
   min-height: 200px;
   flex-direction: column;
 
@@ -189,7 +198,7 @@
   .W_MainWeekPostsBottom {
     display: flex;
     width: 100%;
-    gap: 1.5rem;
+    gap: var(--gap);
     padding: 0 var(--calc-padding) 0;
     max-width: var(--max-desktop);
     margin: 0 auto;
@@ -209,6 +218,7 @@
 
 .Q_PostGridImage {
   width: 100%;
+  position: relative;
   aspect-ratio: 1/1;
   overflow: hidden;
 
@@ -223,6 +233,13 @@
   flex-direction: column;
   gap: 0.7rem;
   height: fit-content;
+  position: relative;
+
+  .M_AuthorLikes.container {
+    display: none;
+    position: absolute;
+    /* background: red; */
+  }
 
   .like-container:hover {
     background-color: inherit;
@@ -293,7 +310,9 @@
     align-items: center;
     gap: 1.5rem;
     p {
-      max-width: 390px;
+      max-width: 420px;
+      font-size: 1.1rem;
+      font-family: "Kommuna-regular";
     }
   }
 }
@@ -357,7 +376,7 @@
 }
 .C_MainNewPosts {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   width: 100%;
 
   .O_MainNewPost {
@@ -374,11 +393,17 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      gap: 12px;
-      padding: 1.5rem;
+      gap: 0.5rem;
+      padding: 1.5rem 0.5rem;
+      text-align: center;
+      align-items: center;
 
       h4 {
         height: 56px;
+        overflow-y: hidden;
+        font-family: "Kommuna-regular";
+        text-transform: none;
+        max-width: 90%;
       }
     }
   }
@@ -407,34 +432,39 @@
 .O_AuthorsWorks {
   display: flex;
   justify-content: space-between;
-  padding: clamp(3rem, 5vw, 5rem) 0;
-  border-bottom: 1px solid var(--colors-neutral-600);
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  border-bottom: 1px solid var(--colors-neutral-300);
   align-items: center;
   color: var(--colors-neutral-900);
   text-decoration: none;
 
   .W_WorksCounter {
-    max-width: 700px;
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-
-    .W_WorksCounter {
-    }
+    gap: clamp(0.5rem, 2vw, 1rem);
 
     .Q_PostGridImage {
       flex: 1;
-      max-width: 7rem;
-      width: clamp(5rem, 4vw, 7rem);
+      position: relative;
+      /* max-width: 7rem; */
       aspect-ratio: 1/1;
       border-radius: 600rem;
       overflow: hidden;
       border-radius: 2px;
+
+      .M_AuthorLikes {
+        /* display: none; */
+      }
     }
   }
 }
 .A_Counter {
   aspect-ratio: 1/1;
-  max-width: 6rem;
-  background-color: var();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+  flex: 1;
+  background-color: var(--colors-light-100);
 }

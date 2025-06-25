@@ -294,6 +294,7 @@ a.caption {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .A_ArrowSwitcher.left {
@@ -411,6 +412,16 @@ a.caption {
     color: var(--colors-neutral-600);
     cursor: pointer;
     background-color: var(--colors-light-200);
+  }
+
+  &.save {
+    background-color: var(--colors-light-200);
+    color: var(--colors-neutral-500);
+  }
+
+  &.cancel {
+    background-color: transparent;
+    border: none;
   }
 
   &.edit {
@@ -797,4 +808,8 @@ button.A_DropdownItem {
   h4 {
     flex: 3;
   }
+}
+.A_CommentBody {
+  font-family: "Kommuna-regular";
+  font-size: 1.1rem;
 }

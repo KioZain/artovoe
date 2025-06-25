@@ -14,7 +14,7 @@
 
 .W_Ratings {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
   width: 100%;
 
   .M_InfoRow {
@@ -164,6 +164,11 @@
 
 /* Comments */
 
+.W_AvatarName {
+  display: flex;
+  gap: 0.6rem;
+}
+
 .W_CommentHead {
   flex-direction: row;
   justify-content: space-between;
@@ -212,7 +217,7 @@
   align-items: center;
 
   .A_Plate {
-    background-color: var(--colors-light-200);
+    background-color: var(--colors-light-100);
     justify-content: center;
     height: 400px;
     width: 3rem;

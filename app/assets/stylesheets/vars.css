@@ -26,6 +26,8 @@
   --input-form-background: #faf9f7;
   --input-form-border: #edeae7;
 
+  --gap: clamp(1rem, 2vw, 1.5rem);
+
   --system-danger: #ff3b30;
   /* Max-width */
   --max-desktop: 1728px;

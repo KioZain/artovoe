@@ -1,4 +1,7 @@
 <div class="O_MainWeekPost">
+  <div class="M_AuthorLikes container">
+    <%= render partial: "likes/button", locals: {likable: post} %>
+  </div>
   <div class="Q_PostGridImage">
     <%= image_tag post.post_image.url, class: "Q_PostImage" %>
   </div>

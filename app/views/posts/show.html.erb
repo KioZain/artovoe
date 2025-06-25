@@ -131,11 +131,14 @@
     </div>
   </div>
   <div class="S_Displays">
-    <div class="heading-flex">
-      <div class="empty"></div>
-      <h3>Экспозиции работы</h3>
-      <div class="empty"></div>
-    </div>
+    <% if @post.displays.any? %>
+      <div class="heading-flex">
+        <div class="empty"></div>
+        <h3>Выставки</h3>
+        <div class="empty"></div>
+      </div>
+    <% else %>
+    <% end %>
     <div class="heading-container">
     </div>
     <%# DISPLAYS %>

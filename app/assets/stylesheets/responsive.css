@@ -69,9 +69,7 @@
 
   .S_MainPageAuthors {
     .W_WorksCounter {
-      .Q_PostGridImage:nth-child(1) {
-        display: none;
-      }
+      max-width: 500px;
     }
   }
 
@@ -125,6 +123,21 @@
   }
 }
 @media all and (max-width: 1024px) {
+  .heading-flex {
+    max-width: 612px;
+    margin: 0 auto 1.5rem;
+
+    .empty:first-child {
+      display: none;
+    }
+  }
+
+  .S_MainPageAuthors {
+    .W_WorksCounter {
+      max-width: 400px;
+    }
+  }
+
   .S_MainWeekWorks {
     .W_WeekAboutTop {
       flex-direction: column;
@@ -138,7 +151,7 @@
         &:nth-child(1),
         &:nth-child(2) {
           flex: 1 1 calc(50% - 1rem);
-          max-width: calc(50% - 1rem);
+          max-width: calc(51.3% - 1rem);
         }
 
         &:nth-child(3) {
@@ -165,6 +178,15 @@
         max-width: calc(33.3% - 1rem);
         &:nth-child(4) {
           display: none;
+        }
+        .W_NewWorkInfo {
+          h4.subtitle {
+            /* text-overflow: ellipsis; */
+            /* white-space: nowrap; */
+            width: 100%;
+            overflow-y: hidden;
+            height: 48px;
+          }
         }
       }
     }
@@ -432,13 +454,33 @@
 /* ProfileShow */
 
 @media all and (max-width: 768px) {
+  .A_CreatorPost {
+    padding: 0;
+    gap: 0.5rem;
+    color: var(--colors-neutral-600);
+    .Q_ProfileImage {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .O_ArtistHead {
+    gap: 0.5rem;
+  }
+
+  .S_MainPageAuthors {
+    .W_WorksCounter {
+      max-width: none;
+    }
+  }
+
   .M_ArtistRatings {
     gap: 0.5rem;
   }
 
   .W_NewPostsInfoSlider {
     flex-direction: column;
-    gap: 1rem;
+    gap: clamp(0.5rem, 2vw, 1rem);
     padding-bottom: 2rem;
     height: auto;
     .M_NewPostsSlider {
@@ -763,6 +805,7 @@
     }
   }
   /* SHOW */
+
   .O_NameSwitcher {
     flex-wrap: wrap;
     .M_TitleCreatorName {
@@ -775,31 +818,120 @@
     }
 
     .W_ArrowContainer {
+      order: 2;
+      padding: 0;
       .A_ArrowSwitcher:first-child {
         order: 2;
       }
       .A_ArrowSwitcher {
         padding: 0;
+        background-position: right;
+        height: 32px;
+        width: 100%;
+        padding: 0;
       }
+    }
+    .M_TitleCreatorName {
+      order: 1;
     }
   }
 }
 
 @media all and (max-width: 600px) {
+  .S_MainWeekWorks {
+    .W_WeekAboutTop {
+      .W_WeekAboutLeft {
+        .O_WeekWorksInfo {
+          align-items: flex-start;
+          justify-content: normal;
+
+          .M_HeadingDates,
+          .M_DescriptionTransit {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+
+            p {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .S_MainPageAuthors {
+    .M_HeadingTransit {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .W_WorksCounter {
+      gap: 0.5rem;
+      .Q_PostGridImage:nth-child(1) {
+        display: block;
+      }
+    }
+  }
+
+  .W_MainWeekPostsBottom,
+  .W_TwoWeekPosts {
+    gap: 1rem;
+  }
+
   .A_MenuUpperLink {
     background-image: url("clip_images/triangle 2.svg");
-    height: clamp(9vh, -0.044vh + 16vh, 13.5vh);
+    /* height: clamp(9vh, -0.044vh + 16vh, 13.5vh); */
+    height: 15.5vh;
     background-size: 101%;
-    max-height: 110px;
-    margin-bottom: -0.1vw;
+    max-height: 117px;
+    margin-bottom: -0.3vw;
 
     h4 {
       transform: translateY(1vh);
     }
   }
+  .S_MainNewPosts {
+    .C_MainNewPosts {
+      .O_MainNewPost {
+        flex: 1 1 50%;
+        max-width: 50%;
+      }
+      .O_MainNewPost:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  .O_MainWeekPost {
+    .M_AuthorLikes.container {
+      display: flex;
+      z-index: 100;
+      left: -0.2rem;
+      bottom: 3.5rem;
+      background-color: var(--colors-shade-pink);
+      border-radius: 0 4px 0px 0px;
+      color: white;
+      scale: 0.9;
+    }
+
+    .M_ObjectAuthorLikes {
+      .M_AuthorLikes {
+        display: none;
+      }
+    }
+  }
 }
 
 @media all and (max-width: 420px) {
+  .W_PostImageDescription {
+    .O_PostInformation {
+      .M_InfoRow {
+        width: calc(50% - 1rem);
+      }
+    }
+  }
+
   .A_MenuUpperLink {
     background-image: url("clip_images/triangle 2.svg");
     height: 10vh;

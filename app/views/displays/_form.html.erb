@@ -11,10 +11,6 @@
     <%= f.label :name, "Название" %>
     <%= f.text_field :name, class: "A_Form", id: "display_name" %>
   </div>
-  <div class="M_FormLabel">
-    <%= f.label :city, "Город" %>
-    <%= f.text_field :city, class: "A_Form", id: "display_city" %>
-  </div>
   <div class="W_TwoFormRow">
     <div class="M_FormLabel">
       <%= f.label :year, "Год" %>
@@ -28,6 +24,10 @@
           class: "A_Form",
           id: "display_display_type" %>
     </div>
+  </div>
+  <div class="M_FormLabel">
+    <%= f.label :city, "Город" %>
+    <%= f.text_field :city, class: "A_Form", id: "display_city" %>
   </div>
   <div class="W_TwoButtons">
     <!-- Кнопка "+ Добавить" -->

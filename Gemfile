@@ -20,6 +20,16 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
+# DEPLOY
+gem "capistrano"
+gem "capistrano-rbenv"
+gem "capistrano-rails"
+gem "capistrano-bundler"
+gem "capistrano3-puma"
+gem "sshkit-sudo"
+
+
+
 # Pagination
 gem "kaminari"
 
