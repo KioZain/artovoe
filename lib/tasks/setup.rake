@@ -348,16 +348,6 @@ namespace :setup do
 ]
 
 
-
-
-@post_bios = []
-# Rake-----------------------------------------
-def reset_db
-  Rake::Task["db:drop"].invoke
-  Rake::Task["db:create"].invoke
-  Rake::Task["db:migrate"].invoke
-end
-
 def destroy_all
   root_models = [ User, Profile ]
 

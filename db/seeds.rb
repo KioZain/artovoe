@@ -347,15 +347,17 @@
 
 
 
-@post_bios = []
+
 # Rake-----------------------------------------
-def reset_db
-  Rake::Task['db:drop'].invoke
-  Rake::Task['db:create'].invoke
-  Rake::Task['db:migrate'].invoke
-end
+# def reset_db
+#   Rake::Task['db:drop'].invoke
+#   Rake::Task['db:create'].invoke
+#   Rake::Task['db:migrate'].invoke
+# end
 
 def destroy_all
+  Like.destroy_all
+  Collection.destroy_all
   root_models = [ User, Profile ]
 
   models = ActiveRecord::Base.descendants.reject do |model|
@@ -384,7 +386,7 @@ end
 
 def upload_random_avatar
   uploader = AvatarUploader.new(Profile.new, :avatar)
-  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/uploads/avatars', '*')).sample))
+  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/avatars', '*')).sample))
   uploader
 end
 
@@ -453,7 +455,10 @@ end
 
 # Image creating ----------------------------------------
 def upload_random_image
-  image_path = Dir.glob(File.join(Rails.root, 'public/uploads/posts', '*')).sample
+  # uploader = PostImageUploader.new(Post.new, :post_image)
+  # uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample))
+  # uploader
+  image_path = Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample
   File.open(image_path)
 end
 
