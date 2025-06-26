@@ -376,7 +376,7 @@ namespace :setup do
 # Setting the quantity of posts and comments --------------------
 def seed
   # reset_db
-  destroy_all
+  # destroy_all
   create_users(28)
   create_posts(114)
   create_comments(2..6)
