@@ -58,7 +58,7 @@
 
 .W_SearchMenu {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
   flex: 1;
   justify-content: center;
 }

@@ -463,6 +463,11 @@
 /* ProfileShow */
 
 @media all and (max-width: 768px) {
+  .A_FromHeading {
+    margin-left: 12px;
+    margin-bottom: 1.5rem;
+  }
+
   footer.S_Footer {
     .W_LogoCategories {
       gap: 1rem;
@@ -914,7 +919,41 @@
 }
 
 @media all and (max-width: 600px) {
+  .C_Displays {
+    flex-direction: column;
+    .M_Display {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  .W_AboutUser {
+    flex-direction: column;
+
+    .O_AboutArtis {
+      gap: 1.5rem;
+    }
+  }
+
+  .A_NoContent {
+    height: 40vh;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .O_PageCover {
+    & .W_SectionInfoBackground {
+      & .W_SectionInfo {
+        h4 {
+          width: 280px;
+        }
+      }
+    }
+  }
+
   .S_Profile {
+    margin-top: 0;
+
     .W_HeadOptions {
       flex-direction: column;
       align-items: flex-start;
@@ -985,7 +1024,7 @@
   .A_MenuUpperLink {
     background-image: url("clip_images/triangle 2.svg");
     /* height: clamp(9vh, -0.044vh + 16vh, 13.5vh); */
-    height: 12.5vh;
+    height: 13.5vh;
     background-size: 101%;
     /* max-height: 117px; */
     margin-bottom: -0.3vw;
@@ -1035,6 +1074,44 @@
 }
 
 @media all and (max-width: 428px) {
+  .W_AuthForm {
+    .W_RegFormCounter {
+      .O_AuthForm {
+        .new_user {
+          input.A_Button {
+            max-width: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .A_Plate {
+      display: none;
+    }
+
+    .M_RegistrationCounter {
+      padding: 1.5rem 0;
+    }
+
+    .W_RegFormCounter {
+      padding: 0;
+    }
+
+    .O_AuthForm {
+      padding: 12px;
+      background: transparent;
+    }
+  }
+
+  .W_TwoButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+    * {
+      height: 48px;
+    }
+  }
+
   .A_MenuUpperLink {
     max-height: 117px;
   }

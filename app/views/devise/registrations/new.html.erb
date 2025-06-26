@@ -43,9 +43,7 @@
           <%= f.label :password_confirmation,"Подтверждение пароля" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "A_Form", placeholder: "Введите пароль" %>
         </div>
-        <div class="actions">
-          <%= f.submit "Далее", class: "A_Button medium green" %>
-        </div>
+        <%= f.submit "Далее", class: "A_Button medium" %>
       <% end %>
       <%= render "devise/shared/links" %>
     </div>

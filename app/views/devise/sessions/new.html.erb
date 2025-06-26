@@ -3,9 +3,11 @@
   <div class="O_AuthForm">
     <div class="M_SubText">
       <h3>Авторизация</h3>
-      <p>Войдите в свой аккаунт, чтобы пользоваться
-        всеми <br>
-        благами нашего артового сервиса</p>
+      <small>
+        <p>Войдите в свой аккаунт, чтобы пользоваться
+          всеми <br>
+          благами нашего артового сервиса</p>
+      </small>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="M_FormLabel">
@@ -17,14 +19,14 @@
         <%= f.password_field :password, autocomplete: "current-password", class: "A_Form" %>
       </div>
       <% if devise_mapping.rememberable? %>
-        <div class="">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, "Запомнить меня", style: "color:black" %>
-        </div>
       <% end %>
-      <%= f.submit "Войти", class:"A_Button medium green" %>
+      <%= f.submit "Войти", class:"A_Button medium" %>
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
   <div class="A_Plate"></div>
 </div>
+<%# <div style="margin-right: auto;" class="Checkbox"> %>
+<%# f.check_box :remember_me %>
+<%# f.label :remember_me, "Запомнить меня", style: "color:black" %>
+<%# </div> %>

@@ -353,6 +353,7 @@
 
   .M_SubText {
     text-align: center;
+    gap: 0;
   }
 
   .new_user {

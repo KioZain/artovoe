@@ -9,25 +9,25 @@
     html: { style: "width: 100%", class:"W_Forms" }) do |f| %>
   <div class="M_FormLabel">
     <%= f.label :name, "Название" %>
-    <%= f.text_field :name, class: "A_Form", id: "display_name" %>
+    <%= f.text_field :name, class: "A_Form", id: "display_name", placeholder: "Введи название экспозиции" %>
   </div>
   <div class="W_TwoFormRow">
     <div class="M_FormLabel">
       <%= f.label :year, "Год" %>
-      <%= f.text_field :year, class: "A_Form", id: "display_year" %>
+      <%= f.text_field :year, class: "A_Form", id: "display_year", placeholder: "Введите год" %>
     </div>
     <div class="M_FormLabel">
       <%= f.label :display_type, "Тип экспозиции" %>
       <%= f.select :display_type,
           ["Выставка", "Арт-маркет", "Галерея","Музей", "Цифровая экспозиция"],
-          { include_blank: "Тип выставки" },
+          { include_blank: "Не выбрано" },
           class: "A_Form",
           id: "display_display_type" %>
     </div>
   </div>
   <div class="M_FormLabel">
     <%= f.label :city, "Город" %>
-    <%= f.text_field :city, class: "A_Form", id: "display_city" %>
+    <%= f.text_field :city, class: "A_Form", id: "display_city", placeholder: "Введите город" %>
   </div>
   <div class="W_TwoButtons">
     <!-- Кнопка "+ Добавить" -->

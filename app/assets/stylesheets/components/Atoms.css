@@ -341,6 +341,7 @@ a.caption {
   min-width: 144px;
   padding: 0.5rem 1rem;
   height: 48px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,6 +367,10 @@ a.caption {
     letter-spacing: 1px;
     color: var(--almost-black);
   }
+  &.medium {
+    width: 100%;
+    max-width: 174px;
+  }
 
   /* &.green {
     background-image: url("/assets/buttons/Q_Green.svg");
@@ -377,6 +382,7 @@ a.caption {
   min-width: 144px;
   padding: 0.5rem 1rem;
   height: 48px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;

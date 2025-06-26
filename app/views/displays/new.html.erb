@@ -13,7 +13,7 @@
   <div class="O_DisplaysAdded">
     <div class="M_TitleFilter">
       <h3 class="headline-4">Добавленные</h3>
-      <div class="M_FilterDisplays">По году</div>
+      <%# <div class="M_FilterDisplays">По году</div> %>
     </div>
     <div class="C_AddedDisplays" id="C_AddedDisplays">
       <%= render partial: "display", collection: @displays, as: :display, locals: { post: @post, show_delete: true } %>

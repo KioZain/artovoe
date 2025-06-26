@@ -377,10 +377,10 @@ end
 def seed
   # reset_db
   destroy_all
-  create_users(10)
-  create_posts(40)
+  create_users(28)
+  create_posts(114)
   create_comments(2..6)
-  create_collections(6)
+  create_collections(24)
 end
 
 
