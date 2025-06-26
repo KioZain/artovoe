@@ -424,6 +424,14 @@
     cursor: pointer;
     background-color: var(--colors-light-200);
   }
+
+  &.profile {
+    margin-left: auto;
+  }
+
+  .left-profile {
+    transform: translate(-105%, -83%);
+  }
 }
 .M_MenuSearch {
   height: 48px;

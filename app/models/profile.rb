@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [ :name ]
+  multisearchable against: [ :name, :bio ]
 
   belongs_to :user
 

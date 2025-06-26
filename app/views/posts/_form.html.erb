@@ -33,14 +33,13 @@
       </div>
       <div class="O_FormBlock" data-controller="image-upload">
         <%= f.label :post_image, "Изображение", style: "display: block" %>
-        <!-- Скрытый оригинальный file input -->
+        <!-- file input -->
         <%= f.file_field :post_image, 
       data: { 
         image_upload_target: "fileInput",
         action: "change->image-upload#handleFileSelect" 
       }, 
       style: "display: none;" %>
-        <!-- Кастомный dropzone -->
         <div class="M_FileUpload" 
        data-image-upload-target="dropzone"
        data-action="click->image-upload#triggerFileInput 

@@ -2,6 +2,9 @@
 <div class="M_BackTitle">
   <%= link_to "<- Назад", request.referer || posts_path, class: "A_BackLink" %>
 </div>
+<div class="A_FromHeading">
+  <h1>Редактирование профиля</h1>
+</div>
 <div class="L_Form">
   <%= render "form", profile: @profile %>
 </div>

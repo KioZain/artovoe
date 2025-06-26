@@ -380,6 +380,7 @@
   text-align: center;
   flex-wrap: wrap;
   align-items: center;
+  position: relative;
 
   .W_SectionInfoBackground {
     aspect-ratio: 1/1;
@@ -389,6 +390,29 @@
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
+    background-color: var(--colors-light-100);
+    position: relative;
+
+    .Q_BlockCover {
+      width: 40px;
+      height: 280px;
+      position: absolute;
+      background-color: var(--colors-light-100);
+      /* border: 1px solid var(--colors-neutral-200); */
+
+      &.left {
+        /* left: 0; */
+        left: -8%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.right {
+        /* right: 0; */
+        right: -8%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
 
     .W_SectionInfo {
       display: flex;

@@ -1,7 +1,7 @@
 class Collection < ApplicationRecord
   # TAGS = [ "cюрреализм", "нежность", "онтология", "природа", "повседневность", "философия", "жизнь", "шляпа", "семантика" ]
   include PgSearch::Model
-  multisearchable against: [ :title ]
+  multisearchable against: [ :title, :body ]
 
 
   CATEGORIES = [ "керамика", "картина", "скульптура", "текстиль", "полиграфия" ]

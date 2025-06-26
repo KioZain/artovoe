@@ -1,9 +1,61 @@
-<h1>Что нарыли</h1>
-<div class="S_SearchPage">
-  <% if @items.any? %>
-    <%= render "search_results", item: @items %>
-  <% else %>
-    <p>Ничего не найдено <br>
-      <small>Поищи ещё</small></p>
-  <% end %>
+<div class="L_SearchResults" 
+ data-controller="tabs"
+data-tabs-active-class="active"
+data-tabs-default-tab-value="<%= @default_tab %>">
+  <h1>Найдено всего: [<%= @items.count %>]</h1>
+  <div class="C_Tabs">
+    <button class="A_Tab" id="tab1" data-tabs-target="btn" data-action="click->tabs#select">
+      Работы [<%= @posts.count %>]
+    </button>
+    <button class="A_Tab" id="tab2" data-tabs-target="btn" data-action="click->tabs#select">
+      Коллекции [<%= @collections.count %>]
+    </button>
+    <button class="A_Tab" id="tab3" data-tabs-target="btn" data-action="click->tabs#select">
+      Художники [<%= @profiles.count %>]
+    </button>
+  </div>
+  <div class="O_TabContent">
+    <!-- Работы -->
+    <div data-tabs-target="tab" id="tab1">
+      <div class="C_AllPosts">
+        <% if @posts.empty? %>
+          <div class="A_NoContent">
+            Ничего не найдено.
+          </div>
+        <% else %>
+          <% @posts.each do |post| %>
+            <div class="O_Post"><%= render 'posts/post', post: post %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- Коллекции -->
+    <div data-tabs-target="tab" id="tab2">
+      <div class="C_Collections searchResults">
+        <% if @collections.empty? %>
+          <div class="A_NoContent searchResults">
+            Ничего не найдено.
+          </div>
+        <% else %>
+          <% @collections.each do |collection| %>
+            <div><%= render 'collections/collection', collection: collection %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- Художники -->
+    <div data-tabs-target="tab" id="tab3">
+      <div class="C_AllProfiles">
+        <% if @profiles.empty? %>
+          <div class="A_NoContent">
+            Ничего не найдено.
+          </div>
+        <% else %>
+          <% @profiles.each do |profile| %>
+            <div><%= render 'profiles/profile', profile: profile %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

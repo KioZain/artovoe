@@ -9,26 +9,46 @@
       </ul>
     </div>
   <% end %>
-  <div class="M_FormLabel">
-    <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
-    <%= form.file_field :avatar, class:%>
-  </div>
   <div>
     <div class="W_Forms">
+      <div class="O_FormBlock" data-controller="image-upload">
+        <%= form.label :avatar, "Фотография профиля", style: "display: block" %>
+        <!-- file input -->
+        <%= form.file_field :avatar, 
+      data: { 
+        image_upload_target: "fileInput",
+        action: "change->image-upload#handleFileSelect" 
+      }, 
+      style: "display: none;" %>
+        <div class="M_FileUpload" 
+       data-image-upload-target="dropzone"
+       data-action="click->image-upload#triggerFileInput 
+          dragover->image-upload#handleDragOver 
+          dragleave->image-upload#handleDragLeave 
+          drop->image-upload#handleDrop">
+          <img src="/assets/icons/Q_Upload.svg" alt="Logo">
+          <p class="uploader-text" data-image-upload-target="uploaderText">
+            Нажмите, чтобы загрузить файл,<br>
+            либо перетащите сюда
+          </p>
+          <p class="footnote">JPG,JPEG,PNG и WEBP до 5МБ</p>
+        </div>
+      </div>
       <div class="M_FormLabel">
         <%= form.label :name, "Имя", style: "display: block" %>
-        <%= form.text_field :name, class: "A_Form" %>
+        <%= form.text_field :name, class: "A_Form",placeholder: "Имя профиля" %>
       </div>
       <div class="M_FormLabel">
         <%= form.label :bio, "Описание", style: "display: block" %>
-        <%= form.text_area :bio, class: "A_Form" %>
+        <%= form.text_area :bio, class: "A_Form",placeholder: "Расскажите о вашем творчестве" %>
       </div>
       <div class="M_FormLabel">
         <%= form.label :contact, "Контакты", style: "display: block" %>
-        <%= form.text_field :contact, class: "A_Form" %>
+        <%= form.text_field :contact, class: "A_Form",placeholder: "Ваш Telegram" %>
       </div>
-      <%= form.submit "Сохранить", class: "A_Button" %>
+      <div class="W_TwoButtons">
+        <%= button_to 'Удалить профиль', @profile, method: :delete, class: 'A_ButtonSecondary delete' %>
+        <%= form.submit "Сохранить", class: "A_Button" %></div>
     </div>
   </div>
 <% end %>
-<%= button_to 'Удалить профиль', @profile, method: :delete, class: 'Danger' %>

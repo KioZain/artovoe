@@ -96,7 +96,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: "Profile was successfully created." }
+        format.html { redirect_to @profile, notice: "Вы успешно зарегистрировались" }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -109,7 +109,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: "Profile was successfully updated." }
+        format.html { redirect_to @profile, notice: "Успешно обновлено" }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -125,7 +125,7 @@ def destroy
   user = @profile.user
   user.destroy
 
-  redirect_to profiles_path, notice: "Profile was deleted"
+  redirect_to profiles_path, notice: "Профиль был удалён"
 end
 
 

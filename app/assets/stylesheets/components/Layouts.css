@@ -88,3 +88,12 @@
     }
   }
 }
+.L_SearchResults {
+  max-width: var(--max-desktop);
+  padding: 0 var(--calc-padding) 0;
+  margin: clamp(4vh, 5vh, 12vh) auto 20vh;
+  min-height: 50vh;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}

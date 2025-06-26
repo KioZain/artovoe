@@ -1,11 +1,11 @@
 <% content_for :title, "Завершение создания профиля (шаг 2/2)" %>
-<div class="W_AuthForm">
+<div class="W_AuthForm last">
   <div class="A_Plate step"></div>
   <div class="W_RegFormCounter">
     <div class="M_RegistrationCounter">
       <div class="A_Counter">
         <div class="Q_Counter">
-          <p>1</p>
+          <h4>1</h4>
         </div>
         <p class="footnote">Почта <br>
           и пароль</p>
@@ -13,23 +13,25 @@
       <hr>
       <div class="A_Counter">
         <div class="Q_Counter">
-          <p class="footnote">2</p>
+          <h4>2</h4>
         </div>
-        <p class="footnote">Создание профиля</p>
+        <p class="footnote">Создание <br>
+          профиля</p>
       </div>
       <hr>
       <div class="A_Counter active">
         <div class="Q_Counter">
-          <p>3</p>
+          <h4>3</h4>
         </div>
-        <p class="footnote">Добавление контактов</p>
+        <p class="footnote">Добавление <br>
+          контактов</p>
       </div>
     </div>
     <div class="O_AuthForm step">
       <%= form_with model: @profile, url: update_step2_profiles_path,class: "new_user", local: true do |form| %>
         <div class="M_FormLabel">
           <%= form.label :contact, "Контакты (опционально)" %>
-          <%= form.text_field :contact, class: "A_Form" %>
+          <%= form.text_field :contact, class: "A_Form", placeholder: "Введите ваш ник в Telegram" %>
         </div>
         <%= form.submit "Завершить", class: "A_Button green" %>
         <%# link_to "Пропустить", profile_path(@profile), class: "A_Link" %>

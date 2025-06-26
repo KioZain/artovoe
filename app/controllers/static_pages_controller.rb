@@ -25,5 +25,20 @@ class StaticPagesController < ApplicationController
     @items = PgSearch.multisearch(query) if query.present?
     @items ||= []
     puts @items.count
+
+    @posts = @items.select { |i| i.searchable_type == "Post" }.map(&:searchable)
+    @collections = @items.select { |i| i.searchable_type == "Collection" }.map(&:searchable)
+    @profiles = @items.select { |i| i.searchable_type == "Profile" }.map(&:searchable)
+
+
+    @default_tab = if @posts.any?
+                     "tab1"
+    elsif @collections.any?
+                     "tab2"
+    elsif @profiles.any?
+                     "tab3"
+    else
+                     "tab1"
+    end
   end
 end

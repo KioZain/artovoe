@@ -400,6 +400,22 @@ a.caption {
   &.medium-s {
     width: 174px;
   }
+
+  &.contact-button {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 240px;
+    p {
+      font-family: "Komunna-regular";
+      font-size: 1.1rem;
+    }
+  }
+
+  &.delete {
+    color: red;
+    border: 1px solid rgb(252, 201, 201);
+    background-color: rgb(249 230 230);
+  }
 }
 
 .A_SmallButton {
@@ -768,6 +784,10 @@ button.A_DropdownItem {
   border: 1px solid var(--colors-neutral-100);
   border-radius: 0.5rem;
 }
+.A_NoContent.searchResults {
+  margin-top: 0rem;
+}
+
 .A_Toggle {
   background-color: var(--input-form-background);
   color: var(--colors-neutral-600);

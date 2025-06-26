@@ -15,17 +15,24 @@
 .W_Ratings {
   display: flex;
   gap: clamp(1rem, 2vw, 2rem);
-  width: 100%;
+  /* width: 100%; */
 
   .M_InfoRow {
     flex: 1;
   }
 }
+.O_ArtistHead {
+  .W_Ratings {
+    max-width: 55%;
+  }
+}
+
 .W_HeadOptions {
   display: flex;
   justify-content: space-between;
   padding: 0rem 0 2rem;
   border-bottom: 1px solid var(--colors-light-200);
+  align-items: flex-end;
 }
 
 .W_ProfileBioStats {
@@ -217,6 +224,10 @@
   transform: translateY(5%);
   align-items: center;
 
+  &.last {
+    margin-bottom: 75vh;
+  }
+
   .A_Plate {
     background-color: var(--colors-light-100);
     justify-content: center;
@@ -234,7 +245,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: var(--colors-light-200);
+  background-color: var(--colors-light-100);
   border-radius: 1.5rem;
 
   .A_Plate {
@@ -285,6 +296,14 @@
 }
 
 .W_TwoFormRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.W_TwoButtons {
   display: flex;
   width: 100%;
   gap: 1.5rem;

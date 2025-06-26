@@ -5,17 +5,36 @@
 
   )
 %>
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <p  id="notice" class="A_Notice" style="color: green"><%= notice %></p>
+<% end%>
 <!-- app/views/profiles/show.html.erb -->
 <div class="L_Profile">
   <div class="S_Profile">
+    <% if can?(:update, @profile) || can?(:destroy, @profile) || current_user&.admin? %>
+      <div class="M_DotsDropdown profile" data-controller="dropdown" data-action="click->dropdown#toggle">
+        <div class="left-profile"data-dropdown-target="content">
+          <% if can?(:update, @profile) %>
+            <%= link_to 'Настройки', edit_profile_path(@profile), class: 'A_DropdownItem' %>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= button_to "Выйти", destroy_user_session_path, 
+                method: :delete, 
+                class: "A_DropdownItem danger-text",
+                data: { turbo_method: :delete } %>
+          <% else %>
+            <!-- Логика для незалогиненных пользователей -->
+          <% end %>
+        </div>
+      </div>
+    <% end %>
     <div class="W_HeadOptions">
       <div class="O_ArtistHead">
         <div class="Q_ProfileImage profile">
           <%= image_tag @profile.avatar_url%>
         </div>
         <div class="M_ArtistRatings">
-          <h1><%= @profile.name %></h1>
+          <h1 class="profile-name"><%= @profile.name %></h1>
           <div class="W_Ratings">
             <div class="M_InfoRow">
               <p class="footnote">Оценки <br>
@@ -33,22 +52,11 @@
           </div>
         </div>
       </div>
-      <% if can?(:update, @profile) || can?(:destroy, @profile) || current_user&.admin? %>
-        <div class="M_DotsDropdown" data-controller="dropdown" data-action="click->dropdown#toggle">
-          <div class="right"data-dropdown-target="content">
-            <% if can?(:update, @profile) %>
-              <%= link_to 'Настройки', edit_profile_path(@profile), class: 'A_DropdownItem' %>
-            <% end %>
-            <% if user_signed_in? %>
-              <%= button_to "Выйти", destroy_user_session_path, 
-                method: :delete, 
-                class: "A_DropdownItem danger-text",
-                data: { turbo_method: :delete } %>
-            <% else %>
-              <!-- Логика для незалогиненных пользователей -->
-            <% end %>
-          </div>
-        </div>
+      <% if @profile.contact.present? %>
+        <%= link_to "https://t.me/#{@profile.contact.gsub('@', '')}", class: "A_ButtonSecondary contact-button" do %>
+          <%= image_tag "icons/telegram.svg", alt: "Telegram", class: "icon" %>
+          <p>Связаться с автором</p>
+        <% end %>
       <% end %>
     </div>
     <div class="O_ProfileInfo">

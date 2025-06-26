@@ -4,7 +4,9 @@
     description: "Самые классные и интересные авторы нашего медиа",
   )
 %>
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <p  id="notice" class="A_Notice" style="color: green"><%= notice %></p>
+<% end%>
 <div class="O_PageCover">
   <%= link_to collections_path,class: "M_SectionSwitcher" do %>
     <%= image_tag 'icons/A_ArrowSwitcherLeft.svg' %>
@@ -12,6 +14,8 @@
   <% end %>
   <div class="W_SectionInfoBackground">
     <div class="W_SectionInfo">
+      <div class="Q_BlockCover left"></div>
+      <div class="Q_BlockCover right"></div>
       <h1>Художники</h1>
       <h4>Сообщество креаторов,
         создающих самобытные
@@ -19,7 +23,7 @@
       <div class="A_RateCountCircle">
         <div class="M_InfoRow">
           <p class="footnote">Профили</p>
-          <p><%= Profile.all.count %></p>
+          <p class="footnote"><%= Profile.all.count %></p>
         </div>
       </div>
     </div>

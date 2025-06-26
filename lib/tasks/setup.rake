@@ -348,26 +348,11 @@ namespace :setup do
 ]
 
 
-def destroy_all
-  root_models = [ User, Profile ]
-
-  models = ActiveRecord::Base.descendants.reject do |model|
-    model.to_s =~ /^(ActiveStorage|ActionDispatch|ActionMailer)/
-  end
-
-  models.sort_by { |model| root_models.include?(model) ? 1 : 0 }
-        .reverse_each do |model|
-    next unless model.table_exists?
-    puts "Destroying all records from #{model.name.pluralize}..."
-    model.destroy_all
-  end
-end
-
 
 # Setting the quantity of posts and comments --------------------
 def seed
   # reset_db
-  destroy_all
+  # destroy_all
   create_users(10)
   create_posts(40)
   create_comments(2..6)

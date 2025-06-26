@@ -391,6 +391,14 @@
     .W_SectionInfoBackground {
       width: 100%;
       height: 300px;
+      background-color: transparent;
+
+      .Q_BlockCover.left {
+        display: none;
+      }
+      .Q_BlockCover.right {
+        display: none;
+      }
     }
     .M_SectionSwitcher:first-child {
       order: 2;
@@ -455,6 +463,41 @@
 /* ProfileShow */
 
 @media all and (max-width: 768px) {
+  footer.S_Footer {
+    .W_LogoCategories {
+      gap: 1rem;
+      .A_FooterLogo {
+        min-width: auto;
+      }
+
+      .A_FooterLogo {
+        width: 200px;
+
+        img.A_FooterLogo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .W_SectionInfo {
+    h4 {
+      width: 100%;
+    }
+  }
+
+  .W_SectionInfoBackground {
+    background: transparent;
+
+    .W_SectionInfo {
+      .Q_BlockCover.left {
+        display: none;
+      }
+    }
+  }
+
   .A_CreatorPost {
     padding: 0;
     gap: 0.5rem;
@@ -791,23 +834,32 @@
 
   .S_Profile {
     .W_HeadOptions {
-      flex-direction: column;
+      /* flex-direction: column; */
       gap: 1.5rem;
       padding: 0 0 2rem;
 
       .O_ArtistHead {
-        order: 2;
+        order: 1;
+        align-items: center;
+
+        h1.profile-name {
+          font-size: clamp(1.8rem, 2vw, 2.2rem);
+        }
 
         .Q_ProfileImage {
-          width: 5rem;
-          min-width: 4.5rem;
-          height: 5rem;
+          width: clamp(4rem, 4vw, 5rem);
+          /* min-width: 4.5rem; */
+          height: (4rem, 4vw, 5rem);
+          min-width: 4rem;
           min-height: 4.5rem;
-          aspect-ratio: 1/1;
+          /* aspect-ratio: 1/1; */
         }
         .M_ArtistRatings {
           gap: 0.5rem;
         }
+      }
+      .A_ButtonSecondary.contact-button {
+        order: 2;
       }
 
       .M_DotsDropdown {
@@ -862,6 +914,19 @@
 }
 
 @media all and (max-width: 600px) {
+  .S_Profile {
+    .W_HeadOptions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+
+      .A_ButtonSecondary.contact-button {
+        max-width: none;
+        width: 100%;
+      }
+    }
+  }
+
   .text-body {
     text-align: left;
   }

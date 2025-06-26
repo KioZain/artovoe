@@ -118,3 +118,12 @@
   color: red;
   background-color: #ffeeee;
 }
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  width: fit-content;
+  transform: translateY(-50%);
+  position: absolute;
+}

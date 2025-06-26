@@ -12,11 +12,9 @@
       <% end %>
     </div>
   <% when "Collection" %>
-    <div class="C_Collections searchResults">">
+    <div class="C_Collections">
       <% items.each do |i| %>
-        <div class="O_Collection">
-          <%= render i.searchable %>
-        </div>
+        <%= render i.searchable %>
       <% end %>
     </div>
   <% when "Profile" %>
