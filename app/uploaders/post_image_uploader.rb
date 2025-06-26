@@ -11,8 +11,11 @@ class PostImageUploader < CarrierWave::Uploader::Base
   end
 
   def asset_host
-    "http://localhost:3000"
+    "http://81.177.160.46 "
   end
+  # def asset_host
+  #   "http://localhost:3000"
+  # end
 
   private
 

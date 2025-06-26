@@ -1,7 +1,7 @@
 namespace :setup do
   desc "Setup project"
   task all: :environment do
-    @artists = [
+@artists = [
   {
     "name": "Barot Bellingham",
     "shortname": "Barot_Bellingham",
@@ -348,21 +348,45 @@ namespace :setup do
 ]
 
 
+# Rake-----------------------------------------
+# def reset_db
+#   Rake::Task['db:drop'].invoke
+#   Rake::Task['db:create'].invoke
+#   Rake::Task['db:migrate'].invoke
+# end
+
+# def destroy_all
+#   Like.destroy_all
+#   Collection.destroy_all
+#   root_models = [ User, Profile ]
+
+#   models = ActiveRecord::Base.descendants.reject do |model|
+#     model.to_s =~ /^(ActiveStorage|ActionDispatch|ActionMailer)/
+#   end
+
+#   models.sort_by { |model| root_models.include?(model) ? 1 : 0 }
+#         .reverse_each do |model|
+#     next unless model.table_exists?
+#     puts "Destroying all records from #{model.name.pluralize}..."
+#     model.destroy_all
+#   end
+# end
+
 
 # Setting the quantity of posts and comments --------------------
 def seed
   # reset_db
-  # destroy_all
-  create_users(10)
-  create_posts(40)
+  destroy_all
+  create_users(28)
+  create_posts(114)
   create_comments(2..6)
-  create_collections(6)
+  create_collections(24)
 end
 
 
 def upload_random_avatar
   uploader = AvatarUploader.new(Profile.new, :avatar)
-  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, "public/uploads/avatars", "*")).sample))
+  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, "public/autoupload/avatars", "*")).sample))
   uploader
 end
 
@@ -431,7 +455,10 @@ end
 
 # Image creating ----------------------------------------
 def upload_random_image
-  image_path = Dir.glob(File.join(Rails.root, "public/uploads/posts", "*")).sample
+  # uploader = PostImageUploader.new(Post.new, :post_image)
+  # uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample))
+  # uploader
+  image_path = Dir.glob(File.join(Rails.root, "public/autoupload/posts", "*")).sample
   File.open(image_path)
 end
 

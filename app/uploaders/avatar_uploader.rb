@@ -27,8 +27,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     # def scale(width, height)
     #   # do something
     # end
+    #   def asset_host
+    #   "http://localhost:3000"
+    # end
     def asset_host
-    "http://localhost:3000"
+    "http://81.177.160.46"
   end
   # Create different versions of your uploaded files:
   # version :thumb do
